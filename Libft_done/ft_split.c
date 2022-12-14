@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:13:33 by rvan-den          #+#    #+#             */
-/*   Updated: 2022/12/14 14:24:39 by rvan-den         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:23:47 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,9 @@ char	**ft_split(char const *s, char c)
 	return (tab);
 }
 
-int	main()
+/*int	main()
 {
 	char str[] = "Le code c'est drole";
 	ft_split(str, ' ');
 	return (0);
-}
+}*/
