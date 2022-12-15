@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:40:15 by rvan-den          #+#    #+#             */
-/*   Updated: 2022/12/13 16:45:08 by rvan-den         ###   ########.fr       */
+/*   Updated: 2022/12/15 20:36:20 by babouline        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	if (s1[0] == '\0' || set[0] == '\0')
 		return (ft_strdup(s1));
-	if (!s1)
-		return (NULL);
 	i = find_start(s1, set);
 	j = find_end(s1, set);
 	len = j - i + 1;
