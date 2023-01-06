@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:49:04 by rvan-den          #+#    #+#             */
-/*   Updated: 2022/12/19 18:08:55 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/01/02 16:11:48 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int	ft_printf(const char *fmt, ...)
 	return (len);
 }
 
-int	main()
+/*int	main()
 {
 	int a = 2500;
 	int *ptr = &a;
 	ft_printf("L'adresse de a est : %p\n", ptr);
 	return (0);
-}
+}*/

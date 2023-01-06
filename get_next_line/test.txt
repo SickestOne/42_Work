@@ -1,0 +1,5 @@
+Ceci est la premiere ligne de mon fichier.
+En parlant de ligne, voici la deuxieme.
+Troisieme ligne du fichier.
+Encore une ligne dans le fichier.
+Et rebelotte, une autre ligne de texte.

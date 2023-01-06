@@ -1,53 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 15:12:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/01/06 15:28:49 by rvan-den         ###   ########.fr       */
+/*   Created: 2023/01/06 14:47:35 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/01/06 15:32:58 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		ft_putchar(int c)
+int	main()
 {
-	write (1, &c, 1);
-	return (1);
-}
+	int	fd;
+	int	ret;
+	char buf[BUFFER_SIZE + 1];
 
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
+	
+	fd = open("test.txt", O_RDONLY);
+	if (fd == -1)
 	{
-		ft_putchar(str[i]);
-		i++;
+		ft_putstr("open() error");
+		return (1);
 	}
-}
-int	ft_putnbr(long long nb)
-{
-	if (nb < 0)
+	ret = read(fd, buf, BUFFER_SIZE);
+	buf[ret] = '\0';
+	ft_putstr(buf);
+	ft_putnbr(ret);
+	if (close(fd) == -1)
 	{
-		if (ft_putchar('-') < 0)
-			return (-2147483648);
-		nb = -nb;
-	}
-	if (nb < 10)
-	{
-		if (ft_putchar(nb + '0') < 0)
-			return (-2147483648);
-	}
-	else
-	{
-		if (ft_putnbr(nb / 10) < 0)
-			return (-2147483648);
-		if (ft_putchar(nb % 10 + '0') < 0)
-			return (-2147483648);
+		ft_putstr("close() error");
+		return (1);
 	}
 	return (0);
 }
