@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:16:22 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/01/06 17:39:03 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:12:46 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,14 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+#include <stdio.h>
 # include <sys/types.h>
 # include <sys/uio.h>
 #include <fcntl.h>
 
 char *get_next_line(int fd);
+size_t ft_strlen(const char *s);
+char *ft_strjoin(char *s1, char *s2);
+char	*ft_strdup(char *s1);
 
 #endif
