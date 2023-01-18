@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/01/18 19:26:10 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/01/18 22:12:57 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,21 +96,41 @@ size_t	is_return(char *temp)
 }
 /*
  * fix this
+ * Coder apres bouffer ca marche pas fdp
+ * Rappel pour quand tu retouchera ce tas de merde fumant (ton code) :
+ * - t'a reussi a isoler le \n jusquau \0.
+ * - Demmerde toi.
+ * - Que celui qui stalk mon github en se foutant de ma gueule choppe le sida.
+ * - Elias pue.
  */
 char	*cropped_return(char *temp)
 {
 	int i;
 	int j;
+	char *hold;
+	char *result;
+	char *dest;
 
 	i = 0;
 	j = 0;
-	while (temp[i])			
+	hold = malloc((sizeof(temp)));
+	if (!hold)
+		return (NULL);
+	while (temp[i] || hold[j])
 	{
-		while (temp[j] != '\n')
-			j++;
+		if (temp[i] == '\n')
+		{
+			hold = &temp[i]; // hold prend bien la valeur.
+			while (hold[j])
+				j++;
+		}
 		i++;
 	}
-	return (&temp[j + 1]);
+	dest = malloc((sizeof(char *)));    // marche pas
+	dest = &temp[i + 1] - hold[j];      // encore moins
+	free(hold);
+	return (dest);                      
+	//return (&temp[i + 1]);
 }
 
 char	*get_next_line(int fd)
