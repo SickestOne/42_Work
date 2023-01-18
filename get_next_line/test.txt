@@ -1,3 +1,4 @@
-Ceci est la premiere ligne de mon fichier.
-Ceci est la premiere ligne de mon fichier.
-Ceci est la premiere ligne de mon fichier.
+Ceci est la premiere ligne de mon fichier, de merde.
+Deuxieme ligne du fichier a lire.
+Et troisieme ligne de merde a scanner.
+Une autre pour bien etre sur du bail.
