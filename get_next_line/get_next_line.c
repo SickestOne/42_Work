@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/01/18 18:33:31 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:39:46 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,8 @@ char	*cropped_return(char *temp)
 	int i;
 
 	i = 0;
-	while (temp[i] != '\n') 
+	while (temp[i] != '\n')			// try l'idee du '\0'
+									// avec la diff entre la pos du \n.
 	{
 		i++;
 	}
