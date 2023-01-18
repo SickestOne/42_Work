@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/01/18 12:52:37 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:40:16 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,26 @@ char	*ft_strdup(char *s1)
 	s1 = NULL;
 	return (dst);
 }
+size_t	is_return(char *buf)
+{
+	int	is_true;
+	int	i;
+
+	is_true = 0;
+	i = 0;
+	while (buf[i])
+	{
+		if (buf[i] == '\n')
+		{
+			is_true = 1;
+			return (1);
+		}
+		else
+			is_true = -1;
+		i++;
+	}
+	return (is_true);
+}
 
 char	*get_next_line(int fd)
 {
@@ -83,7 +103,7 @@ char	*get_next_line(int fd)
 	buf = malloc((sizeof(char *) * (BUFFER_SIZE + 1)));
 	ret = read(fd, buf, BUFFER_SIZE);	
 	buf[ret] = '\0';
-	while (ret <= BUFFER_SIZE && temp <= buf)
+	while ((ret <= BUFFER_SIZE && is_return(buf) != 1))
 	{
 		temp = ft_strjoin(temp, buf);
 		ret = read(fd, buf, BUFFER_SIZE);
