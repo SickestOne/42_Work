@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/01/18 22:12:57 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/01/18 22:55:38 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ size_t	is_return(char *temp)
  * - Demmerde toi.
  * - Que celui qui stalk mon github en se foutant de ma gueule choppe le sida.
  * - Elias pue.
+ * - ?? Utilise la partie count_words modifiee de ton ft_split (\n search) ??
  */
 char	*cropped_return(char *temp)
 {
