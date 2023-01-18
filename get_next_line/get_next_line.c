@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/01/18 17:56:52 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:33:31 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,18 @@ size_t	is_return(char *temp)
 	return (is_true);
 }
 
+char	*cropped_return(char *temp)
+{
+	int i;
+
+	i = 0;
+	while (temp[i] != '\n') 
+	{
+		i++;
+	}
+	return (&temp[i + 1]);
+}
+
 char	*get_next_line(int fd)
 {
 	size_t ret;
@@ -111,6 +123,7 @@ char	*get_next_line(int fd)
 		ret = read(fd, buf, BUFFER_SIZE);
 		buf[ret] = '\0';
 	}
+	temp = cropped_return(temp);
 	return (temp);
 }
 
