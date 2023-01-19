@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/01/18 22:55:38 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/01/19 14:07:24 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,16 +108,19 @@ char	*cropped_return(char *temp)
 {
 	int i;
 	int j;
+	int k;
 	char *hold;
-	char *result;
 	char *dest;
+	char *result;
 
 	i = 0;
 	j = 0;
+	k = 0;
 	hold = malloc((sizeof(temp)));
+	dest = malloc((sizeof(&hold)));    // marche pas
 	if (!hold)
 		return (NULL);
-	while (temp[i] || hold[j])
+	while (temp[i])
 	{
 		if (temp[i] == '\n')
 		{
@@ -125,12 +128,24 @@ char	*cropped_return(char *temp)
 			while (hold[j])
 				j++;
 		}
+		if (hold[j] == '\0')
+			break;
 		i++;
 	}
-	dest = malloc((sizeof(char *)));    // marche pas
-	dest = &temp[i + 1] - hold[j];      // encore moins
+	dest = &hold[j] - temp[i];
+	result = malloc((sizeof(&dest)));
+	while (dest[k])
+	{
+		if (dest[k] != '\n' && dest[k + 1] == '\n')
+		{
+			result = &dest[i] - dest[k];
+			break;
+		}
+		k++;
+	}
+	//result[k] = *dest;
 	free(hold);
-	return (dest);                      
+	return (&dest[i] - temp[i]);                      
 	//return (&temp[i + 1]);
 }
 
