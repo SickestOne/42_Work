@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/01/20 15:12:47 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/01/20 18:58:52 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,13 +150,11 @@ char	*get_next_line(int fd)
 	buf = malloc((sizeof(char *) * (BUFFER_SIZE + 1)));
 	ret = read(fd, buf, BUFFER_SIZE);	
 	buf[ret] = '\0';
-	while ((ret <= BUFFER_SIZE && is_return(temp) != 1))
+	while ((ret <= BUFFER_SIZE && is_done(temp) != 1))
 	{
 		temp = ft_strjoin(temp, buf);
 		ret = read(fd, buf, BUFFER_SIZE);
 		buf[ret] = '\0';
-		if (is_done(temp) == 1)
-			break;
 	}
 	cropped_return(temp);
 	return (temp);
