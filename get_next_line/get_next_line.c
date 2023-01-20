@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/01/19 14:07:24 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:08:04 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,58 +95,27 @@ size_t	is_return(char *temp)
 	return (is_true);
 }
 /*
- * fix this
- * Coder apres bouffer ca marche pas fdp
- * Rappel pour quand tu retouchera ce tas de merde fumant (ton code) :
- * - t'a reussi a isoler le \n jusquau \0.
- * - Demmerde toi.
- * - Que celui qui stalk mon github en se foutant de ma gueule choppe le sida.
- * - Elias pue.
- * - ?? Utilise la partie count_words modifiee de ton ft_split (\n search) ??
+ * Marche vite fait
  */
 char	*cropped_return(char *temp)
 {
 	int i;
-	int j;
-	int k;
 	char *hold;
-	char *dest;
-	char *result;
 
 	i = 0;
-	j = 0;
-	k = 0;
 	hold = malloc((sizeof(temp)));
-	dest = malloc((sizeof(&hold)));    // marche pas
 	if (!hold)
 		return (NULL);
 	while (temp[i])
 	{
-		if (temp[i] == '\n')
-		{
-			hold = &temp[i]; // hold prend bien la valeur.
-			while (hold[j])
-				j++;
-		}
-		if (hold[j] == '\0')
+		if (temp[i - 1] == '\n' && temp[i + 1] != '\n')
 			break;
+		hold[i] = temp[i];
 		i++;
 	}
-	dest = &hold[j] - temp[i];
-	result = malloc((sizeof(&dest)));
-	while (dest[k])
-	{
-		if (dest[k] != '\n' && dest[k + 1] == '\n')
-		{
-			result = &dest[i] - dest[k];
-			break;
-		}
-		k++;
-	}
-	//result[k] = *dest;
+	temp[i] = hold[i];
 	free(hold);
-	return (&dest[i] - temp[i]);                      
-	//return (&temp[i + 1]);
+	return (&temp[i + 1]);
 }
 
 char	*get_next_line(int fd)
