@@ -1,5 +1,5 @@
-Aaaaaah.
-Ceci est la premiere ligne de mon fichier, de merde.
+Aaaaaah, putain de merde.
+Ceci est la premiere ligne.
 Deuxieme ligne du fichier a lire.
 Et troisieme ligne de merde a scanner.
 Une autre pour bien etre sur du bail.
