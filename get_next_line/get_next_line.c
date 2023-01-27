@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/01/23 15:30:01 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/01/27 17:17:09 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,6 @@ size_t	ft_strlen(const char *s)
 		len++;
 	return (len);
 }
-
-/*char	*ft_strchr(const char *s, int c)
-{
-	int		i;
-	char	convert;
-
-	convert = c;
-	i = 0;
-	while (s[i] != convert && s[i])
-		i++;
-	if (s[i] == convert)
-		return ((char *)(s + i));
-	return (NULL);
-}*/
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -82,8 +68,8 @@ char	*ft_strdup(char *s1)
 	while (s1[++j])
 		dst[j] = s1[j];
 	dst[j] = '\0';
-	free(s1);
-	s1 = NULL;
+	//free(s1);
+	//s1 = NULL;
 	return (dst);
 }
 size_t	is_done(char *temp)
@@ -131,7 +117,8 @@ size_t	is_return(char *temp)
 	return (is_true);
 }
 /*
- * Marche vite fait
+ * Find the '\n' and return the line with the '\n'.
+ * !! Deletes the first 10 characters of the New line.
  */
 char	*cropped_return(char *temp)
 {
@@ -151,24 +138,32 @@ char	*cropped_return(char *temp)
 	}
 	temp[i] = hold[i];
 	free(hold);
+	hold = NULL;
 	return (&temp[i + 1]);
 }
+
+
 
 char	*get_next_line(int fd)
 {
 	size_t ret;
-	char *buf;
+	static char *buf;
 	static char *temp;
 
 	temp = NULL;
-	buf = malloc((sizeof(char *) * (BUFFER_SIZE + 1)));
-	ret = read(fd, buf, BUFFER_SIZE);	
-	buf[ret] = '\0';
+	if (!buf)
+	{
+		buf = malloc((sizeof(char *) * (BUFFER_SIZE + 1)));
+		ret = read(fd, buf, BUFFER_SIZE);	
+		buf[ret] = '\0';
+	}
+	else
+		ret = ft_strlen(buf);
 	while (ret > 0)
 	{
+		temp = ft_strjoin(temp, buf);
 		if (is_return(temp) == 1)
 			break;
-		temp = ft_strjoin(temp, buf);
 		ret = read(fd, buf, BUFFER_SIZE);
 		buf[ret] = '\0';
 	}
