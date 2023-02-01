@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/01 16:53:42 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:03:48 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ char	*ft_strjoin(char *temp, char *buf)
 	}
 	while (buf[j])
 	{
+		if (buf[j - 1] == '\n')
+			break;
 		dest[i] = buf[j];
 		i++;
 		j++;
@@ -151,6 +153,12 @@ char *crop_buf(char **buf)
 	return (&buf[0][h]);
 }
 
+/* Dans le while (ret > 0) :
+ * - crop buf renvoie une adresse eclatee,
+ * - du coup de fdp ecrase le "Deux",
+ * - et affiche "ieme".
+ */
+
 char	*get_next_line(int fd)
 {
 	size_t ret;
@@ -169,7 +177,7 @@ char	*get_next_line(int fd)
 	while (ret > 0)
 	{
 		temp = ft_strjoin(temp, buf);
-		if (is_return(buf) == 1 && is_return(temp) == 1)
+		if (is_return(buf) == 1 && is_return(temp))
 			crop_buf(&buf);
 		if (is_return(temp) == 1)
 			break;
