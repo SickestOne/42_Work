@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/01 19:03:48 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/01 22:25:28 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ size_t	ft_strlen(const char *s)
 char	*ft_strjoin(char *temp, char *buf)
 {
 	char	*dest;
+	char	*buf_hold;
 	size_t	i;
 	size_t	j;
 
@@ -36,6 +37,9 @@ char	*ft_strjoin(char *temp, char *buf)
 	if (!temp)
 		return (ft_strdup(buf));
 	dest = malloc(sizeof(char) * ft_strlen(temp) + ft_strlen(buf) + 1);
+	buf_hold = malloc(sizeof(buf));
+	if (!buf_hold)
+		return (NULL);
 	if (!dest)
 		return (NULL);
 	while (temp[i])
@@ -157,6 +161,7 @@ char *crop_buf(char **buf)
  * - crop buf renvoie une adresse eclatee,
  * - du coup de fdp ecrase le "Deux",
  * - et affiche "ieme".
+ *   STRJOIN CURSED
  */
 
 char	*get_next_line(int fd)
