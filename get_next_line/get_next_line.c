@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/01 15:36:45 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:53:42 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *temp, char *buf)
 {
 	char	*dest;
 	size_t	i;
@@ -31,27 +31,27 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	if (!s2)
+	if (!buf)
 		return (NULL);
-	if (!s1)
-		return (ft_strdup(s2));
-	dest = malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!temp)
+		return (ft_strdup(buf));
+	dest = malloc(sizeof(char) * ft_strlen(temp) + ft_strlen(buf) + 1);
 	if (!dest)
 		return (NULL);
-	while (s1[i])
+	while (temp[i])
 	{
-		dest[i] = s1[i];
+		dest[i] = temp[i];
 		i++;
 	}
-	while (s2[j])
+	while (buf[j])
 	{
-		dest[i] = s2[j];
+		dest[i] = buf[j];
 		i++;
 		j++;
 	}
 	dest[i] = '\0';
-	free(s1);
-	s1 = NULL;
+	free(temp);
+	temp = NULL;
 	return (dest);
 }
 char	*ft_strdup(char *s1)
@@ -121,24 +121,34 @@ char	*cropped_return(char *temp)
 	return (&temp[i + 1]);
 }
 
-char *crop_buf(char *buf)
+/*
+ * Le bon 'buf' n'est pas pris
+ */
+
+char *crop_buf(char **buf)
 {
 	int h;
+	int k;
 	char *cropped_buf;
 
 	h = 0;
+	k = 0;
 	cropped_buf = malloc(sizeof(char) * h + 1);
 	if (!cropped_buf)
 		return (NULL);
-	while (buf[h])
+	while (buf[0][h])
 	{
-		if (buf[h] != '\n')
-			cropped_buf[h] = buf[h];
+		if (buf[0][h] != '\n')
+		{
+			cropped_buf[k] = buf[0][h];
+			k++;
+		}
 		h++;
 	}
-	free(buf);
-	buf = cropped_buf;
-	return (buf);
+	buf[0] = cropped_buf;
+	free(cropped_buf);
+	cropped_buf = NULL;
+	return (&buf[0][h]);
 }
 
 char	*get_next_line(int fd)
@@ -160,7 +170,7 @@ char	*get_next_line(int fd)
 	{
 		temp = ft_strjoin(temp, buf);
 		if (is_return(buf) == 1 && is_return(temp) == 1)
-			crop_buf(buf);
+			crop_buf(&buf);
 		if (is_return(temp) == 1)
 			break;
 		ret = read(fd, buf, BUFFER_SIZE);
