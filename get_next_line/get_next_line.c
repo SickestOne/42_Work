@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/01/27 17:17:09 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:36:45 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,28 +72,7 @@ char	*ft_strdup(char *s1)
 	//s1 = NULL;
 	return (dst);
 }
-size_t	is_done(char *temp)
-{
-	int	is_done;
-	int	i;
 
-	is_done = 0;
-	i = 0;
-	if (!temp)
-		return -1;
-	while (temp[i])
-	{
-		if (temp[i] == '\0')
-		{
-			is_done= 1;
-			return (1);
-		}
-		else
-			is_done= -1;
-		i++;
-	}
-	return (is_done);
-}
 size_t	is_return(char *temp)
 {
 	int	is_true;
@@ -142,7 +121,25 @@ char	*cropped_return(char *temp)
 	return (&temp[i + 1]);
 }
 
+char *crop_buf(char *buf)
+{
+	int h;
+	char *cropped_buf;
 
+	h = 0;
+	cropped_buf = malloc(sizeof(char) * h + 1);
+	if (!cropped_buf)
+		return (NULL);
+	while (buf[h])
+	{
+		if (buf[h] != '\n')
+			cropped_buf[h] = buf[h];
+		h++;
+	}
+	free(buf);
+	buf = cropped_buf;
+	return (buf);
+}
 
 char	*get_next_line(int fd)
 {
@@ -162,6 +159,8 @@ char	*get_next_line(int fd)
 	while (ret > 0)
 	{
 		temp = ft_strjoin(temp, buf);
+		if (is_return(buf) == 1 && is_return(temp) == 1)
+			crop_buf(buf);
 		if (is_return(temp) == 1)
 			break;
 		ret = read(fd, buf, BUFFER_SIZE);
