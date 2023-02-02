@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/02 21:24:05 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:41:57 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,7 @@ char *crop_buf(char *buf)
 		return (NULL);
 	while (buf[o])
 	{
-		if (buf[o] == '\n' && buf[o - 1] != '\n')
+		if ((buf[o] == '\n' && buf[o - 1] != '\n') || (buf[o] == '\n' && buf[o + 1] != '\n'))
 		{	
 			holder = &buf[o + 1];
 			break;
@@ -179,6 +179,7 @@ char	*get_next_line(int fd)
 	}
 	else
 		ret = ft_strlen(buf);
+
 	while (ret > 0)
 	{
 		temp = ft_strjoin(temp, buf);
