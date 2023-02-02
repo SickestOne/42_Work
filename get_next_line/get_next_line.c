@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/02 21:48:42 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:56:19 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,6 @@ char	*ft_strjoin(char *temp, char *buf)
 	}
 	while (buf[j])
 	{
-		/*if (buf[j - 1] == '\n')
-		{
-			temp = &buf[j];
-			break;
-		}*/
 		if (buf[j] == '\n')
 			break;
 		dest[i] = buf[j];
@@ -62,8 +57,6 @@ char	*ft_strjoin(char *temp, char *buf)
 	}
 	dest[i] = '\0';
 	buf = temp;
-	//free(temp);
-	//temp = NULL;
 	return (dest);
 }
 char	*ft_strdup(char *s1)
@@ -80,8 +73,6 @@ char	*ft_strdup(char *s1)
 	while (s1[++j])
 		dst[j] = s1[j];
 	dst[j] = '\0';
-	//free(s1);
-	//s1 = NULL;
 	return (dst);
 }
 
