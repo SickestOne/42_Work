@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/02 11:53:26 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/02 17:29:58 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,18 @@ char	*ft_strjoin(char *temp, char *buf)
 	while (buf[j])
 	{
 		if (buf[j - 1] == '\n')
+		{
+			temp = &buf[j];
 			break;
+		}
 		dest[i] = buf[j];
 		i++;
 		j++;
 	}
 	dest[i] = '\0';
-	free(temp);
-	temp = NULL;
+	buf = temp;
+	//free(temp);
+	//temp = NULL;
 	return (dest);
 }
 char	*ft_strdup(char *s1)
@@ -131,26 +135,25 @@ char	*cropped_return(char *temp)
  * La con de ta mere le pointeur
  */
 
-char *crop_buf(char *buf)
+char *crop_buf(char *buf)	
 {
-	char *cropped_buf;
+	char *holder;
 
-	cropped_buf = malloc(sizeof(buf));
-	if (!cropped_buf || !buf)
+	holder = malloc((sizeof(buf)));
+	if (!holder || !buf)
 		return (NULL);
 	while (*buf)
 	{
 		if (*buf != '\n')
-		{
-			cropped_buf = buf;
-			if (*cropped_buf != '\n')
-				break;
+		{	
+			holder = buf;
+			break;
 		}
 		buf++;
 	}
-	buf = cropped_buf;
-	free(cropped_buf);
-	cropped_buf = NULL;
+	buf = holder;
+	holder = NULL;
+	free(holder);
 	return (buf);
 }
 
