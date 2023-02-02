@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/02 21:46:18 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:48:42 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,7 +186,7 @@ char	*get_next_line(int fd)
 			break;
 		}
 		if (is_return(buf) != 1 && is_return(temp) == 1)
-			break;
+			break; // can remove this function ?
 		ret = read(fd, buf, BUFFER_SIZE);
 		buf[ret] = '\0';
 	}
