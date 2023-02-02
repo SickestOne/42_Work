@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/02 11:50:26 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/02 11:53:26 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ char	*cropped_return(char *temp)
 }
 
 /*
- * Le bon 'buf' n'est pas pris
+ * La con de ta mere le pointeur
  */
 
 char *crop_buf(char *buf)
