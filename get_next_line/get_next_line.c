@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/02 21:41:57 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:46:18 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,10 +131,6 @@ char	*cropped_return(char *temp)
 	return (&temp[i]);
 }
 
-/*
- * La con de ta mere le pointeur
- */
-
 char *crop_buf(char *buf)	
 {
 	char *holder;
@@ -160,10 +156,11 @@ char *crop_buf(char *buf)
 	return (buf);
 }
 
-/* Si dessous, une fonction qui devrait etre interdite tellement c'est de la sorcellerie :
- * CURSED
+/*
+ * Fonctionne jusqua un buf_size de 15.
+ * A partir de 20, ca patine.
+ * Au dela, core dumped.
  */
-
 char	*get_next_line(int fd)
 {
 	size_t ret;
