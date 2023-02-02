@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/02 17:29:58 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/02 20:04:32 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,13 @@ char	*ft_strjoin(char *temp, char *buf)
 	}
 	while (buf[j])
 	{
-		if (buf[j - 1] == '\n')
+		/*if (buf[j - 1] == '\n')
 		{
 			temp = &buf[j];
 			break;
-		}
+		}*/
+		if (buf[j] == '\n')
+			break;
 		dest[i] = buf[j];
 		i++;
 		j++;
@@ -120,15 +122,13 @@ char	*cropped_return(char *temp)
 		return (NULL);
 	while (temp[i])
 	{
-		if (temp[i - 1] == '\n')
-			break;
 		hold[i] = temp[i];
 		i++;
 	}
-	temp[i] = hold[i];
+	temp[i] = hold[i] + '\n';
 	free(hold);
 	hold = NULL;
-	return (&temp[i + 1]);
+	return (&temp[i]);
 }
 
 /*
@@ -139,7 +139,7 @@ char *crop_buf(char *buf)
 {
 	char *holder;
 
-	holder = malloc((sizeof(buf)));
+	holder = malloc((sizeof(buf + 1)));
 	if (!holder || !buf)
 		return (NULL);
 	while (*buf)
@@ -151,24 +151,21 @@ char *crop_buf(char *buf)
 		}
 		buf++;
 	}
-	buf = holder;
+	buf = holder + '\0';
 	holder = NULL;
 	free(holder);
 	return (buf);
 }
 
-/* Dans le while (ret > 0) :
- * - crop buf renvoie une adresse eclatee,
- * - du coup de fdp ecrase le "Deux",
- * - et affiche "ieme".
- *   STRJOIN CURSED
+/* Si dessous, une fonction qui devrait etre interdite tellement c'est de la sorcellerie :
+ * CURSED
  */
 
 char	*get_next_line(int fd)
 {
 	size_t ret;
 	static char *buf;
-	static char *temp;
+	char *temp;
 
 	temp = NULL;
 	if (!buf)
@@ -182,9 +179,12 @@ char	*get_next_line(int fd)
 	while (ret > 0)
 	{
 		temp = ft_strjoin(temp, buf);
-		if (is_return(buf) == 1 && is_return(temp))
-			crop_buf(buf);
-		if (is_return(temp) == 1)
+		if (is_return(buf) == 1 && is_return(temp) != 1)
+		{
+			buf = crop_buf(buf);
+			break;
+		}
+		if (is_return(buf) != 1 && is_return(temp) == 1)
 			break;
 		ret = read(fd, buf, BUFFER_SIZE);
 		buf[ret] = '\0';
