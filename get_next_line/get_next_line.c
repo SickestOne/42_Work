@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/02 20:04:32 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:24:05 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,18 +138,21 @@ char	*cropped_return(char *temp)
 char *crop_buf(char *buf)	
 {
 	char *holder;
+	int o;
+
+	o = 0;
 
 	holder = malloc((sizeof(buf + 1)));
 	if (!holder || !buf)
 		return (NULL);
-	while (*buf)
+	while (buf[o])
 	{
-		if (*buf != '\n')
+		if (buf[o] == '\n' && buf[o - 1] != '\n')
 		{	
-			holder = buf;
+			holder = &buf[o + 1];
 			break;
 		}
-		buf++;
+		o++;
 	}
 	buf = holder + '\0';
 	holder = NULL;
@@ -179,7 +182,7 @@ char	*get_next_line(int fd)
 	while (ret > 0)
 	{
 		temp = ft_strjoin(temp, buf);
-		if (is_return(buf) == 1 && is_return(temp) != 1)
+		if (is_return(buf) == 1 || is_return(temp) == 1)
 		{
 			buf = crop_buf(buf);
 			break;
