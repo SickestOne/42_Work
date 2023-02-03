@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/03 12:34:06 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/03 12:37:00 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,7 @@ char *crop_buf(char *buf)
  * ! buf 
  * ! crop buf
  * avec un buf size 16, add a '\n' en trop.
+ * bug @ septieme ligne : "..ligne.\n\n"
  */
 char	*get_next_line(int fd)
 {
