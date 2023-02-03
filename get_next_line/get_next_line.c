@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/02 21:56:19 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/03 11:21:19 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,10 +131,14 @@ char *crop_buf(char *buf)
 
 	holder = malloc((sizeof(buf + 1)));
 	if (!holder || !buf)
-		return (NULL);
-	while (buf[o])
 	{
-		if ((buf[o] == '\n' && buf[o - 1] != '\n') || (buf[o] == '\n' && buf[o + 1] != '\n'))
+		holder = NULL;
+		free(holder);
+		return (NULL);
+	}
+	while ((buf[o] || buf[o - 1] != '\n'))
+	{
+		if ((buf[o] == '\n' || !buf[o]) || (buf[o] == '\n' && buf[o - 1] != '\n'))
 		{	
 			holder = &buf[o + 1];
 			break;
@@ -148,9 +152,8 @@ char *crop_buf(char *buf)
 }
 
 /*
- * Fonctionne jusqua un buf_size de 15.
- * A partir de 20, ca patine.
- * Au dela, core dumped.
+ * Fonctionne jusqua un buf_size de .
+ * Crop_buf delete buf.
  */
 char	*get_next_line(int fd)
 {
@@ -162,10 +165,10 @@ char	*get_next_line(int fd)
 	if (!buf)
 	{
 		buf = malloc((sizeof(char *) * (BUFFER_SIZE + 1)));
-		ret = read(fd, buf, BUFFER_SIZE);	
+		ret = read(fd, buf, BUFFER_SIZE);
 		buf[ret] = '\0';
 	}
-	else
+	else if (*buf == '\0')
 		ret = ft_strlen(buf);
 
 	while (ret > 0)
@@ -173,7 +176,7 @@ char	*get_next_line(int fd)
 		temp = ft_strjoin(temp, buf);
 		if (is_return(buf) == 1 || is_return(temp) == 1)
 		{
-			buf = crop_buf(buf);
+			buf = crop_buf(buf); // crop_buf deletes buf when a '\n' is detected while buf && temp are on the same line.
 			break;
 		}
 		if (is_return(buf) != 1 && is_return(temp) == 1)
