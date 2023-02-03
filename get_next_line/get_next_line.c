@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/03 19:45:54 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:37:45 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ char	*cropped_return(char *temp)
 	char *hold;
 
 	i = 0;
-	hold = malloc((sizeof(temp)));
+	hold = malloc((sizeof(temp + 1)));
 	if (!hold || !temp)
 		return (NULL);
 	while (temp[i])
@@ -116,10 +116,10 @@ char	*cropped_return(char *temp)
 		hold[i] = temp[i];
 		i++;
 	}
-	hold[i] = '\n';
-	temp [i] = (hold[i]);
+	temp[i] = hold[i];
 	free(hold);
 	hold = NULL;
+	temp[i] = temp[i] + '\n';
 	return (&temp[i]);
 }
 
