@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/03 12:37:00 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/03 19:45:54 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,8 @@ char	*cropped_return(char *temp)
 		hold[i] = temp[i];
 		i++;
 	}
-	temp[i] = hold[i] + '\n';
+	hold[i] = '\n';
+	temp [i] = (hold[i]);
 	free(hold);
 	hold = NULL;
 	return (&temp[i]);
@@ -138,14 +139,14 @@ char *crop_buf(char *buf)
 	}
 	while ((buf[o] || buf[o - 1] != '\n'))
 	{
-		if ((buf[o] == '\n' || !buf[o]) || (buf[o] == '\n' && buf[o - 1] != '\n'))
+		if ((buf[o] == '\n' || buf[o] == '\0') || (buf[o] == '\n' && buf[o - 1] != '\n'))
 		{	
 			holder = &buf[o + 1];
 			break;
 		}
 		o++;
 	}
-	buf = holder + '\0';
+	buf = holder;
 	holder = NULL;
 	free(holder);
 	return (buf);
@@ -190,7 +191,7 @@ char	*get_next_line(int fd)
 		ret = read(fd, buf, BUFFER_SIZE);
 		buf[ret] = '\0';
 	}
-	if (is_return(temp) != -1)
+	if (is_return(temp) == 1)
 		return (temp);
 	else
 		cropped_return(temp);
