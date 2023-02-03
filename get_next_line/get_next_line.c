@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/03 11:29:43 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/03 12:34:06 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,7 @@ char *crop_buf(char *buf)
  * Ne lis pas plus de 8 lignes sur 10 avec un bufsize de 5.
  * ! buf 
  * ! crop buf
+ * avec un buf size 16, add a '\n' en trop.
  */
 char	*get_next_line(int fd)
 {
@@ -170,14 +171,17 @@ char	*get_next_line(int fd)
 		buf[ret] = '\0';
 	}
 	else if (*buf == '\0')
+	{
+		ret = read(fd, buf, BUFFER_SIZE);
 		ret = ft_strlen(buf);
+	}
 
 	while (ret > 0)
 	{
 		temp = ft_strjoin(temp, buf);
 		if (is_return(buf) == 1 || is_return(temp) == 1)
 		{
-			buf = crop_buf(buf); //crop_buf8 deletes buf when a '\n' is detected while buf && temp are on the same line.
+			buf = crop_buf(buf); 
 			break;
 		}
 		if (is_return(buf) != 1 && is_return(temp) == 1)
@@ -185,6 +189,9 @@ char	*get_next_line(int fd)
 		ret = read(fd, buf, BUFFER_SIZE);
 		buf[ret] = '\0';
 	}
-	cropped_return(temp);
+	if (is_return(temp) != -1)
+		return (temp);
+	else
+		cropped_return(temp);
 	return (temp);
 }
