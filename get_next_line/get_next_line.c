@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/03 11:21:19 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/03 11:29:43 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,8 +152,9 @@ char *crop_buf(char *buf)
 }
 
 /*
- * Fonctionne jusqua un buf_size de .
- * Crop_buf delete buf.
+ * Ne lis pas plus de 8 lignes sur 10 avec un bufsize de 5.
+ * ! buf 
+ * ! crop buf
  */
 char	*get_next_line(int fd)
 {
@@ -176,7 +177,7 @@ char	*get_next_line(int fd)
 		temp = ft_strjoin(temp, buf);
 		if (is_return(buf) == 1 || is_return(temp) == 1)
 		{
-			buf = crop_buf(buf); // crop_buf deletes buf when a '\n' is detected while buf && temp are on the same line.
+			buf = crop_buf(buf); //crop_buf8 deletes buf when a '\n' is detected while buf && temp are on the same line.
 			break;
 		}
 		if (is_return(buf) != 1 && is_return(temp) == 1)
