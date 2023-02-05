@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/03 20:37:45 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/05 20:16:52 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_strjoin(char *temp, char *buf)
 	}
 	while (buf[j])
 	{
-		if (buf[j] == '\n')
+		if (buf[j - 1] == '\n')
 			break;
 		dest[i] = buf[j];
 		i++;
@@ -76,10 +76,10 @@ char	*ft_strdup(char *s1)
 	return (dst);
 }
 
-size_t	is_return(char *temp)
+size_t	is_nl(char *temp)
 {
-	int	is_true;
-	int	i;
+	size_t	is_true;
+	size_t	i;
 
 	is_true = 0;
 	i = 0;
@@ -87,14 +87,21 @@ size_t	is_return(char *temp)
 		return -1;
 	while (temp[i])
 	{
-		if (temp[i] == '\n')
+		if (temp[0] == '\n')
 		{
 			is_true = 1;
 			return (1);
 		}
+		else if (temp[i + 1] == '\0' && temp[i] == '\n')
+		{
+			is_true = 2;
+			return (2);
+		}	
 		else
+		{
 			is_true = -1;
-		i++;
+			i++;
+		}
 	}
 	return (is_true);
 }
@@ -102,56 +109,55 @@ size_t	is_return(char *temp)
  * Find the '\n' and return the line with the '\n'.
  * !! Deletes the first 10 characters of the New line.
  */
-char	*cropped_return(char *temp)
+char	*added_return(char *temp)
 {
-	int i;
+	size_t length;
 	char *hold;
 
-	i = 0;
-	hold = malloc((sizeof(temp + 1)));
-	if (!hold || !temp)
-		return (NULL);
-	while (temp[i])
-	{
-		hold[i] = temp[i];
-		i++;
-	}
-	temp[i] = hold[i];
-	free(hold);
+	length = ft_strlen(temp);
+	hold = malloc((sizeof(length + 2)));
+	hold = temp;
+	hold[length] = '\n';
+	hold[length + 1] = '\0';
+	temp = hold;
 	hold = NULL;
-	temp[i] = temp[i] + '\n';
-	return (&temp[i]);
+	free(hold);
+	return (temp);
 }
 
-char *crop_buf(char *buf)	
+char *remove_nl(char *buf)
 {
-	char *holder;
-	int o;
+	int q;
 
-	o = 0;
-
-	holder = malloc((sizeof(buf + 1)));
-	if (!holder || !buf)
+	q = 0;
+	if (buf[0] == '\n')
 	{
-		holder = NULL;
-		free(holder);
-		return (NULL);
-	}
-	while ((buf[o] || buf[o - 1] != '\n'))
-	{
-		if ((buf[o] == '\n' || buf[o] == '\0') || (buf[o] == '\n' && buf[o - 1] != '\n'))
-		{	
-			holder = &buf[o + 1];
-			break;
+		while (buf[q])
+		{
+			buf[q] = buf[q + 1];
+			q++;
 		}
-		o++;
 	}
-	buf = holder;
-	holder = NULL;
-	free(holder);
+	else if (buf[0] != '\n')
+	{
+		q = 0;
+		while (buf[q])
+		{
+			if (buf[q] == '\n' && buf[q + 1] != '\n')
+			{
+				buf[q] = buf[q + 1];
+				while (buf[q])
+				{
+					buf[q] = (buf[q - 1]);
+					q++;
+				}
+				return (buf);
+			}
+			q++;
+		}
+	}
 	return (buf);
 }
-
 /*
  * Ne lis pas plus de 8 lignes sur 10 avec un bufsize de 5.
  * ! buf 
@@ -177,23 +183,15 @@ char	*get_next_line(int fd)
 		ret = read(fd, buf, BUFFER_SIZE);
 		ret = ft_strlen(buf);
 	}
-
-	while (ret > 0)
+	while (ret > 0 && is_nl(temp) != 2)
 	{
 		temp = ft_strjoin(temp, buf);
-		if (is_return(buf) == 1 || is_return(temp) == 1)
+		if (is_nl(temp) == 2)
 		{
-			buf = crop_buf(buf); 
+			remove_nl(buf);
 			break;
 		}
-		if (is_return(buf) != 1 && is_return(temp) == 1)
-			break; // can remove this function ?
 		ret = read(fd, buf, BUFFER_SIZE);
-		buf[ret] = '\0';
 	}
-	if (is_return(temp) == 1)
-		return (temp);
-	else
-		cropped_return(temp);
 	return (temp);
 }
