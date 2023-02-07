@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/07 11:42:49 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/07 12:59:28 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ char	*ft_strdup(char *s1)
 	return (dst);
 }
 
-size_t	is_nl(char *temp)
+int	is_nl(char *temp)
 {
-	size_t	is_true;
-	size_t	i;
+	int is_true;
+	int i;
 
 	is_true = 0;
 	i = 0;
@@ -142,14 +142,16 @@ char *remove_nl(char *buf)
 	{
 		while (*buf)
 		{
-			if (is_nl((buf) - 1) == 1 && is_nl((buf) + 1) == -1)
+			if (is_nl(buf) == 1 && is_nl((buf) + 1) == -1 && is_nl((buf) - 1) == -1)
 			{
-				return ((char *)(buf));
+				buf =  (buf--);
+				buf = remove_nl(buf);
+				break;
 			}
 			buf++;
 		}
 	}
-	return (buf);
+	return ((buf) + '\0');
 }
 /*
  * Ne lis pas plus de 8 lignes sur 10 avec un bufsize de 5.
