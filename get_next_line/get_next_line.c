@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/05 20:16:52 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/07 10:30:10 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ char *remove_nl(char *buf)
 				buf[q] = buf[q + 1];
 				while (buf[q])
 				{
-					buf[q] = (buf[q - 1]);
+					buf[q - 1] = (buf[q + 1]);
 					q++;
 				}
 				return (buf);
