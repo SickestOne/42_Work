@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/07 10:30:10 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/07 11:42:49 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,22 +138,15 @@ char *remove_nl(char *buf)
 			q++;
 		}
 	}
-	else if (buf[0] != '\n')
+	else if (*buf != '\n')
 	{
-		q = 0;
-		while (buf[q])
+		while (*buf)
 		{
-			if (buf[q] == '\n' && buf[q + 1] != '\n')
+			if (is_nl((buf) - 1) == 1 && is_nl((buf) + 1) == -1)
 			{
-				buf[q] = buf[q + 1];
-				while (buf[q])
-				{
-					buf[q - 1] = (buf[q + 1]);
-					q++;
-				}
-				return (buf);
+				return ((char *)(buf));
 			}
-			q++;
+			buf++;
 		}
 	}
 	return (buf);
