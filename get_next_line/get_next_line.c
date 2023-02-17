@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 16:22:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/15 15:29:45 by rvan-den         ###   ########.fr       */
+/*   Created: 2023/02/15 20:46:58 by pendejoo          #+#    #+#             */
+/*   Updated: 2023/02/17 12:10:36 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,58 +107,23 @@ int	is_nl(char *temp)
 }
 /*
  * Find the '\n' and return the line with the '\n'.
- * !! Deletes the first 10 characters of the New line.
+ * step one : case : *x is '\n'.
+ * step two : case : x[y] is '\n'.
  */
-char	*added_return(char *temp)
-{
-	size_t length;
-	char *hold;
-
-	length = ft_strlen(temp);
-	hold = malloc((sizeof(length + 2)));
-	hold = temp;
-	hold[length] = '\n';
-	hold[length + 1] = '\0';
-	temp = hold;
-	hold = NULL;
-	free(hold);
-	return (temp);
-}
 
 char *remove_nl(char *buf)
 {
-	int q;
-
-	q = 0;
-	if (buf[0] == '\n')
-	{
-		while (buf[q])
-		{
-			buf[q] = buf[q + 1];
-			q++;
-		}
-	}
+	if (*buf == '\n' && is_nl((buf) + 1) != 1)
+		*buf = ((*buf) + 1);
 	else if (*buf != '\n' && is_nl((buf) + 1) == 1 && is_nl((buf) - 1) != 1)
 	{
-		while (*buf)
-		{
-			if (*buf == '\n')
-			{
-				*buf = *remove_nl(buf);
-				break;
-			}
+		while (*buf != '\n')
 			buf++;
-		}
+		remove_nl(buf);
 	}
 	return (buf);
 }
-/*
- * Ne lis pas plus de 8 lignes sur 10 avec un bufsize de 5.
- * ! buf 
- * ! crop buf
- * avec un buf size 16, add a '\n' en trop.
- * bug @ septieme ligne : "..ligne.\n\n"
- */
+
 char	*get_next_line(int fd)
 {
 	size_t ret;
@@ -168,7 +133,7 @@ char	*get_next_line(int fd)
 	temp = NULL;
 	if (!buf)
 	{
-		buf = malloc((sizeof(char *) * (BUFFER_SIZE + 1)));
+		buf = malloc((sizeof(char) * (BUFFER_SIZE + 1)));
 		ret = read(fd, buf, BUFFER_SIZE);
 		buf[ret] = '\0';
 	}
