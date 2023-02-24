@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:12:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/22 13:18:54 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/24 13:55:01 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-char	*ft_strjoin(char *stashed, char *buf)
+char	*ft_strjoin(char *stash, char *buf)
 {
 	char	*dest;
 	size_t	i;
@@ -33,15 +33,14 @@ char	*ft_strjoin(char *stashed, char *buf)
 	j = 0;
 	if (!buf)
 		return (NULL);
-	if (!stashed)
+	if (!stash)
 		return (ft_strdup(buf));
-	dest = malloc(sizeof(char) * ft_strlen(stashed) + ft_strlen(buf) + 1);
-		return (NULL);
+	dest = malloc(sizeof(char) * ft_strlen(stash) + ft_strlen(buf) + 1);
 	if (!dest)
 		return (NULL);
-	while (stashed[i])
+	while (stash[i])
 	{
-		dest[i] = stashed[i];
+		dest[i] = stash[i];
 		i++;
 	}
 	while (buf[j])
@@ -51,7 +50,7 @@ char	*ft_strjoin(char *stashed, char *buf)
 		j++;
 	}
 	dest[i] = '\0';
-	buf = stashed;
+	buf = stash;
 	return (dest);
 }
 char	*ft_strdup(char *s1)

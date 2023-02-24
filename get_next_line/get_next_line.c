@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 20:46:58 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/02/22 15:25:13 by rvan-den         ###   ########.fr       */
+/*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/02/24 15:16:59 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,42 @@
 char	*get_next_line(int fd)
 {
 	static char *stash;
-	char buf[BUFFER_SIZE + 1];
-	size_t readed;
+	char *line;
 
-	while (is_nl(stash) != 1)
-	{
-		readed = read(fd, buf, BUFFER_SIZE);
-		stash = ft_strjoin(stash, buf);
-	}
-	return (stash);
+	line = NULL;
+	read_n_stash(fd, &stash, &line);
+	return (line);
 }
 
-int	is_nl(char *stash)
+void	read_n_stash(int fd, char **stash, char **line)
 {
-	int is_true;
+	char *buf;
+	int i;
+	size_t is_read;
+
+	is_read = 1;
+	i = 0;
+	while (is_read != 0)
+	{	
+		buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		is_read = read(fd, buf, BUFFER_SIZE);
+		*stash = ft_strjoin(*stash, buf);
+		if (is_newline(*stash))
+				break;
+	}
+}
+
+int	is_newline(char *stash)
+{
 	int i;
 
-	is_true = 0;
 	i = 0;
 	while (stash[i])
 	{
 		if (stash[i] == '\n')
-		{
-			is_true = 1;
 			return (1);
-		}
 		i++;
 	}
-	return (is_true);
+	return (0);
 }
+
