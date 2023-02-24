@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/24 16:04:30 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:35:50 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	read_n_stash(int fd, char **stash, char **line)
 		is_read = read(fd, buf, BUFFER_SIZE);
 		*stash = ft_strjoin(*stash, buf);
 		if (is_newline(*stash))
-				extract_line(*line, *stash);
+			break;
 	}
 }
 
@@ -53,15 +53,3 @@ int	is_newline(char *stash)
 	}
 	return (0);
 }
-
-void	extract_line(char *line, char *stash)
-{
-	int i;
-	char *temp_line;
-
-	i = 0;
-	temp_line = NULL;
-	temp_line = malloc(sizeof(stash + 1));
-	temp_line = stash;
-}
-

@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:12:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/24 13:55:01 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:50:34 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlen(const char *s)
 	size_t len;
 
 	len = 0;
-	while (s[len] != '\0')
+	while (s[len] != '\0' || (len > 0 && s[len - 1] != '\n'))
 		len++;
 	return (len);
 }
@@ -45,6 +45,8 @@ char	*ft_strjoin(char *stash, char *buf)
 	}
 	while (buf[j])
 	{
+		if (buf[j - 1] == '\n')
+			break;
 		dest[i] = buf[j];
 		i++;
 		j++;
