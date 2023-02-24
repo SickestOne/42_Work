@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/24 17:31:39 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/24 22:14:06 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*get_next_line(int fd)
 
 	line = NULL;
 	read_n_stash(fd, &stash, &line);
-	line = stash;
-	stash = NULL;
+	line = stash;	// fix this 
+	stash = NULL;	// because it's sketchy as fuck
 	return (line);
 }
 
@@ -38,11 +38,11 @@ void	read_n_stash(int fd, char **stash, char **line)
 		is_read = read(fd, buf, BUFFER_SIZE);
 		*stash = ft_strjoin(*stash, buf);
 		if (is_newline(*stash))
-			break;
+			break;		// ecris une fonction pour extraire la ligne.
 	}
 }
 
-int	is_newline(char *stash)
+int	is_newline(char *stash)			// possible de lui donner plus de taff a faire ?
 {
 	int i;
 
