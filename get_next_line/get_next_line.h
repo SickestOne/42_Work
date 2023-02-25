@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:16:22 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/24 15:53:37 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/25 13:33:28 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ char *get_next_line(int fd);
 size_t ft_strlen(const char *s);
 char *ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(char *s1);
-void	read_n_stash(int fd, char **stash, char **line);
-void	check_n_insert_line(char **stash,char **line);
+void	read_n_stash(int fd, char **stash);
 int		is_newline(char *stash);
-void	extract_line(char *line, char *stash);
+char	*extract_line(char *stash, char *line);
 
 #endif

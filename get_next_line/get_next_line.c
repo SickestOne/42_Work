@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/24 22:14:06 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/25 13:51:16 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@ char	*get_next_line(int fd)
 	char *line;
 
 	line = NULL;
-	read_n_stash(fd, &stash, &line);
-	line = stash;	// fix this 
-	stash = NULL;	// because it's sketchy as fuck
+	read_n_stash(fd, &stash);
+	line = extract_line(stash, line);
 	return (line);
 }
 
-void	read_n_stash(int fd, char **stash, char **line)
+void	read_n_stash(int fd, char **stash)
 {
 	char *buf;
 	int i;
@@ -47,6 +46,8 @@ int	is_newline(char *stash)			// possible de lui donner plus de taff a faire ?
 	int i;
 
 	i = 0;
+	if (!stash)
+		return (0);
 	while (stash[i])
 	{
 		if (stash[i] == '\n')
@@ -54,4 +55,29 @@ int	is_newline(char *stash)			// possible de lui donner plus de taff a faire ?
 		i++;
 	}
 	return (0);
+}
+
+char *extract_line(char *stash, char *line)			// a corriger, manque la recup du reste apres '\n'
+{													// autre fx ?.		
+	int i;
+	int j;
+	char *temp_stash;
+
+	i = 0;
+	j = 0;
+	temp_stash = NULL;
+	temp_stash = malloc(sizeof(stash + 1));
+	while (stash[i])
+	{
+		if (stash[i - 1] != '\n' && temp_stash[j] != '\n')
+		{
+			temp_stash[j] = stash[i];
+			line = temp_stash;
+			i++;
+			j++;
+		}
+		else if (is_newline(line))
+			break;
+	}
+	return (line);
 }
