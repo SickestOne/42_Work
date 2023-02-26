@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/26 16:45:01 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/25 15:41:21 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,26 +48,32 @@ int	is_newline(char *stash)			// possible de lui donner plus de taff a faire ?
 	i = 0;
 	if (!stash)
 		return (0);
-	while (stash[i++])
+	while (stash[i])
+	{
 		if (stash[i] == '\n')
 			return (1);
+		i++;
+	}
 	return (0);
 }
 
-// mesurer string -> '\n', mesure string complete
-// mettre string au '\n' dans la line
-// mettre le reste de la string entre le '\n' et la fin de la string dans la stash
-
-char *extract_line(char *stash, char **line)
-{
-	int pos;
+char *extract_line(char *stash, char **line)			// a corriger, manque la recup du reste apres '\n'
+{														// autre fx ?.		
 	int i;
+	int j;
 
-	pos = 0;
 	i = 0;
-	while (stash[i++])
-		if (stash[pos - 1] != '\n')
-			pos++;
+	j = 0;
+	while (stash[i])
+	{
+		if (stash[i - 1] != '\n')
+		{
+			*line = &stash[i];
+			i++;
+			j++;
+		}
+		else if (is_newline(*line))
+			break;
+	}
 	return (*line);
 }
-
