@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/27 16:19:32 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/27 22:27:32 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char *extract_line(char *stash, char **line)
 {
 	int i;
 
-	i = 0;
+	i = -1;
     char *pos;
 	pos = stash;
     while (*pos != '\n' && *pos)
@@ -69,24 +69,31 @@ char *extract_line(char *stash, char **line)
     *line = malloc(pos - stash + 2);
     if (*line == NULL)
         return NULL;
-    while (i < pos - stash + 1)
-	{
+    while (++i < pos - stash + 1)
         (*line)[i] = stash[i];
-		i++;
-	}
     (*line)[pos - stash + 1] = '\0';
 	clean_stash(&stash);
     return *line;
 }
 
-char	*clean_stash(char **stash)
+void clean_stash(char **stash)
 {
 	char *stash_to_clean;
-	while (*stash)
+	size_t i;
+
+	stash_to_clean = *stash;
+	*stash = NULL;
+	while (*stash_to_clean)
 	{
-		if (*stash == '\n')
-			*stash_to_clean = ((*stash) + 1);
-		stash++;
+		if (*stash_to_clean == '\n')
+		{
+			stash_to_clean++;
+			//*stash = stash_to_clean;
+			i = ft_strlen(stash_to_clean);
+			stash_to_clean[i + 1] = '\0';
+			*stash = stash_to_clean; // tant que strlen de la dest nest pas la strlen de la copie
+			break;					 // dest++ = copie++;
+		}
+		stash_to_clean++;
 	}
-	return (*stash);
 }
