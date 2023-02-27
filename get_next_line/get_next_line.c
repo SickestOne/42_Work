@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/27 22:27:32 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/27 22:53:35 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,14 @@ char *extract_line(char *stash, char **line)
     return *line;
 }
 
+// derniere boucle while foireuse.
 void clean_stash(char **stash)
 {
 	char *stash_to_clean;
 	size_t i;
 
 	stash_to_clean = *stash;
-	*stash = NULL;
+	*stash = '\0';
 	while (*stash_to_clean)
 	{
 		if (*stash_to_clean == '\n')
@@ -91,8 +92,10 @@ void clean_stash(char **stash)
 			//*stash = stash_to_clean;
 			i = ft_strlen(stash_to_clean);
 			stash_to_clean[i + 1] = '\0';
-			*stash = stash_to_clean; // tant que strlen de la dest nest pas la strlen de la copie
-			break;					 // dest++ = copie++;
+			i = -1;
+			while (*stash[i] != ft_strlen(stash_to_clean))
+				*stash = &stash_to_clean[i++];
+			break;
 		}
 		stash_to_clean++;
 	}
