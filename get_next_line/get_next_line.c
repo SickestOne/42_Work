@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/27 13:55:32 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:19:32 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,46 +54,39 @@ int	is_newline(char *stash)			// possible de lui donner plus de taff a faire ?
 	return (0);
 }
 
-// mesurer string -> '\n', mesure string complete
-// mettre string au '\n' dans la line
-// mettre le reste de la string entre le '\n' et la fin de la string dans la stash
-
-/*char *extract_line(char *stash, char **line)
-{
-	int pos;
-	int i;
-	int j;
-
-	pos = 0;
-	i = 0;
-	j = 0;
-	while (stash[i++])
-		if (stash[pos - 1] != '\n')
-			pos++;
-	return (*line);
-}*/
+// presque fonctionnel, doit encore free la stash, enlever le '\n' sur le reste de la stash.
+// ligne bien crop.
 
 char *extract_line(char *stash, char **line)
 {
-    static char rest_of_string[100]; // On utilise une variable statique pour stocker le reste de la chaîne.
-    int i;
+	int i;
 
 	i = 0;
-    while (stash[i] != '\n' && stash[i])
-		i++;
-    if (stash[i] == '\n')
-	{
-        *line = stash;
-        stash[i] = '\0'; // On remplace le '\n' par '\0' pour couper la chaîne.
-        i++;
-        int j = 0;
-        while (stash[i] != '\0')
-            rest_of_string[j++] = stash[i++];
-        rest_of_string[j] = '\0'; // On termine la chaîne de caractères.
-        return *line;
-    }
-	else 
+    char *pos;
+	pos = stash;
+    while (*pos != '\n' && *pos)
+        pos++;
+    *line = malloc(pos - stash + 2);
+    if (*line == NULL)
         return NULL;
+    while (i < pos - stash + 1)
+	{
+        (*line)[i] = stash[i];
+		i++;
+	}
+    (*line)[pos - stash + 1] = '\0';
+	clean_stash(&stash);
+    return *line;
 }
 
-
+char	*clean_stash(char **stash)
+{
+	char *stash_to_clean;
+	while (*stash)
+	{
+		if (*stash == '\n')
+			*stash_to_clean = ((*stash) + 1);
+		stash++;
+	}
+	return (*stash);
+}
