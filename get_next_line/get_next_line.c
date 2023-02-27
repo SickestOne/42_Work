@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/27 22:53:35 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/27 22:58:27 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void	read_n_stash(int fd, char **stash)
 		is_read = read(fd, buf, BUFFER_SIZE);
 		*stash = ft_strjoin(*stash, buf);
 		if (is_newline(*stash))
-			break;		// ecris une fonction pour extraire la ligne.
+			break;
 	}
 }
 
-int	is_newline(char *stash)			// possible de lui donner plus de taff a faire ?
+int	is_newline(char *stash)
 {
 	int i;
 
