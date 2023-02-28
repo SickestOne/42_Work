@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:16:22 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/28 13:42:10 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/28 14:23:39 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 #include <stdio.h>
+#include <strings.h>
 # include <sys/types.h>
 # include <sys/uio.h>
 #include <fcntl.h>

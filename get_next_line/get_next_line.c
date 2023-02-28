@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/28 13:55:32 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/28 14:37:51 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ char	*get_next_line(int fd)
 	line = NULL;
 	read_n_stash(fd, &stash);
 	line = extract_line(&stash, &line);
+	if (!*line)
+	{
+		free(line);
+		line = NULL;
+	}
 	return (line);
 }
 
@@ -35,6 +40,7 @@ void	read_n_stash(int fd, char **stash)
 	while (is_read != 0)
 	{	
 		is_read = read(fd, buf, BUFFER_SIZE);
+		buf[is_read] = '\0';
 		*stash = ft_strjoin(*stash, buf);
 		if (is_newline(*stash))
 			break;
@@ -82,7 +88,7 @@ char	*clean_stash(char *stash)
 	char *temp;
 
 	temp = stash;
-	while (*temp != '\n')
+	while (*temp && *temp != '\n')
 		temp++;
 	temp++;
 	stash = ft_strdup(temp);
