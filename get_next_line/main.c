@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:47:35 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/01/23 12:37:53 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:14:38 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int    main(void)
         line = get_next_line(fd);
         if (line == NULL)
             break;
-        printf("%s", line);
+        printf("%p\n", line);
         if (line)
             free(line);
     }

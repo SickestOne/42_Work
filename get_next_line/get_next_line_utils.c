@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:12:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/28 15:57:41 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:11:55 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlen(const char *s)
 	size_t len;
 
 	len = 0;
+	if (!s)
+		return 0;
 	while (s[len] != '\0')
 		len++;
 	return (len);
@@ -65,6 +67,8 @@ char	*ft_strdup(char *s1)
 	int		i;
 	int		j;
 
+	if (!s1)
+		return NULL;
 	j = -1;
 	i = ft_strlen(s1);
 	dst = malloc(sizeof(char) * i + 1);
