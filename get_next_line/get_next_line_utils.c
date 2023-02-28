@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:12:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/28 14:33:08 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:57:41 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ char	*ft_strjoin(char *stash, char *buf)
 		j++;
 	}
 	dest[i] = '\0';
-	buf = stash;
+	free(stash);
 	return (dest);
 }
+
 char	*ft_strdup(char *s1)
 {
 	char	*dst;
