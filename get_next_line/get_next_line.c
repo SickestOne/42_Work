@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/28 15:55:14 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:13:24 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,13 @@ char	*get_next_line(int fd)
 
 	line = NULL;
 	read_n_stash(fd, &stash);
+	if (!is_newline(stash))
+	{
+		free(stash);
+		return (line);
+	}
 	line = extract_line(&stash, &line);
-	if (!*line)
+	if (!*line || *line == '\0')
 	{
 		free(line);
 		line = NULL;
@@ -37,9 +42,11 @@ void	read_n_stash(int fd, char **stash)
 	is_read = 1;
 	i = 0;
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	while (is_read != 0)
+	while (is_read != 0 && buf != NULL && fd >= 0)
 	{	
 		is_read = read(fd, buf, BUFFER_SIZE);
+		if (is_read <= 0)
+			break;
 		buf[is_read] = '\0';
 		*stash = ft_strjoin(*stash, buf);
 		if (is_newline(*stash))
@@ -53,17 +60,14 @@ int	is_newline(char *stash)
 {
 	int i;
 
-	i = 0;
+	i = -1;
 	if (!stash)
 		return (0);
-	while (stash[i++])
+	while (stash[++i])
 		if (stash[i] == '\n')
 			return (1);
 	return (0);
 }
-
-// presque fonctionnel, doit encore free la stash, enlever le '\n' sur le reste de la stash.
-// ligne bien crop.
 
 char *extract_line(char **stash, char **line)
 {
@@ -74,7 +78,7 @@ char *extract_line(char **stash, char **line)
 	pos = *stash;
     while (*pos && *pos != '\n' )
         pos++;
-    *line = malloc(pos - *stash + 2);
+    *line = malloc(sizeof(char) * (pos - *stash + 2));
     if (*line == NULL)
         return NULL;
     while (++i < pos - *stash + 1)
