@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/27 22:58:27 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/02/28 11:05:37 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,10 @@ void clean_stash(char **stash)
 		if (*stash_to_clean == '\n')
 		{
 			stash_to_clean++;
-			//*stash = stash_to_clean;
 			i = ft_strlen(stash_to_clean);
 			stash_to_clean[i + 1] = '\0';
-			i = -1;
-			while (*stash[i] != ft_strlen(stash_to_clean))
-				*stash = &stash_to_clean[i++];
+			*stash = stash_to_clean;
+			(*stash)[i + 1] = '\0';
 			break;
 		}
 		stash_to_clean++;
