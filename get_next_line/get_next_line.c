@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/28 18:17:19 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:21:43 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	read_n_stash(int fd, char **stash)
 			break;
 	}
 	free(buf);
-	buf = NULL;
 }
 
 int	is_newline(char *stash)
