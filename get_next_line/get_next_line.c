@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/28 18:37:40 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/02/28 23:09:35 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,13 @@ char	*get_next_line(int fd)
 void	read_n_stash(int fd, char **stash)
 {
 	char *buf;
-	int i;
 	size_t is_read;
 
 	is_read = 1;
-	i = 0;
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (read(fd, buf, 0))
-		return (free(buf));
-	while (is_read >= 0 && buf != NULL && fd >= 0)
+	if (read(fd, buf, 0) || is_read < 0)
+		return (free(buf));		// erreur si fd == -1;
+	while ((is_read >= 0) && buf != NULL && fd >= 0)
 	{	
 		is_read = read(fd, buf, BUFFER_SIZE);
 		if (is_read <= 0)

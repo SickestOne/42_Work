@@ -1,4 +1,35 @@
-salut mec.
-aefjughaoijghojashvojiasdbviqwhgefe.
-defryhurytfrgt.
-aoidfgasiugfkhdcgfkjhwbdckdbaljbpkvkhaslf.
+Ceci est un test de lecture de fichier pour get_next_line.
+Le but de ce projet.
+Est de retourner un fichier ligne par ligne.
+En fonction d'un buffer_size.
+En se servant de la fonction read et open.
+Il faut chercher le retoyur chariot de chaque lignes.
+Et renvoyer la ligne.
+Ceci est un test de lecture de fichier pour get_next_line.
+Le but de ce projet.
+Est de retourner un fichier ligne par ligne.
+En fonction d'un buffer_size.
+En se servant de la fonction read et open.
+Il faut chercher le retoyur chariot de chaque lignes.
+Et renvoyer la ligne.
+Ceci est un test de lecture de fichier pour get_next_line.
+Le but de ce projet.
+Est de retourner un fichier ligne par ligne.
+En fonction d'un buffer_size.
+En se servant de la fonction read et open.
+Il faut chercher le retoyur chariot de chaque lignes.
+Et renvoyer la ligne.
+Ceci est un test de lecture de fichier pour get_next_line.
+Le but de ce projet.
+Est de retourner un fichier ligne par ligne.
+En fonction d'un buffer_size.
+En se servant de la fonction read et open.
+Il faut chercher le retoyur chariot de chaque lignes.
+Et renvoyer la ligne.
+Ceci est un test de lecture de fichier pour get_next_line.
+Le but de ce projet.
+Est de retourner un fichier ligne par ligne.
+En fonction d'un buffer_size.
+En se servant de la fonction read et open.
+Il faut chercher le retoyur chariot de chaque lignes.
+Et renvoyer la ligne.
