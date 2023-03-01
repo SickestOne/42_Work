@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/28 23:19:50 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:42:40 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*get_next_line(int fd)
 
 	line = NULL;
 	read_n_stash(fd, &stash);
-	if (is_newline(stash))
+	if (stash && is_newline(stash))
 		line = extract_line(&stash, &line);
-	else
+	else if (stash)
 	{
 		line = ft_strdup(stash);
 		free(stash);
@@ -32,29 +32,35 @@ char	*get_next_line(int fd)
 		free(line);
 		return (NULL);
 	}
+	else if (!line)
+		return (free_shit(&stash, NULL));
 	return (line);
 }
 
 void	read_n_stash(int fd, char **stash)
 {
 	char *buf;
-	size_t is_read;
+	int is_read;
 
 	is_read = 1;
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (read(fd, buf, 0) || is_read < 0) // erreur si fd == -1;
-		return (free(buf));
+	if (!buf)
+		return ((void)free_shit(stash, NULL));
 	while ((is_read >= 0) && buf != NULL && fd >= 0)
 	{	
 		is_read = read(fd, buf, BUFFER_SIZE);
-		if (is_read <= 0)
+		if (is_read < 0)
+			return ((void)free_shit(stash, &buf));
+		else if (is_read == 0)
 			break;
 		buf[is_read] = '\0';
-		*stash = ft_strjoin(*stash, buf);
+		*stash = ft_strjoin(stash, &buf);
+		if (!*stash)
+			return ((void)free_shit(NULL, &buf));
 		if (is_newline(*stash))
 			break;
 	}
-	free(buf);
+	free_shit(NULL, &buf);
 }
 
 int	is_newline(char *stash)
@@ -76,6 +82,8 @@ char *extract_line(char **stash, char **line)
 
 	i = -1;
     char *pos;
+	if (!*stash)
+		return (NULL);
 	pos = *stash;
     while (*pos && *pos != '\n')
         pos++;

@@ -6,16 +6,16 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:12:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/02/28 18:11:55 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:36:01 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 
-size_t	ft_strlen(const char *s)
+int		ft_strlen(const char *s)
 {
-	size_t len;
+	int len;
 
 	len = 0;
 	if (!s)
@@ -25,39 +25,30 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-char	*ft_strjoin(char *stash, char *buf)
+char	*ft_strjoin(char **stash, char **buf)
 {
 	char	*dest;
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
-	i = 0;
-	j = 0;
-	if (!buf)
-		return (NULL);
-	if (!stash)
-		return (ft_strdup(buf));
-	else if (!*stash && !buf)
-	{
-		free(stash);
-		stash = ft_strdup(buf);
-	}
-	dest = malloc(sizeof(char) * ft_strlen(stash) + ft_strlen(buf) + 1);
+	i = -1;
+	j = -1;
+	if (!*buf)
+		return (free_shit(stash, buf));
+	if (!*stash)
+		return (ft_strdup(*buf));
+	dest = malloc(sizeof(char) * (ft_strlen(*stash) + ft_strlen(*buf) + 1));
 	if (!dest)
-		return (NULL);
-	while (stash[i])
+		return (free_shit(stash, buf));
+	while ((*stash)[++i])
+		dest[i] = (*stash)[i];
+	while ((*buf)[++j])
 	{
-		dest[i] = stash[i];
+		dest[i] = (*buf)[j];
 		i++;
-	}
-	while (buf[j])
-	{
-		dest[i] = buf[j];
-		i++;
-		j++;
 	}
 	dest[i] = '\0';
-	free(stash);
+	free_shit(stash, NULL);
 	return (dest);
 }
 
@@ -71,12 +62,26 @@ char	*ft_strdup(char *s1)
 		return NULL;
 	j = -1;
 	i = ft_strlen(s1);
-	dst = malloc(sizeof(char) * i + 1);
+	dst = malloc(sizeof(char) * (i + 1));
 	if (!dst)
 		return (NULL);
 	while (s1[++j])
 		dst[j] = s1[j];
 	dst[j] = '\0';
-	s1 = NULL;
 	return (dst);
+}
+
+void *free_shit(char **stash, char **buf)
+{
+	if (buf && *buf)
+	{
+		free(*buf);
+		*buf = NULL;
+	}
+	if (stash && *stash)
+	{
+		free(*stash);
+		*stash = NULL;
+	}
+	return (NULL);
 }
