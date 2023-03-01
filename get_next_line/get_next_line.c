@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:24:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/01 17:42:40 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/01 18:36:47 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*get_next_line(int fd)
 {
-	static char *stash;
-	char *line;
+	static char	*stash;
+	char		*line;
 
 	line = NULL;
 	read_n_stash(fd, &stash);
@@ -33,39 +33,39 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	else if (!line)
-		return (free_shit(&stash, NULL));
+		return (free_data(&stash, NULL));
 	return (line);
 }
 
 void	read_n_stash(int fd, char **stash)
 {
-	char *buf;
-	int is_read;
+	char	*buf;
+	int		is_read;
 
 	is_read = 1;
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
-		return ((void)free_shit(stash, NULL));
+		return ((void)free_data(stash, NULL));
 	while ((is_read >= 0) && buf != NULL && fd >= 0)
 	{	
 		is_read = read(fd, buf, BUFFER_SIZE);
 		if (is_read < 0)
-			return ((void)free_shit(stash, &buf));
+			return ((void)free_data(stash, &buf));
 		else if (is_read == 0)
-			break;
+			break ;
 		buf[is_read] = '\0';
 		*stash = ft_strjoin(stash, &buf);
 		if (!*stash)
-			return ((void)free_shit(NULL, &buf));
+			return ((void)free_data(NULL, &buf));
 		if (is_newline(*stash))
-			break;
+			break ;
 	}
-	free_shit(NULL, &buf);
+	free_data(NULL, &buf);
 }
 
 int	is_newline(char *stash)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	if (!stash)
@@ -76,31 +76,31 @@ int	is_newline(char *stash)
 	return (0);
 }
 
-char *extract_line(char **stash, char **line)
+char	*extract_line(char **stash, char **line)
 {
-	int i;
+	int		i;
+	char	*pos;
 
 	i = -1;
-    char *pos;
 	if (!*stash)
 		return (NULL);
 	pos = *stash;
-    while (*pos && *pos != '\n')
-        pos++;
-    *line = malloc(sizeof(char) * (pos - *stash + 2));
-    if (*line == NULL)
-        return NULL;
-    while (++i < pos - *stash + 1)
-        (*line)[i] = stash[0][i];
-    (*line)[pos - *stash + 1] = '\0';
+	while (*pos && *pos != '\n')
+		pos++;
+	*line = malloc(sizeof(char) * (pos - *stash + 2));
+	if (*line == NULL)
+		return (NULL);
+	while (++i < pos - *stash + 1)
+		(*line)[i] = stash[0][i];
+	(*line)[pos - *stash + 1] = '\0';
 	*stash = clean_stash(*stash);
-    return *line;
+	return (*line);
 }
 
 char	*clean_stash(char *stash)
 {
-	char *temp;
-	char *to_free;
+	char	*temp;
+	char	*to_free;
 
 	temp = stash;
 	to_free = temp;

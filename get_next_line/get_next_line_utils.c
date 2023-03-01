@@ -6,20 +6,19 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:12:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/01 17:36:01 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/01 18:36:47 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-
-int		ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (!s)
-		return 0;
+		return (0);
 	while (s[len] != '\0')
 		len++;
 	return (len);
@@ -28,18 +27,18 @@ int		ft_strlen(const char *s)
 char	*ft_strjoin(char **stash, char **buf)
 {
 	char	*dest;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = -1;
 	j = -1;
 	if (!*buf)
-		return (free_shit(stash, buf));
+		return (free_data(stash, buf));
 	if (!*stash)
 		return (ft_strdup(*buf));
 	dest = malloc(sizeof(char) * (ft_strlen(*stash) + ft_strlen(*buf) + 1));
 	if (!dest)
-		return (free_shit(stash, buf));
+		return (free_data(stash, buf));
 	while ((*stash)[++i])
 		dest[i] = (*stash)[i];
 	while ((*buf)[++j])
@@ -48,7 +47,7 @@ char	*ft_strjoin(char **stash, char **buf)
 		i++;
 	}
 	dest[i] = '\0';
-	free_shit(stash, NULL);
+	free_data(stash, NULL);
 	return (dest);
 }
 
@@ -59,7 +58,7 @@ char	*ft_strdup(char *s1)
 	int		j;
 
 	if (!s1)
-		return NULL;
+		return (NULL);
 	j = -1;
 	i = ft_strlen(s1);
 	dst = malloc(sizeof(char) * (i + 1));
@@ -71,7 +70,7 @@ char	*ft_strdup(char *s1)
 	return (dst);
 }
 
-void *free_shit(char **stash, char **buf)
+void	*free_data(char **stash, char **buf)
 {
 	if (buf && *buf)
 	{
