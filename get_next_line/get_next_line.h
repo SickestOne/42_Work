@@ -6,14 +6,14 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:16:22 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/01 18:34:09 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/01 20:08:31 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 10000
 # endif 
 
 # include <unistd.h>
