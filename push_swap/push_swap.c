@@ -3,25 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:15:18 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/02 16:41:50 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/03 14:47:52 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // arguments du tableau
-// write tableau d'int avant modif
-// actions sur tableauu d'int
-// write tableau d'int apres modifications
+// 
 
 # include "push_swap.h"
 
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*new_el;
+
+	new_el = malloc(sizeof(t_list));
+	if (!new_el)
+		return (NULL);
+	new_el->num = content;
+	new_el->next = NULL;
+	return (new_el);
+}
+
 int	main(int argc,char **argv)
 {
-	if (argc == 2)
-		printf("%d", ft_atoi(argv[1]));
-	else
-		return (0);
+	int i;
+
+	i = 1;
+	if (argc != 2)
+	{
+		printf("bouge de la fdp\n");
+		exit(1);
+	}
+	while (i < argc)
+	{
+		printf("%d\n", ft_atoi(argv[i]));
+		i++;
+	}
 	return (0);
 }

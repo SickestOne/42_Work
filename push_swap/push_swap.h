@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 13:31:27 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/03 14:18:13 by rvan-den         ###   ########.fr       */
+/*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/03/03 15:02:32 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-t_list	*ft_lstnew(void *content)
+# include <stdio.h>
+# include <stdlib.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+typedef struct s_list
 {
-	t_list	*new_el;
+	int		num;
+	struct s_list *next; //modele assiette
+}t_list;
 
-	new_el = malloc(sizeof(t_list));
-	if (!new_el)
-		return (NULL);
-	new_el->content = content;
-	new_el->next = NULL;
-	return (new_el);
-}
+t_list	*ft_lstnew(void *content);
+char	**ft_split(char const *s, char c);
+int	ft_atoi(const char *str);
+
+#endif
