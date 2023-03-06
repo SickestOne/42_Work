@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:15:18 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/03 21:32:09 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/06 22:49:13 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,13 @@
 
 # include "push_swap.h"
 
-t_list	*ft_lstnew(int *content)
-{
-	t_list	*new_el;
-
-	new_el = malloc(sizeof(t_list));
-	if (!new_el)
-		return (NULL);
-	new_el->num = content;
-	new_el->next = NULL;
-	return (new_el);
-}
-
 int	main(int argc,char **argv)
 {
 	int i;
+	int j;
 
 	i = 1;
+	j = 0;
 	if (argc < 2)
 	{
 		printf("Bad input detected, imbecile.\n");
@@ -39,9 +29,13 @@ int	main(int argc,char **argv)
 	}
 	while (i < argc)
 	{
-		printf("%d\n", ft_atoi(argv[i]));
-		if (ft_atoi(argv[i]) == 0)
-			printf("Bad input detected, imbecile.\n");
+		while (argv[j] != 0)
+		{
+			printf("%s\n", *ft_split(argv[i], ' '));
+			if (ft_atoi(argv[i]) == 0)
+				printf("Bad input detected, imbecile.\n");
+			j++;
+		}
 		i++;
 	}
 	return (0);
