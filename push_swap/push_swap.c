@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:15:18 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/03 14:47:52 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:27:54 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+/*t_list	*ft_lstnew(void *content)
 {
 	t_list	*new_el;
 
@@ -25,7 +25,7 @@ t_list	*ft_lstnew(void *content)
 	new_el->num = content;
 	new_el->next = NULL;
 	return (new_el);
-}
+}*/
 
 int	main(int argc,char **argv)
 {

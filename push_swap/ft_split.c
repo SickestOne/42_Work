@@ -6,11 +6,11 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:13:33 by rvan-den          #+#    #+#             */
-/*   Updated: 2022/12/14 16:23:47 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:27:25 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 char	**free_all(char **tab, size_t indice)
 {
