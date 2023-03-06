@@ -6,7 +6,7 @@
 #    By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:03:53 by rvan-den          #+#    #+#              #
-#    Updated: 2023/03/02 15:57:59 by rvan-den         ###   ########.fr        #
+#    Updated: 2023/03/03 21:03:17 by pendejoo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@ CFLAGS 		= -Wall -Wextra -Werror
 ## Strings
 
 SRC 		=	push_swap.c \
+				ft_strlen.c \
+				ft_split.c  \
 				ft_atoi.c   \
 
 MY_OBJECTS = $(SRC:.c=.o)
