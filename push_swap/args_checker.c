@@ -6,25 +6,27 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 18:45:01 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/07 19:17:52 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/07 20:34:17 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	args_checker(int argc, char **argv)
+int	args_checker(int argc, char **argv)
 {
 	int i;
 
 	i = 1;
 	while (i < argc)
 	{
-		if (check_numbers(argc, &argv[i]) != 0)
+		if (check_numbers(argc, &argv[i]) == 0)
 			i++;
 		else
 		{
-			printf("Bad input detected.\n");
+			write(1, "ERROR.\n", 7);
 			exit (1);
 		}
+		return (1);
 	}
+	return (0);
 }

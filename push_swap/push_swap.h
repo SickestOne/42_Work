@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/07 19:17:27 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/07 20:09:48 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ int		ft_atoi(const char *str);
 int		ft_isdigit(char *str);
 size_t	ft_strlen(const char *str);
 int		check_numbers(int argc, char **argv);
-void	args_checker(int argc, char **argv);
+int	args_checker(int argc, char **argv);
 
 #endif

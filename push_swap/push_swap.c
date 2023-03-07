@@ -6,26 +6,12 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:15:18 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/07 19:19:26 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/07 20:35:34 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-
-int check_numbers(int argc, char **argv)
-{
-	int i;
-
-	i = 0;
-	while (argv[i] && i < argc)
-	{
-		if (!ft_isdigit(argv[i]))
-			break ;
-		i++;
-	}
-	return (0);
-}
 
 int	main(int argc,char **argv)
 {
@@ -34,13 +20,13 @@ int	main(int argc,char **argv)
 	i = 1;
 	if (argc < 2)
 	{
-		printf("Bad input detected.\n");
+		printf("No input detected.\n");
 		exit (1);
 	}
 	while (i < argc)
 	{
-		args_checker(argc, &argv[i]);
-		printf("%d\n", check_numbers(0, &argv[i]));
+		if (args_checker(argc, &argv[i]))
+			printf("%d\n", ft_atoi(argv[i]));
 		i++;
 	}
 	return (0);
