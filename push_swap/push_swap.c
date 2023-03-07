@@ -6,18 +6,29 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:15:18 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/07 14:34:17 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:19:39 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// arguments du tableau
-// 
-
 # include "push_swap.h"
+
 char *check_numbers(char **argv)
 {
 	int i;
 
+	i = 0;
+	while (argv[i])
+	{
+		if (!ft_isdigit(argv[i]))
+			return (NULL);
+		else 
+		{
+			ft_split(argv[i], ' ');
+			ft_atoi(argv[i]);
+			return (argv[i]);
+		}
+		i++;
+	}
 	i = 0;
 	ft_split(argv[i], ' ');
 	ft_atoi(argv[i]);
