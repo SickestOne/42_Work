@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:21:25 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/07 20:14:33 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/07 20:51:19 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_numbers(int argc, char **argv)
 	i = 0;
 	while (argv[i] && i < argc)
 	{
-		if (!ft_isdigit(argv[i]))
+		if (!data_checker(argv[i]))
 			return (1);
 		i++;
 	}
