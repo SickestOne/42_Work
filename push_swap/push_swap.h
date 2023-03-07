@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/03 21:31:09 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:30:33 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ t_list	*ft_lstnew(int *content);
 char	**ft_split(char const *s, char c);
 int	ft_atoi(const char *str);
 size_t ft_strlen(const char *str);
+char *check_numbers(char **argv); 
 
 #endif
