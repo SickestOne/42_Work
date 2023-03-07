@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/07 21:05:41 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/07 21:07:13 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	data_checker(char *str)
 	if (!temp)
 		return (0);
 	i = 0;
-	while (str[i])
+	while (temp[i])
 	{
 		if (!(((*temp[i] >= '0') && (*temp[i] <= '9')) || *temp[i] == '+' || *temp[i] == '-'))
 			return (0);
