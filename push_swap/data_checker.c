@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/07 21:07:13 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/07 21:55:07 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	data_checker(char *str)
 	{
 		if (!(((*temp[i] >= '0') && (*temp[i] <= '9')) || *temp[i] == '+' || *temp[i] == '-'))
 			return (0);
-		else if (!(*temp[i - 1] == '"' && ft_isdigit(temp[i]) && *temp[i + 1] == '"') ||
+		else if ((*temp[i - 1] == '"' && ft_isdigit(temp[i]) && *temp[i + 1] == '"') ||
 				(ft_isdigit(temp[i - 1]) && *temp[i + 1] == '"'))
 			return (0);
 		i++;
@@ -39,7 +39,8 @@ int ft_isdigit(char *str)
 	int i;
 
 	i = 0;
-	if ((((str[i] >= '0') && (str[i] <= '9')) || str[i] == '+' || str[i] == '-'))
+	if ((((str[i] >= '0') && (str[i] <= '9')) || str[i] == '+' || str[i] == '-' || 
+				str[i] == ' '))
 		return (1);
 	else
 		return (0);
