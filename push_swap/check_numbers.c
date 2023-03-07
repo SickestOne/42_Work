@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   check_numbers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/07 18:42:55 by pendejoo         ###   ########.fr       */
+/*   Created: 2023/03/07 19:21:25 by pendejoo          #+#    #+#             */
+/*   Updated: 2023/03/07 19:23:06 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// plus et moins
 #include "push_swap.h"
 
-int	ft_isdigit(char *str)
+int	check_numbers(int argc, char **argv)
 {
 	int i;
 
 	i = 0;
-	while (str[i])
+	while (argv[i] && i < argc)
 	{
-		if (!(((str[i] >= '0') && (str[i] <= '9')) || str[i] == '+' || str[i] == '-'))
-			return (0);
+		if (!ft_isdigit(argv[i]))
+			break;
 		i++;
 	}
-	return (1);
+	return (0);
 }

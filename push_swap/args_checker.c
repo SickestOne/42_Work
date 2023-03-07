@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   args_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/07 18:42:55 by pendejoo         ###   ########.fr       */
+/*   Created: 2023/03/07 18:45:01 by pendejoo          #+#    #+#             */
+/*   Updated: 2023/03/07 19:17:52 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// plus et moins
 #include "push_swap.h"
 
-int	ft_isdigit(char *str)
+void	args_checker(int argc, char **argv)
 {
 	int i;
 
-	i = 0;
-	while (str[i])
+	i = 1;
+	while (i < argc)
 	{
-		if (!(((str[i] >= '0') && (str[i] <= '9')) || str[i] == '+' || str[i] == '-'))
-			return (0);
-		i++;
+		if (check_numbers(argc, &argv[i]) != 0)
+			i++;
+		else
+		{
+			printf("Bad input detected.\n");
+			exit (1);
+		}
 	}
-	return (1);
 }

@@ -6,24 +6,22 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:15:18 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/07 18:10:48 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/07 19:19:26 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
 
-int check_numbers(char **argv)
+int check_numbers(int argc, char **argv)
 {
 	int i;
 
 	i = 0;
-	while (argv[i])
+	while (argv[i] && i < argc)
 	{
 		if (!ft_isdigit(argv[i]))
-			break;
-		else 
-			return (ft_atoi(argv[i]));
+			break ;
 		i++;
 	}
 	return (0);
@@ -36,25 +34,16 @@ int	main(int argc,char **argv)
 	i = 1;
 	if (argc < 2)
 	{
-		printf("Bad input detected, imbecile.\n");
-		exit(1);
+		printf("Bad input detected.\n");
+		exit (1);
 	}
 	while (i < argc)
 	{
-		if (check_numbers(&argv[i]) != 0)
-			i++;
-		else
-		{
-			printf("Bad input detected, imbecile.\n");
-			exit(1);
-		}
-	}
-	i = 1;
-	while (i < argc)
-	{
-		printf("%d\n", check_numbers(&argv[i]));
+		args_checker(argc, &argv[i]);
+		printf("%d\n", check_numbers(0, &argv[i]));
 		i++;
 	}
+	return (0);
 }
 /*to do : - iterer dans tout les args avant de pouvoir afficher le message d'erreur.
  * si err -> errno

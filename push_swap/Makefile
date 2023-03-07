@@ -6,7 +6,7 @@
 #    By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:03:53 by rvan-den          #+#    #+#              #
-#    Updated: 2023/03/07 18:09:12 by rvan-den         ###   ########.fr        #
+#    Updated: 2023/03/07 19:23:57 by pendejoo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ SRC 		=	push_swap.c \
 				ft_strlen.c \
 				ft_atoi.c   \
 				ft_isdigit.c \
+				args_checker.c \
+				check_numbers.c \
 
 
 MY_OBJECTS = $(SRC:.c=.o)
