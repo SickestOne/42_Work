@@ -31,6 +31,7 @@ SRC 		=	push_swap.c \
 				data_parser.c \
 				data_checker.c \
 				ft_strncmp.c \
+				ft_isascii.c \
 
 
 MY_OBJECTS = $(SRC:.c=.o)

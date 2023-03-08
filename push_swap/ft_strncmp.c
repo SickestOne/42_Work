@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/*
+* modif fonction pour double_checker.
+*/
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

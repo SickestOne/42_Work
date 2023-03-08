@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   double_checker.c                                   :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 16:26:38 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/08 16:26:40 by rvan-den         ###   ########.fr       */
+/*   Created: 2022/11/07 12:44:38 by rvan-den          #+#    #+#             */
+/*   Updated: 2022/11/07 12:45:23 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* passer data dans ft_atoi tour par tour
-* comparer premiere data avec toutes les autres
-*   - si aucune data similaire, comparer deuxieme data avec toutes les autres
-*   - si doublon detecté, exit(2);
-*/
-int double_checker(char **argv)
+int	ft_isascii(int c)
 {
-    int i; // compteur pour argc.
-    int j; // compteur pour argv.
-
-    i = 1;
-    j = 0;
-    return (0);
+	if ((c >= 0) && (c <= 127))
+		return (1);
+	else
+		return (0);
 }
