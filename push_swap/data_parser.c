@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/08 20:49:59 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:51:06 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	letter_checker(char **str)
  *	sinon
  *		passage a la deuxieme string, memes operations.
  *	return (1);	
+ *
+ *	ajout d'un holder temp pour comparer la string ?
  */
 
 int	double_checker(int argc, char **str)
