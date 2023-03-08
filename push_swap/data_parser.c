@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/08 20:44:35 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:49:59 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,14 @@ int	letter_checker(char **str)
 	}
 	return (1);
 }
+/*
+ * Compare la premiere string avec toutes les autres jusqua 0
+ *  si une des autres == premiere string
+ *			return (0);
+ *	sinon
+ *		passage a la deuxieme string, memes operations.
+ *	return (1);	
+ */
 
 int	double_checker(int argc, char **str)
 {
