@@ -28,9 +28,7 @@ CFLAGS 		= -Wall -Wextra -Werror
 SRC 		=	push_swap.c \
 				ft_strlen.c \
 				ft_atoi.c   \
-				ft_isdigit.c \
-				args_checker.c \
-				check_numbers.c \
+				data_parser.c \
 
 
 MY_OBJECTS = $(SRC:.c=.o)

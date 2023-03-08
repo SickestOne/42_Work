@@ -23,7 +23,6 @@ int	main(int argc,char **argv)
 		printf("No input detected.\n");
 		exit (0);
 	}
-	
 	if (data_checker(argv))
 	{
 		while (i < argc)
