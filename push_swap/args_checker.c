@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 18:45:01 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/07 20:34:17 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/08 12:18:54 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,12 @@ int	args_checker(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (check_numbers(argc, &argv[i]) == 0)
-			i++;
-		else
+		if (data_checker(argv[i]) == 0)
 		{
 			write(1, "ERROR.\n", 7);
 			exit (1);
 		}
-		return (1);
+		i++;
 	}
-	return (0);
+	return (1);
 }
