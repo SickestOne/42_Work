@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data_checker.c                                     :+:      :+:    :+:   */
+/*   data_parser.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/08 12:11:41 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:10:01 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // plus et moins
 #include "push_swap.h"
 
-int	data_checker(char **str)
+int	letter_checker(char **str)
 {
 	int i;
 	int j;
@@ -29,7 +29,7 @@ int	data_checker(char **str)
 				j++;
 			else
 			{
-				write(2, "ERROR.\n", 7);
+				write(2, "Error\n", 7);
 				exit (2);
 			}
 		}
@@ -38,3 +38,12 @@ int	data_checker(char **str)
 	}
 	return (1);
 }
+
+int	double_checker(char **str)
+{}
+
+void int_checker(char **str)
+{}
+
+int	data_checker(char **str)
+{}

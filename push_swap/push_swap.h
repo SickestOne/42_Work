@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/08 12:18:24 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:10:33 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ typedef struct s_list
 }t_list;
 
 int		ft_atoi(const char *str);
-int		data_checker(char **str);
 size_t	ft_strlen(const char *str);
 int		check_numbers(int argc, char **argv);
 int		ft_isdigit(char *str);
-int 	double_checker(char **argv);
 int		ft_isascii(int c);
-
+int		data_checker(char **argv);
+int		letter_checker(char **str);
+int 	double_checker(char **argv);
+void	int_checker(char **argv);
 
 #endif
