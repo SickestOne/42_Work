@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/08 19:10:33 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:03:20 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int		data_checker(char **argv);
 int		letter_checker(char **str);
 int 	double_checker(char **argv);
 void	int_checker(char **argv);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif

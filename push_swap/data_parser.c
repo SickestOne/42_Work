@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/08 19:10:01 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:12:48 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,24 @@ int	letter_checker(char **str)
 }
 
 int	double_checker(char **str)
-{}
+{
+	int tab;
+	int lettre;
 
-void int_checker(char **str)
-{}
+	tab = 1;
+	lettre = 0;
+	while(str[tab])
+	{
+		ft_strcmp(str[tab], str[lettre]);
+		tab++;
+	}
+	return (0);
+}
 
 int	data_checker(char **str)
-{}
+{
+	if (!(letter_checker(str) || !double_checker(str)))
+		return (0);
+	else
+		return (1);
+}

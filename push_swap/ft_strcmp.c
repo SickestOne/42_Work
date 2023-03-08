@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:48:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2022/11/08 16:03:05 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:02:53 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 * modif fonction pour double_checker.
 */
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	index;
 
 	index = 0;
-	while ((s1[index] || s2[index]) && index < n)
+	while ((s1[index] || s2[index]))
 	{
 		if (!ft_isascii(s1[index]) || !ft_isascii(s2[index]))
 			index++;
