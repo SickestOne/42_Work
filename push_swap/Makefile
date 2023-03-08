@@ -29,6 +29,8 @@ SRC 		=	push_swap.c \
 				ft_strlen.c \
 				ft_atoi.c   \
 				data_parser.c \
+				data_checker.c \
+				ft_strncmp.c \
 
 
 MY_OBJECTS = $(SRC:.c=.o)

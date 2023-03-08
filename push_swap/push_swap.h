@@ -29,5 +29,7 @@ int		data_checker(char **str);
 size_t	ft_strlen(const char *str);
 int		check_numbers(int argc, char **argv);
 int		ft_isdigit(char *str);
+int double_checker(char **argv);
+
 
 #endif
