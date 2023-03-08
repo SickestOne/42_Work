@@ -25,11 +25,9 @@ typedef struct s_list
 }t_list;
 
 int		ft_atoi(const char *str);
-int		data_checker(const char *str);
+int		data_checker(char **str);
 size_t	ft_strlen(const char *str);
 int		check_numbers(int argc, char **argv);
-int		args_checker(int argc, char **argv);
 int		ft_isdigit(char *str);
-int data_checker_two(const char *str);
 
 #endif

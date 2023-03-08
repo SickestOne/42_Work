@@ -13,30 +13,30 @@
 // plus et moins
 #include "push_swap.h"
 
-int	data_checker(const char *str)
+int	data_checker(char **str)
 {
 	int i;
+	int j;
 	
-	i = 0;
+	i = 1;
+	j = 0;
 	while (str[i])
 	{
-		if (((str[i] >= '0') && (str[i] <= '9')) || str[i] == '+' || str[i] == '-' || (str[i] == '"'))
-			return (1);
+		while (str[i][j])
+		{
+			if (((str[i][j] >= '0') && (str[i][j] <= '9')) || str[i][j] == '+' || str[i][j] == '-' ||
+			str[i][j] == ' ')
+				j++;
+			else
+			{
+				write(2, "ERROR.\n", 7);
+				exit (2);
+			}
+		}
 		i++;
-	}
-	return (0);
-}
+		j = 0;
 
-int data_checker_two(const char *str)
-{
-	int i;
-	
-	i = 0;
-	while (str[i])
-	{
-		if (((str[i] >= '0') && (str[i] <= '9')) || str[i] == '+' || str[i] == '-')
-			return (1);
-		i++;
 	}
-	return (0);
+	return (1);
+	
 }

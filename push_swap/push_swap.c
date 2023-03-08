@@ -23,12 +23,15 @@ int	main(int argc,char **argv)
 		printf("No input detected.\n");
 		exit (0);
 	}
-	while (i < argc)
+	
+	if (data_checker(argv))
 	{
-		if (args_checker(argc, &argv[i]))
+		while (i < argc)
+		{
 			printf("%d\n", ft_atoi(argv[i]));
-		i++;
-	}
+			i++;
+		}
+	}	
 	return (0);
 }
 /*to do : - iterer dans tout les args avant de pouvoir afficher le message d'erreur.
