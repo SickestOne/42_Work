@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/08 20:51:06 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/08 22:04:08 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,22 +51,28 @@ int	double_checker(int argc, char **str)
 	int tab;
 	int lettre;
 	int i;
+	char **temp;
 
 	i = 1;
 	tab = 1;
 	lettre = 0;
 	while(str[tab])
 	{
-		while (str[tab][lettre] && i < argc)
+		while (str[tab][lettre] && i <= argc)
 		{
-			if ();
-			else
-				return (0);
+			double_checker_two(argc, str, temp);
 		}
+		tab = 0;
+		lettre = 0;
+		tab = argc;
+		temp = NULL;
 		i++;
 	}
 	return (1);
 }
+
+void double_checker_two(int argc, char **str, char **temp)
+{}
 
 int	data_checker(int argc, char **str)
 {
