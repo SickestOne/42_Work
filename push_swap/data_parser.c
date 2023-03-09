@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/09 10:57:57 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:37 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,31 +48,11 @@ int	letter_checker(char **str)
 
 int	double_checker(int argc, char **str)
 {
-	int i;
-	int j;
-	char **temp;
-
-	i = 1;
-	j = 0;
-	while (str[i] && i != argc)
-	{
-		while (str[i][j])
-		{
-			temp = str;
-			if ((str[i][j] > **temp))
-				j++;
-			else if ((str[i][j] < **temp))
-				j++;
-			else
-				return (0);
-		}
-		j = 0;
-		i = argc;
-		temp = NULL;
-	}
-	return (1);
+	if (!ft_strcmp(argc, str))
+		return (0);
+	else
+		return (1);
 }
-
 int	data_checker(int argc, char **str)
 {
 	if (!(letter_checker(str)) || !double_checker(argc, str))

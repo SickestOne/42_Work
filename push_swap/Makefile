@@ -6,7 +6,7 @@
 #    By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:03:53 by rvan-den          #+#    #+#              #
-#    Updated: 2023/03/08 19:06:07 by pendejoo         ###   ########.fr        #
+#    Updated: 2023/03/09 12:29:48 by pendejoo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRC 		=	push_swap.c \
 				ft_strlen.c \
 				ft_atoi.c   \
 				data_parser.c \
-				ft_strncmp.c \
+				ft_strcmp.c \
 				ft_isascii.c \
 
 

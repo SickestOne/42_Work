@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:48:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/09 10:20:05 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:44:30 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,31 @@
 * modif fonction pour double_checker.
 */
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(int argc, char **str)
 {
-	size_t	index;
+	int	i;
+	int j;
+	int k;
+	char **temp;
 
-	index = 0;
-	while ((s1[index] || s2[index]))
+	i = 1;
+	j = 0;
+	k = 1;
+	temp = str;
+	while (str[i] && k < argc)
 	{
-		if (!ft_isascii(s1[index]) || !ft_isascii(s2[index]))
-			index++;
-		if ((s1[index] > s2[index]) || !s2[index])
-			return (1);
-		if ((s1[index] < s2[index]) || !s1[index])
-			return (-1);
-		index++;
+		while (str[i][j])
+		{
+			if (argc  == 2)
+				return (1);
+			else if ()
+				return (0);
+			else
+				j++;
+		}
+		j = 0;
+		i++;
+		k++;
 	}
-	return (0);
+	return (1);
 }
