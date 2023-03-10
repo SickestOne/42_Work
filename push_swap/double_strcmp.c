@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:48:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/10 12:35:23 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:13:53 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int	double_strcmp(int argc, char **str)
 		while (str[i][j] && i != argc - 1)
 		{
 			temp = str;
-			while (temp[k][k] && str[i][j])
+			while (temp[k][j] && str[i][j])
 			{
 				if (argc  == 2)
 					return (1);
 				if ((str[i + 1][j] < temp[k][j] || str[i + 1][j] > temp[k][j]))
 					j++;
-				else if ((str[i + 1][j] == '\0')) 
+				else if ((temp != str || str[i + 1][j] == '\0')) 
 					break;
 				else
 					return (0);
