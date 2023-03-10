@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:15:18 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/09 14:49:48 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:35:29 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,7 @@ int	main(int argc,char **argv)
 		exit (0);
 	}
 	if (data_checker(argc, argv))
-	{
-		while (i < argc)
-		{
-			printf("%d\n", ft_atoi(argv[i]));
-			i++;
-		}
-	}	
+			printf("OK\n");
 	return (0);
 }
 /*to do : - iterer dans tout les args avant de pouvoir afficher le message d'erreur.

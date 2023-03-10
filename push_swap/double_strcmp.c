@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:48:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/10 13:13:53 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:15:33 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,31 @@
 * modif fonction pour double_checker.
 */
 
-int	double_strcmp(int argc, char **str)
+int	double_strcmp(int argc, char **str, int j, int i)
 {
-	int	i;
-	int j;
-	int k;
-	char **temp;
+	int temp;
 
-	i = 1;
-	j = 0;
-	k = 1;
-	while (str[i])
+	while (str[++i])
 	{
-		while (str[i][j] && i != argc - 1)
+		if (argc == 2)
+			return (1);
+		temp = ft_atoi(str[i]);
+		while (str[j])
 		{
-			temp = str;
-			while (temp[k][j] && str[i][j])
-			{
-				if (argc  == 2)
-					return (1);
-				if ((str[i + 1][j] < temp[k][j] || str[i + 1][j] > temp[k][j]))
+			if (i == j)
+				if (j < argc - 1)
 					j++;
-				else if ((temp != str || str[i + 1][j] == '\0')) 
-					break;
-				else
-					return (0);
+			if (ft_atoi(str[j]) != temp)
+			{
+				if (j < argc - 1)
+					j++;
 			}
-			j = 0;
-			i++;
+			else
+				return (0);
+			if (j >= argc - 1)
+				break;
 		}
-		i = 0;
-		k++;
-		i = k;
-		temp = NULL;
+		j = 1;
 	}
 	return (1);
 }
