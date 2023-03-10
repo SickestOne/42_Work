@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/10 17:50:42 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/10 18:51:01 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_list
 	struct s_list *next; //modele assiette
 }t_list;
 
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 size_t	ft_strlen(const char *str);
 int		check_numbers(int argc, char **argv);
 int		ft_isdigit(char *str);
