@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/10 16:14:44 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:01:18 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ int		ft_isdigit(char *str);
 int		ft_isascii(int c);
 int		data_checker(int argc, char **argv);
 int		letter_checker(char **str);
-int 	double_checker(int argc, char **argv);
 void	int_checker(char **argv);
 int		double_strcmp(int argc, char **str, int j, int i);
-//char	*my_strcpy(char **dest, char **src);
+int		int_checker(int argc, char **str);
 
 #endif

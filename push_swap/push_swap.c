@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:15:18 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/10 15:35:29 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:58:40 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ int	main(int argc,char **argv)
 	int i;
 
 	i = 1;
-	if (argc <= 1)
+	if (argc == 1)
 	{
-		printf("No input detected.\n");
 		exit (0);
 	}
 	if (data_checker(argc, argv))
