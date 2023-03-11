@@ -6,13 +6,13 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/11 22:26:06 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/11 22:54:02 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	letter_checker(char **str)
+int	number_checker(char **str)
 {
 	int	i;
 	int	j;
@@ -35,9 +35,9 @@ int	letter_checker(char **str)
 	return (1);
 }
 
-int	double_strcmp(int argc, char **str, int j, int i)
+int	double_checker(int argc, char **str, int i, int j)
 {
-	int	temp;
+	int temp;
 
 	while (str[++i])
 	{
@@ -46,9 +46,8 @@ int	double_strcmp(int argc, char **str, int j, int i)
 		temp = ft_atoi(str[i]);
 		while (str[j])
 		{
-			if (i == j)
-				if (j < argc - 1)
-					j++;
+			if (i == j && j < argc - 1)
+				j++;
 			if (ft_atoi(str[j]) != temp)
 			{
 				if (j < argc - 1)
@@ -74,7 +73,7 @@ int	int_checker(char **str, int i)
 
 int	data_checker(int argc, char **str)
 {
-	if (!(letter_checker(str)) || !double_strcmp(argc, str, 1, 0)
+	if (!(number_checker(str)) || !double_checker(argc, str, 0, 1)
 		|| !int_checker(str, -1))
 	{
 		write(2, "Error\n", 7);

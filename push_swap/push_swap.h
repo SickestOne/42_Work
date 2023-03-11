@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/10 20:06:37 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/11 22:53:52 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ typedef struct s_list
 long	ft_atoi(const char *str);
 size_t	ft_strlen(const char *str);
 int		data_checker(int argc, char **argv);
-int		letter_checker(char **str);
-int		double_strcmp(int argc, char **str, int j, int i);
+int		number_checker(char **str);
+int		double_checker(int argc, char **str, int i, int j);
 int		int_checker(char **str, int i);
 
 #endif
