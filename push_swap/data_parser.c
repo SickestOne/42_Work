@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/10 19:11:13 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/11 22:26:06 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,16 @@ int	double_strcmp(int argc, char **str, int j, int i)
 
 int	int_checker(char **str, int i)
 {
-	while (str[i])
-	{
+	while (str[++i])
 		if (ft_atoi(str[i]) > 2147483647 || ft_atoi(str[i]) < -2147483648)
 			return (0);
-		i++;
-	}
 	return (1);
 }
 
 int	data_checker(int argc, char **str)
 {
 	if (!(letter_checker(str)) || !double_strcmp(argc, str, 1, 0)
-		|| !int_checker(str, 1))
+		|| !int_checker(str, -1))
 	{
 		write(2, "Error\n", 7);
 		exit (2);
