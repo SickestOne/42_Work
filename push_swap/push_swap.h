@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/11 22:53:52 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:17:50 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include <stdlib.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct s_list
+{
+	int		num;
+	struct s_list *next; //modele assiette
+}t_list;
 
 typedef struct s_list
 {
