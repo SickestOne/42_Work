@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/14 15:17:50 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:28:50 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,19 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list
+typedef struct t_list
 {
-	int		num;
-	struct s_list *next; //modele assiette
-}t_list;
+	int		data;
+	struct t_list *prev;
+	struct t_list *next;
+}				t_list;
 
-typedef struct s_list
+typedef struct t_ctrl
 {
-	int		num;
-	struct s_list *next; //modele assiette
-}t_list;
+	struct t_list *a;
+	struct t_lsit *b;
+}				t_ctrl;
+
 
 long	ft_atoi(const char *str);
 size_t	ft_strlen(const char *str);
