@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/15 16:28:50 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:43:48 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ int		data_checker(int argc, char **argv);
 int		number_checker(char **str);
 int		double_checker(int argc, char **str, int i, int j);
 int		int_checker(char **str, int i);
+t_list list_init(char **argv);
 
 #endif
