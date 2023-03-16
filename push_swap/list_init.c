@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:32:23 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/16 15:00:17 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:56:24 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,8 @@ t_node *node_init(char **argv)
 		return (NULL);
 	node->prev = NULL;
 	node->data = ft_atoi(argv[i]);
+	printf("%d\n", node->data);
 	node->next = NULL;
 	return (node);
-}
-
-t_node *head_init(t_node node)
-{
-	t_ctrl *head;
-
-	head = malloc(sizeof(t_node));
-	if (!head)
-		return (NULL);
-	head->a = node;
 }
 

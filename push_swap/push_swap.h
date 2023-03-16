@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/16 14:59:47 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:48:18 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ typedef struct t_node
 	struct t_list *next;
 }				t_node;
 
-typedef struct t_ctrl
+/*typedef struct t_ctrl
 {
 	struct t_list *a;
 	struct t_lsit *b;
-}				t_ctrl;
+}				t_ctrl;*/
 
 
 long	ft_atoi(const char *str);
@@ -39,6 +39,5 @@ int		number_checker(char **str);
 int		double_checker(int argc, char **str, int i, int j);
 int		int_checker(char **str, int i);
 t_node *node_init(char **argv);
-t_node *head_init(t_node *node);
 
 #endif
