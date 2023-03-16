@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/15 16:43:48 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/16 14:59:47 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct t_list
+typedef struct t_node
 {
-	int		data;
+	int	data;
 	struct t_list *prev;
 	struct t_list *next;
-}				t_list;
+}				t_node;
 
 typedef struct t_ctrl
 {
@@ -38,6 +38,7 @@ int		data_checker(int argc, char **argv);
 int		number_checker(char **str);
 int		double_checker(int argc, char **str, int i, int j);
 int		int_checker(char **str, int i);
-t_list list_init(char **argv);
+t_node *node_init(char **argv);
+t_node *head_init(t_node *node);
 
 #endif

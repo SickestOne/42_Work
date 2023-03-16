@@ -6,13 +6,33 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:32:23 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/15 16:48:20 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:00:17 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list list_init(char **argv)
+t_node *node_init(char **argv)
 {
+	t_node *node;
+	static int i = 1;
 
+	node = malloc(sizeof(t_node));
+	if (!node)
+		return (NULL);
+	node->prev = NULL;
+	node->data = ft_atoi(argv[i]);
+	node->next = NULL;
+	return (node);
 }
+
+t_node *head_init(t_node node)
+{
+	t_ctrl *head;
+
+	head = malloc(sizeof(t_node));
+	if (!head)
+		return (NULL);
+	head->a = node;
+}
+

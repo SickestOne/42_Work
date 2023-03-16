@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:15:18 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/15 16:48:20 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/16 14:06:53 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc,char **argv)
 	}
 	if (data_checker(argc, argv))
 	{
-		list_init(argv);
+		node_init(argv);
 	}
 	return (0);
 }
