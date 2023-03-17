@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/17 15:00:20 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/17 15:42:11 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ int	int_checker(char **str, int i)
 	{
 		if (ft_atoi(str[i]) > 2147483647 || ft_atoi(str[i]) < -2147483648)
 			return (0);
-		if (ft_strlen(str[i]) > 10)
-			return (0);
+		/*if (ft_strlen(str[i]) > 10)
+			return (0);*/
 	}
 	return (1);
 }
