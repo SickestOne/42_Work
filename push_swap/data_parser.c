@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/11 22:54:02 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/17 13:32:09 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	number_checker(char **str)
 
 int	double_checker(int argc, char **str, int i, int j)
 {
-	int temp;
+	int	temp;
 
 	while (str[++i])
 	{
@@ -65,6 +65,8 @@ int	double_checker(int argc, char **str, int i, int j)
 
 int	int_checker(char **str, int i)
 {
+	if (ft_strlen(*str) > 10)
+		return (0);
 	while (str[++i])
 		if (ft_atoi(str[i]) > 2147483647 || ft_atoi(str[i]) < -2147483648)
 			return (0);
