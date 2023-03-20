@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/20 15:41:25 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/20 16:29:24 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		data_checker(int argc, char **argv);
 int		number_checker(char **str);
 int		double_checker(int argc, char **str, int i, int j);
 int		int_checker(char **str, int i);
-t_node	*node_init(char **argv);
+t_node	*node_init(int argc, char **argv);
 void	ft_lstadd_back(t_node **lst, t_node *new);
 t_node	*ft_lstlast(t_node *lst);
 t_node	*ft_lstnew(int content);
