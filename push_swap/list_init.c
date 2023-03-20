@@ -6,28 +6,18 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:32:23 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/17 17:14:36 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/20 15:46:28 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node_a *node_init(int argc, char **argv)
+t_node *node_init(char **argv)
 {
 	static int i = 1;
-	t_node_a *node;
+	t_node *stack_a;
 
-	while (i < argc)
-	{
-		node = malloc(sizeof(t_node_a));
-		if (!node)
-			return (NULL);
-		node->data = ft_atoi(argv[i]);
-		//printf("%d\n", node->data);
-		node = node->next;
-		i++;
-	}
-	node = NULL;
-	return (node);
+	stack_a = ft_lstnew((int)ft_atoi(argv[i]));
+	printf("%d\n", stack_a->data);
+	return (stack_a);
 }
-
