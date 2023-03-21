@@ -6,13 +6,63 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:05:24 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/20 15:37:43 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:29:05 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_back(t_node **lst, t_node *new)
+
+t_node	*create_cell(int content)
+{
+	t_node *cell;
+
+	cell = malloc(sizeof(t_node));
+	if (!cell)
+		return (NULL);
+	cell->data = content;
+	cell->next = NULL;
+	cell->prev = NULL;
+	return (cell);
+}
+
+t_ctrl	*build_stack(int argc, char **argv)
+{
+	int i;
+
+	i = 1;
+	t_ctrl *ab;
+	t_node *tmp;
+
+	ab = malloc(sizeof(t_ctrl));
+	if (!ab)
+		return (NULL);
+	ab->a = NULL;
+	ab->b = NULL;
+	ab->a = create_cell(ft_atoi(argv[i++]));
+	tmp = ab->a;
+	while (i < argc)
+	{
+		ab->a->next = create_cell(ft_atoi(argv[i]));
+		ab->a = ab->a->next;
+		ab->a->prev = tmp;
+		tmp = ab->a;
+		i++;
+	}
+	return (ab);
+}
+
+// TO DO : check number of args
+// BUILD STACK if more than 2
+//
+
+/*void	ft_lstadd_front(t_node **lst, t_node *new)
+{
+	new->next;
+	*lst = new;
+}*/
+
+/*void	ft_lstadd_back(t_node **lst, t_node *new)
 {
 	t_node	*lst_lst;
 
@@ -32,22 +82,4 @@ t_node	*ft_lstlast(t_node *lst)
 	while (lst->next)
 		lst = lst->next;
 	return (lst);
-}
-
-t_node	*ft_lstnew(int content)
-{
-	t_node	*new_el;
-
-	new_el = malloc(sizeof(t_node));
-	if (!new_el)
-		return (NULL);
-	new_el->data = content;
-	new_el->next = NULL;
-	return (new_el);
-}
-
-/*void	ft_lstadd_front(t_node **lst, t_node *new)
-{
-	new->next;
-	*lst = new;
 }*/
