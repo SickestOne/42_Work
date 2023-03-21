@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/21 16:24:27 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:57:05 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void	ft_lstadd_back(t_node **lst, t_node *new);
 t_node	*ft_lstlast(t_node *lst);
 void	ft_lstadd_front(t_node **lst, t_node *new);
 t_node	*create_cell(int content);
-t_ctrl	*build_stack(int argc, char **argv);
+t_ctrl	*build_stack(int argc, char **argv, int i);
 
 #endif

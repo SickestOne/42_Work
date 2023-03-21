@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:05:24 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/21 16:29:05 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:57:05 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,8 @@ t_node	*create_cell(int content)
 	return (cell);
 }
 
-t_ctrl	*build_stack(int argc, char **argv)
+t_ctrl	*build_stack(int argc, char **argv, int i)
 {
-	int i;
-
-	i = 1;
 	t_ctrl *ab;
 	t_node *tmp;
 
@@ -40,6 +37,7 @@ t_ctrl	*build_stack(int argc, char **argv)
 	ab->a = NULL;
 	ab->b = NULL;
 	ab->a = create_cell(ft_atoi(argv[i++]));
+	printf("adresse ab->a avant compute :%p\n\n", ab->a);
 	tmp = ab->a;
 	while (i < argc)
 	{
@@ -49,6 +47,7 @@ t_ctrl	*build_stack(int argc, char **argv)
 		tmp = ab->a;
 		i++;
 	}
+	printf("adresse ab->a apres compute :%p\n", ab->a);
 	return (ab);
 }
 
