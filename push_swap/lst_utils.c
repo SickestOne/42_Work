@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:05:24 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/21 20:57:05 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:07:14 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,32 +53,3 @@ t_ctrl	*build_stack(int argc, char **argv, int i)
 
 // TO DO : check number of args
 // BUILD STACK if more than 2
-//
-
-/*void	ft_lstadd_front(t_node **lst, t_node *new)
-{
-	new->next;
-	*lst = new;
-}*/
-
-/*void	ft_lstadd_back(t_node **lst, t_node *new)
-{
-	t_node	*lst_lst;
-
-	if (!*lst)
-	{
-		*lst = new;
-		return ;
-	}
-	lst_lst = ft_lstlast(*(lst));
-	lst_lst->next = new;
-}
-
-t_node	*ft_lstlast(t_node *lst)
-{
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
-}*/
