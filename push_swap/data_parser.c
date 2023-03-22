@@ -6,14 +6,13 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/22 18:47:07 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/22 19:29:01 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // TO DO :
-// check 21---/etc
 // check number of args if "xx xx xx"
 
 int	number_checker(char **str, int i, int j)
