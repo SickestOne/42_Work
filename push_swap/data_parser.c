@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/22 22:30:35 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/23 00:04:43 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 // TO DO :
 // check number of args if "xx xx xx"
+// AVANT RENDU FINAL, DECOM SECU INT_CHECKER L:80
 
 int	number_checker(char **str, int i, int j)
 {
@@ -84,17 +85,21 @@ int	int_checker(char **str, int i)
 	{
 		if (ft_atoi(str[i]) > 2147483647 || ft_atoi(str[i]) < -2147483648)
 			return (0);
-		if (ft_strlen(str[i]) > 10)
-			return (0);
+		/*if (ft_strlen(str[i]) > 10)
+			return (0);*/
 	}
 	return (1);
 }
 
 int	data_checker(int argc, char **str)
 {
-	if (!(number_checker(str, 1, 0)) || !double_checker(argc, str, 0, 1)
-		|| !int_checker(str, -1) || !sign_checker(str, 1, 0) || 
-		!quotes_checker(argc, str, 1))
+	if (argc == 2 && !quotes_checker(str, 1))
+	{
+		write(2, "Error\n", 7);
+		exit (2);
+	}
+	else if (!(number_checker(str, 1, 0)) || !double_checker(argc, str, 0, 1)
+		|| !int_checker(str, -1) || !sign_checker(str, 1, 0)) 
 	{
 		write(2, "Error\n", 7);
 		exit (2);
