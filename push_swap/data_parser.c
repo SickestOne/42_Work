@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/22 19:29:01 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/22 22:30:35 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,8 @@ int	number_checker(char **str, int i, int j)
 	return (1);
 }
 
-int	sign_checker(char **str)
+int	sign_checker(char **str, int i, int j)
 {
-	int	i;
-	int	j;
-
-	i = 1;
-	j = 0;
 	while (str[i])
 	{
 		while (str[i][j])
@@ -89,8 +84,8 @@ int	int_checker(char **str, int i)
 	{
 		if (ft_atoi(str[i]) > 2147483647 || ft_atoi(str[i]) < -2147483648)
 			return (0);
-		/*if (ft_strlen(str[i]) > 10)
-			return (0);*/
+		if (ft_strlen(str[i]) > 10)
+			return (0);
 	}
 	return (1);
 }
@@ -98,7 +93,8 @@ int	int_checker(char **str, int i)
 int	data_checker(int argc, char **str)
 {
 	if (!(number_checker(str, 1, 0)) || !double_checker(argc, str, 0, 1)
-		|| !int_checker(str, -1) || !sign_checker(str))
+		|| !int_checker(str, -1) || !sign_checker(str, 1, 0) || 
+		!quotes_checker(argc, str, 1))
 	{
 		write(2, "Error\n", 7);
 		exit (2);

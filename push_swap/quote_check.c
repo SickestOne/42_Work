@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   quote_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 21:15:18 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/22 19:54:11 by pendejoo         ###   ########.fr       */
+/*   Created: 2023/03/22 22:26:42 by pendejoo          #+#    #+#             */
+/*   Updated: 2023/03/22 22:46:57 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-
-int	main(int argc,char **argv)
+int	quotes_checker(int argc, char **str, int i)
 {
-	if (argc < 2)
-		exit (0);
-	if (data_checker(argc, argv))
-		build_stack(argc, argv, 1);
-	return (0);
+	char **temp;
+
+	temp = ft_split(*str, ' ');
+	while (temp[i])
+	{
+		if (i > argc)
+			return (0);
+		i++;
+	}
+	free(temp);
+	return (1);
 }
