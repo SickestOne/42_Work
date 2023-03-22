@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 22:26:42 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/22 23:54:43 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/23 00:09:55 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 int	quotes_checker(char **str, int i)
 {
-	int words;
+	int params;
 
 	while (str[i])
 	{
-		words = count_words(str, ' ', 0);
-		if (words > 1)
+		params = count_params(str, ' ', 0);
+		if (params > 1)
 			return (0);
 		i++;
 	}
 	return (1);
 }
-int	count_words(char **s, char c,int i)
+int	count_params(char **s, char c,int i)
 {
 	int	count;
 	int j;

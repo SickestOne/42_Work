@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/23 00:04:43 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/23 00:12:23 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,7 @@ int	int_checker(char **str, int i)
 int	data_checker(int argc, char **str)
 {
 	if (argc == 2 && !quotes_checker(str, 1))
-	{
-		write(2, "Error\n", 7);
-		exit (2);
-	}
+		exit (0);
 	else if (!(number_checker(str, 1, 0)) || !double_checker(argc, str, 0, 1)
 		|| !int_checker(str, -1) || !sign_checker(str, 1, 0)) 
 	{
