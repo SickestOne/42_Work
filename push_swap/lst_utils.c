@@ -6,12 +6,17 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:05:24 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/22 15:07:14 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:55:36 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// TO DO : check number of args
+// BUILD STACK if args >= 3
+// GO TOP FUNCTION
+// if 1 args, return term (already sorted)
+// if no args, exit/return terr
 
 t_node	*create_cell(int content)
 {
@@ -37,7 +42,6 @@ t_ctrl	*build_stack(int argc, char **argv, int i)
 	ab->a = NULL;
 	ab->b = NULL;
 	ab->a = create_cell(ft_atoi(argv[i++]));
-	printf("adresse ab->a avant compute :%p\n\n", ab->a);
 	tmp = ab->a;
 	while (i < argc)
 	{
@@ -47,9 +51,5 @@ t_ctrl	*build_stack(int argc, char **argv, int i)
 		tmp = ab->a;
 		i++;
 	}
-	printf("adresse ab->a apres compute :%p\n", ab->a);
 	return (ab);
 }
-
-// TO DO : check number of args
-// BUILD STACK if more than 2
