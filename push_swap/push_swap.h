@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/23 00:09:55 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/23 21:28:02 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,19 @@ typedef struct t_ctrl
 	struct t_node *b;
 }			t_ctrl;
 
+char	*error_msg(void);
+char	**ft_split(char const *s, char c);
 long	ft_atoi(const char *str);
 size_t	ft_strlen(const char *str);
 int		count_params(char **s, char c, int i);
-int		data_checker(int argc, char **argv);
+int		sa_checker(int argc, char **argv);
+int		data_checker(int argc, char **str);
 int		number_checker(char **str, int i, int j);
 int		double_checker(int argc, char **str, int i, int j);
+int		double_checker_fsa(int argc, char **str);
 int		int_checker(char **str, int i);
 int		sign_checker(char **str, int i, int j);
 t_node	*create_cell(int content);
 t_ctrl	*build_stack(int argc, char **argv, int i);
-int		quotes_checker(char **str, int i);
 
 #endif

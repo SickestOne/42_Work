@@ -6,101 +6,57 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/23 00:12:23 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/23 22:32:31 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // TO DO :
-// check number of args if "xx xx xx"
-// AVANT RENDU FINAL, DECOM SECU INT_CHECKER L:80
-
-int	number_checker(char **str, int i, int j)
+// - faire une focntion pour gerer : "xx xx" xx xx.
+// - dabord check si necessaire.
+int	sa_checker(int argc, char **str)
 {
-	while (str[i])
+	char	**temp;
+
+	temp = ft_split((const char *)str[1], ' ');
+	if (count_params(temp, ' ', 0))
 	{
-		while (str[i][j])
+		if (number_checker(temp, 1, 0) && double_checker(argc, temp, 0, 1)
+			&& sign_checker(temp, 1, 0) && int_checker(temp, -1))
 		{
-			if (((str[i][j] >= '0') && (str[i][j] <= '9')) || str[i][j] == '+'
-				|| str[i][j] == '-' || str[i][j] == ' ')
-				j++;
-			else
-				return (0);
-		}
-		i++;
-		j = 0;
-	}
-	return (1);
-}
-
-int	sign_checker(char **str, int i, int j)
-{
-	while (str[i])
-	{
-		while (str[i][j])
-		{
-			if ((number_checker(str, 1, 0) && str[i][j + 1] == '-')
-				|| (number_checker(str, 1, 0) && str[i][j + 1] == '+'))
-				return (0);
-			j++;
-		}
-		i++;
-		j = 0;
-	}
-	return (1);
-}
-
-int	double_checker(int argc, char **str, int i, int j)
-{
-	int	temp;
-
-	while (str[++i])
-	{
-		if (argc == 2)
+			printf("sa rdy\n");
 			return (1);
-		temp = ft_atoi(str[i]);
-		while (str[j])
-		{
-			if (i == j && j < argc - 1)
-				j++;
-			if (ft_atoi(str[j]) != temp)
-			{
-				if (j < argc - 1)
-					j++;
-			}
-			else
-				return (0);
-			if (j >= argc - 1)
-				break ;
 		}
-		j = 1;
-	}
-	return (1);
-}
-
-int	int_checker(char **str, int i)
-{
-	while (str[++i])
-	{
-		if (ft_atoi(str[i]) > 2147483647 || ft_atoi(str[i]) < -2147483648)
+		else
 			return (0);
-		/*if (ft_strlen(str[i]) > 10)
-			return (0);*/
 	}
-	return (1);
+	return (0);
 }
 
 int	data_checker(int argc, char **str)
 {
-	if (argc == 2 && !quotes_checker(str, 1))
-		exit (0);
-	else if (!(number_checker(str, 1, 0)) || !double_checker(argc, str, 0, 1)
-		|| !int_checker(str, -1) || !sign_checker(str, 1, 0)) 
+	if (argc == 2)
+	{
+		if (sa_checker(argc, str))
+			return (1);
+		else
+		{
+			write(2, "Error\n", 7);
+			exit (2);
+		}
+	}
+	/*else if (sa_checker(argc, str) && argc > 2) // A CORRIGER, SEGFAULT SUR ATOI
+		exit (0);*/ 
+	else if (!number_checker(str, 1, 0) || !double_checker(argc, str, 0, 1)
+		|| !sign_checker(str, 1, 0) || !int_checker(str, -1))
 	{
 		write(2, "Error\n", 7);
 		exit (2);
 	}
 	else
+	{
+		printf("ma rdy\n");
 		return (1);
+	}
 }
