@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/24 12:47:39 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:36:56 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 // - faire une focntion pour gerer : "xx xx" xx xx.
 // - dabord check si necessaire.
 
-int	retarded_input(int argc, char **str)
+/*	int	retarded_input(int argc, char **str)
 {
 
-}
+}*/
 int	sa_checker(int argc, char **str)
 {
 	char	**temp;
