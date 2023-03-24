@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/24 17:25:55 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/24 21:00:50 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ int		sa_checker(int argc, char **argv);
 int		data_checker(int argc, char **str);
 int		number_checker(char **str, int i, int j);
 int		double_checker(int argc, char **str, int i, int j);
-int		double_checker_fsa(int argc, char **str);
 int		int_checker(char **str, int i);
 int		sign_checker(char **str, int i, int j);
 int		retarded_input(int argc, char **str);
+int		test_temp(char ** argv);
+int		sort_check_sa(int argc, char **str, int i, int j)
 t_node	*create_cell(int content);
 t_ctrl	*build_stack(int argc, char **argv, int i);
 t_ctrl	*build_stack_sa(int argc, char **argv, int i);
-int test_temp(char ** argv);
 
 #endif
