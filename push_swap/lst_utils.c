@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:05:24 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/22 15:55:36 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/24 12:45:08 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,32 @@ t_ctrl	*build_stack(int argc, char **argv, int i)
 	while (i < argc)
 	{
 		ab->a->next = create_cell(ft_atoi(argv[i]));
+		ab->a = ab->a->next;
+		ab->a->prev = tmp;
+		tmp = ab->a;
+		i++;
+	}
+	return (ab);
+}
+// fait la pute, oublie le premier nombre comme une gamine.
+t_ctrl	*build_stack_sa(int argc, char **argv, int i)
+{
+	t_ctrl *ab;
+	t_node *tmp;
+	char	**temp;
+
+	temp = ft_split((const char *)argv[i], ' ');
+	argc = count_params(temp, ' ', 0);
+	ab = malloc(sizeof(t_ctrl));
+	if (!ab)
+		return (NULL);
+	ab->a = NULL;
+	ab->b = NULL;
+	ab->a = create_cell(ft_atoi(temp[i]));
+	tmp = ab->a;
+	while (i < argc)
+	{
+		ab->a->next = create_cell(ft_atoi(temp[i]));
 		ab->a = ab->a->next;
 		ab->a->prev = tmp;
 		tmp = ab->a;

@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/23 23:14:53 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/24 12:47:39 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 // - for argc == 2 et +1 num in argv -> split to list
 // - faire une focntion pour gerer : "xx xx" xx xx.
 // - dabord check si necessaire.
+
+int	retarded_input(int argc, char **str)
+{
+
+}
 int	sa_checker(int argc, char **str)
 {
 	char	**temp;
@@ -40,7 +45,7 @@ int	data_checker(int argc, char **str)
 	if (argc == 2)
 	{
 		if (sa_checker(argc, str))
-			return (1);
+			return (2);
 		else
 		{
 			write(2, "Error\n", 7);
