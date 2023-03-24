@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/24 16:36:56 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/24 18:34:05 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,22 @@
 // - faire une focntion pour gerer : "xx xx" xx xx.
 // - dabord check si necessaire.
 
-/*	int	retarded_input(int argc, char **str)
+int	retarded_input(int argc, char **str)
 {
+	int i;
+	int j;
 
-}*/
+	i = 1;
+	j = 0;
+	while (str[i])
+	{
+		if (count_params(str, ' ', 0) > 1 && argc > 2)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	sa_checker(int argc, char **str)
 {
 	char	**temp;
@@ -52,10 +64,9 @@ int	data_checker(int argc, char **str)
 			exit (2);
 		}
 	}
-	/*else if (sa_checker(argc, str) && argc > 2) // A CORRIGER, SEGFAULT SUR ATOI
-		exit (0);*/ 
 	else if (!number_checker(str, 1, 0) || !double_checker(argc, str, 0, 1)
-		|| !sign_checker(str, 1, 0) || !int_checker(str, -1))
+		|| !sign_checker(str, 1, 0) || !int_checker(str, -1) 
+		|| !retarded_input(argc, str))
 	{
 		write(2, "Error\n", 7);
 		exit (2);
