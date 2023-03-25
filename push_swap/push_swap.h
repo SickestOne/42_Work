@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/25 00:05:37 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:35:46 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		sign_checker(char **str, int i, int j);
 int		retarded_input(int argc, char **str);
 int		test_temp(char ** argv);
 int		sort_checker(int argc, char **str, int i, int j);
+int		sortchecker_sa(int argc, char **str);
 t_node	*create_cell(int content);
 t_ctrl	*build_stack(int argc, char **argv, int i);
 t_ctrl	*build_stack_sa(int argc, char **argv, int i);

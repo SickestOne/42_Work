@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/25 12:50:36 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:56:02 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ int	sa_checker(int argc, char **str)
 	temp = ft_split((const char *)str[1], ' ');
 	if (count_params(temp, ' ', 0))
 	{
-		if (number_checker(temp, 1, 0) && double_checker(argc, temp, 0, 1)
-			&& sign_checker(temp, 1, 0) && int_checker(temp, -1))
+		if (number_checker(temp, 1, 0) && !double_checker(argc, temp, 0, 1)
+			&& sign_checker(temp, 1, 0) && int_checker(temp, -1)
+			&& sortchecker_sa(argc, str))
 		{
 			printf("sa rdy\n");
 			return (1);
