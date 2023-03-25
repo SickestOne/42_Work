@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/25 20:04:12 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/25 20:11:01 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		count_params(char **s, char c, int i);
 int		check_input(char *s, char c);
 int		data_checker(int argc, char **str);
 int		double_checker(int argc, char **str, int i, int j);
-long	ft_atoi(const char *str);
+long	ft_long_atoi(const char *str);
 size_t	ft_strlen(const char *str);
 int		int_checker(char **str, int i);
 int		number_checker(char **str, int i, int j);

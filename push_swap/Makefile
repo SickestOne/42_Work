@@ -6,7 +6,7 @@
 #    By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:03:53 by rvan-den          #+#    #+#              #
-#    Updated: 2023/03/25 15:01:15 by pendejoo         ###   ########.fr        #
+#    Updated: 2023/03/25 20:12:18 by pendejoo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ CFLAGS 		= -Wall -Wextra -Werror
 
 SRC 		=	push_swap.c \
 				ft_strlen.c \
-				ft_atoi.c   \
+				ft_long_atoi.c   \
 				data_parser.c \
 				lst_utils.c \
 				parser_utils.c \

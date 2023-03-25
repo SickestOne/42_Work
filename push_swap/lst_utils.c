@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:05:24 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/24 18:14:56 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/25 20:13:07 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ t_ctrl	*build_stack(int argc, char **argv, int i)
 		return (NULL);
 	ab->a = NULL;
 	ab->b = NULL;
-	ab->a = create_cell(ft_atoi(argv[i++]));
+	ab->a = create_cell(ft_long_atoi(argv[i++]));
 	tmp = ab->a;
 	while (i < argc)
 	{
-		ab->a->next = create_cell(ft_atoi(argv[i]));
+		ab->a->next = create_cell(ft_long_atoi(argv[i]));
 		ab->a = ab->a->next;
 		ab->a->prev = tmp;
 		tmp = ab->a;
@@ -67,11 +67,11 @@ t_ctrl	*build_stack_sa(int argc, char **argv, int i)
 		return (NULL);
 	ab->a = NULL;
 	ab->b = NULL;
-	ab->a = create_cell(ft_atoi(temp[i++]));
+	ab->a = create_cell(ft_long_atoi(temp[i++]));
 	tmp = ab->a;
 	while (i < argc)
 	{
-		ab->a->next = create_cell(ft_atoi(temp[i]));
+		ab->a->next = create_cell(ft_long_atoi(temp[i]));
 		ab->a = ab->a->next;
 		ab->a->prev = tmp;
 		tmp = ab->a;

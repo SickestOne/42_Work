@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 00:07:30 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/25 20:00:13 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/25 20:11:01 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	sort_checker_ma(int argc, char **str, int i, int j)
 	{
 		if ((sorted + 1 == argc - 1) || ((i == argc - 1) && (sorted < i)))
 			break;
-		first = ft_atoi(str[i]);
-		second = ft_atoi(str[j]);
+		first = ft_long_atoi(str[i]);
+		second = ft_long_atoi(str[j]);
 		if (first < second)
 			sorted++;
 		first = 0;
