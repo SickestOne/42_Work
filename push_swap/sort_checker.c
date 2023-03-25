@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 00:07:30 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/25 14:48:05 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:53:32 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	sort_checker(int argc, char **str, int i, int j)
 	int sorted;
 
 	sorted = 0;
-	while (str[i])
+	while (str[i + 1])
 	{
 		if ((sorted + 1 == argc - 1) || ((i == argc - 1) && (sorted < i)))
 			break;
@@ -44,7 +44,8 @@ int		sortchecker_sa(int argc, char **str)
 
 	temp = ft_split((const char *)str[1], ' ');
 	argc = count_params(temp, ' ', 0);
-	if (sort_checker(argc, temp, 1, 2))
+	argc++;
+	if (sort_checker(argc, temp, 0, 1))
 		return (1);
 	return (0);
 }
