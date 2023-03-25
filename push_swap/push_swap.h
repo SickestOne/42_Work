@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/25 16:04:59 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/25 20:04:12 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,22 @@ typedef struct t_ctrl
 	struct t_node *b;
 }			t_ctrl;
 
-char	**ft_split(char const *s, char c);
+
+int		count_params(char **s, char c, int i);
+int		check_input(char *s, char c);
+int		data_checker(int argc, char **str);
+int		double_checker(int argc, char **str, int i, int j);
 long	ft_atoi(const char *str);
 size_t	ft_strlen(const char *str);
-int		count_params(char **s, char c, int i);
-int		sa_checker(int argc, char **argv);
-int		data_checker(int argc, char **str);
-int		number_checker(char **str, int i, int j);
-int		double_checker(int argc, char **str, int i, int j);
 int		int_checker(char **str, int i);
-int		sign_checker(char **str, int i, int j);
+int		number_checker(char **str, int i, int j);
 int		retarded_input(char **str, int i);
+int		sa_checker(int argc, char **argv);
+int		sign_checker(char **str, int i, int j);
+int		sort_checker_ma(int argc, char **str, int i, int j);
+int		sort_checker_sa(int argc, char **str);
 int		test_temp(char ** argv);
-int		sort_checker(int argc, char **str, int i, int j);
-int		sortchecker_sa(int argc, char **str);
-int		count_word(char *s, char c);
+char	**ft_split(char const *s, char c);
 t_node	*create_cell(int content);
 t_ctrl	*build_stack(int argc, char **argv, int i);
 t_ctrl	*build_stack_sa(int argc, char **argv, int i);

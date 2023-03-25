@@ -6,28 +6,27 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/25 19:43:45 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/25 20:00:36 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // TO DO :
-// correct segfault when : a.out x
 
 int	retarded_input(char **str, int i)
 {
 	while (str[i + 1])
 	{
-		if ((count_word(str[i], ' ') && !count_word(str[i + 1], ' '))
-			|| (!count_word(str[i], ' ') && count_word(str[i + 1], ' ')))
+		if ((check_input(str[i], ' ') && !check_input(str[i + 1], ' '))
+			|| (!check_input(str[i], ' ') && check_input(str[i + 1], ' ')))
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int	count_word(char *s, char c)
+int	check_input(char *s, char c)
 {
 	int i;
 	int count;
@@ -58,7 +57,7 @@ int	sa_checker(int argc, char **str)
 		argc_d = count_params(temp, ' ', 0);
 		if (number_checker(temp, 1, 0) && double_checker(argc_d, temp, 0, 1)
 			&& sign_checker(temp, 1, 0) && int_checker(temp, -1)
-			&& sortchecker_sa(argc, str))
+			&& sort_checker_sa(argc, str))
 			return (1);
 		else
 			return (0);
@@ -80,7 +79,7 @@ int	data_checker(int argc, char **str)
 	}
 	else if (!number_checker(str, 1, 0) || !double_checker(argc, str, 0, 1)
 		|| !sign_checker(str, 1, 0) || !int_checker(str, -1)
-		|| !sort_checker(argc, str, 1, 2) || !retarded_input(str, 1))
+		|| !sort_checker_ma(argc, str, 1, 2) || !retarded_input(str, 1))
 	{
 		write(2, "Error\n", 7);
 		exit (2);
