@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/25 01:05:54 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/25 12:50:36 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	data_checker(int argc, char **str)
 	}
 	else if (!number_checker(str, 1, 0) || !double_checker(argc, str, 0, 1)
 		|| !sign_checker(str, 1, 0) || !int_checker(str, -1)
-		|| !sort_checker(argc, str, 0, 1))
+		|| !sort_checker(argc, str, 1, 2))
 	{
 		write(2, "Error\n", 7);
 		exit (2);
