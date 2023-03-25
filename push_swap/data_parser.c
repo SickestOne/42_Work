@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/25 19:10:17 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/25 19:43:45 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	sa_checker(int argc, char **str)
 	char	**temp;
 	int		argc_d;
 
+	if (!count_params(str, ' ', 1))
+		return (0);
 	temp = ft_split((const char *)str[1], ' ');
 	if (count_params(temp, ' ', 0))
 	{
