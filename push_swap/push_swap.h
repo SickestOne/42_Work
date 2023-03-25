@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/25 14:35:46 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/25 15:04:44 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef struct t_ctrl
 	struct t_node *b;
 }			t_ctrl;
 
-char	*error_msg(void);
 char	**ft_split(char const *s, char c);
 long	ft_atoi(const char *str);
 size_t	ft_strlen(const char *str);
