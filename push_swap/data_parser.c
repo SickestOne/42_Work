@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/25 15:08:09 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/25 16:10:35 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,35 @@
 // - faire une focntion pour gerer : "xx xx" xx xx.
 // - dabord check si necessaire.
 
-/*int	retarded_input(int argc, char **str)
+int	retarded_input(char **str, int i)
 {
-	int i;
-	int j;
-
-	i = 1;
-	j = 0;
-	while (str[i])
+	while (str[i + 1])
 	{
-		if (count_params(str, ' ', 1) > 1 && argc > 2)
+		if ((count_word(str[i], ' ') && !count_word(str[i + 1], ' '))
+			|| (!count_word(str[i], ' ') && count_word(str[i + 1], ' ')))
 			return (0);
 		i++;
 	}
 	return (1);
-}*/
+}
+
+int	count_word(char *s, char c)
+{
+	int i;
+	int count;
+
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		if ((s[i] == c && s[i + 1] != c) || (s[i] != c && i == '\0'))
+			count++;
+		i++;
+	}
+	if (count == 1)
+		return (0);
+	return (count);
+}
 
 int	sa_checker(int argc, char **str)
 {
@@ -67,7 +81,7 @@ int	data_checker(int argc, char **str)
 	}
 	else if (!number_checker(str, 1, 0) || !double_checker(argc, str, 0, 1)
 		|| !sign_checker(str, 1, 0) || !int_checker(str, -1)
-		|| !sort_checker(argc, str, 1, 2))
+		|| !sort_checker(argc, str, 1, 2) || !retarded_input(str, 1))
 	{
 		write(2, "Error\n", 7);
 		exit (2);
