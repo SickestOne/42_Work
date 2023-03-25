@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/24 21:50:42 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/25 01:05:54 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	data_checker(int argc, char **str)
 	}
 	else if (!number_checker(str, 1, 0) || !double_checker(argc, str, 0, 1)
 		|| !sign_checker(str, 1, 0) || !int_checker(str, -1)
-		|| !sort_check(argc, str, 0, 1))
+		|| !sort_checker(argc, str, 0, 1))
 	{
 		write(2, "Error\n", 7);
 		exit (2);
@@ -76,23 +76,4 @@ int	data_checker(int argc, char **str)
 		printf("ma rdy\n");
 		return (1);
 	}
-}
-
-int	sort_check(int argc, char **str)
-{
-	int i;
-	int j;
-	int	temp;
-
-	i = 1;
-	j = i + 1;
-	while (str[i])
-	{
-		temp = ft_atoi(str[i]);
-		while (str[j])
-		{
-			if (ft_atoi(str[j]) > temp)
-		}
-	}
-	return (1);
 }

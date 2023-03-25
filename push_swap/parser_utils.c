@@ -6,13 +6,12 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:45:05 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/23 23:30:26 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/24 23:58:43 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// UNCOMMENT L:84 AVANT ENVOI CORRECTION
 
 int	number_checker(char **str, int i, int j)
 {
