@@ -6,16 +6,14 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/25 16:36:02 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/25 19:10:17 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // TO DO :
-// - for argc == 2 et +1 num in argv -> split to list
-// - faire une focntion pour gerer : "xx xx" xx xx.
-// - dabord check si necessaire.
+// correct segfault when : a.out x
 
 int	retarded_input(char **str, int i)
 {
@@ -59,10 +57,7 @@ int	sa_checker(int argc, char **str)
 		if (number_checker(temp, 1, 0) && double_checker(argc_d, temp, 0, 1)
 			&& sign_checker(temp, 1, 0) && int_checker(temp, -1)
 			&& sortchecker_sa(argc, str))
-		{
-			printf("sa rdy\n");
 			return (1);
-		}
 		else
 			return (0);
 	}
@@ -89,8 +84,5 @@ int	data_checker(int argc, char **str)
 		exit (2);
 	}
 	else
-	{
-		printf("ma rdy\n");
 		return (1);
-	}
 }
