@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 17:35:58 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/26 18:34:26 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/26 19:35:45 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,23 @@ int	chose_sort_sa(char **str)
 	temp = ft_split((const char *)str[1], ' ');
 	len = sa_tab_len(temp);
 	if (len >= 2 && len <= 5)
-		printf("Use algo for len between 2 and 5\n");
-	else if ((sa_tab_len(temp) > 5))
-		printf("Use algo for big ass lists\n");
+		printf("SA Use algo for len between 2 and 5\n");
+	else if (len > 5)
+		printf("SA Use algo for big ass lists\n");
 	return (0);
 }
 
-/*int	chose_sort_ma(int argc, char **str)
+int	chose_sort_ma(char **str)
 {
+	int len;
 
-}*/
+	len = ma_tab_len(str);
+	if (len >= 2 && len <= 5)
+		printf("MA Use algo for len between 2 and 5\n");
+	else if (len > 5)
+		printf("MA Use algo for big ass lists\n");
+	return (0);
+}
 
 int	sa_tab_len(char **temp)
 {
@@ -39,4 +46,14 @@ int	sa_tab_len(char **temp)
 	while (temp[i])
 		i++;
 	return (i);
+}
+
+int	ma_tab_len(char **temp)
+{
+	int i;
+
+	i = 1;
+	while (temp[i])
+		i++;
+	return (i - 1);
 }
