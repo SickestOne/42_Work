@@ -6,7 +6,7 @@
 #    By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:03:53 by rvan-den          #+#    #+#              #
-#    Updated: 2023/03/25 20:12:18 by pendejoo         ###   ########.fr        #
+#    Updated: 2023/03/26 21:28:56 by pendejoo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ COLOURS_YELLOW = '\033[0;33m'
 
 COLOUR_END = '\033[0m'
 
-NAME = push_swap.a
+NAME = push_swap
 
 CC 			= gcc
 
@@ -26,13 +26,15 @@ CFLAGS 		= -Wall -Wextra -Werror
 ## Strings
 
 SRC 		=	push_swap.c \
-				ft_strlen.c \
-				ft_long_atoi.c   \
-				data_parser.c \
-				lst_utils.c \
 				parser_utils.c \
-				sort_checker.c \
+				ft_strlen.c \
+				ft_long_atoi.c \
 				ft_split.c \
+				data_parser.c \
+				lsts_utils.c \
+				sort_checker.c \
+				start_sort.c \
+				init_lsts.c \
 
 
 MY_OBJECTS = $(SRC:.c=.o)
@@ -40,7 +42,7 @@ MY_OBJECTS = $(SRC:.c=.o)
 
 RM = rm -rf
 
-all : push_swap.a
+all : push_swap
 
 $(NAME): $(MY_OBJECTS)
 			@ar rcs $(NAME) $(MY_OBJECTS)

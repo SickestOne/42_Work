@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chose_sort.c                                       :+:      :+:    :+:   */
+/*   start_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/26 17:35:58 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/26 19:44:51 by pendejoo         ###   ########.fr       */
+/*   Created: 2023/03/26 21:19:57 by pendejoo          #+#    #+#             */
+/*   Updated: 2023/03/26 22:39:28 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 
@@ -21,9 +22,15 @@ int	chose_sort_sa(char **str)
 	len = sa_tab_len(temp);
 	printf("nbr sa args : %d\n", len);
 	if (len >= 2 && len <= 5)
+	{
+		//init_list_sa_ff(argc, temp);
 		printf("ac == 2 Use algo for len between 2 and 5\n");
+	}
 	else if (len > 5)
+	{
+		//init_list_sa_fx(argc, temp);
 		printf("ac == 2 Use algo for big ass lists\n");
+	}
 	return (0);
 }
 
@@ -34,9 +41,15 @@ int	chose_sort_ma(char **str)
 	len = ma_tab_len(str);
 	printf("nbr ma args : %d\n", len);
 	if (len >= 2 && len <= 5)
+	{
+		//init_list_ma_ff(argc, str[1]); 
 		printf("ac > 2 Use algo for len between 2 and 5\n");
+	}
 	else if (len > 5)
+	{
+		//init_list_ma_fx(argc, str[1]); 
 		printf("ac > 2 Use algo for big ass lists\n");
+	}
 	return (0);
 }
 
