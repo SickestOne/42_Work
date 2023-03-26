@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/25 20:11:01 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/26 18:23:40 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,20 @@ typedef struct t_ctrl
 
 int		count_params(char **s, char c, int i);
 int		check_input(char *s, char c);
-int		data_checker(int argc, char **str);
+int		check_stack(int argc, char **str);
+int		chose_sort_sa(char **str);
+int		chose_sort_ma(int argc, char **str);
+int		ma_checker(int argc, char **str);
 int		double_checker(int argc, char **str, int i, int j);
 long	ft_long_atoi(const char *str);
 size_t	ft_strlen(const char *str);
 int		int_checker(char **str, int i);
 int		number_checker(char **str, int i, int j);
+int		sa_tab_len(char **temp);
 int		retarded_input(char **str, int i);
-int		sa_checker(int argc, char **argv);
+int		sa_checker(char **argv);
+int		sorted_stack_a_ma(int argc, char **str);
+int		sorted_stack_a_sa(int argc, char **str);
 int		sign_checker(char **str, int i, int j);
 int		sort_checker_ma(int argc, char **str, int i, int j);
 int		sort_checker_sa(int argc, char **str);

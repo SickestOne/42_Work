@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 00:07:30 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/25 20:11:01 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:01:04 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	sort_checker_ma(int argc, char **str, int i, int j)
 		j++;
 	}
 	if (sorted + 1 == argc - 1)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
 int		sort_checker_sa(int argc, char **str)
@@ -49,3 +49,25 @@ int		sort_checker_sa(int argc, char **str)
 		return (1);
 	return (0);
 }
+
+int sorted_stack_a_sa(int argc, char **str)
+{
+	if (!sa_checker(str))
+		return (-1);
+	else if (sa_checker(str) && sort_checker_sa(argc, str))
+		return (0);
+	else
+		return (1);
+}
+
+int sorted_stack_a_ma(int argc, char **str)
+{
+	if (!ma_checker(argc, str))
+		return (-1);
+	else if (ma_checker(argc, str) 
+		&& sort_checker_ma(argc, str, 1, 2))
+		return (0);
+	else
+		return (1);
+}
+

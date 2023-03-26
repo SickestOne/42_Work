@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/25 20:00:36 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:30:31 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	check_input(char *s, char c)
 	return (count);
 }
 
-int	sa_checker(int argc, char **str)
+int	sa_checker(char **str)
 {
 	char	**temp;
 	int		argc_d;
@@ -55,9 +55,8 @@ int	sa_checker(int argc, char **str)
 	if (count_params(temp, ' ', 0))
 	{
 		argc_d = count_params(temp, ' ', 0);
-		if (number_checker(temp, 1, 0) && double_checker(argc_d, temp, 0, 1)
-			&& sign_checker(temp, 1, 0) && int_checker(temp, -1)
-			&& sort_checker_sa(argc, str))
+		if (number_checker(temp, 0, 0) && double_checker(argc_d, temp, 0, 1)
+			&& sign_checker(temp, 1, 0) && int_checker(temp, -1))
 			return (1);
 		else
 			return (0);
@@ -65,25 +64,28 @@ int	sa_checker(int argc, char **str)
 	return (0);
 }
 
-int	data_checker(int argc, char **str)
+int	ma_checker(int argc, char **str)
 {
-	if (argc == 2)
-	{
-		if (sa_checker(argc, str))
-			return (2);
-		else
-		{
-			write(2, "Error\n", 7);
-			exit (2);
-		}
-	}
-	else if (!number_checker(str, 1, 0) || !double_checker(argc, str, 0, 1)
+	if (!number_checker(str, 1, 0) || !double_checker(argc, str, 0, 1)
 		|| !sign_checker(str, 1, 0) || !int_checker(str, -1)
-		|| !sort_checker_ma(argc, str, 1, 2) || !retarded_input(str, 1))
-	{
-		write(2, "Error\n", 7);
-		exit (2);
-	}
+		|| !retarded_input(str, 1))
+		return (0);
 	else
 		return (1);
+}
+
+int check_stack(int argc, char **str)
+{
+	if (argc > 2 && sorted_stack_a_ma(argc, str) == 1)
+		return (1);
+	else if (argc == 2 && sorted_stack_a_sa(argc, str) == 1)
+		return (2);
+	else if ((argc > 2 && sorted_stack_a_ma(argc, str) == -1)
+		|| (argc == 2 && sorted_stack_a_sa(argc, str) == -1))
+	{
+		write (2, "Error\n", 7);
+		exit(2);
+	}
+	printf ("Already sorted\n");
+	exit (0);
 }
