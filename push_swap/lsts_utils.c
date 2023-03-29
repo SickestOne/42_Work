@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:24:35 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/27 16:19:37 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:10:10 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,3 +96,4 @@ void	print_list(t_ctrl *ab)
 	}
 	printf("%d\n", ab->a->data);
 }
+

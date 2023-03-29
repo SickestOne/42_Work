@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:19:57 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/27 17:45:45 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:26:38 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	chose_sort_sa(int argc, char **str)
 	if (len >= 2 && len <= 5)
 	{
 		ab = build_stack_sa(argc, str, 0);
-		go_top(ab);
-		print_list(ab);
+		count_nodes(ab);
+		//print_list(ab);
 		swap_a(ab); // bug
 	}
 	else if (len > 5)
