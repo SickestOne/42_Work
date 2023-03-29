@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:19:57 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/29 15:26:38 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/29 17:17:55 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ int	chose_sort_sa(int argc, char **str)
 	{
 		ab = build_stack_sa(argc, str, 0);
 		count_nodes(ab);
-		//print_list(ab);
-		swap_a(ab); // bug
+		print_list(ab);
+		// swap_a(ab); // bug
 	}
 	else if (len > 5)
 	{
 		ab = build_stack_sa(argc, str, 0);
+		count_nodes(ab);
 		go_top(ab);
 		print_list(ab);
 	}
@@ -45,20 +46,19 @@ int	chose_sort_ma(int argc, char **str)
 
 	len = ma_tab_len(str);
 	ab = NULL;
-	printf("nbr ma args : %d\n", len);
 	if (len >= 2 && len <= 5)
 	{
 		ab = build_stack(argc, str, 1);
+		count_nodes(ab);
 		go_top(ab);
 		print_list(ab);
-		printf("ac > 2 Use algo for len between 2 and 5\n");
 	}
 	else if (len > 5)
 	{
-		build_stack(argc, str, 1);
+		ab = build_stack(argc, str, 1);
+		count_nodes(ab);
 		go_top(ab);
 		print_list(ab);
-		printf("ac > 2 Use algo for big ass lists\n");
 	}
 	return (0);
 }

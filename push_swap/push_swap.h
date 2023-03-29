@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/29 15:11:32 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/29 19:39:28 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ t_ctrl	*build_stack_sa(int argc, char **argv, int i);
 t_ctrl	*go_top(t_ctrl *ab);
 t_ctrl	*swap_a(t_ctrl *ab);
 void	print_list(t_ctrl *ab);
-int	count_nodes(t_ctrl *ab);
+int		count_nodes(t_ctrl *ab);
+int		check_solo_sign(char **str, int i);
 
 #endif

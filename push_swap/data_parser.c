@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/26 21:46:59 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:26:27 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	retarded_input(char **str, int i)
 
 int	check_input(char *s, char c)
 {
-	int i;
-	int count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -55,8 +55,9 @@ int	sa_checker(char **str)
 	if (count_params(temp, ' ', 0))
 	{
 		argc_d = count_params(temp, ' ', 0);
-		if (number_checker(temp, 0, 0) && double_checker(argc_d, temp, 0, 1)
-			&& sign_checker(temp, 1, 0) && int_checker(temp, -1))
+		if (number_checker(temp, 0, 0) 
+			&& double_checker(argc_d, temp, 0, 1)
+			&& sign_checker(temp, 1, 0) && int_checker(temp, -1) && check_solo_sign(str, 0))
 			return (1);
 		else
 			return (0);
@@ -66,15 +67,15 @@ int	sa_checker(char **str)
 
 int	ma_checker(int argc, char **str)
 {
-	if (!number_checker(str, 1, 0) || !double_checker(argc, str, 0, 1)
+	if (!number_checker(str, 1, 0) || !double_checker(argc, str, 1, 2)
 		|| !sign_checker(str, 1, 0) || !int_checker(str, -1)
-		|| !retarded_input(str, 1))
+		|| !retarded_input(str, 1) || !check_solo_sign(str, 1))
 		return (0);
 	else
 		return (1);
 }
 
-int check_stack(int argc, char **str)
+int	check_stack(int argc, char **str)
 {
 	if (argc > 2 && sorted_stack_a_ma(argc, str) == 1)
 		return (1);

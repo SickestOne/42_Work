@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:45:05 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/29 15:39:13 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/29 19:29:34 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,28 +50,26 @@ int	sign_checker(char **str, int i, int j)
 
 int	double_checker(int argc, char **str, int i, int j)
 {
-	int	temp;
+	int	current;
+	int	next;
 
 	while (str[i])
 	{
-		temp = ft_long_atoi(str[i]);
+		if (j == argc)
+			break ;
+		current = ft_long_atoi(str[i]);
+		next = ft_long_atoi(str[j]);
 		while (str[j])
 		{
-			if (i == j && j < argc - 1)
-				j++;
-			if (ft_long_atoi(str[j]) != temp)
-			{
-				if (j < argc - 1)
-					j++;
-			}
-			else
+			if (current == next)
 				return (0);
-			if (j >= argc - 1)
+			j++;
+			if (j == argc)
 				break ;
+			next = ft_long_atoi(str[j]);
 		}
-		temp = 0;
 		i++;
-		j = 0;
+		j = i + 1;
 	}
 	return (1);
 }
