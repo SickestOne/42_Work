@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 00:07:30 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/29 19:41:04 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/29 23:12:05 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ int	check_solo_sign(char **str, int i)
 	{
 		while (str[i][j])
 		{
-			if ((str[i][j] == '+' || str[i][j] == '-') && (str[i][j + 1] == '\0'))
+			if ((str[i][j] == '+' || str[i][j] == '-') 
+				&& (str[i][j + 1] == '\0'))
 				return (0);
 			j++;
 		}
