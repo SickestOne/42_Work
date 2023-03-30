@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/30 18:46:38 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/30 22:33:49 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ typedef struct t_ctrl
 {
 	struct t_node *a;
 	struct t_node *b;
-}			t_ctrl;
+}			 t_ctrl;
 
 
 int		count_params(char **s, char c, int i);
 int		check_input(char *s, char c);
 int		check_stack(int argc, char **str);
 int		chose_sort_sa(int argc, char **str);
-int		chose_sort_ma(int argc, char **str);
+// int		chose_sort_ma(int argc, char **str);
 int		ma_checker(int argc, char **str);
 int		double_checker(int argc, char **str, int i, int j);
 long	ft_long_atoi(const char *str);
@@ -70,6 +70,7 @@ t_ctrl	*swap_a(t_ctrl *ab, int i);
 t_ctrl	*swap_b(t_ctrl *ab, int i);
 t_ctrl	*s_s(t_ctrl *ab);
 t_ctrl	*push_b(t_ctrl *ab, int i);
+t_ctrl	*push_b_link(t_ctrl *ab, int tmp_data);
 t_ctrl	*push_a(t_ctrl *ab, int i);
 
 #endif

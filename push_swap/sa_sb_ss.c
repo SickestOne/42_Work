@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:47:45 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/30 17:15:34 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/30 21:24:56 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_ctrl *swap_b(t_ctrl *ab, int i)
 		return (ab);
 	tmp = ab->b->data;
 	ab->b->data = ab->b->next->data;
-	ab->b->next->data = tmp;
+	ab->b->prev->data = tmp;
 	if (i == 1)
 	{
 		write (1, "sb\n", 3);

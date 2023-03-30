@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:10:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/30 18:46:15 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/30 22:43:16 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	count_nodes_b(t_ctrl *ab)
 	int i;
 
 	i = 0;
-	while (ab->b->prev != NULL)
+	while (ab->b->next != NULL)
 	{
-		ab->b = ab->b->prev;
+		ab->b = ab->b->next;
 		i++;
 	}
 	i++;
@@ -62,4 +62,5 @@ void	print_list_a(t_ctrl *ab)
 		ab->a = ab->a->next;
 	}
 	printf("%d\n", ab->a->data);
+	go_top_a(ab);
 }
