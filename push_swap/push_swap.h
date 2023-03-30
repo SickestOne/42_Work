@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/29 19:39:28 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/30 18:46:38 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,23 @@ int		sign_checker(char **str, int i, int j);
 int		sort_checker_ma(int argc, char **str, int i, int j);
 int		sort_checker_sa(int argc, char **str);
 int		test_temp(char ** argv);
+void	print_list_a(t_ctrl *ab);
+void	print_list_b(t_ctrl *ab);
+int		check_solo_sign(char **str, int i);
+int		count_nodes_a(t_ctrl *ab);
+int		count_nodes_b(t_ctrl *ab);
 char	**ft_split(char const *s, char c);
 t_node	*create_cell(int content);
-t_ctrl	*build_stack(int argc, char **argv, int i);
-t_ctrl	*build_stack_sa(int argc, char **argv, int i);
-t_ctrl	*go_top(t_ctrl *ab);
-t_ctrl	*swap_a(t_ctrl *ab);
-void	print_list(t_ctrl *ab);
-int		count_nodes(t_ctrl *ab);
-int		check_solo_sign(char **str, int i);
+t_ctrl	*build_stack_a_ma(int argc, char **argv, int i);
+t_ctrl	*build_stack_a_sa(int argc, char **argv, int i);
+t_ctrl	*build_stack_b_ma(int argc, char **argv, int i);
+t_ctrl	*build_stack_b_sa(int argc, char **argv, int i);
+t_ctrl	*go_top_a(t_ctrl *ab);
+t_ctrl	*go_top_b(t_ctrl *ab);
+t_ctrl	*swap_a(t_ctrl *ab, int i);
+t_ctrl	*swap_b(t_ctrl *ab, int i);
+t_ctrl	*s_s(t_ctrl *ab);
+t_ctrl	*push_b(t_ctrl *ab, int i);
+t_ctrl	*push_a(t_ctrl *ab, int i);
 
 #endif
