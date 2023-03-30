@@ -6,7 +6,7 @@
 #    By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:03:53 by rvan-den          #+#    #+#              #
-#    Updated: 2023/03/27 16:22:48 by rvan-den         ###   ########.fr        #
+#    Updated: 2023/03/30 18:45:29 by rvan-den         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,9 @@ SRC 		=	push_swap.c \
 				start_sort.c \
 				sort_for_five.c \
 				sa_sb_ss.c \
+				pa_pb.c \
+				lsts_utils_p2.c \
+				lsts_utils_p3.c \
 
 
 MY_OBJECTS = $(SRC:.c=.o)

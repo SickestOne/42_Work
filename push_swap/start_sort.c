@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:19:57 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/29 17:17:55 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/03/30 19:04:44 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,16 @@ int	chose_sort_sa(int argc, char **str)
 	ab = NULL;
 	if (len >= 2 && len <= 5)
 	{
-		ab = build_stack_sa(argc, str, 0);
-		count_nodes(ab);
-		print_list(ab);
-		// swap_a(ab); // bug
+		ab = build_stack_a_sa(argc, str, 0);
+		print_list_a(ab);
+		push_b(ab, 1);
+		print_list_a(ab);
+		push_b(ab, 1);
+		print_list_a(ab);
 	}
 	else if (len > 5)
 	{
-		ab = build_stack_sa(argc, str, 0);
-		count_nodes(ab);
-		go_top(ab);
-		print_list(ab);
+		ab = build_stack_a_sa(argc, str, 0);
 	}
 	return (0);
 }
@@ -48,17 +47,11 @@ int	chose_sort_ma(int argc, char **str)
 	ab = NULL;
 	if (len >= 2 && len <= 5)
 	{
-		ab = build_stack(argc, str, 1);
-		count_nodes(ab);
-		go_top(ab);
-		print_list(ab);
+		ab = build_stack_a_ma(argc, str, 1);
 	}
 	else if (len > 5)
 	{
-		ab = build_stack(argc, str, 1);
-		count_nodes(ab);
-		go_top(ab);
-		print_list(ab);
+		ab = build_stack_a_ma(argc, str, 1);
 	}
 	return (0);
 }
