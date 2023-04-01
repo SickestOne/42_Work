@@ -1,30 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lsts_utils_p3.c                                    :+:      :+:    :+:   */
+/*   rb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 18:45:48 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/01 16:58:50 by pendejoo         ###   ########.fr       */
+/*   Created: 2023/04/01 17:13:26 by pendejoo          #+#    #+#             */
+/*   Updated: 2023/04/01 17:13:45 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
-void	print_list_b(t_ctrl *ab)
-{
-	if (ab->b == NULL)
-	{
-		printf("b : is empty\n");
-		return ;
-	}
-	while (ab->b->next != NULL)
-	{
-		printf("b : %d\n", ab->b->data);
-		ab->b = ab->b->next;
-	}
-	printf("b : %d\n", ab->b->data);
-	go_top_b(ab);
-}

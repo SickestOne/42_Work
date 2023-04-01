@@ -6,7 +6,7 @@
 #    By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:03:53 by rvan-den          #+#    #+#              #
-#    Updated: 2023/03/30 18:45:29 by rvan-den         ###   ########.fr        #
+#    Updated: 2023/04/01 15:39:54 by pendejoo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,13 +32,14 @@ SRC 		=	push_swap.c \
 				ft_split.c \
 				data_parser.c \
 				lsts_utils.c \
+				lsts_utils_p2.c \
+				lsts_utils_p3.c \
 				sort_checker.c \
 				start_sort.c \
 				sort_for_five.c \
 				sa_sb_ss.c \
-				pa_pb.c \
-				lsts_utils_p2.c \
-				lsts_utils_p3.c \
+				pb.c \
+				pa.c \
 
 
 MY_OBJECTS = $(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:10:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/30 22:43:16 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/01 16:58:40 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@ int	count_nodes_a(t_ctrl *ab)
 	int i;
 
 	i = 0;
-	while (ab->a->prev != NULL)
+	if (ab->a == NULL)
+		return (0);
+	while (ab->a->next != NULL)
 	{
-		ab->a = ab->a->prev;
+		ab->a = ab->a->next;
 		i++;
 	}
 	i++;
+	go_top_a(ab);
 	return (i);
 }
 
@@ -31,12 +34,15 @@ int	count_nodes_b(t_ctrl *ab)
 	int i;
 
 	i = 0;
+	if (ab->b == NULL)
+		return (0);
 	while (ab->b->next != NULL)
 	{
 		ab->b = ab->b->next;
 		i++;
 	}
 	i++;
+	go_top_b(ab);
 	return (i);
 }
 
@@ -56,11 +62,16 @@ t_ctrl	*go_top_b(t_ctrl *ab)
 
 void	print_list_a(t_ctrl *ab)
 {
+	if (ab->a == NULL)
+	{
+		printf("a : is empty\n");
+		return ;
+	}
 	while (ab->a->next != NULL)
 	{
-		printf("%d\n", ab->a->data);
+		printf("a : %d\n", ab->a->data);
 		ab->a = ab->a->next;
 	}
-	printf("%d\n", ab->a->data);
-	go_top_a(ab);
+	printf("a : %d\n", ab->a->data);
+	ab = go_top_a(ab);
 }

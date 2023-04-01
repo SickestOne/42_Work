@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/30 22:33:49 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/01 15:44:10 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ t_ctrl	*swap_a(t_ctrl *ab, int i);
 t_ctrl	*swap_b(t_ctrl *ab, int i);
 t_ctrl	*s_s(t_ctrl *ab);
 t_ctrl	*push_b(t_ctrl *ab, int i);
-t_ctrl	*push_b_link(t_ctrl *ab, int tmp_data);
+t_ctrl  *push_b_link_last(t_ctrl *ab, int tmp_data);
+t_ctrl	*push_b_clean_a(t_ctrl *ab, int node_count_a);
 t_ctrl	*push_a(t_ctrl *ab, int i);
+t_ctrl  *push_a_link_last(t_ctrl *ab, int tmp_data);
+t_ctrl	*push_a_clean_b(t_ctrl *ab, int node_count_b);
 
 #endif
