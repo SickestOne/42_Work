@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:27:53 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/01 15:56:17 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/02 13:30:42 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_ctrl	*push_b(t_ctrl *ab, int i)
 	if (i == 1)
 	{
 		write (1, "pb\n", 3);
+		go_top_a(ab);
 		return (ab);
 	}
 	go_top_a(ab);

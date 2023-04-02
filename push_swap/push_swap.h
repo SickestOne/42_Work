@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/01 15:44:10 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/02 16:53:41 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		count_params(char **s, char c, int i);
 int		check_input(char *s, char c);
 int		check_stack(int argc, char **str);
 int		chose_sort_sa(int argc, char **str);
-// int		chose_sort_ma(int argc, char **str);
+int		chose_sort_ma(int argc, char **str);
 int		ma_checker(int argc, char **str);
 int		double_checker(int argc, char **str, int i, int j);
 long	ft_long_atoi(const char *str);
@@ -75,5 +75,17 @@ t_ctrl	*push_b_clean_a(t_ctrl *ab, int node_count_a);
 t_ctrl	*push_a(t_ctrl *ab, int i);
 t_ctrl  *push_a_link_last(t_ctrl *ab, int tmp_data);
 t_ctrl	*push_a_clean_b(t_ctrl *ab, int node_count_b);
+t_ctrl	*rotate_a(t_ctrl *ab, int i);
+t_ctrl	*rotate_a_linklast(t_ctrl *ab, int tmp_data);
+t_ctrl	*rotate_b(t_ctrl *ab, int i);
+t_ctrl	*rotate_b_linklast(t_ctrl *ab, int tmp_data);
+t_ctrl	*r_r(t_ctrl *ab);
+t_ctrl	*rra(t_ctrl *ab, int i);
+t_ctrl	*go_down_a(t_ctrl *ab);
+t_ctrl	*clean_down_a(t_ctrl *ab);
+t_ctrl	*rrb(t_ctrl *ab, int i);
+t_ctrl	*go_down_b(t_ctrl *ab);
+t_ctrl	*clean_down_b(t_ctrl *ab);
+t_ctrl	*rrr(t_ctrl *ab);
 
 #endif

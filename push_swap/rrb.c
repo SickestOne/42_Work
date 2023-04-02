@@ -1,65 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   rrb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/01 15:40:31 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/02 13:30:26 by pendejoo         ###   ########.fr       */
+/*   Created: 2023/04/02 16:47:08 by pendejoo          #+#    #+#             */
+/*   Updated: 2023/04/02 16:48:43 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_ctrl	*push_a(t_ctrl *ab, int i)
+t_ctrl	*rrb(t_ctrl *ab, int i)
 {
-	int node_count_b;
-	int tmp_data;
-	t_node *tmp_cell;
+	t_node	*tmp_cell;
+	int	tmp_data;
+	int	node_count_b;
 
 	node_count_b = count_nodes_b(ab);
-	if (node_count_b == 0)
+	if (node_count_b < 2)
 		return (ab);
+	go_down_b(ab);
 	tmp_cell = ab->b;
 	tmp_data = ab->b->data;
-	ab = push_a_link_last(ab, tmp_data);
-	ab = push_a_clean_b(ab, node_count_b);
+	go_top_b(ab);
+	ab->b->prev = create_cell(tmp_data);
+	ab->b->prev->next = ab->b;
+	ab->b = ab->b->prev;
+	clean_down_b(ab);
 	free (tmp_cell);
 	tmp_cell = NULL;
 	if (i == 1)
 	{
-		write (1, "pa\n", 3);
+		write (1, "rrb\n", 4);
 		go_top_b(ab);
 		return (ab);
 	}
-	go_top_b(ab);
 	return (ab);
 }
 
-t_ctrl *push_a_link_last(t_ctrl *ab, int tmp_data)
+t_ctrl	*go_down_b(t_ctrl *ab)
 {
-	if (ab->a == NULL)
-		ab->a = create_cell(tmp_data);
-	else
-	{
-		while (ab->a->next != NULL)
-			ab->a = ab->a->next;
-		ab->a->next = create_cell(tmp_data);
-		ab->a->next->prev = ab->a;
-		go_top_a(ab);
-	}
-	return (ab);
-}
-
-t_ctrl	*push_a_clean_b(t_ctrl *ab, int node_count_b)
-{
-	if (node_count_b > 1)
-	{
+	while (ab->b->next != NULL)
 		ab->b = ab->b->next;
-		ab->b->prev = NULL;
-	}
-	else
-		ab->b = NULL;
+	return (ab);
+}
+
+t_ctrl	*clean_down_b(t_ctrl *ab)
+{
+	go_down_b(ab);
+	ab->b = ab->b->prev;
+	ab->b->next = NULL;
+	go_top_b(ab);
 	return (ab);
 }
