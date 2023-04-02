@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:19:57 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/02 16:54:51 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/02 16:58:36 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int	chose_sort_sa(int argc, char **str)
 		push_b(ab, 1);
 		print_list_a(ab);
 		print_list_b(ab);
-		rrr(ab);
+		rra(ab, 1);
+		rrb(ab, 1);
 		print_list_a(ab);
 		print_list_b(ab);
 	}
