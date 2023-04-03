@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:19:57 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/03 13:11:48 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:35:33 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ int	chose_sort_sa(int argc, char **str)
 	temp = ft_split((const char *)str[1], ' ');
 	len = sa_tab_len(temp);
 	ab = NULL;
-	if (len >= 2 && len <= 5)
+	if (len == 3)
 	{
 		ab = build_stack_a_sa(argc, str, 0);
 		print_list_a(ab);
 		sort_for_3(ab);
 		print_list_a(ab);
 	}
-	else if (len > 5)
+	else if (len == 5)
 	{
 		ab = build_stack_a_sa(argc, str, 0);
 		print_list_a(ab);
@@ -48,7 +48,8 @@ int	chose_sort_ma(int argc, char **str)
 	if (len >= 2 && len <= 5)
 	{
 		ab = build_stack_a_ma(argc, str, 1);
-		printf("%d\n", len);
+		print_list_a(ab);
+		sort_for_3(ab);
 		print_list_a(ab);
 	}
 	else if (len > 5)

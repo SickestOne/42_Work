@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/03 11:58:19 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:20:37 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,7 @@ t_ctrl	*go_down_b(t_ctrl *ab);
 t_ctrl	*clean_down_b(t_ctrl *ab);
 t_ctrl	*rrr(t_ctrl *ab);
 t_ctrl	*sort_for_3(t_ctrl	*ab);
+t_ctrl	*sort_for_3_p2(t_ctrl *ab);
+t_ctrl	*sort_for_5(t_ctrl *ab);
 
 #endif
