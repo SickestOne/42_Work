@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/02 16:53:41 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/03 11:58:19 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int		sorted_stack_a_sa(int argc, char **str);
 int		sign_checker(char **str, int i, int j);
 int		sort_checker_ma(int argc, char **str, int i, int j);
 int		sort_checker_sa(int argc, char **str);
-int		test_temp(char ** argv);
 void	print_list_a(t_ctrl *ab);
 void	print_list_b(t_ctrl *ab);
 int		check_solo_sign(char **str, int i);
@@ -87,5 +86,6 @@ t_ctrl	*rrb(t_ctrl *ab, int i);
 t_ctrl	*go_down_b(t_ctrl *ab);
 t_ctrl	*clean_down_b(t_ctrl *ab);
 t_ctrl	*rrr(t_ctrl *ab);
+t_ctrl	*sort_for_3(t_ctrl	*ab);
 
 #endif
