@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:00:54 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/03 18:08:02 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:48:07 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,27 @@ t_ctrl	*sort_for_3_p2(t_ctrl *ab)
 	return (ab);
 }
 
-t_ctrl	*sort_for_5(t_ctrl *ab);
+int	find_min(t_ctrl *ab)
+{
+	int pos;
+	int fin_pos;
+	int tmp;
+
+	tmp = ab->a->data;
+	pos = 0;
+	while (ab->a->next != NULL)
+	{
+		if (tmp > ab->a->next->data)
+			tmp = ab->a->next->data;
+		else
+		{
+			printf("is_min\n");
+			fin_pos = pos;
+		}
+		ab->a = ab->a->next;
+		pos++;
+	}
+	ab = go_top_a(ab);
+	printf("pos = [%d]\n", pos);
+	return (pos);
+}
