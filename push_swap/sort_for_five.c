@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:00:54 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/04 18:54:46 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/05 01:01:53 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,24 @@ int	find_min(t_ctrl *ab)
 {
 	int pos;
 	int tmp;
+	int fin_pos;
 
 	tmp = ab->a->data;
-	pos = 0;
+	pos = 1;
+	fin_pos = 0;
 	while (ab->a->next != NULL)
 	{
-		if (tmp > ab->a->next->data)
-			tmp = ab->a->next->data;
-		else
+		if ((tmp > ab->a->next->data)
+				|| (tmp > ab->a->next->data && ab->a->next == NULL))
 		{
-			printf("is_min\n");
+			tmp = ab->a->next->data;
 			pos++;
 		}
+		else if (tmp < ab->a->next->data)
+			fin_pos = pos;	
 		ab->a = ab->a->next;
 	}
 	ab = go_top_a(ab);
-	printf("pos = [%d]\n", pos);
-	return (pos);
+	printf("fin_pos = [%d]\n", fin_pos);
+	return (fin_pos);
 }
