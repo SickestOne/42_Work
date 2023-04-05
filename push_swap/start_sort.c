@@ -6,14 +6,12 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:19:57 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/05 19:56:57 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/05 23:26:28 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
-// fucked : swap_b segfault after push_b
-// need to fix push_b(&a), for lst > 2 : no good linkage
+
 int	chose_sort_sa(int argc, char **str)
 {
 	char **temp;
@@ -26,16 +24,12 @@ int	chose_sort_sa(int argc, char **str)
 	if (len == 3)
 	{
 		ab = build_stack_a_sa(argc, str, 0);
-		print_list_a(ab);
 		sort_for_3(ab);
-		print_list_a(ab);
 	}
 	else if (len == 5)
 	{
 		ab = build_stack_a_sa(argc, str, 0);
-		//print_list_a(ab);
 		sort_for_5(ab);
-		//print_list_a(ab);
 	}
 	return (0);
 }
@@ -47,17 +41,15 @@ int	chose_sort_ma(int argc, char **str)
 
 	len = ma_tab_len(str);
 	ab = NULL;
-	if (len >= 2 && len <= 5)
+	if (len == 3)
 	{
 		ab = build_stack_a_ma(argc, str, 1);
-		print_list_a(ab);
 		sort_for_3(ab);
-		print_list_a(ab);
 	}
-	else if (len > 5)
+	else if (len == 5)
 	{
 		ab = build_stack_a_ma(argc, str, 1);
-		print_list_a(ab);
+		sort_for_5(ab);
 	}
 	return (0);
 }
