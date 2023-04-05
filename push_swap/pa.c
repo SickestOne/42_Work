@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 15:40:31 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/02 13:30:26 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/05 19:20:56 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ t_ctrl *push_a_link_last(t_ctrl *ab, int tmp_data)
 		ab->a = create_cell(tmp_data);
 	else
 	{
-		while (ab->a->next != NULL)
-			ab->a = ab->a->next;
-		ab->a->next = create_cell(tmp_data);
-		ab->a->next->prev = ab->a;
+		while (ab->a->prev != NULL)
+			ab->a = ab->a->prev;
+		ab->a->prev = create_cell(tmp_data);
+		ab->a->prev->next = ab->a;
 		go_top_a(ab);
 	}
 	return (ab);

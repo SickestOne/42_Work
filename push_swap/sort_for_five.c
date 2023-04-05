@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:00:54 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/05 16:31:46 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/05 19:33:32 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,49 @@ int	find_min(t_ctrl *ab)
 	return (fin_pos);
 }
 
+void	find_move(t_ctrl *ab)
+{
+	if (find_min(ab) == 1)
+		push_b(ab, 1);
+	else if (find_min(ab) == 2)
+	{
+		swap_a(ab, 1);
+		push_b(ab, 1);
+	}
+	else if (find_min(ab) == 3)
+	{
+		rotate_a(ab, 1);
+		swap_a(ab, 1);
+		push_b(ab, 1);
+	}
+	else if (find_min(ab) == 4)
+	{
+		rra(ab, 1);
+		rra(ab, 1);
+		push_b(ab, 1);
+	}
+	else if (find_min(ab) == 5)
+	{
+		rra(ab, 1);
+		push_b(ab, 1);
+	}
+}
+
 t_ctrl	*sort_for_5(t_ctrl *ab)
 {
+	int i;
 
+	i = 0;
+	while (i != 2)
+	{
+		find_move(ab);
+		i++;
+	}
+	sort_for_3(ab);
+	go_top_a(ab);
+	swap_b(ab, 1);
+	push_a(ab, 1);
+	push_a(ab, 1);
+	go_top_a(ab);
+	return (ab);
 }

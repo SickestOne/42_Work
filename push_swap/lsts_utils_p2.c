@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:10:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/01 16:58:40 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/05 19:16:59 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	count_nodes_b(t_ctrl *ab)
 
 t_ctrl	*go_top_a(t_ctrl *ab)
 {
+	if (ab->a == NULL)
+		return (ab);
 	while (ab->a->prev != NULL)
 		ab->a = ab->a->prev;
 	return (ab);
@@ -55,6 +57,8 @@ t_ctrl	*go_top_a(t_ctrl *ab)
 
 t_ctrl	*go_top_b(t_ctrl *ab)
 {
+	if (ab->b == NULL)
+		return (ab);
 	while (ab->b->prev != NULL)
 		ab->b = ab->b->prev;
 	return (ab);
