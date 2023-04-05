@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:00:54 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/05 11:56:34 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:31:46 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,30 @@ t_ctrl	*sort_for_3_p2(t_ctrl *ab)
 
 int	find_min(t_ctrl *ab)
 {
-	int pos;
 	int tmp;
+	int	pos;
 	int fin_pos;
 
 	tmp = ab->a->data;
-	pos = 0;
+	pos = 1;
 	fin_pos = 0;
 	while (ab->a->next != NULL)
 	{
-		pos++;
 		if (tmp > ab->a->next->data)
+		{
 			tmp = ab->a->next->data;
-		else if (tmp < ab->a->next->data)
-			fin_pos = pos;	
+			fin_pos = pos + 1;
+		}
 		ab->a = ab->a->next;
+		pos++;
 	}
-	pos++;
+	if (fin_pos == 0)
+		fin_pos++;
 	ab = go_top_a(ab);
-	printf("fin_pos = [%d]\n", fin_pos);
 	return (fin_pos);
+}
+
+t_ctrl	*sort_for_5(t_ctrl *ab)
+{
+
 }

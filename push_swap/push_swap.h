@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/04 17:36:04 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:03:40 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ t_ctrl	*rrr(t_ctrl *ab);
 t_ctrl	*sort_for_3(t_ctrl	*ab);
 t_ctrl	*sort_for_3_p2(t_ctrl *ab);
 int		find_min(t_ctrl *ab);
-t_ctrl	*sort_for_5_p2(t_ctrl *ab);
+t_ctrl	*sort_for_5(t_ctrl *ab);
 
 #endif
