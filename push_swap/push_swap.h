@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/05 19:01:40 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/06 14:13:58 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ int		count_nodes_a(t_ctrl *ab);
 int		count_nodes_b(t_ctrl *ab);
 char	**ft_split(char const *s, char c);
 int		find_min(t_ctrl *ab);
-void	find_move(t_ctrl *ab);
+void	find_move_for_4(t_ctrl	*ab);
+void	find_move_for_5(t_ctrl *ab);
 t_node	*create_cell(int content);
 t_ctrl	*build_stack_a_ma(int argc, char **argv, int i);
 t_ctrl	*build_stack_a_sa(int argc, char **argv, int i);
@@ -91,5 +92,6 @@ t_ctrl	*rrr(t_ctrl *ab);
 t_ctrl	*sort_for_3(t_ctrl	*ab);
 t_ctrl	*sort_for_3_p2(t_ctrl *ab);
 t_ctrl	*sort_for_5(t_ctrl *ab);
+t_ctrl	*sort_small(t_ctrl *ab, int len);
 
 #endif

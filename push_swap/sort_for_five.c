@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:00:54 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/05 19:33:32 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/06 14:48:18 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 t_ctrl	*sort_for_3(t_ctrl *ab)
 {
-	if (ab->a->data > ab->a->next->data 
-			&& ab->a->next->data > ab->a->next->next->data 
-			&& ab->a->data > ab->a->next->next->data)
+	if (ab->a->data > ab->a->next->data
+		&& ab->a->next->data > ab->a->next->next->data
+		&& ab->a->data > ab->a->next->next->data)
 	{
 		swap_a(ab, 1);
 		rra(ab, 1);
 	}
 	else if (ab->a->data > ab->a->next->data
-			&& ab->a->next->data < ab->a->next->next->data
-			&& ab->a->data < ab->a->next->next->data)
+		&& ab->a->next->data < ab->a->next->next->data
+		&& ab->a->data < ab->a->next->next->data)
 		swap_a(ab, 1);
 	else if (ab->a->data < ab->a->next->data
-			&& ab->a->next->data > ab->a->next->next->data
-			&& ab->a->data < ab->a->next->next->data)
+		&& ab->a->next->data > ab->a->next->next->data
+		&& ab->a->data < ab->a->next->next->data)
 	{
 		swap_a(ab, 1);
 		rotate_a(ab, 1);
 	}
 	else if (ab->a->data > ab->a->next->data
-			&& ab->a->data > ab->a->next->next->data
-			&& ab->a->next->data < ab->a->next->next->data)
+		&& ab->a->data > ab->a->next->next->data
+		&& ab->a->next->data < ab->a->next->next->data)
 		rotate_a(ab, 1);
-	else 
+	else
 		sort_for_3_p2(ab);
 	return (ab);
 }
@@ -44,73 +44,20 @@ t_ctrl	*sort_for_3(t_ctrl *ab)
 t_ctrl	*sort_for_3_p2(t_ctrl *ab)
 {
 	if (ab->a->data > ab->a->next->next->data
-			&& ab->a->next->data > ab->a->data
-			&& ab->a->next->data > ab->a->next->next->data)
+		&& ab->a->next->data > ab->a->data
+		&& ab->a->next->data > ab->a->next->next->data)
 		rra(ab, 1);
 	return (ab);
 }
 
-int	find_min(t_ctrl *ab)
-{
-	int tmp;
-	int	pos;
-	int fin_pos;
-
-	tmp = ab->a->data;
-	pos = 1;
-	fin_pos = 0;
-	while (ab->a->next != NULL)
-	{
-		if (tmp > ab->a->next->data)
-		{
-			tmp = ab->a->next->data;
-			fin_pos = pos + 1;
-		}
-		ab->a = ab->a->next;
-		pos++;
-	}
-	if (fin_pos == 0)
-		fin_pos++;
-	ab = go_top_a(ab);
-	return (fin_pos);
-}
-
-void	find_move(t_ctrl *ab)
-{
-	if (find_min(ab) == 1)
-		push_b(ab, 1);
-	else if (find_min(ab) == 2)
-	{
-		swap_a(ab, 1);
-		push_b(ab, 1);
-	}
-	else if (find_min(ab) == 3)
-	{
-		rotate_a(ab, 1);
-		swap_a(ab, 1);
-		push_b(ab, 1);
-	}
-	else if (find_min(ab) == 4)
-	{
-		rra(ab, 1);
-		rra(ab, 1);
-		push_b(ab, 1);
-	}
-	else if (find_min(ab) == 5)
-	{
-		rra(ab, 1);
-		push_b(ab, 1);
-	}
-}
-
 t_ctrl	*sort_for_5(t_ctrl *ab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i != 2)
 	{
-		find_move(ab);
+		find_move_for_5(ab);
 		i++;
 	}
 	sort_for_3(ab);
@@ -119,5 +66,25 @@ t_ctrl	*sort_for_5(t_ctrl *ab)
 	push_a(ab, 1);
 	push_a(ab, 1);
 	go_top_a(ab);
+	return (ab);
+}
+
+t_ctrl	*sort_small(t_ctrl *ab, int len)
+{
+	if (len == 2)
+	{
+		if (ab->a->data > ab->a->next->data)
+			swap_a(ab, 1);
+	}
+	else if (len == 3)
+		sort_for_3(ab);
+	else if (len == 4)
+	{
+		find_move_for_4(ab);
+		sort_for_3(ab);
+		push_a(ab, 1);
+	}
+	else if (len == 5)
+		sort_for_5(ab);
 	return (ab);
 }

@@ -6,7 +6,7 @@
 #    By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:03:53 by rvan-den          #+#    #+#              #
-#    Updated: 2023/04/02 16:46:52 by pendejoo         ###   ########.fr        #
+#    Updated: 2023/04/06 11:43:49 by rvan-den         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRC 		=	push_swap.c \
 				sort_checker.c \
 				start_sort.c \
 				sort_for_five.c \
+				sort_for_five_utils.c \
 				sa_sb_ss.c \
 				rra.c \
 				rrb.c \
