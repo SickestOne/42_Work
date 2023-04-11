@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:24:35 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/31 15:26:57 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/11 17:46:10 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,31 +51,8 @@ t_ctrl	*build_stack_a_ma(int argc, char **argv, int i)
 		tmp = ab->a;
 		i++;
 	}
+	ab->a->rank = 0;
 	go_top_a(ab);
-	return (ab);
-}
-
-t_ctrl	*build_stack_b_ma(int argc, char **argv, int i)
-{
-	t_ctrl *ab;
-	t_node *tmp;
-
-	ab = malloc(sizeof(t_ctrl));
-	if (!ab)
-		return (NULL);
-	ab->a = NULL;
-	ab->b = NULL;
-	ab->b = create_cell(ft_long_atoi(argv[i++]));
-	tmp = ab->b;
-	while (i < argc)
-	{
-		ab->b->next = create_cell(ft_long_atoi(argv[i]));
-		ab->b = ab->b->next;
-		ab->b->prev = tmp;
-		tmp = ab->b;
-		i++;
-	}
-	ab = go_top_b(ab);
 	return (ab);
 }
 
@@ -102,33 +79,33 @@ t_ctrl	*build_stack_a_sa(int argc, char **argv, int i)
 		tmp = ab->a;
 		i++;
 	}
+	ab->a->rank = 0;
 	ab = go_top_a(ab);
 	return (ab);
 }
 
-t_ctrl	*build_stack_b_sa(int argc, char **argv, int i)
+t_ctrl	*build_ranks(t_ctrl	*ab)
 {
-	t_ctrl *ab;
-	t_node *tmp;
-	char	**temp;
+	int	tmp;
+	int	pos;
+	int ranked;
 
-	temp = ft_split((const char *)argv[1], ' ');
-	argc = count_params(temp, ' ', 0);
-	ab = malloc(sizeof(t_ctrl));
-	if (!ab)
-		return (NULL);
-	ab->a = NULL;
-	ab->b = NULL;
-	ab->b = create_cell(ft_long_atoi(temp[i++]));
-	tmp = ab->b;
-	while (i < argc)
+	tmp = ab->a->data;
+	pos = 1;
+	ranked = 1;
+	while (ab->a->next != NULL)
 	{
-		ab->b->next = create_cell(ft_long_atoi(temp[i]));
-		ab->b = ab->b->next;
-		ab->b->prev = tmp;
-		tmp = ab->b;
-		i++;
+		if (tmp > ab->a->next->data && ab->a->next->rank != 0)
+		{
+			tmp = ab->a->next->data;
+			ab->a->next->rank = ranked;
+			ranked++;
+		}
+		ab->a = ab->a->next;
+		pos++;
 	}
-	ab = go_top_b(ab);
+	if (fin_pos == 0)
+		fin_pos++;
+	ab = go_top_a(ab);
 	return (ab);
 }

@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/06 14:13:58 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/11 17:13:07 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct t_node
 {
 	int	data;
+	int	rank;
 	struct t_node *next;
 	struct t_node *prev;
 }				t_node;
@@ -64,8 +65,7 @@ void	find_move_for_5(t_ctrl *ab);
 t_node	*create_cell(int content);
 t_ctrl	*build_stack_a_ma(int argc, char **argv, int i);
 t_ctrl	*build_stack_a_sa(int argc, char **argv, int i);
-t_ctrl	*build_stack_b_ma(int argc, char **argv, int i);
-t_ctrl	*build_stack_b_sa(int argc, char **argv, int i);
+t_ctrl	*build_ranks(t_ctrl	*ab);
 t_ctrl	*go_top_a(t_ctrl *ab);
 t_ctrl	*go_top_b(t_ctrl *ab);
 t_ctrl	*swap_a(t_ctrl *ab, int i);
@@ -93,5 +93,8 @@ t_ctrl	*sort_for_3(t_ctrl	*ab);
 t_ctrl	*sort_for_3_p2(t_ctrl *ab);
 t_ctrl	*sort_for_5(t_ctrl *ab);
 t_ctrl	*sort_small(t_ctrl *ab, int len);
+void	big_find_min(t_ctrl *ab, int j);
+t_ctrl	*move_nb_a_le_50(t_ctrl *ab, int pos);
+t_ctrl	*move_nb_a_se_50(t_ctrl *ab, int pos);
 
 #endif
