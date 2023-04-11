@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/11 17:13:07 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/11 20:40:16 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ t_ctrl	*sort_small(t_ctrl *ab, int len);
 void	big_find_min(t_ctrl *ab, int j);
 t_ctrl	*move_nb_a_le_50(t_ctrl *ab, int pos);
 t_ctrl	*move_nb_a_se_50(t_ctrl *ab, int pos);
+int	check_ranks(t_ctrl *ab);
 
 #endif

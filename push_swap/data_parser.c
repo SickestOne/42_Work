@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/30 14:53:26 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/11 21:18:20 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,5 @@ int	check_stack(int argc, char **str)
 		write (2, "Error\n", 7);
 		exit(2);
 	}
-	printf ("Already sorted\n");
 	exit (0);
 }
