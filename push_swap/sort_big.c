@@ -6,56 +6,36 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:02:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/11 15:56:09 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/12 19:02:41 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	big_find_min(t_ctrl *ab, int j)
+t_ctrl	*move_first_20(t_ctrl *ab, int pos)
 {
-	int	i;
-	int	n;
-	int pos;
+	int len;
+	int i;
 
-	i = count_nodes_a(ab) / 5;
-	n = count_nodes_a(ab);
-	pos = 0;
-	while (j != i)
+	len = count_nodes_a(ab);
+	i = len / 4;
+	give_ranks(ab, 1);
+	while (count_nodes_b(ab) != len \ 4)
 	{
-		pos = find_min(ab);
-		if (find_min(ab) < n / 2)
-			move_nb_a_le_50(ab, pos);
-		else if (find_min(ab) > n /2)
-			move_nb_a_se_50(ab, pos);
-		pos = 0;
-		j++;
-		n = count_nodes_a(ab);
-		go_top_a(ab);
-	}
-}
+		while (ab->a->next != NULL)
+		{
 
-t_ctrl	*move_nb_a_le_50(t_ctrl *ab, int pos)
-{
-	while (pos != 1)
-	{
-		rotate_a(ab, 1);
-		pos--;
+		}
 	}
-	push_b(ab, 1);
-	go_top_a(ab);
 	return (ab);
 }
 
-t_ctrl	*move_nb_a_se_50(t_ctrl *ab, int pos)
+t_ctrl	*search_to_move(t_ctrl *ab, int pos)
 {
-	pos = count_nodes_a(ab) - pos;
-	while (pos != -1)
+	while (ab->a->next != NULL)
 	{
-		rra(ab, 1);
-		pos--;
+
 	}
-	push_b(ab, 1);
-	go_top_a(ab);
 	return (ab);
 }
+

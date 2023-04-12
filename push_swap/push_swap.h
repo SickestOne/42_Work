@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/11 20:40:16 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:26:44 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,10 @@ t_ctrl	*sort_for_3(t_ctrl	*ab);
 t_ctrl	*sort_for_3_p2(t_ctrl *ab);
 t_ctrl	*sort_for_5(t_ctrl *ab);
 t_ctrl	*sort_small(t_ctrl *ab, int len);
-void	big_find_min(t_ctrl *ab, int j);
-t_ctrl	*move_nb_a_le_50(t_ctrl *ab, int pos);
-t_ctrl	*move_nb_a_se_50(t_ctrl *ab, int pos);
-int	check_ranks(t_ctrl *ab);
+t_ctrl	*give_ranks(t_ctrl *ab, int ranks);
+void	check_if_ranked(t_ctrl *ab);
+int		check_ranks(t_ctrl *ab);
+t_ctrl	*move_first_20(t_ctrl *ab);
+t_ctrl	*search_to_move(t_ctrl *ab, int pos);
 
 #endif

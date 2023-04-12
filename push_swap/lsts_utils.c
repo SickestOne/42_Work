@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:24:35 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/11 21:21:42 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:02:38 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,3 +64,35 @@ t_ctrl	*build_stack_a_sa(int argc, char **argv, int i)
 	ab = go_top_a(ab);
 	return (ab);
 }
+
+t_ctrl	*give_ranks(t_ctrl *ab, int ranks)
+{
+	t_node *tmp;
+
+	tmp = ab->a;
+	while (check_ranks(ab) != 1)
+	{
+		while (ab->a != NULL)
+		{
+			if (tmp->data > ab->a->data && ab->a->rank == 0)
+				tmp = ab->a;
+			ab->a = ab->a->next;
+		}
+		ab->a = tmp;
+		tmp->rank = ranks;
+		ranks++;
+		go_top_a(ab);
+		if (check_ranks(ab))
+			break ;
+		while (ab->a->rank != 0)
+			ab->a = ab->a->next;
+		tmp = ab->a;
+	}
+	go_top_a(ab);
+	return (ab);
+}
+
+/*void check_if_ranked(t_ctrl *ab)
+{
+	while
+}*/
