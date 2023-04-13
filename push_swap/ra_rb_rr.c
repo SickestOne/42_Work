@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 13:49:31 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/02 13:52:57 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:27:14 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_ctrl	*rotate_b(t_ctrl *ab, int i)
 	tmp_cell = NULL;
 	if (i == 1)
 	{
-		write (1, "ra\n", 3);
+		write (1, "rb\n", 3);
 		go_top_b(ab);
 		return (ab);
 	}

@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/13 10:22:21 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/13 19:38:43 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int		check_solo_sign(char **str, int i);
 int		count_nodes_a(t_ctrl *ab);
 int		count_nodes_b(t_ctrl *ab);
 char	**ft_split(char const *s, char c);
-int		find_min(t_ctrl *ab);
 void	find_move_for_4(t_ctrl	*ab);
 void	find_move_for_5(t_ctrl *ab);
 t_node	*create_cell(int content);
@@ -102,5 +101,10 @@ int		best_to_move_down(t_ctrl *ab, int i);
 t_ctrl *move_number(t_ctrl *ab);
 int		check_ranks_b(t_ctrl *ab);
 t_ctrl	*give_ranks_b(t_ctrl *ab, int ranks);
+int		find_min(t_ctrl *ab);
+int		find_max(t_ctrl *ab);
+int		find_min_b(t_ctrl *ab);
+int		find_max_b(t_ctrl *ab);
+t_ctrl	*move_big(t_ctrl *ab);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:00:54 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/09 17:08:39 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/13 18:13:41 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_ctrl	*sort_for_5(t_ctrl *ab)
 	find_move_for_4(ab);
 	sort_for_3(ab);
 	go_top_a(ab);
-	swap_b(ab, 1);
+//	swap_b(ab, 1);
 	push_a(ab, 1);
 	push_a(ab, 1);
 	go_top_a(ab);

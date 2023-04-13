@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:27:53 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/02 13:30:42 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/13 19:27:19 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ t_ctrl *push_b_link_last(t_ctrl *ab, int tmp_data)
 		ab->b = create_cell(tmp_data);
 	else
 	{
-		while (ab->b->next != NULL)
-			ab->b = ab->b->next;
-		ab->b->next = create_cell(tmp_data);
-		ab->b->next->prev = ab->b;
+		while (ab->b->prev != NULL)
+			ab->b = ab->b->prev;
+		ab->b->prev = create_cell(tmp_data);
+		ab->b->prev->next = ab->b;
 		go_top_b(ab);
 	}
 	return (ab);
