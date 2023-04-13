@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/13 19:38:43 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/13 22:29:57 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int		check_ranks(t_ctrl *ab);
 t_ctrl	*move_first_20(t_ctrl *ab);
 int		best_to_move_top(t_ctrl *ab, int i);
 int		best_to_move_down(t_ctrl *ab, int i);
-t_ctrl *move_number(t_ctrl *ab);
+t_ctrl	*move_number(t_ctrl *ab);
 int		check_ranks_b(t_ctrl *ab);
 t_ctrl	*give_ranks_b(t_ctrl *ab, int ranks);
 int		find_min(t_ctrl *ab);
