@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:19:57 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/13 19:38:58 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/13 21:57:12 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	chose_sort_ma(int argc, char **str)
 		ab = build_stack_a_ma(argc, str, 1);
 		sort_small(ab, len);
 	}
-	else if (len <= 100)
+	else if (len > 5)
 	{
 		ab = build_stack_a_ma(argc, str, 1);
 		move_big(ab);

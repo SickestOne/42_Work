@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:02:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/13 21:19:05 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/13 22:18:36 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,17 @@ t_ctrl *move_big(t_ctrl *ab)
 {
 	int total_len;
 	int loop_var;
+	int cut_coef;
 
 	total_len = count_nodes_a(ab);
 	loop_var = total_len;
 	give_ranks(ab, 1);
-	while (count_nodes_b(ab) != total_len / 4)
+	cut_coef = 2;
+	if (count_nodes_a(ab) >= 100)
+		cut_coef = cut_coef + total_len / 100 + 1;
+	while (count_nodes_b(ab) != total_len / cut_coef)
 	{
-		if (ab->a->rank > loop_var - total_len / 4) // loop_var = loop_var - (total_len / 4)
+		if (ab->a->rank > loop_var - total_len / cut_coef)
 			push_b(ab, 1);
 		else
 			rotate_a(ab, 1);
