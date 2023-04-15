@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:27:53 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/13 19:27:19 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/15 21:36:08 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_ctrl	*push_b(t_ctrl *ab, int i)
 		return (ab);
 	tmp_cell = ab->a;
 	tmp_data = ab->a->data;
-	ab = push_b_link_last(ab, tmp_data);
-	ab = push_b_clean_a(ab, node_count_a);
+	push_b_link_last(ab, tmp_data);
+	push_b_clean_a(ab, node_count_a);
 	free (tmp_cell);
 	tmp_cell = NULL;
 	if (i == 1)

@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 15:40:31 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/13 18:43:01 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/15 21:35:54 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_ctrl	*push_a(t_ctrl *ab, int i)
 		return (ab);
 	tmp_cell = ab->b;
 	tmp_data = ab->b->data;
-	ab = push_a_link_last(ab, tmp_data);
-	ab = push_a_clean_b(ab, node_count_b);
+	 push_a_link_last(ab, tmp_data);
+	 push_a_clean_b(ab, node_count_b);
 	free (tmp_cell);
 	tmp_cell = NULL;
 	if (i == 1)
