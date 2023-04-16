@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:02:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/16 19:08:47 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/16 22:02:39 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	fill_a(t_ctrl *ab)
 	{
 		if (find_max_b(ab) == ab->b->data)
 			push_a(ab, 1);
-		else if (find_min_b(ab) == 1)
+		else if (find_min_pos_b(ab) == 1)
 		{
 			push_a(ab, 1);
 			rotate_a(ab, 1);
@@ -83,5 +83,51 @@ void	combine_sorted_stacks(t_ctrl *ab)
 	while (ab->a->data < ab->a->next->data)
 		rotate_a(ab, 1);
 	rotate_a(ab, 1);
+}
+
+void	fill_a_opti(t_ctrl *ab)
+{
+	int	stack_size;
+
+	stack_size = 0;
+	while (count_nodes_b(ab) != 0)
+	{
+		stack_size = count_nodes_b(ab);
+		if (find_max_b(ab) == ab->b->data)
+			push_a(ab, 1);
+		else if (find_min_pos_b(ab) == 1)
+		{
+			push_a(ab, 1);
+			rotate_a(ab, 1);
+		}
+		else if (find_max_pos_b(ab) > stack_size / 2)
+		{
+			while (find_max_pos_b(ab) != 1)
+				rotate_b(ab, 1);
+			push_a(ab, 1);
+		}
+		else if (find_min_pos_b(ab) > stack_size / 2)
+		{
+			while (find_min_pos_b(ab) != 1)
+				rotate_b(ab, 1);
+			push_a(ab, 1);
+			rotate_a(ab, 1);
+		}
+		else if (find_max_pos_b(ab) < stack_size / 2)
+		{
+			while (find_max_pos_b(ab) != stack_size)
+				rrb(ab, 1);
+			push_a(ab, 1);
+		}
+		else if (find_min_pos_b(ab) < stack_size / 2)
+		{
+			while (find_min_pos_b(ab) != stack_size)
+				rrb(ab, 1);
+			push_a(ab, 1);
+			rotate_a(ab, 1);
+		}
+		else
+			rotate_b(ab, 1);
+	}
 }
 

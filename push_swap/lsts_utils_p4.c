@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 10:20:59 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/14 16:21:58 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/16 20:36:12 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	find_min(t_ctrl *ab)
 	return (fin_pos);
 }
 
-int	find_min_b(t_ctrl *ab)
+int	find_min_pos_b(t_ctrl *ab)
 {
 	int	tmp;
 	int	pos;

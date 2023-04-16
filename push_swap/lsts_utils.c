@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:24:35 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/16 17:20:16 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/16 20:29:12 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,3 @@ t_ctrl	*give_ranks(t_ctrl *ab, int ranks)
 	go_top_a(ab);
 	return (ab);
 }
-
-/*void check_if_ranked(t_ctrl *ab)
-{
-	while
-}*/
