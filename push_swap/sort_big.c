@@ -6,11 +6,15 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:02:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/15 23:55:15 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/16 16:00:41 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// decommente le if pour voir le bug, ca adapte le coef de divisiojn pour les stacks
+// avec deux ca "marche"
+// sinon, ligne 56, si je vire le -1, ca me saute un nombre a la premiere rotation.
 
 t_ctrl *move_big(t_ctrl *ab)
 {
@@ -20,11 +24,11 @@ t_ctrl *move_big(t_ctrl *ab)
 	int i;
 
 	total_len = count_nodes_a(ab);
-	ab = give_ranks(ab, 1);
+	ab = give_ranks(ab, 0);
 	cut_coef = 2;
 	loop_var = total_len;
-	if (count_nodes_a(ab) >= 100)
-		cut_coef = cut_coef + total_len / 100 + 1;
+	/*if (count_nodes_a(ab) >= 100)
+		cut_coef = cut_coef + total_len / 100 + 1;*/
 	i = cut_coef;
 	while (i != 0)
 	{
@@ -49,7 +53,7 @@ void	put_maxs_in_b(t_ctrl *ab, int total_len, int cut_coef, int *loop_var)
 		inter_max = total_len;
 	else
 		inter_max = *loop_var;
-	while (count_nodes_b(ab) != (total_len / cut_coef))
+	while ((count_nodes_b(ab) - 1) < (inter_max - inter_min))
 	{
 		if (ab->a->rank >= inter_min && ab->a->rank <= inter_max)
 			push_b(ab, 1);
@@ -58,7 +62,6 @@ void	put_maxs_in_b(t_ctrl *ab, int total_len, int cut_coef, int *loop_var)
 	}
 	i++;
 	*loop_var = inter_min;
-	printf("inter_min = %d\n", inter_min);
 }
 
 void	fill_a(t_ctrl *ab)

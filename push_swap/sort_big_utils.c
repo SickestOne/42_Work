@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:22:48 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/14 16:40:02 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/16 15:37:24 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ int	a_is_sorted(t_ctrl *ab)
 	}
 	i++;
 	if (i != check)
+	{
+		printf("not sorted\n");
 		return (0);
+	}
+	printf("Sorted\n");
 	return (1);
 }
