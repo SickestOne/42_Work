@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 13:49:31 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/13 14:27:14 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:23:32 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_ctrl	*rotate_a(t_ctrl *ab, int i)
 {
 	int node_count_a;
 	int tmp_data;
+	int tmp_rank;
 	t_node *tmp_cell;
 
 	node_count_a = count_nodes_a(ab);
@@ -23,7 +24,8 @@ t_ctrl	*rotate_a(t_ctrl *ab, int i)
 		return (ab);
 	tmp_cell = ab->a;
 	tmp_data = ab->a->data;
-	rotate_a_linklast(ab, tmp_data);
+	tmp_rank = ab->a->rank;
+	rotate_a_linklast(ab, tmp_data, tmp_rank);
 	ab->a = ab->a->next;
 	ab->a->prev = NULL;
 	free (tmp_cell);
@@ -38,11 +40,11 @@ t_ctrl	*rotate_a(t_ctrl *ab, int i)
 	return (ab);
 }
 
-t_ctrl	*rotate_a_linklast(t_ctrl *ab, int tmp_data)
+t_ctrl	*rotate_a_linklast(t_ctrl *ab, int tmp_data, int tmp_rank)
 {
 	while (ab->a->next != NULL)
 		ab->a = ab->a->next;
-	ab->a->next = create_cell(tmp_data);
+	ab->a->next = create_cell(tmp_data, tmp_rank);
 	ab->a->next->prev = ab->a;
 	go_top_a(ab);
 	return (ab);
@@ -52,14 +54,16 @@ t_ctrl	*rotate_b(t_ctrl *ab, int i)
 {
 	int node_count_b;
 	int tmp_data;
+	int tmp_rank;
 	t_node *tmp_cell;
 
 	node_count_b = count_nodes_b(ab);
 	if (node_count_b < 2)
 		return (ab);
 	tmp_cell = ab->b;
+	tmp_rank = ab->b->rank;
 	tmp_data = ab->b->data;
-	rotate_b_linklast(ab, tmp_data);
+	rotate_b_linklast(ab, tmp_data, tmp_rank);
 	ab->b = ab->b->next;
 	ab->b->prev = NULL;
 	free (tmp_cell);
@@ -74,11 +78,11 @@ t_ctrl	*rotate_b(t_ctrl *ab, int i)
 	return (ab);
 }
 
-t_ctrl	*rotate_b_linklast(t_ctrl *ab, int tmp_data)
+t_ctrl	*rotate_b_linklast(t_ctrl *ab, int tmp_data, int tmp_rank)
 {
 	while (ab->b->next != NULL)
 		ab->b = ab->b->next;
-	ab->b->next = create_cell(tmp_data);
+	ab->b->next = create_cell(tmp_data, tmp_rank);
 	ab->b->next->prev = ab->b;
 	go_top_b(ab);
 	return (ab);

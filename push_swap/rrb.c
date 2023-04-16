@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 16:47:08 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/02 16:48:43 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:33:07 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_ctrl	*rrb(t_ctrl *ab, int i)
 	tmp_cell = ab->b;
 	tmp_data = ab->b->data;
 	go_top_b(ab);
-	ab->b->prev = create_cell(tmp_data);
+	ab->b->prev = create_cell(tmp_data, 0);
 	ab->b->prev->next = ab->b;
 	ab->b = ab->b->prev;
 	clean_down_b(ab);

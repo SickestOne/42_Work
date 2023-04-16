@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 15:40:31 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/15 21:35:54 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:28:48 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_ctrl	*push_a(t_ctrl *ab, int i)
 {
 	int node_count_b;
 	int tmp_data;
+	int tmp_rank;
 	t_node *tmp_cell;
 
 	node_count_b = count_nodes_b(ab);
@@ -23,8 +24,9 @@ t_ctrl	*push_a(t_ctrl *ab, int i)
 		return (ab);
 	tmp_cell = ab->b;
 	tmp_data = ab->b->data;
-	 push_a_link_last(ab, tmp_data);
-	 push_a_clean_b(ab, node_count_b);
+	tmp_rank = ab->b->rank;
+	push_a_link_last(ab, tmp_data, tmp_rank);
+	push_a_clean_b(ab, node_count_b);
 	free (tmp_cell);
 	tmp_cell = NULL;
 	if (i == 1)
@@ -37,15 +39,15 @@ t_ctrl	*push_a(t_ctrl *ab, int i)
 	return (ab);
 }
 
-t_ctrl *push_a_link_last(t_ctrl *ab, int tmp_data)
+t_ctrl *push_a_link_last(t_ctrl *ab, int tmp_data, int tmp_rank)
 {
 	if (ab->a == NULL)
-		ab->a = create_cell(tmp_data);
+		ab->a = create_cell(tmp_data, tmp_rank);
 	else
 	{
 		while (ab->a->prev != NULL)
 			ab->a = ab->a->prev;
-		ab->a->prev = create_cell(tmp_data);
+		ab->a->prev = create_cell(tmp_data, tmp_rank);
 		ab->a->prev->next = ab->a;
 		go_top_a(ab);
 	}

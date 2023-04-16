@@ -6,15 +6,11 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:02:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/16 16:00:41 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/16 19:08:47 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// decommente le if pour voir le bug, ca adapte le coef de divisiojn pour les stacks
-// avec deux ca "marche"
-// sinon, ligne 56, si je vire le -1, ca me saute un nombre a la premiere rotation.
 
 t_ctrl *move_big(t_ctrl *ab)
 {
@@ -27,8 +23,8 @@ t_ctrl *move_big(t_ctrl *ab)
 	ab = give_ranks(ab, 0);
 	cut_coef = 2;
 	loop_var = total_len;
-	/*if (count_nodes_a(ab) >= 100)
-		cut_coef = cut_coef + total_len / 100 + 1;*/
+	if (count_nodes_a(ab) >= 100)
+		cut_coef = cut_coef + total_len / 100 + 1;
 	i = cut_coef;
 	while (i != 0)
 	{
@@ -53,9 +49,9 @@ void	put_maxs_in_b(t_ctrl *ab, int total_len, int cut_coef, int *loop_var)
 		inter_max = total_len;
 	else
 		inter_max = *loop_var;
-	while ((count_nodes_b(ab) - 1) < (inter_max - inter_min))
+	while ((count_nodes_b(ab)) != (inter_max - inter_min))
 	{
-		if (ab->a->rank >= inter_min && ab->a->rank <= inter_max)
+		if (ab->a->rank > inter_min && ab->a->rank <= inter_max)
 			push_b(ab, 1);
 		else
 			rotate_a(ab, 1);
@@ -64,6 +60,8 @@ void	put_maxs_in_b(t_ctrl *ab, int total_len, int cut_coef, int *loop_var)
 	*loop_var = inter_min;
 }
 
+// fill_a needs opti (rra's ?)
+// best to move, if up mediane B, ra, else rra
 void	fill_a(t_ctrl *ab)
 {
 	while (count_nodes_b(ab) != 0)
@@ -86,3 +84,4 @@ void	combine_sorted_stacks(t_ctrl *ab)
 		rotate_a(ab, 1);
 	rotate_a(ab, 1);
 }
+

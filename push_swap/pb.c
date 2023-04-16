@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:27:53 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/15 21:36:08 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:31:32 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_ctrl	*push_b(t_ctrl *ab, int i)
 {
 	int node_count_a;
 	int tmp_data;
+	int tmp_rank;
 	t_node *tmp_cell;
 
 	node_count_a = count_nodes_a(ab);
@@ -23,7 +24,8 @@ t_ctrl	*push_b(t_ctrl *ab, int i)
 		return (ab);
 	tmp_cell = ab->a;
 	tmp_data = ab->a->data;
-	push_b_link_last(ab, tmp_data);
+	tmp_rank = ab->a->rank;
+	push_b_link_last(ab, tmp_data, tmp_rank);
 	push_b_clean_a(ab, node_count_a);
 	free (tmp_cell);
 	tmp_cell = NULL;
@@ -37,15 +39,15 @@ t_ctrl	*push_b(t_ctrl *ab, int i)
 	return (ab);
 }
 
-t_ctrl *push_b_link_last(t_ctrl *ab, int tmp_data)
+t_ctrl *push_b_link_last(t_ctrl *ab, int tmp_data, int tmp_rank)
 {
 	if (ab->b == NULL)
-		ab->b = create_cell(tmp_data);
+		ab->b = create_cell(tmp_data, tmp_rank);
 	else
 	{
 		while (ab->b->prev != NULL)
 			ab->b = ab->b->prev;
-		ab->b->prev = create_cell(tmp_data);
+		ab->b->prev = create_cell(tmp_data, tmp_rank);
 		ab->b->prev->next = ab->b;
 		go_top_b(ab);
 	}

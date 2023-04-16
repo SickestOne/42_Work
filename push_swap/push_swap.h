@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/15 21:56:40 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:30:43 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int		count_nodes_b(t_ctrl *ab);
 char	**ft_split(char const *s, char c);
 void	find_move_for_4(t_ctrl	*ab);
 void	find_move_for_5(t_ctrl *ab);
-t_node	*create_cell(int content);
+t_node	*create_cell(int content, int ranks);
 t_ctrl	*build_stack_a_ma(int argc, char **argv, int i);
 t_ctrl	*build_stack_a_sa(int argc, char **argv, int i);
 t_ctrl	*build_ranks(t_ctrl	*ab);
@@ -71,15 +71,15 @@ t_ctrl	*swap_a(t_ctrl *ab, int i);
 t_ctrl	*swap_b(t_ctrl *ab, int i);
 t_ctrl	*s_s(t_ctrl *ab);
 t_ctrl	*push_b(t_ctrl *ab, int i);
-t_ctrl  *push_b_link_last(t_ctrl *ab, int tmp_data);
+t_ctrl  *push_b_link_last(t_ctrl *ab, int tmp_data, int tmp_rank);
 t_ctrl	*push_b_clean_a(t_ctrl *ab, int node_count_a);
 t_ctrl	*push_a(t_ctrl *ab, int i);
-t_ctrl  *push_a_link_last(t_ctrl *ab, int tmp_data);
+t_ctrl  *push_a_link_last(t_ctrl *ab, int tmp_data, int tmp_rank);
 t_ctrl	*push_a_clean_b(t_ctrl *ab, int node_count_b);
 t_ctrl	*rotate_a(t_ctrl *ab, int i);
-t_ctrl	*rotate_a_linklast(t_ctrl *ab, int tmp_data);
+t_ctrl	*rotate_a_linklast(t_ctrl *ab, int tmp_data, int tmp_rank);
 t_ctrl	*rotate_b(t_ctrl *ab, int i);
-t_ctrl	*rotate_b_linklast(t_ctrl *ab, int tmp_data);
+t_ctrl	*rotate_b_linklast(t_ctrl *ab, int tmp_data, int tmp_rank);
 t_ctrl	*r_r(t_ctrl *ab);
 t_ctrl	*rra(t_ctrl *ab, int i);
 t_ctrl	*go_down_a(t_ctrl *ab);

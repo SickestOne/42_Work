@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:24:35 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/16 12:46:21 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:20:16 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ t_ctrl	*build_stack_a_ma(int argc, char **argv, int i)
 		return (NULL);
 	ab->a = NULL;
 	ab->b = NULL;
-	ab->a = create_cell(ft_long_atoi(argv[i++]));
+	ab->a = create_cell(ft_long_atoi(argv[i++]), 0);
 	tmp = ab->a;
 	while (i < argc)
 	{
-		ab->a->next = create_cell(ft_long_atoi(argv[i]));
+		ab->a->next = create_cell(ft_long_atoi(argv[i]), 0);
 		ab->a = ab->a->next;
 		ab->a->prev = tmp;
 		tmp = ab->a;
@@ -50,11 +50,11 @@ t_ctrl	*build_stack_a_sa(int argc, char **argv, int i)
 		return (NULL);
 	ab->a = NULL;
 	ab->b = NULL;
-	ab->a = create_cell(ft_long_atoi(temp[i++]));
+	ab->a = create_cell(ft_long_atoi(temp[i++]), 0);
 	tmp = ab->a;
 	while (i < argc)
 	{
-		ab->a->next = create_cell(ft_long_atoi(temp[i]));
+		ab->a->next = create_cell(ft_long_atoi(temp[i]), 0);
 		ab->a = ab->a->next;
 		ab->a->prev = tmp;
 		tmp = ab->a;
