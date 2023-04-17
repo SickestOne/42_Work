@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:02:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/17 23:31:04 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/18 00:45:50 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_ctrl *move_big(t_ctrl *ab)
 	ab = give_ranks(ab, 0);
 	cut_coef = 2;
 	loop_var = total_len;
+	// transforme le if below pour coeff pour 500=10.
 	if (count_nodes_a(ab) >= 100)
 		cut_coef = cut_coef + total_len / 100 + 1;
 	i = cut_coef;
@@ -78,6 +79,7 @@ void	fill_a(t_ctrl *ab, int inter_max, int inter_min)
 
 void	combine_sorted_stacks(t_ctrl *ab, int cut_coef)
 {
+	// rra si i == cutcoef / (2 + 1)
 	static int i = 0;
 	while (ab->a->data > ab->a->next->data)
 		rra(ab, 1);
