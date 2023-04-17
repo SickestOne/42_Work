@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/16 20:58:46 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:58:21 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,6 @@ t_ctrl	*give_ranks(t_ctrl *ab, int ranks);
 void	check_if_ranked(t_ctrl *ab);
 int		check_ranks(t_ctrl *ab);
 t_ctrl	*move_first_20(t_ctrl *ab);
-//int		best_to_move_top(t_ctrl *ab, int i);
-//int		best_to_move_down(t_ctrl *ab, int i);
 t_ctrl	*move_number(t_ctrl *ab);
 int		check_ranks_b(t_ctrl *ab);
 t_ctrl	*give_ranks_b(t_ctrl *ab, int ranks);
@@ -107,10 +105,11 @@ int		find_min_pos_b(t_ctrl *ab);
 int		find_max_b(t_ctrl *ab);
 t_ctrl	*move_big(t_ctrl *ab);
 void	put_maxs_in_b(t_ctrl *ab, int total_len, int cut_coef, int *loop_var);
-void	fill_a(t_ctrl *ab);
-void	combine_sorted_stacks(t_ctrl *ab);
+void	fill_a(t_ctrl *ab, int inter_max, int inter_min);
+void	combine_sorted_stacks(t_ctrl *ab, int cut_coef);
 int		a_is_sorted(t_ctrl *ab);
 int		find_max_pos_b(t_ctrl *ab);
-void	fill_a_opti(t_ctrl *ab);
+void	fill_b(t_ctrl *ab, int inter_max, int inter_min);
+void	fill_b_opti(t_ctrl *ab, int inter_max, int inter_min, int cut_coef);
 
 #endif
