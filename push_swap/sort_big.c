@@ -6,12 +6,14 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:02:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/17 17:34:00 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/17 23:31:04 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 //lire com sort_big_utils.c
+//pour opti : quand stack == 500, passe cut_coeff a 10;
+//a partir du 6 eme tour (+ || -), rra au lieu de ra pour join les stacks.
 t_ctrl *move_big(t_ctrl *ab)
 {
 	int total_len;
