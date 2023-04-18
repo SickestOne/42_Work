@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:22:48 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/18 11:54:16 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/18 18:40:23 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,22 @@
 
 void fill_b(t_ctrl *ab, int inter_max, int inter_min)
 {
-	if (ab->a->rank > inter_min && ab->a->rank <= inter_max)
-		push_b(ab, 1);
-	else
-		rotate_a(ab, 1);
+	while (ab->a->rank >= inter_min && ab->a->rank <= inter_max)
+	{
+		if (ab->a->rank > inter_min && ab->a->rank <= inter_max)
+			push_b(ab, 1);
+		else
+			rotate_a(ab, 1);
+	}
 }
 
 void fill_b_opti(t_ctrl *ab, int inter_max, int inter_min, int cut_coef)
 {
+	int total_b;
+
+	total_b = count_nodes_b(ab);
 	(void)cut_coef;
-	if (count_nodes_b(ab) == (inter_max - inter_min) && ab->a->rank < inter_min
+	if (count_nodes_b(ab) == (inter_max - inter_min) && ab->a->rank <= inter_min
 		&& count_nodes_a(ab) > 100)
 	{
 		while (ab->a->rank < inter_min)
@@ -60,3 +66,14 @@ int	a_is_sorted(t_ctrl *ab)
 	printf("Sorted\n");
 	return (1);
 }
+
+/*void fill_b(t_ctrl *ab, int inter_max, int inter_min)
+{
+	while ((count_nodes_b(ab)) != (inter_max - inter_min))
+	{
+		if (ab->a->rank > inter_min && ab->a->rank <= inter_max)
+			push_b(ab, 1);
+		else
+			rotate_a(ab, 1);
+	}
+}*/

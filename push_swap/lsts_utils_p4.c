@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 10:20:59 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/16 20:36:12 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:42:51 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	find_min_pos_b(t_ctrl *ab)
 	if (fin_pos == 0)
 		fin_pos++;
 	go_top_b(ab);
-	return (fin_pos);
+	return (tmp);
 }
 
 int	find_max_b(t_ctrl *ab)
