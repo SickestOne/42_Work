@@ -6,19 +6,19 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:02:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/19 13:50:58 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/19 21:33:54 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//lire com sort_big_utils.c
-// corriger bug avec liste de bug.txt
-t_ctrl *move_big(t_ctrl *ab)
+
+// l:75 -> mets le while le moins chiant dans une fonction.
+t_ctrl	*move_big(t_ctrl *ab)
 {
-	int total_len;
-	int cut_coef;
-	int loop_var;
-	int i;
+	int	total_len;
+	int	cut_coef;
+	int	loop_var;
+	int	i;
 
 	total_len = count_nodes_a(ab);
 	ab = give_ranks(ab, 0);
@@ -43,9 +43,9 @@ t_ctrl *move_big(t_ctrl *ab)
 
 void	put_maxs_in_b(t_ctrl *ab, int total_len, int cut_coef, int *loop_var)
 {
-	static int inter_max;
-	static int i = 0;
-	int inter_min;
+	static int	inter_max;
+	static int	i = 0;
+	int			inter_min;
 
 	inter_min = *loop_var - total_len / cut_coef;
 	if (i == 0)
@@ -53,7 +53,6 @@ void	put_maxs_in_b(t_ctrl *ab, int total_len, int cut_coef, int *loop_var)
 	else
 		inter_max = *loop_var;
 	fill_b(ab, inter_max, inter_min);
-	fill_b_opti(ab, inter_max, inter_min, total_len);
 	i++;
 	*loop_var = inter_min;
 }
@@ -76,7 +75,7 @@ void	fill_a(t_ctrl *ab)
 
 void	combine_sorted_stacks(t_ctrl *ab, int cut_coef, int total_len)
 {
-	static int i = 0;
+	static int	i = 0;
 	i++;
 	if (total_len == 500 && (i >= cut_coef / 2 + 1) && i != cut_coef)
 	{
@@ -117,4 +116,3 @@ int	a_has_rank(t_ctrl *ab, int inter_max, int inter_min)
 	go_top_a(ab);
 	return (1);
 }
-

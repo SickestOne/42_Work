@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:22:48 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/19 13:50:54 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/19 19:40:18 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ void fill_b(t_ctrl *ab, int inter_max, int inter_min)
 
 void fill_b_opti(t_ctrl *ab, int inter_max, int inter_min, int cut_coef)
 {
-	int total_b;
-
-	total_b = count_nodes_b(ab);
 	(void)cut_coef;
 	if (count_nodes_b(ab) == (inter_max - inter_min) && ab->a->rank <= inter_min
 		&& count_nodes_a(ab) > 100)
