@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 00:07:30 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/03/29 23:12:05 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:03:19 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int sorted_stack_a_sa(int argc, char **str)
 		return (1);
 }
 
-int sorted_stack_a_ma(int argc, char **str)
+int	sorted_stack_a_ma(int argc, char **str)
 {
 	if (!ma_checker(argc, str))
 		return (-1);
