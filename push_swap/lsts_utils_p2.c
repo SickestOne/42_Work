@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:10:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/05 19:16:59 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/19 22:51:04 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	count_nodes_a(t_ctrl *ab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (ab->a == NULL)
@@ -31,7 +31,7 @@ int	count_nodes_a(t_ctrl *ab)
 
 int	count_nodes_b(t_ctrl *ab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (ab->b == NULL)

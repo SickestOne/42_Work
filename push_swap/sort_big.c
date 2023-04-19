@@ -6,13 +6,12 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:02:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/19 21:33:54 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/19 23:09:41 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// l:75 -> mets le while le moins chiant dans une fonction.
 t_ctrl	*move_big(t_ctrl *ab)
 {
 	int	total_len;
@@ -76,20 +75,16 @@ void	fill_a(t_ctrl *ab)
 void	combine_sorted_stacks(t_ctrl *ab, int cut_coef, int total_len)
 {
 	static int	i = 0;
+
 	i++;
 	if (total_len == 500 && (i >= cut_coef / 2 + 1) && i != cut_coef)
-	{
-		go_down_a(ab);
-		while (ab->a->rank < total_len)
-			rra(ab, 1);
-		go_top_a(ab);
-	}
+		combine_first_if(ab, total_len);
 	else if (total_len == 500 && i == cut_coef)
 	{
 		go_top_a(ab);
 		while (ab->a->data < ab->a->next->data)
 			rra(ab, 1);
-		rotate_a(ab ,1);
+		rotate_a(ab, 1);
 	}
 	else if (total_len == 500 && (i != cut_coef && i < cut_coef / 2 + 1))
 		in_range_500(ab);

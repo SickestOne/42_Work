@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 13:49:31 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/16 17:23:32 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/19 23:02:04 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_ctrl	*rotate_a(t_ctrl *ab, int i)
 {
-	int node_count_a;
-	int tmp_data;
-	int tmp_rank;
-	t_node *tmp_cell;
+	int		node_count_a;
+	int		tmp_data;
+	int		tmp_rank;
+	t_node	*tmp_cell;
 
 	node_count_a = count_nodes_a(ab);
 	if (node_count_a < 2)
@@ -52,10 +52,10 @@ t_ctrl	*rotate_a_linklast(t_ctrl *ab, int tmp_data, int tmp_rank)
 
 t_ctrl	*rotate_b(t_ctrl *ab, int i)
 {
-	int node_count_b;
-	int tmp_data;
-	int tmp_rank;
-	t_node *tmp_cell;
+	int		node_count_b;
+	int		tmp_data;
+	int		tmp_rank;
+	t_node	*tmp_cell;
 
 	node_count_b = count_nodes_b(ab);
 	if (node_count_b < 2)

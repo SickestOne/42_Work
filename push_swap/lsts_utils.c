@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:24:35 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/16 20:29:12 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/19 22:50:21 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_ctrl	*build_stack_a_ma(int argc, char **argv, int i)
 {
-	t_ctrl *ab;
-	t_node *tmp;
+	t_ctrl	*ab;
+	t_node	*tmp;
 
 	ab = malloc(sizeof(t_ctrl));
 	if (!ab)
@@ -39,8 +39,8 @@ t_ctrl	*build_stack_a_ma(int argc, char **argv, int i)
 
 t_ctrl	*build_stack_a_sa(int argc, char **argv, int i)
 {
-	t_ctrl *ab;
-	t_node *tmp;
+	t_ctrl	*ab;
+	t_node	*tmp;
 	char	**temp;
 
 	temp = ft_split((const char *)argv[1], ' ');
@@ -67,7 +67,7 @@ t_ctrl	*build_stack_a_sa(int argc, char **argv, int i)
 
 t_ctrl	*give_ranks(t_ctrl *ab, int ranks)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	tmp = ab->a;
 	while (check_ranks(ab) != 1)

@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:15:03 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/18 10:37:19 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/19 23:05:14 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 t_ctrl	*rra(t_ctrl *ab, int i)
 {
 	t_node	*tmp_cell;
-	int	tmp_data;
-	int tmp_rank;
-	int	node_count_a;
+	int		tmp_data;
+	int		tmp_rank;
+	int		node_count_a;
 
 	node_count_a = count_nodes_a(ab);
 	if (node_count_a < 2)
@@ -37,7 +37,6 @@ t_ctrl	*rra(t_ctrl *ab, int i)
 	{
 		write (1, "rra\n", 4);
 		go_top_a(ab);
-		return (ab);
 	}
 	return (ab);
 }

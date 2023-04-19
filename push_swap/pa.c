@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 15:40:31 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/16 17:28:48 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/19 22:54:45 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_ctrl	*push_a(t_ctrl *ab, int i)
 {
-	int node_count_b;
-	int tmp_data;
-	int tmp_rank;
-	t_node *tmp_cell;
+	int		node_count_b;
+	int		tmp_data;
+	int		tmp_rank;
+	t_node	*tmp_cell;
 
 	node_count_b = count_nodes_b(ab);
 	if (node_count_b == 0)
@@ -39,7 +39,7 @@ t_ctrl	*push_a(t_ctrl *ab, int i)
 	return (ab);
 }
 
-t_ctrl *push_a_link_last(t_ctrl *ab, int tmp_data, int tmp_rank)
+t_ctrl	*push_a_link_last(t_ctrl *ab, int tmp_data, int tmp_rank)
 {
 	if (ab->a == NULL)
 		ab->a = create_cell(tmp_data, tmp_rank);

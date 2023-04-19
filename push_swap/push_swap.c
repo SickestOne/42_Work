@@ -6,14 +6,13 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:15:18 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/19 18:36:55 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/19 22:57:11 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-
-int	main(int argc,char **argv)
+int	main(int argc, char **argv)
 {
 	if (argc < 2)
 		exit (0);

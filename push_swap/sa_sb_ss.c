@@ -6,16 +6,16 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:47:45 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/03/31 16:13:29 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/19 23:06:35 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_ctrl *swap_a(t_ctrl *ab, int i)
+t_ctrl	*swap_a(t_ctrl *ab, int i)
 {
-	int tmp;
-	int node_count;
+	int	tmp;
+	int	node_count;
 
 	node_count = count_nodes_a(ab);
 	if (node_count == 1 || node_count == 0)
@@ -31,10 +31,10 @@ t_ctrl *swap_a(t_ctrl *ab, int i)
 	return (ab);
 }
 
-t_ctrl *swap_b(t_ctrl *ab, int i)
+t_ctrl	*swap_b(t_ctrl *ab, int i)
 {
-	int tmp;
-	int node_count;
+	int	tmp;
+	int	node_count;
 
 	node_count = count_nodes_b(ab);
 	if (node_count == 1 || node_count == 0)
@@ -50,7 +50,7 @@ t_ctrl *swap_b(t_ctrl *ab, int i)
 	return (ab);
 }
 
-t_ctrl *s_s(t_ctrl *ab)
+t_ctrl	*s_s(t_ctrl *ab)
 {
 	swap_a(ab, 0);
 	swap_b(ab, 0);

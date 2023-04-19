@@ -33,6 +33,7 @@ SRCS        :=      data_parser.c \
                           sa_sb_ss.c \
                           sort_big.c \
                           sort_big_utils.c \
+						  sort_big_utils_2.c \
                           sort_checker.c \
                           sort_for_five.c \
                           sort_for_five_utils.c \

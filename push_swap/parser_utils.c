@@ -6,13 +6,12 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:45:05 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/19 20:00:49 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/19 22:56:05 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// UNCOMMENT L:80 FOR EVAL !!!
 int	number_checker(char **str, int i, int j)
 {
 	while (str[i])
@@ -78,8 +77,8 @@ int	int_checker(char **str, int i)
 {
 	while (str[++i])
 	{
-		if (ft_long_atoi(str[i]) > 2147483647 ||
-			ft_long_atoi(str[i]) < -2147483648)
+		if (ft_long_atoi(str[i]) > 2147483647
+			|| ft_long_atoi(str[i]) < -2147483648)
 			return (0);
 		/*if (ft_strlen(str[i]) > 10)
 			return (0);*/

@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/11 21:18:20 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/19 22:48:51 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ int	sa_checker(char **str)
 	if (count_params(temp, ' ', 0))
 	{
 		argc_d = count_params(temp, ' ', 0);
-		if (number_checker(temp, 0, 0) 
+		if (number_checker(temp, 0, 0)
 			&& double_checker(argc_d, temp, 0, 1)
-			&& sign_checker(temp, 1, 0) && int_checker(temp, -1) && check_solo_sign(temp, 0))
+			&& sign_checker(temp, 1, 0) && int_checker(temp, -1)
+			&& check_solo_sign(temp, 0))
 			return (1);
 		else
 			return (0);

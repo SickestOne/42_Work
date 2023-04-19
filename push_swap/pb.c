@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:27:53 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/16 17:31:32 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/19 22:56:32 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_ctrl	*push_b(t_ctrl *ab, int i)
 {
-	int node_count_a;
-	int tmp_data;
-	int tmp_rank;
-	t_node *tmp_cell;
+	int		node_count_a;
+	int		tmp_data;
+	int		tmp_rank;
+	t_node	*tmp_cell;
 
 	node_count_a = count_nodes_a(ab);
 	if (node_count_a == 0)
@@ -39,7 +39,7 @@ t_ctrl	*push_b(t_ctrl *ab, int i)
 	return (ab);
 }
 
-t_ctrl *push_b_link_last(t_ctrl *ab, int tmp_data, int tmp_rank)
+t_ctrl	*push_b_link_last(t_ctrl *ab, int tmp_data, int tmp_rank)
 {
 	if (ab->b == NULL)
 		ab->b = create_cell(tmp_data, tmp_rank);

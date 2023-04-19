@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/19 13:45:50 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/19 23:00:52 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,17 @@
 
 typedef struct t_node
 {
-	int	data;
-	int	rank;
-	struct t_node *next;
-	struct t_node *prev;
+	int				data;
+	int				rank;
+	struct t_node	*next;
+	struct t_node	*prev;
 }				t_node;
 
 typedef struct t_ctrl
 {
-	struct t_node *a;
-	struct t_node *b;
-}			 t_ctrl;
-
+	struct t_node	*a;
+	struct t_node	*b;
+}				t_ctrl;
 
 int		count_params(char **s, char c, int i);
 int		check_input(char *s, char c);
@@ -71,10 +70,10 @@ t_ctrl	*swap_a(t_ctrl *ab, int i);
 t_ctrl	*swap_b(t_ctrl *ab, int i);
 t_ctrl	*s_s(t_ctrl *ab);
 t_ctrl	*push_b(t_ctrl *ab, int i);
-t_ctrl  *push_b_link_last(t_ctrl *ab, int tmp_data, int tmp_rank);
+t_ctrl	*push_b_link_last(t_ctrl *ab, int tmp_data, int tmp_rank);
 t_ctrl	*push_b_clean_a(t_ctrl *ab, int node_count_a);
 t_ctrl	*push_a(t_ctrl *ab, int i);
-t_ctrl  *push_a_link_last(t_ctrl *ab, int tmp_data, int tmp_rank);
+t_ctrl	*push_a_link_last(t_ctrl *ab, int tmp_data, int tmp_rank);
 t_ctrl	*push_a_clean_b(t_ctrl *ab, int node_count_b);
 t_ctrl	*rotate_a(t_ctrl *ab, int i);
 t_ctrl	*rotate_a_linklast(t_ctrl *ab, int tmp_data, int tmp_rank);
@@ -114,5 +113,6 @@ void	fill_b_opti(t_ctrl *ab, int inter_max, int inter_min, int cut_coef);
 int		a_has_rank(t_ctrl *ab, int inter_max, int inter_min);
 void	out_of_range(t_ctrl *ab, int cut_coef, int total_len);
 void	in_range_500(t_ctrl *ab);
+void	combine_first_if(t_ctrl *ab, int total_len);
 
 #endif
