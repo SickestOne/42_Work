@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/19 23:00:52 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/20 11:46:24 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,5 @@ int		a_has_rank(t_ctrl *ab, int inter_max, int inter_min);
 void	out_of_range(t_ctrl *ab, int cut_coef, int total_len);
 void	in_range_500(t_ctrl *ab);
 void	combine_first_if(t_ctrl *ab, int total_len);
-
+void	free_all_data(t_ctrl *ab);
 #endif

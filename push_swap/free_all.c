@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 21:15:18 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/20 12:05:19 by rvan-den         ###   ########.fr       */
+/*   Created: 2023/04/20 11:41:31 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/04/20 11:53:10 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	free_all_data(t_ctrl *ab)
 {
-	if (argc < 2)
-		exit (0);
-	if (check_stack(argc, argv) == 2)
-		chose_sort_sa(argc, argv);
-	else if (check_stack(argc, argv) == 1)
-		chose_sort_ma(argc, argv);
-	return (0);
+	t_node	*a;
+
+	a = ab->a;
+	while (ab->a != NULL)
+	{
+		a = ab->a->next;
+		free(ab->a);
+		ab->a = a;
+	}
+	free(ab);
 }
