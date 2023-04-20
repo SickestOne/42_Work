@@ -6,16 +6,23 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:22:48 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/19 23:11:14 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/20 20:56:25 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+// modify find_xxx_data_b for rank search
 void	fill_b(t_ctrl *ab, int inter_max, int inter_min)
 {
+	//int	total_len;
+
 	while (a_has_rank(ab, inter_max, inter_min) != 1)
 	{
+		/*total_len = count_nodes_b(ab);
+		if ((find_max_data_b(ab) >= inter_min
+			&& find_max_data_b(ab)<= inter_max) 
+			&& (find_max_pos_b(ab) > (total_len / 2)))
+			fill_b_case_1(ab, total_len);*/
 		if (ab->a->rank >= inter_min && ab->a->rank <= inter_max)
 			push_b(ab, 1);
 		else

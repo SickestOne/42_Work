@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 10:20:59 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/19 22:53:02 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/20 19:17:29 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	find_min(t_ctrl *ab)
 	return (fin_pos);
 }
 
-int	find_min_pos_b(t_ctrl *ab)
+int	find_min_data_b(t_ctrl *ab)
 {
 	int	tmp;
 	int	pos;
@@ -98,7 +98,7 @@ int	find_min_pos_b(t_ctrl *ab)
 	return (tmp);
 }
 
-int	find_max_b(t_ctrl *ab)
+int	find_max_data_b(t_ctrl *ab)
 {
 	int	tmp;
 	int	pos;
