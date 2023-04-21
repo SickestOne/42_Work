@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:02:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/21 14:26:42 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/21 23:38:50 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,19 +106,4 @@ void	combine_sorted_stacks(t_ctrl *ab, int cut_coef, int total_len)
 		rotate_a(ab, 1);
 	}
 	out_of_range(ab, cut_coef, total_len);
-}
-
-int	a_has_rank(t_ctrl *ab, int inter_max, int inter_min)
-{
-	while (ab->a->next != NULL)
-	{
-		if (ab->a->rank >= inter_min && ab->a->rank <= inter_max)
-		{
-			go_top_a(ab);
-			return (0);
-		}
-		ab->a = ab->a->next;
-	}
-	go_top_a(ab);
-	return (1);
 }

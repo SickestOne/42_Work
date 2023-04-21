@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/21 14:18:41 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/21 23:36:16 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ t_ctrl	*give_ranks_b(t_ctrl *ab, int ranks);
 t_ctrl	*move_big(t_ctrl *ab);
 void	put_maxs_in_b(t_ctrl *ab, int total_len, int cut_coef, int *loop_var);
 void	combine_sorted_stacks(t_ctrl *ab, int cut_coef, int total_len);
-int		a_is_sorted(t_ctrl *ab);
 int		a_has_rank(t_ctrl *ab, int inter_max, int inter_min);
 void	out_of_range(t_ctrl *ab, int cut_coef, int total_len);
 void	in_range_500(t_ctrl *ab);
@@ -123,5 +122,8 @@ int		find_min_pos_a(t_ctrl *ab);
 int		find_max_pos_a(t_ctrl *ab);
 int		find_max_pos_b(t_ctrl *ab);
 int		find_min_pos_b(t_ctrl *ab);
+int		locate_rank(t_ctrl *ab, int inter_min, int inter_max);
+void	rank_top(t_ctrl *ab, int i, int inter_min, int inter_max);
+void	rank_bot(t_ctrl *ab, int i, int inter_min, int inter_max);
 
 #endif
