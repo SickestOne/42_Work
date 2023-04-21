@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:02:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/20 19:17:38 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/21 14:26:42 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,11 @@ void	put_maxs_in_b(t_ctrl *ab, int total_len, int cut_coef, int *loop_var)
 
 void	fill_a(t_ctrl *ab)
 {
+	int	total_len;
+
 	while (count_nodes_b(ab) != 0)
 	{
+		total_len = count_nodes_b(ab);
 		if (find_max_data_b(ab) == ab->b->data)
 			push_a(ab, 1);
 		else if (find_min_data_b(ab) == ab->b->data)
@@ -67,6 +70,14 @@ void	fill_a(t_ctrl *ab)
 			push_a(ab, 1);
 			rotate_a(ab, 1);
 		}
+		else if (find_max_pos_b(ab) < total_len / 2)
+			fill_a_max_1(ab);
+		else if (find_max_pos_b(ab) > total_len / 2 + 1)
+			fill_a_max_2(ab);
+		else if (find_min_pos_b(ab) < total_len / 2)
+			fill_a_min_1(ab);
+		else if (find_min_pos_b(ab) > total_len / 2 + 1)
+			fill_a_min_2(ab);
 		else
 			rotate_b(ab, 1);
 	}
