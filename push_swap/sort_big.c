@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:02:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/21 23:38:50 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/22 22:34:20 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	fill_a(t_ctrl *ab)
 	while (count_nodes_b(ab) != 0)
 	{
 		total_len = count_nodes_b(ab);
-		if (find_max_data_b(ab) == ab->b->data)
+		if (find_max_data_b(ab) == ab->b->rank)
 			push_a(ab, 1);
-		else if (find_min_data_b(ab) == ab->b->data)
+		else if (find_min_data_b(ab) == ab->b->rank)
 		{
 			push_a(ab, 1);
 			rotate_a(ab, 1);
