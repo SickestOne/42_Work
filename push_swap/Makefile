@@ -35,6 +35,7 @@ SRCS        :=      data_parser.c \
                           start_sort.c \
 						  free_all.c \
 						  fill_a_utils.c \
+						  fill_b_utils.c \
                           
 OBJS        := $(SRCS:.c=.o)
 
