@@ -6,10 +6,11 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/26 10:51:25 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/27 22:51:34 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// gerer le cas ou un connard rentre un seul "truc" dans le progamme, genre "coucou", pour que ca retourne erreur (sub 5')
 #include "push_swap.h"
 
 int	retarded_input(char **str, int i)
