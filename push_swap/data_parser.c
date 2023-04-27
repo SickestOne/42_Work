@@ -6,13 +6,11 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/19 22:48:51 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/26 10:51:25 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// TO DO :
 
 int	retarded_input(char **str, int i)
 {
