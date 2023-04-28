@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 20:29:53 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/21 10:59:37 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/28 12:28:50 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,20 @@ int	find_max_pos_a(t_ctrl *ab)
 		fin_pos++;
 	go_top_a(ab);
 	return (fin_pos);
+}
+
+void	check_sa_single(int argc, char **str)
+{
+	if (argc == 2)
+	{
+		if (number_checker(str, 1, 0)
+			&& sign_checker(str, 1, 0) && int_checker(str, 0)
+			&& check_solo_sign(str, 1))
+			exit (0);
+		else
+		{
+			write (2, "Error\n", 7);
+			exit(2);
+		}
+	}
 }

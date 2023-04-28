@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/21 23:36:16 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/04/28 11:32:41 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct t_ctrl
 	struct t_node	*b;
 }				t_ctrl;
 
+void	check_sa_single(int argc, char **str);
 int		count_params(char **s, char c, int i);
 int		check_input(char *s, char c);
 int		check_stack(int argc, char **str);

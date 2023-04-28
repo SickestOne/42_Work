@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/27 22:51:34 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/28 12:27:30 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	ma_checker(int argc, char **str)
 
 int	check_stack(int argc, char **str)
 {
+	check_sa_single(argc, str);
 	if (argc > 2 && sorted_stack_a_ma(argc, str) == 1)
 		return (1);
 	else if (argc == 2 && sorted_stack_a_sa(argc, str) == 1)
