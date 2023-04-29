@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:24:11 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/27 15:24:14 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/04/29 10:41:03 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc < 2)
-		exit (0);
-	int i;
-
-	i = 1;
-	ft_printf("%d\n", i);
+	if (argc != 3)
+		ft_printf("Bad usage ! -> ./client [PID] [MESSAGE]""\n");
 	return (0);
 }
