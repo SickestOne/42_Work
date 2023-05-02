@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:50:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/27 12:36:13 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/02 15:12:40 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,12 @@ int			ft_do_s(char *str);
 int			ft_do_pct(int c);
 int			ft_do_c(int c);
 void		test_server(void);
+void		go_top(t_ctrl *i);
+t_node		*create_cell(unsigned char c);
+int			count_params(char **str, char c, int i);
+int			ft_atoi(const char *str);
+char		**ft_split(char const *s, char c);
+size_t		ft_strlen(const char *s);
 
 #endif
 

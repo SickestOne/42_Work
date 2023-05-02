@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:10:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/19 22:51:04 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/05/02 14:37:50 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,4 @@ t_ctrl	*go_top_b(t_ctrl *ab)
 	while (ab->b->prev != NULL)
 		ab->b = ab->b->prev;
 	return (ab);
-}
-
-void	print_list_a(t_ctrl *ab)
-{
-	if (ab->a == NULL)
-	{
-		printf("a : is empty\n");
-		return ;
-	}
-	while (ab->a->next != NULL)
-	{
-		printf("a : %d\n", ab->a->data);
-		ab->a = ab->a->next;
-	}
-	printf("a : %d\n", ab->a->data);
-	ab = go_top_a(ab);
 }

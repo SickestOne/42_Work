@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_client.c                                        :+:      :+:    :+:   */
+/*   go_top_atob.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 15:24:11 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/02 14:11:49 by rvan-den         ###   ########.fr       */
+/*   Created: 2023/05/02 14:21:51 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/05/02 15:19:31 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minitalk.h"
 
-int	main(int argc, char **argv)
+void	go_top(t_ctrl *i)
 {
-	if (argc != 3)
-		ft_printf("Bad usage ! -> ./client [PID] [MESSAGE]\n");
-	return (0);
+	while (i->atob->prev != NULL)
+		i->atob = i->atob->prev;
 }

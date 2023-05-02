@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_client.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 15:24:11 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/02 14:11:49 by rvan-den         ###   ########.fr       */
+/*   Created: 2022/11/07 12:56:10 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/05/02 15:19:10 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minitalk.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlen(const char *s)
 {
-	if (argc != 3)
-		ft_printf("Bad usage ! -> ./client [PID] [MESSAGE]\n");
-	return (0);
+	size_t	len;
+
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	return (len);
 }

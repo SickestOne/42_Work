@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/28 11:32:41 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:00:34 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,6 @@ int		find_min_pos_b(t_ctrl *ab);
 int		locate_rank(t_ctrl *ab, int inter_min, int inter_max);
 void	rank_top(t_ctrl *ab, int i, int inter_min, int inter_max);
 void	rank_bot(t_ctrl *ab, int i, int inter_min, int inter_max);
+void	free_tabs(char **tab);
 
 #endif

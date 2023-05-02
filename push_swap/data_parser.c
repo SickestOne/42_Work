@@ -6,7 +6,7 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/04/28 13:16:13 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:06:50 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ int	sa_checker(char **str)
 			&& double_checker(argc_d, temp, 0, 1)
 			&& sign_checker(temp, 1, 0) && int_checker(temp, -1)
 			&& check_solo_sign(temp, 0))
-			return (1);
+			return (free_tabs(temp), 1);
 		else
-			return (0);
+			return (free_tabs(temp), 0);
 	}
-	return (0);
+	return (free_tabs(temp), 0);
 }
 
 int	ma_checker(int argc, char **str)

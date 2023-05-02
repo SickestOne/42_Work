@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_client.c                                        :+:      :+:    :+:   */
+/*   free_tabs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 15:24:11 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/02 14:11:49 by rvan-den         ###   ########.fr       */
+/*   Created: 2023/05/02 17:53:58 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/05/02 18:07:04 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk.h"
+#include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	free_tabs(char **tab)
 {
-	if (argc != 3)
-		ft_printf("Bad usage ! -> ./client [PID] [MESSAGE]\n");
-	return (0);
+	int	j;
+
+	j = 0;
+	while (tab[j])
+	{
+		free(tab[j]);
+		j++;
+	}
+	free(tab);
 }

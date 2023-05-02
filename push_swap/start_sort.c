@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:19:57 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/20 11:55:24 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:12:02 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	chose_sort_sa(int argc, char **str)
 		move_big(ab);
 	}
 	free_all_data(ab);
-	return (0);
+	return (free_tabs(temp), 0);
 }
 
 int	chose_sort_ma(int argc, char **str)
@@ -53,5 +53,5 @@ int	chose_sort_ma(int argc, char **str)
 		move_big(ab);
 	}
 	free_all_data(ab);
-	return (0);
+	return (free_tabs(temp), 0);
 }

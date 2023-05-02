@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:24:35 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/19 22:50:21 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:09:57 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_ctrl	*build_stack_a_ma(int argc, char **argv, int i)
 
 	ab = malloc(sizeof(t_ctrl));
 	if (!ab)
-		return (NULL);
+		return (free_tabs(temp), NULL);
 	ab->a = NULL;
 	ab->b = NULL;
 	ab->a = create_cell(ft_long_atoi(argv[i++]), 0);
@@ -34,7 +34,7 @@ t_ctrl	*build_stack_a_ma(int argc, char **argv, int i)
 	}
 	ab->a->rank = 0;
 	go_top_a(ab);
-	return (ab);
+	return (free_tabs(temp), ab);
 }
 
 t_ctrl	*build_stack_a_sa(int argc, char **argv, int i)
@@ -47,7 +47,7 @@ t_ctrl	*build_stack_a_sa(int argc, char **argv, int i)
 	argc = count_params(temp, ' ', 0);
 	ab = malloc(sizeof(t_ctrl));
 	if (!ab)
-		return (NULL);
+		return (free_tabs(temp), NULL);
 	ab->a = NULL;
 	ab->b = NULL;
 	ab->a = create_cell(ft_long_atoi(temp[i++]), 0);
@@ -62,7 +62,7 @@ t_ctrl	*build_stack_a_sa(int argc, char **argv, int i)
 	}
 	ab->a->rank = 0;
 	ab = go_top_a(ab);
-	return (ab);
+	return (free_tabs(temp), ab);
 }
 
 t_ctrl	*give_ranks(t_ctrl *ab, int ranks)

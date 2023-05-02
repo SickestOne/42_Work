@@ -6,7 +6,7 @@
 #    By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 13:53:59 by rvan-den          #+#    #+#              #
-#    Updated: 2023/04/27 13:50:43 by rvan-den         ###   ########.fr        #
+#    Updated: 2023/05/02 15:13:30 by rvan-den         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ SERVER = serv_src/ft_server.c \
 		 serv_src/free_all.c \
 
 CLIENT = client_src/ft_client.c \
+		 client_src/go_top_atob.c \
+		 client_src/list_build.c \
 
 PRINTF = printf_minitalk/ft_do_c.c \
 		  printf_minitalk/ft_do_prct.c \
@@ -23,6 +25,9 @@ PRINTF = printf_minitalk/ft_do_c.c \
 		  printf_minitalk/ft_puthex_maj.c \
 		  printf_minitalk/ft_puthex_min.c \
 		  printf_minitalk/ft_putnbr_fpf.c \
+		  printf_minitalk/utils.c \
+		  printf_minitalk/ft_split.c \
+		  printf_minitalk/ft_strlen.c \
 
 CC = @gcc 
 

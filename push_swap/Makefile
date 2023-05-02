@@ -36,6 +36,7 @@ SRCS        :=      data_parser.c \
 						  free_all.c \
 						  fill_a_utils.c \
 						  fill_b_utils.c \
+						  free_tabs.c \
                           
 OBJS        := $(SRCS:.c=.o)
 
