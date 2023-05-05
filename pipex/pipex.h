@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   go_top_atob.c                                      :+:      :+:    :+:   */
+/*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 14:21:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/02 15:19:31 by rvan-den         ###   ########.fr       */
+/*   Created: 2023/05/04 13:50:36 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/05/04 13:58:42 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk.h"
+#ifndef PIPEX_H
+# define PIPEX_H
 
-void	go_top(t_ctrl *i)
-{
-	while (i->atob->prev != NULL)
-		i->atob = i->atob->prev;
-}
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <strings.h>
+#include <string.h>
+
+#endif

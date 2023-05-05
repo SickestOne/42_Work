@@ -6,7 +6,7 @@
 /*   By: pendejoo </var/spool/mail/pendejoo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 20:29:53 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/04/28 12:28:50 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/03 11:13:53 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int	find_max_pos_a(t_ctrl *ab)
 
 void	check_sa_single(int argc, char **str)
 {
-	if (argc == 2)
+	if (argc == 2 && !count_params(str, ' ', 1))
 	{
 		if (number_checker(str, 1, 0)
 			&& sign_checker(str, 1, 0) && int_checker(str, 0)

@@ -6,13 +6,13 @@
 /*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:45:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/02 18:06:50 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/03 11:06:05 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	retarded_input(char **str, int i)
+int	wrong_input(char **str, int i)
 {
 	while (str[i + 1])
 	{
@@ -68,7 +68,7 @@ int	ma_checker(int argc, char **str)
 {
 	if (!number_checker(str, 1, 0) || !double_checker(argc, str, 1, 2)
 		|| !sign_checker(str, 1, 0) || !int_checker(str, -1)
-		|| !retarded_input(str, 1) || !check_solo_sign(str, 1))
+		|| !wrong_input(str, 1) || !check_solo_sign(str, 1))
 		return (0);
 	else
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:38:14 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/02 18:00:34 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/03 11:06:29 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		int_checker(char **str, int i);
 int		number_checker(char **str, int i, int j);
 int		sa_tab_len(char **temp);
 int		ma_tab_len(char **temp);
-int		retarded_input(char **str, int i);
+int		wrong_input(char **str, int i);
 int		sa_checker(char **argv);
 int		sorted_stack_a_ma(int argc, char **str);
 int		sorted_stack_a_sa(int argc, char **str);
