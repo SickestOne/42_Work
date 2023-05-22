@@ -1,17 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/22 17:11:24 by rvan-den         ###   ########.fr       */
+/*   Created: 2022/11/07 12:44:38 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/05/22 14:33:15 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	main(int argc, char **argv, char **env)
+int	ft_isascii(int c)
 {
+	if ((c >= 0) && (c <= 127))
+		return (1);
+	else
+		return (0);
 }
