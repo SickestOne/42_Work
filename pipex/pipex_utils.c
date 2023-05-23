@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:08:34 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/23 16:48:55 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:50:02 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,19 @@ char	*ft_execpath(char *cmd, char **env)
 	}
 	free_tabs(split_path);
 	free_tabs(av_cmd);
-	return (NULL);
+	return (cmd);
 }
 
+void	exec_cmd(char *cmd, char **env)
+{
+	char	**split_argv;
+	char	*path;
+
+	split_argv = ft_split(cmd, ' ');
+	path = ft_execpath(split_argv[0], env);
+	if (execve(path, split_argv, env) == -1)
+		exit(0);
+}
 
 
 void	free_tabs(char **tab)

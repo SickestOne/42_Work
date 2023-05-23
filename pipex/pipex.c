@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/23 16:20:37 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:45:16 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,9 @@ int	main(int argc, char **argv, char **env)
 {
 	if (argc < 2)
 		exit(0);
-	char *ret = ft_execpath(argv[1], env);
-	printf("%s\n", ret);
+	// char *ret = ft_execpath(argv[1], env);
+	// printf("%s\n", ret);
+	char *cmd = argv[1];
+	exec_cmd(cmd, env);
 	return (0);
 }
-
-// void	exec_cmd(char **argv, char *cmd, char **env)
-// {
-// 	cmd = argv[1];
-// }
