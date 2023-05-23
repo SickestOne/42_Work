@@ -6,25 +6,62 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:08:34 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/22 17:15:48 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:46:28 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-// modif getenv pour fonction avec le split 
 char	*ft_getenv(char *name, char **env)
 {
 	int		i;
 	int		j;
 
-	i = 0;
+	i = -1;
 	j = ft_strlen(name);
-	while (env[i])
-	{
+	while (env[++i])
 		if (ft_strncmp((const char *)env[i], name, j) == 0)
-			return (ft_substr((const char *)env[i], 0, j));
-		i++;
-	}
+			return (env[i]);
 	return (NULL);
+}
+
+char	*ft_execpath(char *cmd, char **env)
+{
+	int		i;
+	char	*exec;
+	char	**split_path;
+	char	*path_join;
+	char	**av_cmd;
+
+	i = -1;
+	split_path = ft_split(ft_getenv("PATH=", env), ':');
+	av_cmd = ft_split(cmd, ' ');
+	while (split_path[++i])
+	{
+		path_join = ft_strjoin(split_path[i], "/");
+		exec = ft_strjoin(path_join, av_cmd[0]);
+		free(path_join);
+		if (access(exec, F_OK | X_OK) == 0)
+		{
+			free_tabs(av_cmd);
+			return (exec);
+		}
+		free(exec);
+	}
+	free_tabs(split_path);
+	free_tabs(av_cmd);
+	return (NULL);
+}
+
+void	free_tabs(char **tab)
+{
+	int	j;
+
+	j = 0;
+	while (tab[j])
+	{
+		free(tab[j]);
+		j++;
+	}
+	free(tab);
 }

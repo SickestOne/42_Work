@@ -18,6 +18,7 @@ SRCS        :=      child.c \
 						  ft_strlen.c \
 						  ft_strncmp.c \
 						  ft_isascii.c \
+						  ft_strjoin.c \
                           
 OBJS        := $(SRCS:.c=.o)
 
