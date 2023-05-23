@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:50:36 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/23 15:03:47 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:15:36 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_isascii(int c);
 void	child_process(char **argv, char **env, int *pipe_fd);
 void	parent_process(char **argv, char **env, int *pipe_fd);
- void	exec_cmd(char *cmd, char **env);
+void	exec_cmd(char **argv, char *cmd, char **env);
 void	free_tabs(char **tab);
 
 #endif
