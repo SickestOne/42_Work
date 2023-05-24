@@ -12,14 +12,11 @@
 
 #include "pipex.h"
 
-// pid_t == typdedef sur type int
-// pipe(pipe_fd[2]) -> deux fd, un pour lentree du pipe, un pour la sortie du pipe
-
 int	main(int argc, char **argv, char **env)
 {
 	if (argc < 3)
 		exit(0);
-	else if (argc == 3)
+	else if (argc == 4)
 		pipe_execution(argv, env);
 	return (0);
 }
@@ -37,16 +34,27 @@ void	pipe_execution(char **argv, char **env)
 	{
 		dup2(pipe_fd[1], 1);		// intput file
 		close(pipe_fd[0]);
-		close(pipe_fd[1]);
 		exec_cmd(argv[1], env);
 	}
 	waitpid(forked, NULL, 0);
-	dup2(pipe_fd[0], 0);			// output file
-	close(pipe_fd[0]);
-	close(pipe_fd[1]);
-	exec_cmd(argv[2], env);
+	ft_output_file(argv, env, pipe_fd);
+	// dup2(pipe_fd[0], 0);			// output file
+	// close(pipe_fd[0]);
+	// close(pipe_fd[1]);
+	// exec_cmd(argv[2], env);
 }
+
 void	ft_output_file(char **argv, char **env, int *pipe_fd)
 {
+	int	output;
+	char *file;
 
+	file = argv[3];
+	output = open(file, O_RDONLY | O_CREAT, 0777);
+	if (output == -1)
+		exit(0);
+	dup2(output, 1);
+	dup2(pipe_fd[0], 0);
+	close(pipe_fd[1]);
+	exec_cmd(argv[2], env);
 }
