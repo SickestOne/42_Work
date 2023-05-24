@@ -35,14 +35,18 @@ void	pipe_execution(char **argv, char **env)
 		exit(0);
 	if (forked == 0)
 	{
-		dup2(pipe_fd[1], 1);
+		dup2(pipe_fd[1], 1);		// intput file
 		close(pipe_fd[0]);
 		close(pipe_fd[1]);
 		exec_cmd(argv[1], env);
 	}
 	waitpid(forked, NULL, 0);
-	dup2(pipe_fd[0], 0);
+	dup2(pipe_fd[0], 0);			// output file
 	close(pipe_fd[0]);
 	close(pipe_fd[1]);
 	exec_cmd(argv[2], env);
+}
+void	ft_output_file(char **argv, char **env, int *pipe_fd)
+{
+
 }
