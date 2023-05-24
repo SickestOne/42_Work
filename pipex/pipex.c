@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/24 09:42:48 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:00:16y rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,32 @@
 
 int	main(int argc, char **argv, char **env)
 {
-	(void)argc;
-	(void)argv;
-	// if (argc < 2)
-	// 	exit(0);
-	// char *ret = ft_execpath(argv[1], env);
-	// printf("%s\n", ret);
-	char *cmd = "ls -la";
-	exec_cmd(cmd, env);
+	if (argc < 3)
+		exit(0);
+	else if (argc == 3)
+		pipe_execution(argv, env);
 	return (0);
+}
+void	pipe_execution(char **argv, char **env)
+{
+	int	pipe_fd[2];
+	pid_t	forked;
+
+	if (pipe(pipe_fd) == -1)
+		exit(0);
+	forked = fork();
+	if (forked < 0)
+		exit(0);
+	if (forked == 0)
+	{
+		dup2(pipe_fd[1], 1);
+		close(pipe_fd[0]);
+		close(pipe_fd[1]);
+		exec_cmd(argv[1], env);
+	}
+	waitpid(forked, NULL, 0);
+	dup2(pipe_fd[0], 0);
+	close(pipe_fd[0]);
+	close(pipe_fd[1]);
+	exec_cmd(argv[2], env);
 }

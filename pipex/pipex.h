@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:50:36 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/23 20:26:37 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/24 13:34:00 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ void	child_process(char **argv, char **env, int *pipe_fd);
 void	parent_process(char **argv, char **env, int *pipe_fd);
 void	exec_cmd(char *cmd, char **env);
 void	free_tabs(char **tab);
+void	ft_putstr_err(char *str, int i);
+void	pipe_execution(char **argv, char **env);
 
 #endif
