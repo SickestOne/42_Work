@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/23 20:45:16 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/24 09:42:48 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 
 int	main(int argc, char **argv, char **env)
 {
-	if (argc < 2)
-		exit(0);
+	(void)argc;
+	(void)argv;
+	// if (argc < 2)
+	// 	exit(0);
 	// char *ret = ft_execpath(argv[1], env);
 	// printf("%s\n", ret);
-	char *cmd = argv[1];
+	char *cmd = "ls -la";
 	exec_cmd(cmd, env);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:08:34 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/23 20:50:02 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/24 09:37:16 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,12 @@ void	exec_cmd(char *cmd, char **env)
 	char	*path;
 
 	split_argv = ft_split(cmd, ' ');
-	path = ft_execpath(split_argv[0], env);
+	path = ft_execpath(*split_argv, env);
 	if (execve(path, split_argv, env) == -1)
+	{
+		printf("Bouse\n");
 		exit(0);
+	}
 }
 
 
