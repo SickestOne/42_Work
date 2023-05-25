@@ -38,10 +38,6 @@ void	pipe_execution(char **argv, char **env)
 	}
 	waitpid(forked, NULL, 0);
 	ft_output_file(argv, env, pipe_fd);
-	// dup2(pipe_fd[0], 0);			// output file
-	// close(pipe_fd[0]);
-	// close(pipe_fd[1]);
-	// exec_cmd(argv[2], env);
 }
 
 void	ft_output_file(char **argv, char **env, int *pipe_fd)
@@ -50,11 +46,11 @@ void	ft_output_file(char **argv, char **env, int *pipe_fd)
 	char *file;
 
 	file = argv[3];
-	output = open(file, O_RDONLY | O_CREAT, 0777);
+	output = open(file, O_RDONLY | O_CREAT | O_TRUNC, 0644);
 	if (output == -1)
 		exit(0);
-	dup2(output, 1);
 	dup2(pipe_fd[0], 0);
+	dup2(output, 1);
 	close(pipe_fd[1]);
 	exec_cmd(argv[2], env);
 }

@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:08:34 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/24 15:14:39 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/25 09:56:17 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	exec_cmd(char *cmd, char **env)
 	char	*path;
 
 	split_argv = ft_split(cmd, ' ');
-	path = ft_execpath(*split_argv, env);
+	path = ft_execpath(split_argv[0], env);
 	if (execve(path, split_argv, env) == -1)
 	{
 		write (2, "pipex : command not found : ", 28);
