@@ -22,9 +22,12 @@ int	main(int argc, char **argv, char **env)
 }
 void	pipe_execution(char **argv, char **env)
 {
-	int	pipe_fd[2];
 	pid_t	forked;
+	char	*file_in;
+	int		input;
+	int	pipe_fd[2];
 
+	file_in = argv[1]; 
 	if (pipe(pipe_fd) == -1)
 		exit(0);
 	forked = fork();
@@ -32,9 +35,13 @@ void	pipe_execution(char **argv, char **env)
 		exit(0);
 	if (forked == 0)
 	{
-		dup2(pipe_fd[1], STDOUT_FILENO);
+		input = open(file_in, O_RDWR | O_CREAT | O_TRUNC, 0644);
+		if (input == -1)
+			exit(0);
+		dup2(pipe_fd[1], STDIN_FILENO);
+		dup2(input, STDOUT_FILENO);
 		close(pipe_fd[0]);
-		exec_cmd(argv[1], env);
+		exec_cmd(argv[2], env);
 	}
 	waitpid(forked, NULL, 0);
 	close(pipe_fd[1]);
@@ -46,7 +53,7 @@ void	ft_output_file(char **argv, char **env, int *pipe_fd)
 	int	output;
 	char *file;
 
-	file = argv[3];
+	file = argv[4];
 	output = open(file, O_RDWR | O_CREAT | O_TRUNC, 0644);
 	if (output == -1)
 		exit(0);
@@ -54,5 +61,5 @@ void	ft_output_file(char **argv, char **env, int *pipe_fd)
 	dup2(output, STDOUT_FILENO);
 	close(pipe_fd[1]);
 	close(output);
-	exec_cmd(argv[2], env);
+	exec_cmd(argv[3], env);
 }
