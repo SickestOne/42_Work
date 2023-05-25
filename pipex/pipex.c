@@ -35,11 +35,11 @@ void	pipe_execution(char **argv, char **env)
 		exit(0);
 	if (forked == 0)
 	{
-		input = open(file_in, O_RDWR | O_CREAT | O_TRUNC, 0644);
+		input = open(file_in, O_RDONLY, 0644);
 		if (input == -1)
 			exit(0);
-		dup2(pipe_fd[1], STDIN_FILENO);
-		dup2(input, STDOUT_FILENO);
+		dup2(input, STDIN_FILENO);
+		dup2(pipe_fd[1], STDOUT_FILENO);
 		close(pipe_fd[0]);
 		exec_cmd(argv[2], env);
 	}
