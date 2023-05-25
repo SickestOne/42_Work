@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/24 15:00:16y rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/25 15:22:13 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,23 @@
 
 int	main(int argc, char **argv, char **env)
 {
-	if (argc < 3)
+	if (argc != 5)
+	{
+		write (2, "pipex : Bad usage -> file1 cmd1 cmd2 file2\n", 43);
 		exit(0);
-	else if (argc >= 3)
-		pipe_execution(argv, env);
+	}
+	pipe_execution(argv, env);
 	return (0);
 }
+
 void	pipe_execution(char **argv, char **env)
 {
 	pid_t	forked;
 	char	*file_in;
 	int		input;
-	int	pipe_fd[2];
+	int		pipe_fd[2];
 
-	file_in = argv[1]; 
+	file_in = argv[1];
 	if (pipe(pipe_fd) == -1)
 		exit(0);
 	forked = fork();
@@ -50,8 +53,8 @@ void	pipe_execution(char **argv, char **env)
 
 void	ft_output_file(char **argv, char **env, int *pipe_fd)
 {
-	int	output;
-	char *file;
+	int		output;
+	char	*file;
 
 	file = argv[4];
 	output = open(file, O_RDWR | O_CREAT | O_TRUNC, 0644);
