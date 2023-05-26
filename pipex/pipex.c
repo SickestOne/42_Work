@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/25 15:22:13 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/26 11:41:27 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv, char **env)
 {
-	if (argc != 5)
+	if (argc != 5 || !check_args(argv))
 	{
 		write (2, "pipex : Bad usage -> file1 cmd1 cmd2 file2\n", 43);
 		exit(0);
@@ -67,5 +67,31 @@ void	ft_output_file(char **argv, char **env, int *pipe_fd)
 	exec_cmd(argv[3], env);
 }
 
-int	check_args(char **argv);
-// check input -> count words
+int	check_args(char **argv)
+{
+	int	i;
+
+	i = -1;
+	while (argv[++i])
+		if (count_args(argv[i], ' ') == 0)
+			return (0);
+	return (1);
+}
+
+int	count_args(char const *s, char c)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	if (!*s)
+		return (0);
+	while (s[i + 1])
+	{
+		if ((s[i] == c && s[i + 1] != c) || (s[i] != c && i == '\0'))
+			count++;
+		i++;
+	}
+	return (count);
+}

@@ -9,16 +9,14 @@ FLAGS    := -Wall -Wextra -Werror
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=      child.c \
-                          pipex.c \
-						  pipex_utils.c \
-						  ft_split.c \
-						  ft_strcmp.c \
-						  ft_substr.c \
-						  ft_strlen.c \
-						  ft_strncmp.c \
-						  ft_isascii.c \
-						  ft_strjoin.c \
+SRCS        :=     		pipex.c \
+						pipex_utils.c \
+						ft_split.c \
+						ft_substr.c \
+						ft_strlen.c \
+						ft_strncmp.c \
+						ft_isascii.c \
+						ft_strjoin.c \
                           
 OBJS        := $(SRCS:.c=.o)
 

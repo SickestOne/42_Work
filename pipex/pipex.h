@@ -6,37 +6,35 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:50:36 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/24 18:31:39 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/26 11:49:32 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <sys/wait.h>
-#include <fcntl.h>
-#include <strings.h>
-#include <string.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <sys/wait.h>
+# include <fcntl.h>
+# include <strings.h>
+# include <string.h>
 
 char	*ft_getenv(char *name, char **env);
 char	*ft_execpath(char *exec_cmd_av, char **env);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlen(const char *s);
-int		ft_strcmp(char *s1, char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_isascii(int c);
-void	child_process(char **argv, char **env, int *pipe_fd);
-void	parent_process(char **argv, char **env, int *pipe_fd);
 void	exec_cmd(char *cmd, char **env);
 void	free_tabs(char **tab);
 void	ft_putstr_err(char *str, int i);
 void	pipe_execution(char **argv, char **env);
-void	ft_input_file(char **argv, char **env, int *pipe_fd);
 void	ft_output_file(char **argv, char **env, int *pipe_fd);
+int		check_args(char **argv);
+int		count_args(char const *s, char c);
 
 #endif

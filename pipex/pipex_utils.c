@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:08:34 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/25 15:24:47 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/26 11:44:48 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void	exec_cmd(char *cmd, char **env)
 		exit(0);
 	}
 }
-
 
 void	free_tabs(char **tab)
 {
