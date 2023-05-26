@@ -66,3 +66,6 @@ void	ft_output_file(char **argv, char **env, int *pipe_fd)
 	close(output);
 	exec_cmd(argv[3], env);
 }
+
+int	check_args(char **argv);
+// check input -> count words
