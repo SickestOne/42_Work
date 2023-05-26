@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/26 11:41:27 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/26 17:13:02 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,20 @@
 
 int	main(int argc, char **argv, char **env)
 {
-	if (argc != 5 || !check_args(argv))
+	if (argc < 5)
 	{
 		write (2, "pipex : Bad usage -> file1 cmd1 cmd2 file2\n", 43);
 		exit(0);
 	}
-	pipe_execution(argv, env);
+	else if (argc == 5 && check_args(argv))
+		pipe_execution(argv, env);
+	else if (argc > 5 && check_args(argv))
+		printf("in multipipes\n");
+	else
+	{
+		write (2, "pipex : Bad usage -> file1 cmd1 cmd2 file2\n", 43);
+		exit(0);
+	}
 	return (0);
 }
 
