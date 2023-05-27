@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/27 13:10:26 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/27 17:08:54 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ int	main(int argc, char **argv, char **env)
 		printf("in multipipes\n");
 	else
 	{
-		write (2, "pipex : Bad usage -> file1 cmd1 cmd2 file2\n", 43);
-		exit(0);
+		ft_putstr_err("usage : ./pipex infile cmd1 cmd2 outfile\n");
+		ft_putstr_err("usage bonus : ./pipex infile cmdx ... cmdx outfile\n");
+		exit(2);
 	}
 	return (0);
 }
@@ -36,10 +37,10 @@ void	pipe_execution(char **argv, char **env)
 	input = 0;
 	file_in = argv[1];
 	if (pipe(pipe_fd) == -1)
-		exit(0);
+		exit(2);
 	forked = fork();
 	if (forked < 0)
-		exit(0);
+		exit(2);
 	if (forked == 0)
 	{
 		input = check_open_in(argv);
@@ -78,8 +79,8 @@ int	check_open_in(char **argv)
 	if (access(argv[1], F_OK) == -1)
 	{
 		write (STDERR_FILENO, "pipex :", 7);
-		ft_putstr_err(argv[1], -1);
-		ft_putstr_err(": No such file or directory", -1);
+		ft_putstr_err(argv[1]);
+		ft_putstr_err(": No such file or directory");
 		write (STDERR_FILENO, "\n", 1);
 		input_file = -1;
 		return (input_file);

@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:50:36 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/27 12:29:48 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/27 16:34:37 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_isascii(int c);
 void	exec_cmd(char *cmd, char **env);
 void	free_tabs(char **tab);
-void	ft_putstr_err(char *str, int i);
+void	ft_putstr_err(char *str);
 void	pipe_execution(char **argv, char **env);
 void	ft_output_file(char **argv, char **env, int *pipe_fd);
 int		check_args(char **argv);
