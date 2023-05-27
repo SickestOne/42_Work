@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/27 17:08:54 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/27 17:54:51 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,10 @@ int	check_open_in(char **argv)
 
 	if (access(argv[1], F_OK) == -1)
 	{
-		write (STDERR_FILENO, "pipex :", 7);
+		ft_putstr_err("pipex: no such file or directory: ");
 		ft_putstr_err(argv[1]);
-		ft_putstr_err(": No such file or directory");
-		write (STDERR_FILENO, "\n", 1);
-		input_file = -1;
-		return (input_file);
+		ft_putstr_err("\n");
+		exit(2);
 	}
 	input_file = open(argv[1], O_RDONLY, 0644);
 	return (input_file);
