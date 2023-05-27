@@ -6,7 +6,11 @@ https://www.youtube.com/watch?v=6xbLgZpOBi8 <-- pipe simulation
 https://www.youtube.com/watch?v=Mqb2dVRe0uo <-- communication entre processus
 https://www.youtube.com/watch?v=5fnVr-zH-SE <-- dup() && dup2()
 https://github.com/jdecorte-be/42-Pipex/blob/master/src/pipex.c
+
+
 ./pipex file1 cmd1 cmd2 file2
+
+$> ./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2
 
 // each cmd needs a stdin (input) and returns an output (to stdout)
    

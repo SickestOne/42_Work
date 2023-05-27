@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:08:34 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/26 11:44:48 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/27 13:05:36 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,11 @@ void	exec_cmd(char *cmd, char **env)
 	path = ft_execpath(split_argv[0], env);
 	if (execve(path, split_argv, env) == -1)
 	{
-		write (2, "pipex : command not found : ", 28);
+		write (2, "pipex: command not found : ", 27);
 		ft_putstr_err(cmd, -1);
+		write (STDERR_FILENO, "\n", 1);
 		free_tabs(split_argv);
-		exit(0);
+		exit(127);
 	}
 }
 
@@ -82,6 +83,5 @@ void	free_tabs(char **tab)
 void	ft_putstr_err(char *str, int i)
 {
 	while (str[++i])
-		write(2, &str[i], 1);
-	write (2, "\n", 1);
+		write(STDERR_FILENO, &str[i], 1);
 }

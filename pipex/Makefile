@@ -11,6 +11,7 @@ FLAGS    := -Wall -Wextra -Werror
 
 SRCS        :=     		pipex.c \
 						pipex_utils.c \
+						pipex_utils_p2.c \
 						ft_split.c \
 						ft_substr.c \
 						ft_strlen.c \

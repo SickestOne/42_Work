@@ -6,7 +6,7 @@
 /*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:50:36 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/26 12:12:09 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/27 12:29:48 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ void	pipe_execution(char **argv, char **env);
 void	ft_output_file(char **argv, char **env, int *pipe_fd);
 int		check_args(char **argv);
 int		count_args(char const *s, char c);
+void	multipipes(int argc, char **argv, char **env);
+int		check_open_in(char **argv);
 
 #endif
