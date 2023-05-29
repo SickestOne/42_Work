@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/27 17:54:51 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/29 10:32:38 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,10 @@ int	main(int argc, char **argv, char **env)
 void	pipe_execution(char **argv, char **env)
 {
 	pid_t	forked;
-	char	*file_in;
 	int		input;
 	int		pipe_fd[2];
 
 	input = 0;
-	file_in = argv[1];
 	if (pipe(pipe_fd) == -1)
 		exit(2);
 	forked = fork();
@@ -43,9 +41,9 @@ void	pipe_execution(char **argv, char **env)
 		exit(2);
 	if (forked == 0)
 	{
-		input = check_open_in(argv);
+		input = check_open_in(argv[1]);
 		if (input == -1)
-			exit(0);
+			exit(2);
 		dup2(input, STDIN_FILENO);
 		dup2(pipe_fd[1], STDOUT_FILENO);
 		close(pipe_fd[0]);
@@ -72,17 +70,17 @@ void	ft_output_file(char **argv, char **env, int *pipe_fd)
 	exec_cmd(argv[3], env);
 }
 
-int	check_open_in(char **argv)
+int	check_open_in(char *str)
 {
 	int	input_file;
 
-	if (access(argv[1], F_OK) == -1)
+	if (access(str, F_OK) == -1)
 	{
 		ft_putstr_err("pipex: no such file or directory: ");
-		ft_putstr_err(argv[1]);
+		ft_putstr_err(str);
 		ft_putstr_err("\n");
 		exit(2);
 	}
-	input_file = open(argv[1], O_RDONLY, 0644);
+	input_file = open(str, O_RDONLY, 0644);
 	return (input_file);
 }

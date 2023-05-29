@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:50:36 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/27 16:34:37 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/29 10:51:21 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_output_file(char **argv, char **env, int *pipe_fd);
 int		check_args(char **argv);
 int		count_args(char const *s, char c);
 void	multipipes(int argc, char **argv, char **env);
-int		check_open_in(char **argv);
+int		check_open_in(char *str);
+void	pipeline_exec(char **argv, char **env);
 
 #endif

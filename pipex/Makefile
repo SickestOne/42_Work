@@ -10,6 +10,7 @@ FLAGS    := -Wall -Wextra -Werror
 ################################################################################
 
 SRCS        :=     		pipex.c \
+						multi_pipes_bonus.c \
 						pipex_utils.c \
 						pipex_utils_p2.c \
 						ft_split.c \
