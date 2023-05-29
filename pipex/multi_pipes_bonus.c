@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:27:29 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/29 14:09:28 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/29 17:43:06 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,17 @@ void	multipipes(int argc, char **argv, char **env)
 	int		outfile_fd;
 	int		i;
 
-	i = 2; // nb args sans in et out;
+	i = 2;
 	infile_fd = check_open_in(argv[1]);
 	outfile_fd = open(argv[argc - 1], O_RDWR | O_CREAT | O_TRUNC, 0644);
 	if (infile_fd < 0 || outfile_fd < 0)
 		exit(2);
 	dup2(infile_fd, STDIN_FILENO);
-	pipeline_exec(argv[1], env);
-	while (argv[i + 2] != NULL)
+	pipeline_exec(argv[2], env);
+	while (i < argc - 2)
 		pipeline_exec(argv[++i], env);
-	exec_cmd(argv[i], env);
+	dup2(outfile_fd, STDOUT_FILENO);
+	exec_cmd(argv[argc - 2], env);
 }
 
 void	pipeline_exec(char *cmd_to_exec, char **env)
@@ -49,8 +50,8 @@ void	pipeline_exec(char *cmd_to_exec, char **env)
 		exit(2);
 	if (forked == 0)
 	{
-		dup2(pipe_fds[1], STDOUT_FILENO);
 		close(pipe_fds[0]);
+		dup2(pipe_fds[1], STDOUT_FILENO);
 		exec_cmd(cmd_to_exec, env);
 	}
 	waitpid(forked, NULL, 0);

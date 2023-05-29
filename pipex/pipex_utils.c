@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:08:34 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/27 16:47:22 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/29 17:00:48 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_execpath(char *cmd, char **env)
 	return (cmd);
 }
 
-void	exec_cmd(char *cmd, char **env)
+int	exec_cmd(char *cmd, char **env)
 {
 	char	**split_argv;
 	char	*path;
@@ -68,6 +68,7 @@ void	exec_cmd(char *cmd, char **env)
 		free_tabs(split_argv);
 		exit(127);
 	}
+	return (1);
 }
 
 void	free_tabs(char **tab)
