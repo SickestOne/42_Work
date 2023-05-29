@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:50:36 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/29 10:51:21 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/29 13:16:30 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int		check_args(char **argv);
 int		count_args(char const *s, char c);
 void	multipipes(int argc, char **argv, char **env);
 int		check_open_in(char *str);
-void	pipeline_exec(char **argv, char **env);
+void	pipeline_exec(char *cmd_to_exec, char **env);
 
 #endif

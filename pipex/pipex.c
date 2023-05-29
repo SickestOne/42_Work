@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/29 10:32:38 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/29 14:05:31 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv, char **env)
 	if (argc == 5 && check_args(argv))
 		pipe_execution(argv, env);
 	else if (argc > 5 && check_args(argv))
-		printf("in multipipes\n");
+		multipipes(argc, argv, env);
 	else
 	{
 		ft_putstr_err("usage : ./pipex infile cmd1 cmd2 outfile\n");
