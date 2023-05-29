@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:27:29 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/29 17:43:06 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/29 18:32:26 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	pipeline_exec(char *cmd_to_exec, char **env)
 	if (pipe(pipe_fds) == -1)
 		exit(2);
 	forked = fork();
-	if (forked < 0)	
+	if (forked < 0)
 		exit(2);
 	if (forked == 0)
 	{
@@ -58,4 +58,3 @@ void	pipeline_exec(char *cmd_to_exec, char **env)
 	close(pipe_fds[1]);
 	dup2(pipe_fds[0], STDIN_FILENO);
 }
-
