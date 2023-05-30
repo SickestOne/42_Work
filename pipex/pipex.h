@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:50:36 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/29 18:51:17 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:36:52 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	ft_strlen(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_isascii(int c);
-int	    exec_cmd(char *cmd, char **env);
+int		exec_cmd(char *cmd, char **env);
 void	free_tabs(char **tab);
 void	ft_putstr_err(char *str);
 void	pipe_execution(char **argv, char **env);
@@ -38,6 +38,7 @@ int		check_args(char **argv);
 int		count_args(char const *s, char c);
 void	multipipes(int argc, char **argv, char **env);
 int		check_open_in(char *str);
-void	pipeline_exec(char *cmd_to_exec, char **env);
+int		pipeline_exec(char *cmd_to_exec, char **env, int input);
+void	err_msg(char *str);
 
 #endif

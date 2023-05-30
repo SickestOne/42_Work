@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/29 17:29:14 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:41:48 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,9 @@ int	check_open_in(char *str)
 		ft_putstr_err("pipex: no such file or directory: ");
 		ft_putstr_err(str);
 		ft_putstr_err("\n");
-		exit(2);
+		ft_putstr_err("usage : ./pipex infile cmd1 cmd2 outfile\n");
+		ft_putstr_err("usage bonus : ./pipex infile cmdx ... cmdx outfile\n");
+		exit(1);
 	}
 	input_file = open(str, O_RDONLY, 0644);
 	return (input_file);
