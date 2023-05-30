@@ -6,12 +6,13 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/30 15:41:48 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:30:19 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
+// rec
 int	main(int argc, char **argv, char **env)
 {
 	if (argc == 5 && check_args(argv))
