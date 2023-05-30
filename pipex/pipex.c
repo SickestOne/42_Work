@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/30 17:30:19 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/05/30 23:08:12 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-// rec
 int	main(int argc, char **argv, char **env)
 {
 	if (argc == 5 && check_args(argv))
@@ -21,8 +20,7 @@ int	main(int argc, char **argv, char **env)
 		multipipes(argc, argv, env);
 	else
 	{
-		ft_putstr_err("usage : ./pipex infile cmd1 cmd2 outfile\n");
-		ft_putstr_err("usage bonus : ./pipex infile cmdx ... cmdx outfile\n");
+		err_msg(NULL, 3);
 		exit(2);
 	}
 	return (0);
@@ -77,11 +75,7 @@ int	check_open_in(char *str)
 
 	if (access(str, F_OK) == -1)
 	{
-		ft_putstr_err("pipex: no such file or directory: ");
-		ft_putstr_err(str);
-		ft_putstr_err("\n");
-		ft_putstr_err("usage : ./pipex infile cmd1 cmd2 outfile\n");
-		ft_putstr_err("usage bonus : ./pipex infile cmdx ... cmdx outfile\n");
+		err_msg(str, 2);
 		exit(1);
 	}
 	input_file = open(str, O_RDONLY, 0644);

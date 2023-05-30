@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_utils_p2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
+/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 11:19:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/27 11:21:26 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/30 23:02:04 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,26 @@ int	count_args(char const *s, char c)
 		i++;
 	}
 	return (count);
+}
+
+void	err_msg(char *cmd, int i)
+{
+	if (i == 1)
+	{
+		ft_putstr_err("pipex: command not found : ");
+		ft_putstr_err(cmd);
+		ft_putstr_err("\n");
+	}
+	if (i == 2)
+	{
+		ft_putstr_err("pipex: no such file or directory: ");
+		ft_putstr_err(cmd);
+		ft_putstr_err("\n");
+	}
+	if (i == 3)
+	{
+		(void)cmd;
+		ft_putstr_err("usage : ./pipex infile cmd1 cmd2 outfile\n");
+		ft_putstr_err("usage bonus : ./pipex infile cmdx ... cmdx outfile\n");
+	}
 }

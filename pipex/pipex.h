@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:50:36 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/30 15:36:52 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/30 23:00:46 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ int		count_args(char const *s, char c);
 void	multipipes(int argc, char **argv, char **env);
 int		check_open_in(char *str);
 int		pipeline_exec(char *cmd_to_exec, char **env, int input);
-void	err_msg(char *str);
+void	err_msg(char *cmd, int i);
 
 #endif

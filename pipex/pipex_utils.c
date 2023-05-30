@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:08:34 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/30 13:18:28 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/30 23:05:44 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,7 @@ int	exec_cmd(char *cmd, char **env)
 	path = ft_execpath(split_argv[0], env);
 	if (execve(path, split_argv, env) == -1)
 	{
-		write (2, "pipex: command not found : ", 27);
-		ft_putstr_err(cmd);
-		write (STDERR_FILENO, "\n", 1);
+		err_msg(cmd, 1);
 		free_tabs(split_argv);
 		exit(127);
 	}
