@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 14:44:15 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/31 16:31:19y rvan-den         ###   ########.fr       */
+/*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
+/*   Updated: 2023/05/31 21:47:11 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     return (0);
 }
 
-char **parse_init(int argc, char **argv)
+char *parse_init(int argc, char **argv)
 {
     int     map_to_open;
     char    *map_to_parse;
@@ -30,25 +30,35 @@ char **parse_init(int argc, char **argv)
 
     i = 0;
     map_to_parse = NULL;
-    if (ft_strncmp(argv[1], ".ber", 4))
-        perror("Bad map extension -> need .ber\n");
     map_to_open = open(argv[1], O_RDONLY, 0777);
     if (map_to_open == -1)
-    {
-        write(STDERR_FILENO, "Error\n", 6);
-        perror("can't open map\n");
-    }
+        err_msg(2);
+    if (check_extension(argv[1]) == 0)
+        err_msg(1);
     while (1)
     {
         map_to_parse = get_next_line(map_to_open);
-        map_tab[i] = map_to_parse;
+        *map_tab = ft_strdup(map_to_parse);
         i++;
         if (map_to_parse == NULL)
             break;
     }
-    return (&map_to_parse);
+    return (map_to_parse);
 }
 
+int check_extension(char *str)
+{
+    char    **split_av;
+    int     nb_ltab;
+    
+    nb_ltab = 0;
+    split_av = ft_split(str, '.');
+    while (split_av[nb_ltab])
+        nb_ltab++;
+    if (ft_strncmp(split_av[nb_ltab - 1], "ber", 3) == 0)
+        return (1);
+    return (0);
+}
 
 int check_map_size(char **map)
 {
