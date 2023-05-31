@@ -11,7 +11,9 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
-
+// check si map a bonne extension
+// mettre map dans **tab
+// check les parties oblig su sujet
 int main(int argc, char **argv)
 {
     if (argc == 2)
@@ -42,13 +44,7 @@ char **parse_init(int argc, char **argv)
         if (map_to_parse == NULL)
             break;
     }
-    int j = 0;
-    while (map_tab[j])
-    {
-        printf ("%s\n", map_tab[j]);
-        j++;
-    }
-    return (ft_split(map_to_parse, '\n'));
+    return (map_to_parse);
 }
 
 
