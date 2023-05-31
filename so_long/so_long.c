@@ -30,6 +30,8 @@ char **parse_init(int argc, char **argv)
 
     i = 0;
     map_to_parse = NULL;
+    if (ft_strncmp(argv[1], ".ber", 4))
+        perror("Bad map extension -> need .ber\n");
     map_to_open = open(argv[1], O_RDONLY, 0777);
     if (map_to_open == -1)
     {
@@ -44,7 +46,7 @@ char **parse_init(int argc, char **argv)
         if (map_to_parse == NULL)
             break;
     }
-    return (map_to_parse);
+    return (&map_to_parse);
 }
 
 
