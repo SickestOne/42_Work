@@ -6,11 +6,11 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:27:29 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/30 14:58:57 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:48:29 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 void	multipipes(int argc, char **argv, char **env)
 {

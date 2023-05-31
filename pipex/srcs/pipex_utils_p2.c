@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_utils_p2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 11:19:42 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/30 23:02:04 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:48:44 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 int	check_args(char **argv)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:26:54 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/22 11:15:43 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:50:35 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 static char	*substr_2(unsigned int start, size_t len, char const *s, char *dest)
 {

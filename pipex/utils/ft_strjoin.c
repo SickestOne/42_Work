@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den < rvan-den@student.42mulhouse.fr  +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:11:26 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/23 13:23:49 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:50:28 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

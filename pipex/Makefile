@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/05/31 10:02:00 by rvan-den          #+#    #+#              #
+#    Updated: 2023/05/31 10:02:01 by rvan-den         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 ################################################################################
 #                                     CONFIG                                   #
 ################################################################################
@@ -9,18 +21,24 @@ FLAGS    := -Wall -Wextra -Werror
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=     		pipex.c \
-						multi_pipes_bonus.c \
-						pipex_utils.c \
-						pipex_utils_p2.c \
-						ft_split.c \
-						ft_substr.c \
-						ft_strlen.c \
-						ft_strncmp.c \
-						ft_isascii.c \
-						ft_strjoin.c \
+SRCS        :=     		srcs/pipex.c \
+						srcs/pipex_utils.c \
+						srcs/pipex_utils_p2.c \
+
+UTILS       :=			utils/ft_strncmp.c \
+						utils/ft_substr.c \
+						utils/ft_strlen.c \
+						utils/ft_strjoin.c \
+						utils/ft_split.c \
+						utils/ft_isascii.c \
+
+BONUS 		:=          bonus/multi_pipes_bonus.c \
                           
 OBJS        := $(SRCS:.c=.o)
+
+UTILS_OBJS  := $(UTILS:.c=.o)
+
+BNS_OBJS	:= $(BONUS:.c=.o)
 
 .c.o:
 	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
@@ -38,9 +56,9 @@ BLUE		:= \033[1;34m
 CYAN 		:= \033[1;36m
 RM		    := rm -f
 
-${NAME}:	${OBJS}
+${NAME}:	${OBJS} ${UTILS_OBJS} ${BNS_OBJS}
 			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
-			${CC} ${FLAGS} -o ${NAME} ${OBJS}
+			${CC} ${FLAGS} ${OBJS} ${UTILS_OBJS} ${BNS_OBJS} -o ${NAME}
 			@echo "$(GREEN)$(NAME) created[0m ✔️"
 
 all:		${NAME}

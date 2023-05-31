@@ -6,11 +6,11 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:13:33 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/22 11:15:57 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:50:27 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 char	**free_all(char **tab, size_t indice)
 {

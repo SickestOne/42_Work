@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:33:46 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/30 23:08:12 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:49:00 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 int	main(int argc, char **argv, char **env)
 {

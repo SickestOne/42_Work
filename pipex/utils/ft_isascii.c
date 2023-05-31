@@ -6,11 +6,11 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:44:38 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/22 14:33:15 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:50:25 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 int	ft_isascii(int c)
 {
