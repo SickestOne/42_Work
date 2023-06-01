@@ -6,14 +6,12 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/01 11:04:21 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/01 11:56:03 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-// check si map a bonne extension
-// mettre map dans **tab
-// check les parties oblig su sujet
+
 int main(int argc, char **argv)
 {
     if (argc == 2)
@@ -51,6 +49,26 @@ int check_extension(char *str)
     return (free_tabs(split_av), 0);
 }
 
+int get_malloc_size(int argc, char **argv)
+{
+    int size;
+    int map_open;
+    char *temp;
+    
+    temp = NULL;
+    size = 0;
+    map_open = parse_init(argc, argv);
+    while (1)
+    {
+        temp = get_next_line(map_open);
+        if (temp == NULL)
+            break;
+        size++;
+    }
+    close(map_open);
+    return (size);
+}
+
 char **fill_map_tab(int argc, char **argv)
 {
    int          i;
@@ -61,16 +79,18 @@ char **fill_map_tab(int argc, char **argv)
    temp = NULL;
    i = 0;
    opened_map = parse_init(argc, argv);
-   map_tab = malloc(sizeof(map_tab));
+   map_tab = malloc(sizeof(map_tab) * get_malloc_size(argc, argv));
+   if (!map_tab)
+        return (NULL);
    while (1)
    {
         temp = get_next_line(opened_map);
         if (temp == NULL)
             break;
         map_tab[i] = temp;
-        printf("%s", temp);
+        printf("%s", map_tab[i]);
         i++;
         temp = NULL;
    }
-   return (NULL);
+   return (map_tab);
 }

@@ -6,13 +6,13 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:24:12 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/01 09:59:34 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/01 11:42:11 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# define BUFFER_SIZE 1000000
+# define BUFFER_SIZE 10000000
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -28,6 +28,7 @@ int     parse_init(int argc, char **argv);
 int     check_map_size(char **map);
 int     check_extension(char *str);
 char    **fill_map_tab(int argc, char **argv);
+int     get_malloc_size(int argc, char **argv);
 
 // gnl src
 char	*get_next_line(int fd);
