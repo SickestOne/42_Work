@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 09:41:03 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/01 13:04:51 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/01 15:28:24by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,10 @@ int get_malloc_size(int argc, char **argv)
 
 int	get_tab_size(char **tab)
 {
-	int size;
 	int	i;
 
 	i = 0;
-	size = 0;
-	while (tab[i][0])
-	{
-		size = i;
-		i++;
-	}
-	return (size);
+	while (tab[i])
+        i++;
+	return (i);
 }

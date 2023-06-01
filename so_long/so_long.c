@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/01 13:23:17 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/01 16:50:40 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(int argc, char **argv)
         parse_init(argc, argv);
     fill_map_tab(argc, argv);
     check_map_size(argc, argv, fill_map_tab(argc, argv), 0);
+    map_is_closed(fill_map_tab(argc, argv), 0, -1);
     return (0);
 }
 
@@ -60,7 +61,7 @@ char **fill_map_tab(int argc, char **argv)
    temp = NULL;
    i = 0;
    opened_map = parse_init(argc, argv);
-   map_tab = malloc(sizeof(map_tab) * get_malloc_size(argc, argv));
+   map_tab = malloc(sizeof(map_tab) * get_malloc_size(argc, argv) + 1);
    if (!map_tab)
         return (NULL);
    while (1)
@@ -72,5 +73,6 @@ char **fill_map_tab(int argc, char **argv)
         i++;
         temp = NULL;
    }
+   map_tab[i] = NULL;
    return (map_tab);
 }
