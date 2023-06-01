@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/01 11:56:03 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/01 13:23:17 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main(int argc, char **argv)
     if (argc == 2)
         parse_init(argc, argv);
     fill_map_tab(argc, argv);
+    check_map_size(argc, argv, fill_map_tab(argc, argv), 0);
     return (0);
 }
 
@@ -49,26 +50,6 @@ int check_extension(char *str)
     return (free_tabs(split_av), 0);
 }
 
-int get_malloc_size(int argc, char **argv)
-{
-    int size;
-    int map_open;
-    char *temp;
-    
-    temp = NULL;
-    size = 0;
-    map_open = parse_init(argc, argv);
-    while (1)
-    {
-        temp = get_next_line(map_open);
-        if (temp == NULL)
-            break;
-        size++;
-    }
-    close(map_open);
-    return (size);
-}
-
 char **fill_map_tab(int argc, char **argv)
 {
    int          i;
@@ -88,7 +69,6 @@ char **fill_map_tab(int argc, char **argv)
         if (temp == NULL)
             break;
         map_tab[i] = temp;
-        printf("%s", map_tab[i]);
         i++;
         temp = NULL;
    }
