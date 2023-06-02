@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:27:37 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/02 10:56:14 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/02 12:33:25 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,28 @@ int map_params(char **map, int i, int j, int par_p)
         }
         j = -1;
     }
-    if (par_c > 0 && par_e > 0 && par_p > 0)
+    if (par_c > 0 && par_e == 1 && par_p == 1)
         return (1);
     return (err_msg_2(1), 0);
 }
+
+int map_is_valid(char **map, int i, int j)
+{
+    while (map[++i])
+    {
+        while (map[i][j] && map[i][j + 1])
+        {
+            if (map[i][j] == '1' || map[i][j] == '0' ||
+                map[i][j] == 'P' || map[i][j] == 'C' ||
+                map[i][j] == 'E' || map[i][j] == '\n' ||
+                map[i][j] == '\0')
+                j++;
+            else
+                err_msg_2(2);
+        }
+        j = -1;
+    }
+    return (1);
+}
+
+int can_do_map(char **map, int i, int j);

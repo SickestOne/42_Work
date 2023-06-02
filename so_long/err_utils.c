@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:28:54 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/02 11:06:26 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/02 12:00:04 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,15 @@ void    err_msg_2(int i)
     {
         ft_putsterr("Error\n");
         ft_putsterr("Map doesn't have a good");
-        ft_putsterr(" number of collectibles/player/exit\n");
+        ft_putsterr(" number of collectibles/player/exit.\n");
+        ft_putsterr("At least one collectible,");
+        ft_putsterr(" just one player, just one exit.\n");
+        exit(2);
+    }
+    if (i == 2)
+    {
+        ft_putsterr("Error\n");
+        ft_putsterr("Map has forbidden characters\n");
         exit(2);
     }
 }

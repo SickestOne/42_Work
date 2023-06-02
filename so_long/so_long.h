@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:24:12 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/02 10:53:26 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/02 12:06:27 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int     get_malloc_size(int argc, char **argv);
 int     get_tab_size(char **tab);
 int     map_is_closed(char **map, int i, int j);
 int     map_params(char **map, int i, int j, int par_p);
+int     map_is_valid(char **map, int i, int j);
+int     can_do_map(char **map, int i, int j);
 
 // gnl src
 char	*get_next_line(int fd);
