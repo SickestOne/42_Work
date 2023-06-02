@@ -51,3 +51,44 @@ int	get_tab_size(char **tab)
         i++;
 	return (i);
 }
+
+int get_collect(char **map)
+{
+    int i;
+    int j;
+    int collect;
+
+    i = -1;
+    j = 0;
+    collect = 0;
+    while (map[++i])
+    {
+        while (map[i][j] && map[i][j + 1])
+        {
+            if (map[i][j] == 'C')
+                collect++;
+            j++;
+        }
+        j = 0;
+    }
+    return (collect);
+}
+
+int *get_player_pos(char **map, int i, int j, int *tab)
+{
+    tab[0] = 0;
+    tab[1] = 0;
+    while (map[++i])
+    {
+        while (map[i][++j] && map[i][j + 1])
+        {
+            if (map[i][j] == 'P')
+            {
+                tab[0] = i;
+                tab[1] = j;
+            }
+        }
+        j = -1;
+    }
+    return (tab);
+}

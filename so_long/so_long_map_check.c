@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:27:37 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/02 12:33:25 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:05:21 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,21 @@ int map_is_valid(char **map, int i, int j)
             else
                 err_msg_2(2);
         }
-        j = -1;
+        j = 0;
     }
     return (1);
 }
 
-int can_do_map(char **map, int i, int j);
+int can_do_map(char **map, int *tab, int mx, int my)
+{
+    int collect;
+    int py;
+    int px;
+
+    collect = get_collect(map);
+    mx = ft_strlen(map[0]);
+    my = get_tab_size(map);
+    py = tab[0];
+    px = tab[1];
+    return (1);
+}

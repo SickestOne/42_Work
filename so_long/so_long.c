@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/02 11:53:12 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:04:57 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int main(int argc, char **argv)
 {
+    int tab[2];
+
     if (argc == 2)
         parse_init(argc, argv);
     fill_map_tab(argc, argv);
@@ -21,6 +23,8 @@ int main(int argc, char **argv)
     map_is_closed(fill_map_tab(argc, argv), -1, -1);
     map_params(fill_map_tab(argc, argv), 0, -1, 0);
     map_is_valid(fill_map_tab(argc, argv), -1, 0);
+    get_player_pos(fill_map_tab(argc, argv), -1, -1, tab);
+    can_do_map(fill_map_tab(argc, argv), tab, 0, 0);
     return (0);
 }
 
