@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:24:12 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/02 16:36:19 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/02 20:27:53 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 int     ft_isascii(int c);
 void    ft_putsterr(char *str);
 void	free_tabs(char **tab);
+char	**clone_map(char **map);
 
 // err
 void    err_msg(int i);

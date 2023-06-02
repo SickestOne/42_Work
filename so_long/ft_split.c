@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:13:33 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/31 15:31:38 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/02 21:33:11 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	count_words(char const *s, char c)
 static char	*insert_s(char const *s, char c, int next_w)
 {
 	int		j;
-	size_t	i;
+	int		i;
 	char	*new_tab;
 
 	i = 0;

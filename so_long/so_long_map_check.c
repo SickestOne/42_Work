@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:27:37 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/02 16:56:26 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/02 21:27:12 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,6 @@ int can_do_map(char **map, int *tab, int mx, int my)
     my = get_tab_size(map);
     py = tab[0];
     px = tab[1];
-    tmp_map = NULL;
+    tmp_map = clone_map(map);
     return (1);
 }
