@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:27:37 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/01 18:10:09 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/02 10:56:14 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int map_is_closed(char **map, int i, int j)
     int tab_size;
 
     tab_size = get_tab_size(map);
-    while (map[i])
+    while (map[++i])
     {
         while (map[i][++j] && map[i][j + 1] && map[i][j + 1] != '\n')
         {
@@ -56,14 +56,33 @@ int map_is_closed(char **map, int i, int j)
         if (map[i][j] != '1')
             err_msg(4);
         j = -1;
-        i++;
     }
-    return (0);
+    return (1);
 }
 
-int map_params(char **map, int i, int j)
+int map_params(char **map, int i, int j, int par_p)
 {
     int tab_size;
+    int par_e;
+    int par_c;
 
+    par_e = 0;
+    par_c = 0;
     tab_size = get_tab_size(map);
+    while (map[++i])
+    {
+        while (map[i][++j] && map[i][j + 1] && map[i][j + 1] != '\n')
+        {
+           if (map[i][j] == 'P')
+                par_p++;
+            else if (map[i][j] == 'C')
+                par_c++;
+            else if (map[i][j] == 'E')
+                par_e++;
+        }
+        j = -1;
+    }
+    if (par_c > 0 && par_e > 0 && par_p > 0)
+        return (1);
+    return (err_msg_2(1), 0);
 }

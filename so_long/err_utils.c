@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:28:54 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/01 14:11:55 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/02 11:06:26 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,17 @@ void    err_msg(int i)
     {
         ft_putsterr("Error\n");
         ft_putsterr("Map is not closed.\n");
+        exit(2);
+    }
+}
+
+void    err_msg_2(int i)
+{
+    if (i == 1)
+    {
+        ft_putsterr("Error\n");
+        ft_putsterr("Map doesn't have a good");
+        ft_putsterr(" number of collectibles/player/exit\n");
         exit(2);
     }
 }

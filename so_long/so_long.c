@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/01 16:50:40 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/02 11:01:09 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int main(int argc, char **argv)
         parse_init(argc, argv);
     fill_map_tab(argc, argv);
     check_map_size(argc, argv, fill_map_tab(argc, argv), 0);
-    map_is_closed(fill_map_tab(argc, argv), 0, -1);
+    map_is_closed(fill_map_tab(argc, argv), -1, -1);
+    map_params(fill_map_tab(argc, argv), 0, -1, 0);
     return (0);
 }
 
