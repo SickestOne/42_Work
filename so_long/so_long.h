@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:24:12 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/02 16:04:31 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:36:19 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ void	*free_data(char **stash, char **buf);
 
 // utils
 int     ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 char    **ft_split(char const *s, char c);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strtrim(char const *s1, char const *set);
 int     ft_isascii(int c);
 void    ft_putsterr(char *str);
 void	free_tabs(char **tab);

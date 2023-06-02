@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:28:54 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/02 12:00:04 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:53:40 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void    err_msg(int i)
     if (i == 4)
     {
         ft_putsterr("Error\n");
-        ft_putsterr("Map is not closed.\n");
+        ft_putsterr("Map is not closed. ");
+        ft_putsterr("Check the 1 for top and bottom borders\n");
         exit(2);
     }
 }
