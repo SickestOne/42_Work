@@ -6,11 +6,11 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:13:33 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/02 21:33:11 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/03 15:36:37 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 char	**free_all(char **tab, size_t indice)
 {

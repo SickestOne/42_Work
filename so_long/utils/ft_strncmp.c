@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils_2.c                                  :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/02 20:07:15 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/02 20:34:17 by rvan-den         ###   ########.fr       */
+/*   Created: 2022/11/08 15:48:51 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/06/03 15:36:24 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-char	**clone_map(char **map)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
-	int	j;
-	char **temp;
+	size_t	index;
 
-	i = -1;
-	j = 0;
-    temp = malloc(sizeof(temp) * get_tab_size(map) + 1);
-	while (map[++i])
+	index = 0;
+	while ((s1[index] || s2[index]) && index < n)
 	{
-		temp[j] = ft_strdup(map[i]);
-		j++;
+		if (!ft_isascii(s1[index]) || !ft_isascii(s2[index]))
+			index++;
+		if ((s1[index] > s2[index]) || !s2[index])
+			return (1);
+		if ((s1[index] < s2[index]) || !s1[index])
+			return (-1);
+		index++;
 	}
-	temp[i] = NULL;
-	return (temp);
+	return (0);
 }

@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 15:48:51 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/31 17:47:11 by rvan-den         ###   ########.fr       */
+/*   Created: 2022/11/07 12:44:38 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/06/03 15:36:50 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_isascii(int c)
 {
-	size_t	index;
-
-	index = 0;
-	while ((s1[index] || s2[index]) && index < n)
-	{
-		if (!ft_isascii(s1[index]) || !ft_isascii(s2[index]))
-			index++;
-		if ((s1[index] > s2[index]) || !s2[index])
-			return (1);
-		if ((s1[index] < s2[index]) || !s1[index])
-			return (-1);
-		index++;
-	}
-	return (0);
+	if ((c >= 0) && (c <= 127))
+		return (1);
+	else
+		return (0);
 }

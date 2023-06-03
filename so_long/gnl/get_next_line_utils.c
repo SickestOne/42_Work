@@ -6,23 +6,23 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:12:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/31 15:11:38 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/03 16:01:50 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	ft_strlen(const char *s)
-{
-	int	len;
+// int	ft_strlen(const char *s)
+// {
+// 	int	len;
 
-	len = 0;
-	if (!s)
-		return (0);
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
+// 	len = 0;
+// 	if (!s)
+// 		return (0);
+// 	while (s[len] != '\0')
+// 		len++;
+// 	return (len);
+// }
 
 char	*ft_strjoin(char **stash, char **buf)
 {
@@ -51,24 +51,24 @@ char	*ft_strjoin(char **stash, char **buf)
 	return (dest);
 }
 
-char	*ft_strdup(char *s1)
-{
-	char	*dst;
-	int		i;
-	int		j;
+// char	*ft_strdup(char *s1)
+// {
+// 	char	*dst;
+// 	int		i;
+// 	int		j;
 
-	if (!s1)
-		return (NULL);
-	j = -1;
-	i = ft_strlen(s1);
-	dst = malloc(sizeof(char) * (i + 1));
-	if (!dst)
-		return (NULL);
-	while (s1[++j])
-		dst[j] = s1[j];
-	dst[j] = '\0';
-	return (dst);
-}
+// 	if (!s1)
+// 		return (NULL);
+// 	j = -1;
+// 	i = ft_strlen(s1);
+// 	dst = malloc(sizeof(char) * (i + 1));
+// 	if (!dst)
+// 		return (NULL);
+// 	while (s1[++j])
+// 		dst[j] = s1[j];
+// 	dst[j] = '\0';
+// 	return (dst);
+// }
 
 void	*free_data(char **stash, char **buf)
 {

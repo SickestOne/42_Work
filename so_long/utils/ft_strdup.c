@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 12:44:38 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/05/31 18:54:56 by pendejoo         ###   ########.fr       */
+/*   Created: 2022/11/10 15:46:19 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/06/03 15:51:52 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	ft_isascii(int c)
+char	*ft_strdup(char *s1)
 {
-	if ((c >= 0) && (c <= 127))
-		return (1);
-	else
-		return (0);
+	char	*dst;
+	int		i;
+
+	i = ft_strlen(s1);
+	dst = malloc(sizeof(char) * i + 1);
+	if (!dst)
+		return (NULL);
+	ft_strlcpy(dst, s1, i + 1);
+	return (dst);
 }

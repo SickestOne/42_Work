@@ -6,13 +6,13 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:27:37 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/02 21:27:12 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/03 15:35:13 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	check_map_size(int argc, char **argv, char **map, int i)
+int	check_map_size(char **map, int i)
 {
 	int	map_size;
     
@@ -88,21 +88,5 @@ int map_is_valid(char **map, int i, int j)
         }
         j = 0;
     }
-    return (1);
-}
-
-int can_do_map(char **map, int *tab, int mx, int my)
-{
-    int collect;
-    int py;
-    int px;
-    char **tmp_map;
-
-    collect = get_collect(map);
-    mx = ft_strlen(map[0]);
-    my = get_tab_size(map);
-    py = tab[0];
-    px = tab[1];
-    tmp_map = clone_map(map);
     return (1);
 }

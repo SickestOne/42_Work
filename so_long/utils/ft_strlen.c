@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 11:07:00 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/02 16:32:09 by rvan-den         ###   ########.fr       */
+/*   Created: 2022/11/07 12:56:10 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/06/03 15:58:40 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_strlen(const char *s)
 {
-	int		i;
-	char	convert;
+	size_t	len;
 
-	convert = c;
-	i = 0;
-	while (s[i] != convert && s[i])
-		i++;
-	if (s[i] == convert)
-		return ((char *)(s + i));
-	return (NULL);
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	return (len);
 }

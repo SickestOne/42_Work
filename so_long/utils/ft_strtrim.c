@@ -6,11 +6,11 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:40:15 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/02 16:37:38 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/03 15:36:16 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 static int	find_start(char const *s1, char const *set)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	free_tabs(char **tab)
 {
@@ -22,7 +22,7 @@ void	free_tabs(char **tab)
 	free(tab);
 }
 
-int get_malloc_size(int argc, char **argv)
+int get_malloc_size(char **argv)
 {
     int size;
     int map_open;
@@ -30,7 +30,7 @@ int get_malloc_size(int argc, char **argv)
     
     temp = NULL;
     size = 0;
-    map_open = parse_init(argc, argv);
+    map_open = parse_init(argv);
     while (1)
     {
         temp = get_next_line(map_open);
@@ -72,23 +72,4 @@ int get_collect(char **map)
         j = 0;
     }
     return (collect);
-}
-
-int *get_player_pos(char **map, int i, int j, int *tab)
-{
-    tab[0] = 0;
-    tab[1] = 0;
-    while (map[++i])
-    {
-        while (map[i][++j] && map[i][j + 1])
-        {
-            if (map[i][j] == 'P')
-            {
-                tab[0] = i;
-                tab[1] = j;
-            }
-        }
-        j = -1;
-    }
-    return (tab);
 }
