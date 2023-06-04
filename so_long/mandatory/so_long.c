@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/03 17:38:40 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/04 23:09:18 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ int main(int argc, char **argv)
 int parse_init(char **argv)
 {
     int     map_to_open;
-    int i;
-
-    i = 0;
     map_to_open = open(argv[1], O_RDONLY, 0777);
     if (map_to_open == -1)
         err_msg(2);

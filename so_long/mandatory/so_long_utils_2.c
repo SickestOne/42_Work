@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:07:15 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/03 17:27:45 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/04 23:24:31 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,13 @@ int	map_way(char **map, int px, int py)
 			map[px][py] = '0';
 		if (map[px][py] == 'C')
 		{
+			printf("%d\n", collectible);
 			collectible--;
 			map[px][py] = '0';
 		}
-		if (map[px][py] == 'E' && collectible == 0)
-			return (1);
-		if (map[px][py] == '0')
+		if (collectible == 0 && map[px][py] == 'E')
+			return (printf("Succes\n"), 1);
+		if (map[px][py] == '0' && collectible != 0)
 		{
 			map[px][py] = '1';
 			if (map_way(map, (px - 1), py) || map_way(map, (px + 1), py)
