@@ -6,13 +6,13 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/05 12:03:29 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/05 15:51:13 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int main(int argc, char **argv)
+int32_t main(int argc, char **argv)
 {
     int tab[2];
     char **cl_map;
@@ -35,6 +35,7 @@ int main(int argc, char **argv)
         err_msg_2(3);
     }
     free_tabs(cl_map);
+    mlx_test();
     return (0);
 }
 

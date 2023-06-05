@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:07:15 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/05 12:01:05 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/05 14:44:19 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ char	**clone_map(char **map)
 
 int get_player_pos_x(char **map, int i, int j)
 {
-	//int	x;
-
-	//x = 0;
     while (map[++i])
     {
         while (map[i][++j] && map[i][j + 1])
@@ -47,9 +44,6 @@ int get_player_pos_x(char **map, int i, int j)
 
 int	get_player_pos_y(char **map, int i, int j)
 {
-	//int	y;
-
-	//y = 0;
 	while (map[++i])
 	{
 		while (map[i][++j] && map[i][j + 1])
