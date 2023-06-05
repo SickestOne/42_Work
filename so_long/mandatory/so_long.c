@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/04 23:09:18 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/06/05 12:03:29 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,26 @@
 int main(int argc, char **argv)
 {
     int tab[2];
+    char **cl_map;
+    char **tmp;
 
+    tmp = fill_map_tab(argv);
+    cl_map = clone_map(tmp);
     if (argc == 2)
         parse_init(argv);
-    fill_map_tab(argv);
-    check_map_size(fill_map_tab(argv), -1);
-    map_is_closed(fill_map_tab(argv), -1, -1);
-    map_params(fill_map_tab(argv), 0, -1, 0);
-    map_is_valid(fill_map_tab(argv), -1, 0);
-    tab[0] = get_player_pos_x(fill_map_tab(argv), -1, -1);
-    tab[1] = get_player_pos_y(fill_map_tab(argv), -1, -1);
-    if (!map_way(clone_map(fill_map_tab(argv)), tab[0], tab[1]))
+    check_map_size(tmp, -1);
+    map_is_closed(tmp, -1, -1);
+    map_params(tmp, 0, -1, 0);
+    map_is_valid(tmp, -1, 0);
+    tab[0] = get_player_pos_x(tmp, -1, -1);
+    tab[1] = get_player_pos_y(tmp, -1, -1);
+    free_tabs(tmp);
+    if (!map_way_ok(cl_map, tab[0], tab[1]))
+    {
+        free_tabs(cl_map);
         err_msg_2(3);
+    }
+    free_tabs(cl_map);
     return (0);
 }
 

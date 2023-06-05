@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+         #
+#    By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/03 15:04:12 by rvan-den          #+#    #+#              #
-#    Updated: 2023/06/03 19:58:54 by pendejoo         ###   ########.fr        #
+#    Updated: 2023/06/05 11:43:52 by rvan-den         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 ################################################################################
 NAME	:= so_long
 CC		:= gcc
-FLAGS	:= -Wall -Wextra -Werror
+FLAGS	:= -Wall -Wextra -Werror -g3
 
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
@@ -65,6 +65,11 @@ RM		    := rm -f
 ${NAME}:	${GNL_OBJS} ${SO_LONG_OBJS} ${UTILS_OBJS} 
 			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
 			${CC} ${FLAGS} ${SO_LONG_OBJS} ${UTILS_OBJS} ${GNL_OBJS} -o ${NAME}
+			@echo "$(GREEN)$(NAME) created[0m ✔️"
+
+debug:		${GNL_OBJS} ${SO_LONG_OBJS} ${UTILS_OBJS} 
+			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
+			${CC} -fsanitize=address ${FLAGS} ${SO_LONG_OBJS} ${UTILS_OBJS} ${GNL_OBJS} -o ${NAME}
 			@echo "$(GREEN)$(NAME) created[0m ✔️"
 
 all:		${NAME}

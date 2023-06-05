@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:28:54 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/03 16:26:07 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/05 11:46:17 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void    err_msg_2(int i)
     if (i == 3)
     {
         ft_putsterr("Map is not doable\n");
+        exit(2);
     }
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:24:12 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/04 23:09:03 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/06/05 11:35:25 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int     map_is_closed(char **map, int i, int j);
 int     map_params(char **map, int i, int j, int par_p);
 int     map_is_valid(char **map, int i, int j);
 int     map_way(char **map, int mx, int my);
+int		map_way_ok(char **map, int px, int py);
 int     get_player_pos_x(char **map, int i, int j);
 int     get_player_pos_y(char **map, int px, int py);
 

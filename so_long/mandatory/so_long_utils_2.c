@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:07:15 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/04 23:24:31 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/06/05 12:01:05 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ char	**clone_map(char **map)
 
 int get_player_pos_x(char **map, int i, int j)
 {
-	int	x;
+	//int	x;
 
-	x = 0;
+	//x = 0;
     while (map[++i])
     {
         while (map[i][++j] && map[i][j + 1])
             if (map[i][j] == 'P')
-				return (x = i);
+				return (j);
         j = -1;
     }
     return (0);
@@ -47,14 +47,14 @@ int get_player_pos_x(char **map, int i, int j)
 
 int	get_player_pos_y(char **map, int i, int j)
 {
-	int	y;
+	//int	y;
 
-	y = 0;
+	//y = 0;
 	while (map[++i])
 	{
 		while (map[i][++j] && map[i][j + 1])
 			if (map[i][j] == 'P')
-				return (y = j);
+				return (i);
 		j = -1;
 	}
 	return (0);
@@ -62,26 +62,31 @@ int	get_player_pos_y(char **map, int i, int j)
 
 int	map_way(char **map, int px, int py)
 {
-	int collectible;
+	static int collectible = 0;
+	int	map_x;
+	int map_y;
 
-	collectible = get_collect(map);
-	if (map[px][py] == 'P')
-			map[px][py] = '0';
-		if (map[px][py] == 'C')
-		{
-			printf("%d\n", collectible);
-			collectible--;
-			map[px][py] = '0';
-		}
-		if (collectible == 0 && map[px][py] == 'E')
-			return (printf("Succes\n"), 1);
-		if (map[px][py] == '0' && collectible != 0)
-		{
-			map[px][py] = '1';
-			if (map_way(map, (px - 1), py) || map_way(map, (px + 1), py)
-				|| map_way(map, px, (py - 1)) || map_way(map, px, (py + 1)))
-				return (1);
-			return(0);
-		}
+	if (!map)
+		return (-1);
+	map_x = ft_strlen(map[0]);
+	map_y = get_tab_size(map);
+	if (py < 0 || py >= map_y || px < 0 || px >= map_x
+		|| map[py][px] == '1')
 		return (0);
+	if (map[py][px] == 'C' || map[py][px] == 'E')
+		collectible++;
+	map[py][px] = '1';
+	map_way(map, px - 1, py);
+	map_way(map, px + 1, py);
+	map_way(map, px, py - 1);
+	map_way(map, px, py + 1);
+	return (collectible);
+}
+
+int	map_way_ok(char **map, int px, int py)
+{
+	int	collect;
+
+	collect = get_collect(map);
+	return (map_way(map, px, py) == collect + 1);
 }
