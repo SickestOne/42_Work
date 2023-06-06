@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:24:12 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/05 15:00:05 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/06 17:54:33 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,34 +22,55 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <fcntl.h>
+#include <stdbool.h>
 #include "MLX42/include/MLX42/MLX42.h"
+#define WIDTH 512
+#define HEIGHT 
 
-// typedef struct mlx
-// {
-// 	void*		window;
-// 	void*		context;
-// 	int32_t		width;
-// 	int32_t		height;
-// 	double		delta_time;
-// }	mlx_t;
+typedef	struct s_game
+{
+	mlx_t	*mlx;
+	mlx_texture_t	*texture;
+	mlx_image_t 	*player;
+	char	**map;	
+	int	collect;
+	int	exit;
+	int	p_y;
+	int	p_x;
+	int	m_y;
+	int m_x;
+}			t_game;
 
-/* so_long_fx*/
+/*so_long_map*/
+void	struct_init(t_game *init, char **argv);
+void	aff_texture(t_game *af_map, int x, int y, char *path);
+void	map_init(t_game *mp, char **map);
+void	init_play(t_game *p);
+void	key(mlx_key_data_t keydata, void *param);
+void	move_up(t_game *go);
+void	move_down(t_game *go);
+void	move_right(t_game *go);
+void	move_left(t_game *go);
 
-void	mlx_test(void);
+
+/* so_long_parse*/
+void	mlx_test(int y, int x, char *path);
 int     parse_init(char **argv);
 int     check_map_size(char **map, int i);
 int     check_extension(char *str);
 char    **fill_map_tab(char **argv);
 int     get_malloc_size(char **argv);
-int     get_tab_size(char **tab);
+int     gmsy(char **tab);
+int 	gmsx(char **tab);
 int     get_collect(char **map);
 int     map_is_closed(char **map, int i, int j);
 int     map_params(char **map, int i, int j, int par_p);
 int     map_is_valid(char **map, int i, int j);
 int     map_way(char **map, int mx, int my);
 int		map_way_ok(char **map, int px, int py);
-int     get_player_pos_x(char **map, int i, int j);
-int     get_player_pos_y(char **map, int px, int py);
+int     gpx(char **map, int i, int j);
+int     gpy(char **map, int px, int py);
+int		parse_check(char **argv);
 
 /* gnl src */
 char	*get_next_line(int fd);

@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:07:15 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/05 14:44:19 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/06 16:25:53 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**clone_map(char **map)
 
 	i = -1;
 	j = 0;
-    temp = malloc(sizeof(temp) * get_tab_size(map) + 1);
+    temp = malloc(sizeof(temp) * gmsy(map) + 1);
 	while (map[++i])
 	{
 		temp[j] = ft_strdup(map[i]);
@@ -30,7 +30,7 @@ char	**clone_map(char **map)
 	return (temp);
 }
 
-int get_player_pos_x(char **map, int i, int j)
+int gpx(char **map, int i, int j)
 {
     while (map[++i])
     {
@@ -42,7 +42,7 @@ int get_player_pos_x(char **map, int i, int j)
     return (0);
 }
 
-int	get_player_pos_y(char **map, int i, int j)
+int	gpy(char **map, int i, int j)
 {
 	while (map[++i])
 	{
@@ -63,7 +63,7 @@ int	map_way(char **map, int px, int py)
 	if (!map)
 		return (-1);
 	map_x = ft_strlen(map[0]);
-	map_y = get_tab_size(map);
+	map_y = gmsy(map);
 	if (py < 0 || py >= map_y || px < 0 || px >= map_x
 		|| map[py][px] == '1')
 		return (0);

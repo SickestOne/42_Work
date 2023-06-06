@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/05 15:51:13 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/06 18:07:26 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,24 @@
 
 int32_t main(int argc, char **argv)
 {
-    int tab[2];
-    char **cl_map;
-    char **tmp;
+    t_game *go;
+    char **map;
 
-    tmp = fill_map_tab(argv);
-    cl_map = clone_map(tmp);
-    if (argc == 2)
-        parse_init(argv);
-    check_map_size(tmp, -1);
-    map_is_closed(tmp, -1, -1);
-    map_params(tmp, 0, -1, 0);
-    map_is_valid(tmp, -1, 0);
-    tab[0] = get_player_pos_x(tmp, -1, -1);
-    tab[1] = get_player_pos_y(tmp, -1, -1);
-    free_tabs(tmp);
-    if (!map_way_ok(cl_map, tab[0], tab[1]))
-    {
-        free_tabs(cl_map);
-        err_msg_2(3);
-    }
-    free_tabs(cl_map);
-    mlx_test();
+    map = fill_map_tab(argv);
+    if (argc != 2)
+        ft_putsterr("Usage : ./so_long [your_map].ber");
+    if (!parse_check(argv))
+        exit(2);
+    go = malloc(sizeof(t_game));
+    if (!go)
+        exit(2);
+    struct_init(go, argv);
+    go->mlx = mlx_init(gmsx(go->map) * 64, gmsy(go->map) * 64, "so_long", true);
+    map_init(go, go->map);
+    init_play(go);
+    mlx_key_hook(go->mlx, key, go);
+    mlx_loop(go->mlx);
+    mlx_terminate(go->mlx);
     return (0);
 }
 
@@ -88,4 +84,26 @@ char **fill_map_tab(char **argv)
    }
    map_tab[i] = NULL;
    return (map_tab);
+}
+
+int parse_check(char **argv)
+{
+    int tab[2];
+    char **cl_map;
+    char **tmp;
+
+    tmp = fill_map_tab(argv);
+    cl_map = clone_map(tmp);
+    tab[0] = gpx(tmp, -1, -1);
+    tab[1] = gpy(tmp, -1, -1);
+    if (!check_map_size(tmp, -1) && !map_is_closed(tmp, -1, -1) &&
+        !map_params(tmp, 0, -1, 0) && !map_is_valid(tmp, -1, 0))
+            free_tabs(tmp);
+    free_tabs(tmp);
+    if (!map_way_ok(cl_map, tab[0], tab[1]))
+    {
+        free_tabs(cl_map);
+        err_msg_2(3);
+    }
+    return (1);
 }

@@ -44,7 +44,7 @@ int get_malloc_size(char **argv)
     return (size);
 }
 
-int	get_tab_size(char **tab)
+int	gmsy(char **tab)
 {
 	int	i;
 
@@ -52,6 +52,11 @@ int	get_tab_size(char **tab)
 	while (tab[i])
         i++;
 	return (i);
+}
+
+int gmsx(char **tab)
+{
+    return (ft_strlen(tab[0]));
 }
 
 int get_collect(char **map)

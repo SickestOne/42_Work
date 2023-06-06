@@ -6,7 +6,7 @@
 #    By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/03 15:04:12 by rvan-den          #+#    #+#              #
-#    Updated: 2023/06/05 15:02:47 by rvan-den         ###   ########.fr        #
+#    Updated: 2023/06/06 17:38:43 by rvan-den         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,9 @@ SO_LONG			:=		mandatory/so_long.c \
 						mandatory/so_long_utils.c \
 						mandatory/so_long_utils_2.c \
 						mandatory/so_long_map_check.c \
+						mandatory/so_long_map_init.c \
+						mandatory/so_long_moves.c \
+						mandatory/so_long_move_utils.c \
 						mandatory/test_mlx.c \
 						
 GNL				:=		gnl/get_next_line_utils.c \

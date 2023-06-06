@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_map_check.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:27:37 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/03 19:57:45 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/06/06 11:00:16 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int map_is_closed(char **map, int i, int j)
 {
     int tab_size;
 
-    tab_size = get_tab_size(map);
+    tab_size = gmsy(map);
     while (map[++i])
     {
         while (map[i][++j] && map[i][j + 1] && map[i][j + 1] != '\n')
