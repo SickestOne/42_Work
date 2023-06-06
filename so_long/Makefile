@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+         #
+#    By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/03 15:04:12 by rvan-den          #+#    #+#              #
-#    Updated: 2023/06/06 17:38:43 by rvan-den         ###   ########.fr        #
+#    Updated: 2023/06/06 20:24:36 by pendejoo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,11 @@ ${NAME}:	${GNL_OBJS} ${SO_LONG_OBJS} ${UTILS_OBJS}
 debug:		${GNL_OBJS} ${SO_LONG_OBJS} ${UTILS_OBJS} 
 			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
 			${CC} -fsanitize=address ${FLAGS} ${SO_LONG_OBJS} ${UTILS_OBJS} ${GNL_OBJS} -o ${NAME}
+			@echo "$(GREEN)$(NAME) created[0m ✔️"
+
+linux:		${GNL_OBJS} ${SO_LONG_OBJS} ${UTILS_OBJS} 
+			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
+			${CC} ${FLAGS} ${SO_LONG_OBJS} ${UTILS_OBJS} ${GNL_OBJS} -o ${NAME} MLX42/build/libmlx42.a -Iinclude -ldl -lglfw -pthread -lm
 			@echo "$(GREEN)$(NAME) created[0m ✔️"
 
 all:		${NAME}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_map_init.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:24:25 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/06 17:03:55 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/06 22:08:02 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	map_init(t_game *mp, char **map)
 			else if (map[mp->m_y][mp->m_x] == 'P')
 				aff_texture(mp, mp->m_x, mp->m_y, "./assets/textures/floor.png");
 			else if (map[mp->m_y][mp->m_x] == 'C')
-				aff_texture(mp, mp->m_x, mp->m_y, "./assets/textures/Collectible.png");
+				aff_texture(mp, mp->m_x, mp->m_y, "./assets/textures/collect_2.png");
 			mp->m_x++;	
 		}
 		mp->m_y++;

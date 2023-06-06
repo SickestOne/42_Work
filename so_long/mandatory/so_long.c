@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/06 18:07:26 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/06 20:18:47 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int32_t main(int argc, char **argv)
 {
     t_game *go;
-    char **map;
+    // char **map;
 
-    map = fill_map_tab(argv);
+    // map = fill_map_tab(argv);
     if (argc != 2)
         ft_putsterr("Usage : ./so_long [your_map].ber");
     if (!parse_check(argv))

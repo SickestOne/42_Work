@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_moves.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:12:01 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/06 18:23:33 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/06 21:01:23 by pendejoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	key(mlx_key_data_t keydata, void *param)
 		ft_putsterr("See you around the world\n");
 		exit(EXIT_SUCCESS);
 	}
-	else if (keydata.key == MLX_KEY_W)
+	else if (mlx_is_key_down(go->mlx, MLX_KEY_W))
 		move_up(go);
-	else if (keydata.key == MLX_KEY_S)
+	else if (mlx_is_key_down(go->mlx, MLX_KEY_S))
 		move_down(go);
-	else if (keydata.key == MLX_KEY_D)
+	else if (mlx_is_key_down(go->mlx, MLX_KEY_D))
 		move_right(go);
-	else if (keydata.key == MLX_KEY_A)
+	else if (mlx_is_key_down(go->mlx, MLX_KEY_A))
 		move_left(go);
 }
 
