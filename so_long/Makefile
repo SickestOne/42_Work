@@ -6,7 +6,7 @@
 #    By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/03 15:04:12 by rvan-den          #+#    #+#              #
-#    Updated: 2023/06/07 09:53:05 by rvan-den         ###   ########.fr        #
+#    Updated: 2023/06/07 19:28:47 by rvan-den         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,7 @@ ${NAME}:	${GNL_OBJS} ${SO_LONG_OBJS} ${UTILS_OBJS}
 
 debug:		${GNL_OBJS} ${SO_LONG_OBJS} ${UTILS_OBJS} 
 			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
-			${CC} -fsanitize=address ${FLAGS} ${SO_LONG_OBJS} ${UTILS_OBJS} ${GNL_OBJS} -o ${NAME}
+			${CC} -fsanitize=address ${FLAGS} ${SO_LONG_OBJS} ${UTILS_OBJS} ${GNL_OBJS} -o ${NAME} MLX42/build/libmlx42.a -Iinclude -lglfw -L"/Users/rvan-den/.brew/opt/glfw/lib/"
 			@echo "$(GREEN)$(NAME) created[0m ✔️"
 
 linux:		${GNL_OBJS} ${SO_LONG_OBJS} ${UTILS_OBJS} 
