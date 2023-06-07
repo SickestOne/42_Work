@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:27:37 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/06 11:00:16 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:03:49 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int map_is_valid(char **map, int i, int j)
         {
             if (map[i][j] == '1' || map[i][j] == '0' ||
                 map[i][j] == 'P' || map[i][j] == 'C' ||
-                map[i][j] == 'E')
+                map[i][j] == 'E' || map[i][j] == 'F')
                 j++;
             else
                 err_msg_2(2);

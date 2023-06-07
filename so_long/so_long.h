@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:24:12 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/07 16:02:14 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:34:00 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,14 +96,17 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strtrim(char const *s1, char const *set);
 int     ft_isascii(int c);
 void    ft_putsterr(char *str);
+void    ft_putstr(char *str);
 void	free_tabs(char **tab);
 char	**clone_map(char **map);
 char	*ft_itoa(int n);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 
-/* err */
+/* err && lose && win */
 
 void    err_msg(int i);
 void    err_msg_2(int i);
+void    lose_msg(void);
+void	win_msg(void);
 #endif

@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:26:25 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/07 16:11:24 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:35:08 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	move_up(t_game *go)
 	coll = get_collect(clone_map(go->map));
 	if (go->map[go->p_y - 1][go->p_x] == '1')
 		return ;
+	else if (go->map[go->p_y - 1][go->p_x] == 'F')
+		lose_msg();
 	go->p_y -= 1;
 	go->player->instances[0].y -= 64;
 	if (go->map[go->p_y][go->p_x] == 'C')
@@ -29,7 +31,7 @@ void	move_up(t_game *go)
 		go->map[go->p_y][go->p_x] = '0';
 	}
 	if (go->map[go->p_y][go->p_x] == 'E' && coll == 0)
-		exit(EXIT_SUCCESS);
+		win_msg();
 	go->steps++;
 	dis_steps(go);
 }
@@ -41,6 +43,8 @@ void	move_down(t_game *go)
 	coll = get_collect(clone_map(go->map));
 	if (go->map[go->p_y + 1][go->p_x] == '1')
 		return ;
+	else if (go->map[go->p_y + 1][go->p_x] == 'F')
+		lose_msg();
 	go->p_y += 1;
 	go->player->instances[0].y += 64;
 	if (go->map[go->p_y][go->p_x] == 'C')
@@ -51,7 +55,7 @@ void	move_down(t_game *go)
 		go->map[go->p_y][go->p_x] = '0';
 	}
 	if (go->map[go->p_y][go->p_x] == 'E' && coll == 0)
-		exit(EXIT_SUCCESS);
+		win_msg();
 	go->steps++;
 	dis_steps(go);
 }
@@ -65,6 +69,8 @@ void	move_right(t_game *go)
 	init_player(go, 1);
 	if (go->map[go->p_y][go->p_x + 1] == '1')
 		return ;
+	else if (go->map[go->p_y][go->p_x + 1] == 'F')
+		lose_msg();
 	go->p_x += 1;
 	go->player->instances[0].x += 64;
 	if (go->map[go->p_y][go->p_x] == 'C')
@@ -74,7 +80,7 @@ void	move_right(t_game *go)
 		go->map[go->p_y][go->p_x] = '0';
 	}
 	if (go->map[go->p_y][go->p_x] == 'E' && coll == 0)
-		exit(EXIT_SUCCESS);
+		win_msg();
 	go->steps++;
 	dis_steps(go);
 }
@@ -88,6 +94,8 @@ void	move_left(t_game *go)
 	init_player(go, 2);
 	if (go->map[go->p_y][go->p_x - 1] == '1')
 		return ;
+	else if (go->map[go->p_y][go->p_x - 1] == 'F')
+		lose_msg();
 	go->p_x -= 1;
 	go->player->instances[0].x -= 64;
 	if (go->map[go->p_y][go->p_x] == 'C')
@@ -97,7 +105,7 @@ void	move_left(t_game *go)
 		go->map[go->p_y][go->p_x] = '0';
 	}
 	if (go->map[go->p_y][go->p_x] == 'E' && coll == 0)
-		exit(EXIT_SUCCESS);
+		win_msg();
 	go->steps++;
 	dis_steps(go);
 }

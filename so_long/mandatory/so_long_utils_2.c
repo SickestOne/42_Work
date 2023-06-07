@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:07:15 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/06 16:25:53 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:04:49 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	map_way(char **map, int px, int py)
 	map_x = ft_strlen(map[0]);
 	map_y = gmsy(map);
 	if (py < 0 || py >= map_y || px < 0 || px >= map_x
-		|| map[py][px] == '1')
+		|| map[py][px] == '1' || map[py][px] == 'F')
 		return (0);
 	if (map[py][px] == 'C' || map[py][px] == 'E')
 		collectible++;

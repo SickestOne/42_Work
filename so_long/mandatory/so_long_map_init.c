@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:24:25 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/07 17:12:02 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:39:27 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,18 @@ void	map_init(t_game *mp, char **map)
 				aff_texture(mp, mp->m_x, mp->m_y, "./assets/textures/floor.png");
 			else if (map[mp->m_y][mp->m_x] == 'C')
 				aff_texture(mp, mp->m_x, mp->m_y, "./assets/textures/collect_2.png");
+			else if (map[mp->m_y][mp->m_x] == 'F')
+				aff_texture(mp, mp->m_x, mp->m_y, "./assets/textures/Collectible.png");
 			mp->m_x++;	
 		}
 		mp->m_y++;
 	}
+}
+
+void	win_msg(void)
+{
+	ft_putstr("##################################\n");
+	ft_putstr("#---------WIIIINNEEEEER----------#\n");
+	ft_putstr("##################################\n");
+	exit(EXIT_SUCCESS);
 }
