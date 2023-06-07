@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:24:25 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/07 11:42:11 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/07 13:28:51 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	struct_init(t_game *init, char **argv)
 {
 	init->map = clone_map(fill_map_tab(argv));
 	init->collect = 0;
+	init->c_step = 0;
 	init->steps = 0;
 	init->exit = 0;
 	init->p_y = gpy(fill_map_tab(argv), -1, -1);

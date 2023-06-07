@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/07 10:10:06 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/07 12:54:44 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int32_t main(int argc, char **argv)
     init_player(go, 1);
     mlx_key_hook(go->mlx, key, go);
     mlx_loop(go->mlx);
-    // mlx_put_string(go->mlx, ft_itoa(go->collect), go->m_y, go->m_x);
     mlx_terminate(go->mlx);
     return (0);
 }

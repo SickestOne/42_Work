@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:24:12 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/07 10:29:38 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/07 13:00:27 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef	struct s_game
 	mlx_t	*mlx;
 	mlx_texture_t	*texture;
 	mlx_image_t 	*player;
+	mlx_image_t		*c_step;
 	char	**map;	
 	int	collect;
 	int	steps;

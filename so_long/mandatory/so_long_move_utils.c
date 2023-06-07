@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:26:25 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/07 11:59:08 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:14:14 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ void	move_up(t_game *go)
 	go->player->instances[0].y -= 64;
 	if (go->map[go->p_y][go->p_x] == 'C')
 	{
+		mlx_delete_image(go->mlx, go->player);
 		aff_texture(go, go->p_x, go->p_y, "./assets/textures/floor.png");
 		init_player(go, 1);
 		go->map[go->p_y][go->p_x] = '0';
 	}
 	if (go->map[go->p_y][go->p_x] == 'E' && coll == 0)
 		exit(EXIT_SUCCESS);
-	printf("collect_remain%d\n", coll);
 	go->steps++;
 }
 
@@ -44,14 +44,15 @@ void	move_down(t_game *go)
 	go->player->instances[0].y += 64;
 	if (go->map[go->p_y][go->p_x] == 'C')
 	{
+		mlx_delete_image(go->mlx, go->player);
 		aff_texture(go, go->p_x, go->p_y, "./assets/textures/floor.png");
 		init_player(go, 1);
 		go->map[go->p_y][go->p_x] = '0';
 	}
 	if (go->map[go->p_y][go->p_x] == 'E' && coll == 0)
 		exit(EXIT_SUCCESS);
-	printf("collect_remain%d\n", coll);
 	go->steps++;
+    mlx_put_string(go->mlx, ft_itoa(go->steps), go->m_x, go->m_y);
 }
 
 void	move_right(t_game *go)
@@ -73,7 +74,6 @@ void	move_right(t_game *go)
 	}
 	if (go->map[go->p_y][go->p_x] == 'E' && coll == 0)
 		exit(EXIT_SUCCESS);
-	printf("collect_remain%d\n", coll);
 	go->steps++;
 }
 
@@ -96,7 +96,11 @@ void	move_left(t_game *go)
 	}
 	if (go->map[go->p_y][go->p_x] == 'E' && coll == 0)
 		exit(EXIT_SUCCESS);
-	printf("collect_remain%d\n", coll);
 	go->steps++;
+}
+
+void	dis_steps(t_game *go)
+{
+	cha
 }
 	
