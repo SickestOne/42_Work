@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:24:12 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/07 13:00:27 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/07 16:02:14 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	move_up(t_game *go);
 void	move_down(t_game *go);
 void	move_right(t_game *go);
 void	move_left(t_game *go);
+void	dis_steps(t_game *go);
 
 
 /* so_long_parse*/

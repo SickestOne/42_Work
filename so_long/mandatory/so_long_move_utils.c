@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:26:25 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/07 15:14:14 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/07 16:11:24 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	move_up(t_game *go)
 	if (go->map[go->p_y][go->p_x] == 'E' && coll == 0)
 		exit(EXIT_SUCCESS);
 	go->steps++;
+	dis_steps(go);
 }
 
 void	move_down(t_game *go)
@@ -52,7 +53,7 @@ void	move_down(t_game *go)
 	if (go->map[go->p_y][go->p_x] == 'E' && coll == 0)
 		exit(EXIT_SUCCESS);
 	go->steps++;
-    mlx_put_string(go->mlx, ft_itoa(go->steps), go->m_x, go->m_y);
+	dis_steps(go);
 }
 
 void	move_right(t_game *go)
@@ -75,6 +76,7 @@ void	move_right(t_game *go)
 	if (go->map[go->p_y][go->p_x] == 'E' && coll == 0)
 		exit(EXIT_SUCCESS);
 	go->steps++;
+	dis_steps(go);
 }
 
 void	move_left(t_game *go)
@@ -97,10 +99,17 @@ void	move_left(t_game *go)
 	if (go->map[go->p_y][go->p_x] == 'E' && coll == 0)
 		exit(EXIT_SUCCESS);
 	go->steps++;
+	dis_steps(go);
 }
 
 void	dis_steps(t_game *go)
 {
-	cha
+	char	*number;
+
+	number = NULL;
+	mlx_delete_image(go->mlx, go->c_step);
+	number = ft_itoa(go->steps);
+	go->c_step = mlx_put_string(go->mlx, number, go->m_x, go->m_y);
+	free(number);
 }
 	
