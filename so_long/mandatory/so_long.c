@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/06 20:18:47 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/06/07 10:10:06 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ int32_t main(int argc, char **argv)
     struct_init(go, argv);
     go->mlx = mlx_init(gmsx(go->map) * 64, gmsy(go->map) * 64, "so_long", true);
     map_init(go, go->map);
-    init_play(go);
+    init_player(go, 1);
     mlx_key_hook(go->mlx, key, go);
     mlx_loop(go->mlx);
+    // mlx_put_string(go->mlx, ft_itoa(go->collect), go->m_y, go->m_x);
     mlx_terminate(go->mlx);
     return (0);
 }

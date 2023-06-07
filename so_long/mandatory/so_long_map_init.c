@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_map_init.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:24:25 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/06 22:08:02 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:42:11 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ void	struct_init(t_game *init, char **argv)
 {
 	init->map = clone_map(fill_map_tab(argv));
 	init->collect = 0;
+	init->steps = 0;
 	init->exit = 0;
 	init->p_y = gpy(fill_map_tab(argv), -1, -1);
 	init->p_x = gpx(fill_map_tab(argv), -1, -1);
-	init->m_y = 0;
-	init->m_x = 0;
+	init->m_y = 0;/*gmsy(fill_map_tab(argv));*/
+	init->m_x = 0;/*gmsx(fill_map_tab(argv));*/
 }
 
 void	aff_texture(t_game *af_map, int x, int y, char *path)

@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:24:12 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/06 17:54:33 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/07 10:29:38 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef	struct s_game
 	mlx_image_t 	*player;
 	char	**map;	
 	int	collect;
+	int	steps;
 	int	exit;
 	int	p_y;
 	int	p_x;
@@ -45,7 +46,7 @@ typedef	struct s_game
 void	struct_init(t_game *init, char **argv);
 void	aff_texture(t_game *af_map, int x, int y, char *path);
 void	map_init(t_game *mp, char **map);
-void	init_play(t_game *p);
+void	init_player(t_game *p, int i);
 void	key(mlx_key_data_t keydata, void *param);
 void	move_up(t_game *go);
 void	move_down(t_game *go);
@@ -95,6 +96,9 @@ int     ft_isascii(int c);
 void    ft_putsterr(char *str);
 void	free_tabs(char **tab);
 char	**clone_map(char **map);
+char	*ft_itoa(int n);
+void	*ft_calloc(size_t count, size_t size);
+void	ft_bzero(void *s, size_t n);
 
 /* err */
 

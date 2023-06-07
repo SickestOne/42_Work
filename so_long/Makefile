@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+         #
+#    By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/03 15:04:12 by rvan-den          #+#    #+#              #
-#    Updated: 2023/06/06 20:24:36 by pendejoo         ###   ########.fr        #
+#    Updated: 2023/06/07 09:53:05 by rvan-den         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ UTILS			:=		utils/ft_isascii.c \
 						utils/err_utils.c \
 						utils/ft_strdup.c \
 						utils/ft_strlcpy.c \
+						utils/ft_itoa.c \
 
 UTILS_OBJS = $(UTILS:.c=.o)
 

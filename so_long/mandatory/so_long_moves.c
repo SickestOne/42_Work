@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_moves.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pendejoo <pendejoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:12:01 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/06 21:01:23 by pendejoo         ###   ########.fr       */
+/*   Updated: 2023/06/07 09:25:39 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,15 @@ void	key(mlx_key_data_t keydata, void *param)
 		move_left(go);
 }
 
-void	init_play(t_game *p)
+void	init_player(t_game *p, int i)
 {
 	mlx_texture_t	*texture;
 
-	texture = mlx_load_png("assets/textures/Charlie_R.png");
+	texture = NULL;
+	if (i == 1)
+		texture = mlx_load_png("assets/textures/Charlie_R.png");
+	else if (i == 2)
+		texture = mlx_load_png("assets/textures/Charlie_L.png");
 	p->player = mlx_texture_to_image(p->mlx, texture);
 	mlx_image_to_window(p->mlx, p->player, p->p_x * 64, p->p_y * 64);
 }
