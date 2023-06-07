@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/07 12:54:44 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/07 17:32:45 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int32_t main(int argc, char **argv)
 {
     t_game *go;
-    // char **map;
 
-    // map = fill_map_tab(argv);
     if (argc != 2)
         ft_putsterr("Usage : ./so_long [your_map].ber");
     if (!parse_check(argv))
@@ -92,12 +90,14 @@ int parse_check(char **argv)
     char **cl_map;
     char **tmp;
 
+    if (gmsy(fill_map_tab(argv)) == 0)
+        exit(2);
     tmp = fill_map_tab(argv);
     cl_map = clone_map(tmp);
     tab[0] = gpx(tmp, -1, -1);
     tab[1] = gpy(tmp, -1, -1);
-    if (!check_map_size(tmp, -1) && !map_is_closed(tmp, -1, -1) &&
-        !map_params(tmp, 0, -1, 0) && !map_is_valid(tmp, -1, 0))
+    if (!check_map_size(tmp, -1) || !map_is_closed(tmp, -1, -1) ||
+        !map_params(tmp, 0, -1, 0) || !map_is_valid(tmp, -1, 0))
             free_tabs(tmp);
     free_tabs(tmp);
     if (!map_way_ok(cl_map, tab[0], tab[1]))
