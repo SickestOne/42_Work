@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:49:49 by pendejoo          #+#    #+#             */
-/*   Updated: 2023/06/08 18:16:00 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/08 19:08:21 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	parse_check(char **argv)
 	tmp = fill_map_tab(argv);
 	if (gmsy(tmp) == 0)
 	{
-		ft_putsterr("Error\nYour ma file doesn't have a map 🤓..\n");
+		ft_putsterr("Error\nYour map file doesn't have a map 🤓..\n");
 		exit(2);
 	}
 	cl_map = clone_map(tmp);
