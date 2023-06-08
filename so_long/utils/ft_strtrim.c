@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:40:15 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/03 15:36:16 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/08 17:30:45 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	find_start(char const *s1, char const *set)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (ft_strchr(set, s1[i]))
@@ -52,7 +52,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (s1_cpy);
 }
 
-/*int	main()
+/*int	main(void)
 {
 	char const s1[] = "adbctestdabc";
 	char const set[] = "abcd";

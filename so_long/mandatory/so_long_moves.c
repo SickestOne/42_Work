@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:12:01 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/07 18:54:38 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/08 17:32:30 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ void	init_player(t_game *p, int i)
 		texture = mlx_load_png("assets/textures/Charlie_R.png");
 	else if (i == 2)
 		texture = mlx_load_png("assets/textures/Charlie_L.png");
+	if (!texture)
+		return ;
 	p->player = mlx_texture_to_image(p->mlx, texture);
+	mlx_delete_texture(texture);
 	mlx_image_to_window(p->mlx, p->player, p->p_x * 64, p->p_y * 64);
 }

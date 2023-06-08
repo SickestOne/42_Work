@@ -6,7 +6,7 @@
 #    By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/03 15:04:12 by rvan-den          #+#    #+#              #
-#    Updated: 2023/06/07 19:28:47 by rvan-den         ###   ########.fr        #
+#    Updated: 2023/06/08 15:19:48 by rvan-den         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 ################################################################################
 NAME	:= so_long
 CC		:= gcc
-FLAGS	:= -Wall -Wextra -Werror -g3
+FLAGS	:= -Wall -Wextra -Werror -g3 #-fsanitize=address
 
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
@@ -28,7 +28,6 @@ SO_LONG			:=		mandatory/so_long.c \
 						mandatory/so_long_map_init.c \
 						mandatory/so_long_moves.c \
 						mandatory/so_long_move_utils.c \
-						mandatory/test_mlx.c \
 						
 GNL				:=		gnl/get_next_line_utils.c \
 						gnl/get_next_line.c \
