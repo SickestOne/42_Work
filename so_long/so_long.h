@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:24:12 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/06/08 19:02:36 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/06/10 18:18:06 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <sys/uio.h>
 # include <unistd.h>
 # define WIDTH 512
-# define HEIGHT
+# define HEIGHT 512
 
 typedef struct s_game
 {
