@@ -38,18 +38,3 @@ void	flood_fill(char **tab, t_point size, t_point begin)
 {
 	fill(tab, size, begin, tab[begin.y][begin.x]);
 }
-
-void	print_count(t_game *counter, int number)
-{
-	char	*str;
-	char	*itoa;
-
-	itoa = NULL;
-	str = NULL;
-	mlx_delete_image(counter->mlx, counter->put);
-	itoa = ft_itoa(number / 2);
-	str = ft_s("Move : ", itoa);
-	counter->put = mlx_put_string(counter->mlx, str, 25, 20);
-	counter->move++;
-	free(itoa);
-	free(str);

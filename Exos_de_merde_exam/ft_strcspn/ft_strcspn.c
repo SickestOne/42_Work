@@ -23,8 +23,8 @@ int main()
 {
 	size_t i = 0;
 	size_t m = 0;
-	m = ft_strcspn("Hello world", "ppppppppppppppppppppppppppoH");
-	i = strcspn("Hello world", "ppppppppppppppppppppppppppoH");
+	m = ft_strcspn("Hello world", "ppppppppppppppppppppppppppppppppppppppppppppppppr");
+	i = strcspn("Hello world", "pppppppppppppppppppppppppppppppppppppppppppppppppr");
 	printf ("%zu\n", m);
 	printf ("%zu\n", i);
 	return (0);
