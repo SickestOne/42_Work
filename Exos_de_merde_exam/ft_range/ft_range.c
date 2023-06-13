@@ -1,9 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include <stdlib.h>
-#include <stdio.h>
-
 int    *ft_range(int start, int end)
 {
     int i = 0;
@@ -38,12 +35,10 @@ int    *ft_range(int start, int end)
         t_s = start;
         t_end = end;
         int j = 0;
-        int t = 0;
         while (t_s < (end + 1))
         {
-            t = t_s;
             tab[j] = t_s;
-            t_s++;
+            t_s += 1;
             j++;
         }
         return (tab);
