@@ -43,7 +43,6 @@ int    *ft_range(int start, int end)
         {
             t = t_s;
             tab[j] = t_s;
-            printf("%d\n", tab[j]);
             t_s++;
             j++;
         }
@@ -57,7 +56,6 @@ int    *ft_range(int start, int end)
         while (len > k)
         {
             tab[k] = t_s;
-            printf("%d\n", tab[k]);
             t_s -= 1;
             k++;
         }
