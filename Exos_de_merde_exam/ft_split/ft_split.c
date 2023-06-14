@@ -60,3 +60,14 @@ char **ft_split(char *str)
 	}
 	return (tab);
 }
+
+int	main()
+{
+	char **tab = ft_split("Test de phrase a decouper, pour la mettre dans un tableau de tableau. Ca peut aller loin, tres loin weghw etrgqwer wtqegwy");
+	int i = 0;
+	while (tab[i])
+	{
+		printf("tab[%d] : %s\n",i, tab[i]);
+		i++;
+	}
+}
