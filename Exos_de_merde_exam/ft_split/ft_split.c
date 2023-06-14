@@ -36,13 +36,15 @@ char *find_w(char *str)
 	j = 0;
 	while (k < i)
 		tmp[j++] = str[k++];
-	if (str[i])
+	while (str[i] && ft_issp(str[i]))
 		i++;
 	return (tmp);
 }
 
 char **ft_split(char *str)
 {
+	while (*str && ft_issp(*str))
+		str++;
 	int i = 0;
 	int count_c = word_c(str);
 	char **tab;
@@ -53,18 +55,8 @@ char **ft_split(char *str)
 	while (count_c != 0)
 	{
 		tab[i] = find_w(str);
-		count_c --;
+		count_c--;
 		i++;
 	}
 	return (tab);
-}
-
-int	main()
-{
-	char **split = ft_split("coucou les gens");
-	int i;
-	for (i = 0; split[i]; i++)
-		printf("split[%d] = %s\n", i, split[i]);
-	printf("split[%d] = %s\n", i, split[i]);
-	return (0);
 }
