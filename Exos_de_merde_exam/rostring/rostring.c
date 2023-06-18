@@ -62,9 +62,8 @@ char **the_split(char *str)
 	tab[wc] = 0;
 	while (wc != 0)
 	{
-		tab[i] = insert_w(str);
+		tab[i++] = insert_w(str);
 		wc--;
-		i++;
 	}
 	return (tab);
 }
