@@ -1,0 +1,2 @@
+https://github.com/anolivei/Philosophers42  <- lien + videos youtube sur le concept
+https://www.codequoi.com/threads-mutex-et-programmation-concurrente-en-c/
