@@ -42,13 +42,14 @@ int	int_checker(char **av)
 	return (1);
 }
 
+
 void	print_errors(void)
 {
 	printf("Error\nInvalid number of arguments...\n\n");
-	printf("  Usage ==> ./philo [1] [2] [3] [4] [5](optional)\n");
-	printf("  [1]  ==> [number of philosophers]\n");
-	printf("  [2]  ==> [time_to_die] (in milliseconds)\n");
-	printf("  [3]  ==> [time_to_eat] (in milliseconds)\n");
-	printf("  [4]  ==> [time_to_sleep] (in milliseconds)\n");
-	printf("  [5]  ==> [number_of_times_each_philosopher_must_eat]\n");
+	printf("Usage ==> ./philo [1] [2] [3] [4] [5](optional)\n");
+	printf("[1]  ==> [number of philosophers]\n");
+	printf("[2]  ==> [time_to_die] (in milliseconds)\n");
+	printf("[3]  ==> [time_to_eat] (in milliseconds)\n");
+	printf("[4]  ==> [time_to_sleep] (in milliseconds)\n");
+	printf("[5]  ==> [number_of_times_each_philosopher_must_eat]\n");
 }
