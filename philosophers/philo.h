@@ -19,35 +19,52 @@ int		int_checker(char **av);
 int		is_num(char c);
 void	print_errors(void);
 void	ft_puterr(char *str);
-long int		actual_time(void);
+void	pth_alc_err(int i);
+
 
 //time
 
 void	ft_usleep(long int time_in_ms);
+long int		actual_time(void);
 
 ///structs
 
-typedef struct s_args
-{
-	int	num_forks;
-	int	num_of_philo;
-	int	time_die;
-	int time_eat;
-	int	time_sleep;
-	long int 	start_time;
-}                                       t_args;
-
 typedef	struct s_philos
 {
+	struct	s_args *data;
+	pthread_t	t_1;
 	int	id;
-	t_args philargs;
-}										t_philos;
+	int	eat_counter;
+	int is_eating;
+	int	status;
+	long int	tt_die;
+	pthread_mutex_t lock;
+	pthread_mutex_t	*r_f;
+	pthread_mutex_t	*l_f;
+}		           t_philos;
 
-typedef	struct s_ctrl_p
+typedef struct s_args
 {
+	pthread_mutex_t *forks;
+	pthread_mutex_t lock;
+	pthread_mutex_t	dspy;
+	pthread_t	*ids;
 	t_philos	*philos;
-	t_args		args;
-}										t_ctrl_p;
+	int			nb_ph;
+	int			nb_mls;
+	int			death;
+	int			end;
+	long int	time_die;
+	long int	time_eat;
+	long int	time_sleep;
+	long int 	start_time;
+}                   t_args;
 
+
+//init
+
+int	args_init(t_args *ag_init, int ac, char **av);
+int	check_init(char **av);
+void	create_forks(t_args *ag_init, int i);
 
 #endif

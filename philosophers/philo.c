@@ -2,15 +2,19 @@
 
 int	main(int ac, char **av)
 {
+	t_args	*start;
+
+	start = malloc(sizeof(t_args));
+	if (!start)
+		return (printf("Malloc error\n"), 0);
 	if (ac >= 5 && ac <= 6)
 	{
 		if (check_args(av))
-			printf("Let's go\n");
-		else
 		{
-			printf("Error\nCheck your input.\n");
-			return (0);
+			args_init(start, ac, av);
 		}
+		else
+			return (print_errors(), 0);
 	}
 	else
 		print_errors();
