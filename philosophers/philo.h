@@ -48,7 +48,7 @@ typedef struct s_args
 	pthread_mutex_t *forks;
 	pthread_mutex_t lock;
 	pthread_mutex_t	dspy;
-	pthread_t	*ids;
+	pthread_t	*t_ids;
 	t_philos	*philos;
 	int			nb_ph;
 	int			nb_mls;
