@@ -19,13 +19,13 @@ int	args_init(t_args *ag_init, int ac, char **av)
 		pthread_mutex_init(&ag_init->lock, NULL);
 		return (1);
 	}
-	return (0);
+	return (printf("Struct init failed !!\n"), 0);
 }
 
 int	pthread_allocs(t_args *ag_init)
 {
-	ag_init->ids = malloc(sizeof(pthread_t) * (ag_init->nb_ph));
-	if (!ag_init->ids)
+	ag_init->t_ids = malloc(sizeof(pthread_t) * (ag_init->nb_ph));
+	if (!ag_init->t_ids)
 		return (pth_alc_err(0), 0);
 	ag_init->forks = malloc(sizeof(pthread_mutex_t) * (ag_init->nb_ph));
 	if (!ag_init->forks)
@@ -57,7 +57,13 @@ void	create_philos(t_args *ag_init, int i)
 {
 	while (i < ag_init->nb_ph)
 	{
-
+		ag_init->philos[i].ph_id = i + 1;
+		ag_init->philos[i].tt_die = 0;
+		ag_init->philos[i].status = 0;
+		ag_init->philos[i].eat_counter = 0;
+		ag_init->philos[i].is_eating = 0;
+		ag_init->philos[i].data = ag_init;
+		pthread_mutex_init(&ag_init->philos[i].lock, NULL);
 		i++;
 	}
 }

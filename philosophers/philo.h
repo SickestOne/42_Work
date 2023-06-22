@@ -33,7 +33,7 @@ typedef	struct s_philos
 {
 	struct	s_args *data;
 	pthread_t	t_1;
-	int	id;
+	int	ph_id;
 	int	eat_counter;
 	int is_eating;
 	int	status;
