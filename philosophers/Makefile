@@ -12,6 +12,7 @@ FLAGS    := -Wall -Wextra -Werror
 SRCS        :=      philo.c \
                     utils.c \
 					error_utils.c \
+					error_utils_p2.c \
 					philo_init.c \
 					time.c \
                           
