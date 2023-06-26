@@ -1,6 +1,6 @@
 #include "philo.h"
 
-void	ft_usleep(long int time_in_ms)
+int	ft_usleep(long int time_in_ms)
 {
 	long int	start_time;
 
@@ -8,6 +8,7 @@ void	ft_usleep(long int time_in_ms)
 	start_time = actual_time();
 	while ((actual_time() - start_time) < time_in_ms)
 		usleep(time_in_ms / 10);
+	return (0);
 }
 
 long int		actual_time(void)

@@ -23,7 +23,7 @@ long int		actual_time(void);
 
 //time
 
-void	ft_usleep(long int time_in_ms);
+int	ft_usleep(long int time_in_ms);
 
 ///structs
 
