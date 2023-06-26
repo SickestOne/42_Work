@@ -1,33 +1,18 @@
 #include <unistd.h>
 
-int	scan(char *str, char c, int nb)
+void	print_char(char *s1, char *s2)
 {
-	while (nb >= 0)
-	{
-		if (str[nb] == c)
-			return (0);
-		nb--;
-	}
-	return (1);
-}
-
-void	inter(char *str1, char *str2)
-{
+	int tab[127] = {0};
 	int i = 0;
-	int	j;
-
-	while(str1[i])
+	while (s2[i])
+		tab[(int)s2[i++]] = 1;
+	i = 0;
+	while (s1[i])
 	{
-		j = 0;
-		while(str2[j])
+		if (tab[(int)s1[i]] == 1)
 		{
-			if (str1[i] == str2[j])
-			{
-				if (scan(str1, str1[i], i - 1))
-					write(1, &str1[i], 1);
-				break;
-			}
-			j++;
+			write(1, &s1[i], 1);
+			tab[(int)s1[i]] = 2;
 		}
 		i++;
 	}
@@ -36,6 +21,6 @@ void	inter(char *str1, char *str2)
 int	main(int ac, char **av)
 {
 	if (ac == 3)
-		inter(av[1], av[2]);
+		print_char(av[1], av[2]);
 	return (write(1, "\n", 1), 0);
 }

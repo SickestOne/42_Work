@@ -6,7 +6,7 @@ int     get_t_size(int start, int end)
 	int i = 0;
 	int	t_start = start;
 	int t_end = end;
-	if ((start >= 1 && end > 0) || (start <= 0 && end >= 0))
+	if (start < end)
 	{
 		while (t_start != t_end)
 		{
@@ -14,7 +14,7 @@ int     get_t_size(int start, int end)
 			i++;
 		}
 	}
-	else if ((start <= 0 && end <= 0) || (start >= 0 && end <= 0))
+	else if (start > end)
 	{
 		while (t_start != t_end)
 		{
@@ -34,12 +34,12 @@ int	*ft_rrange(int start, int end)
 	tab_f = malloc(sizeof(int) * (tab_size + 1));
 	if (!tab_f)
 		return (NULL);
-	if (tab_size == 0)
+	if (start == end)
 	{
-		tab_f[0] = 0;
+		tab_f[0] = start;
 		return (tab_f);
 	}
-	if ((start >= 1 && end > 0) || (start <= 0 && end >= 0))
+	if (start < end)
 	{
 		while (i < tab_size + 1)
 		{
@@ -49,7 +49,7 @@ int	*ft_rrange(int start, int end)
 			i++;
 		}
 	}
-	else if ((start <= 0 && end <= 0) || (start >= 0 && end <= 0))
+	else if (start > end)
 	{
 		while (i < tab_size + 1)
 		{
