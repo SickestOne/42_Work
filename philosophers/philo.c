@@ -24,7 +24,7 @@ int	main(int ac, char **av)
 
 int	check_args(char **av)
 {
-	if (!letter_checker(av) || !int_checker(av))
+	if (!letter_checker(av) || !int_checker(av) || !check_init(av))
 		return (0);
 	return (1);
 }

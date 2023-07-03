@@ -59,8 +59,18 @@ void	print_errors(void)
 
 int	check_init(char **av)
 {
-	if (ft_atoi(av[1]) > 200 || ft_atol(av[2]) <= 0 || ft_atol(av[3]) <= 0 ||
+	int	i;
+
+	i = 0;
+	if (ft_atol(av[2]) <= 0 || ft_atol(av[3]) <= 0 ||
 		ft_atol(av[4]) <= 0)
+		i++;
+	if (ft_atoi(av[1]) > 200)
+	{
+		printf("IN SUP 200 PH\n");
+		i++;
+	}
+	if (i > 0)
 		return (print_errors(), 0);
 	return (1);
 }
