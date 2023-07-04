@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   error_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Diogo-ss <contact@diogosilva.dev>          +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 13:14:57 by Diogo-ss          #+#    #+#             */
-/*   Updated: 2023/07/04 13:15:11 by Diogo-ss         ###   ########.fr       */
+/*   Created: 2023/07/04 15:26:39 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/07/04 15:26:42 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "philo.h"
 
