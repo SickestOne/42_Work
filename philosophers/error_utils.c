@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:26:39 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/04 15:26:42 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:47:55 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,11 @@ int	check_init(char **av)
 	int	i;
 
 	i = 0;
-	if (ft_atol(av[2]) <= 0 || ft_atol(av[3]) <= 0 ||
-		ft_atol(av[4]) <= 0)
+	if (ft_atol(av[2]) < 0 || ft_atol(av[3]) < 0 ||
+		ft_atol(av[4]) < 0)
 		i++;
 	if (ft_atoi(av[1]) > 200)
-	{
-		printf("IN SUP 200 PH\n");
 		i++;
-	}
 	if (i > 0)
 		return (print_errors(), 0);
 	return (1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:01 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/04 15:28:04 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/05 12:35:27 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,13 @@ long	ft_atol(const char *str)
 		str++;
 	}
 	return (result * conv_sign);
+}
+
+void	ft_putstr(char *s)
+{
+	int i;
+
+	i = 0;
+	while (s[i])
+		write (1, &s[i++], 1);
 }

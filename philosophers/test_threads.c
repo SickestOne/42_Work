@@ -2,35 +2,43 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <pthread.h>
+#include <stdio.h>
+#include <pthread.h>
 
-void  *routine()
+# define NC	"\e[0m"
+# define YELLOW	"\e[1;33m"
+
+// thread_routine est la fonction que le thread invoque directement
+// après sa création. Le thread se termine à la fin de cette fonction.
+void	*thread_routine(void *data)
 {
-  int num;
+	pthread_t tid;
 
-  num = 33;
-  while (num > 0)
-  {
-    if (num % 2 > 0)
-      printf("num !even = [%d]\n", num);
-    sleep(1);
-    if (num % 2 == 0)
-      printf("num even = [%d]\n", num);
-    num--;
-  }
-  return (NULL);
+	// La fonction pthread_self() renvoie
+	// l'identifiant propre à ce thread.
+	tid = pthread_self();
+	printf("%sThread [%ld]: Le plus grand ennui c'est d'exister sans vivre.%s\n",
+		YELLOW, tid, NC);
+	return (NULL); // Le thread termine ici.
 }
 
-int main()
+int	main(void)
 {
-  pthread_t t1;
-  pthread_t t2;
-  if (pthread_create(&t1, NULL, &routine, NULL) != 0)
-    return (printf("ERROR T1\n"), 0);
-  printf("id premier thread = %ld\n", t1);
-  if (pthread_create(&t2, NULL, &routine, NULL) != 0)
-    return (printf("ERROR T2\n"), 0);
-  printf("id premier thread = %ld\n", t2);
-  pthread_join(t1, NULL);
-  pthread_join(t2, NULL);
-  return (EXIT_SUCCESS);
+	pthread_t	tid1;	// Identifiant du premier thread
+	pthread_t	tid2;	// Identifiant du second thread
+
+	// Création du premier thread qui va directement aller
+	// exécuter sa fonction thread_routine.
+	pthread_create(&tid1, NULL, thread_routine, NULL);
+	printf("Main: Creation du premier thread [%ld]\n", tid1);
+	// Création du second thread qui va aussi exécuter thread_routine.
+	pthread_create(&tid2, NULL, thread_routine, NULL);
+	printf("Main: Creation du second thread [%ld]\n", tid2);
+	// Le main thread attend que le nouveau thread
+	// se termine avec pthread_join.
+	pthread_join(tid1, NULL);
+	printf("Main: Union du premier thread [%ld]\n", tid1);
+	pthread_join(tid2, NULL);
+	printf("Main: Union du second thread [%ld]\n", tid2);
+	return (0);
 }

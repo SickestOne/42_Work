@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:13 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/04 15:28:18 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/05 16:20:10 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,38 +33,50 @@ void			print_errors(void);
 void			ft_puterr(char *str);
 long int		actual_time(void);
 int				check_init(char **av);
+void			pth_alc_err(int i);
+
+//mem_alloc && data_init
+
+int	mem_alloc(t_rules *data);
+int	init_rules(t_rules *data,int ac, char **av);
+
+//utils
+
+void	ft_putstr(char *s);
 
 //time
 
 int				ft_usleep(long int time_in_ms);
 
 ///structs
-
-typedef struct s_args
+typedef struct s_phils
 {
-	int			num_forks;
-	int			num_meals;
-	int			num_of_philo;
-	int			time_die;
-	int			time_eat;
-	int			time_sleep;
-	int			is_dead;
-	int			end;
-	long int	start_time;
-	long int	time_death;
-}				t_args;
-
-typedef struct s_philos
-{
-	int			id;
-	t_args		philargs;
-	pthread_t		t1;
-	int				eat_cont;
-	int				status;
-	int				eating;
-	long int		time_to_die;
+	struct s_rules	*data;
+	pthread_t       t1;
+	int             id;
+	int             eat_cont;
+	int             status;
+	int             eating;
+	uint64_t        time_to_die;
 	pthread_mutex_t	lock;
 	pthread_mutex_t	*r_fork;
 	pthread_mutex_t	*l_fork;
-}				t_philos;
+} t_phils;
+
+typedef struct s_rules
+{
+	pthread_t       *tid;
+	int             philo_num;
+	int             meals_nb;
+	int             dead;
+	int             finished;
+	t_phils         *philos;
+	u_int64_t       death_time;
+	u_int64_t       eat_time;
+	u_int64_t       sleep_time;
+	u_int64_t       start_time;
+	pthread_mutex_t *forks;
+	pthread_mutex_t lock;
+	pthread_mutex_t write;
+} t_rules;
 #endif

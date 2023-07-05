@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:26:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/04 15:27:04 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/05 14:05:02 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ int	main(int ac, char **av)
 	{
 		if (check_args(av))
 		{
-			int time = 1;
-			printf("return after round = [%d]\n", time);
-			time = ft_usleep(100);
-			printf("return after round = [%d]\n", time);
+			ft_putstr("Confiture de cum\tBien sale\n");
 		}
 		else
 		{
