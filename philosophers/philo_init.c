@@ -20,7 +20,7 @@ int	mem_alloc(t_rules *data)
 	data->forks = malloc(sizeof(pthread_mutex_t) * (data->philo_num));
 	if (!data->forks)
 		return (pth_alc_err(1), -2);
-	data->philos = malloc(sizeof(t_phils) * (data->philo_num);
+	data->philos = malloc(sizeof(t_phils) * (data->philo_num));
 	if (!data->philos)
 		return (pth_alc_err(2), -3);
 	return (1);
