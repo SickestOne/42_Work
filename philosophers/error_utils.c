@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:26:39 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/05 15:47:55 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/10 16:45:52 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	check_init(char **av)
 	if (ft_atol(av[2]) < 0 || ft_atol(av[3]) < 0 ||
 		ft_atol(av[4]) < 0)
 		i++;
-	if (ft_atoi(av[1]) > 200)
+	if (ft_atoi(av[1]) > 200 || ft_atoi(av[1]) <= 0)
 		i++;
 	if (i > 0)
 		return (print_errors(), 0);
