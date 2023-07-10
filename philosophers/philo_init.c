@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:27:22 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/06 13:05:54 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/10 15:46:29 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int	mem_alloc(t_rules *data)
 	data->forks = malloc(sizeof(pthread_mutex_t) * (data->philo_num));
 	if (!data->forks)
 		return (pth_alc_err(1), -2);
-	data->philos = malloc(sizeof(t_phils) * (data->philo_num);
+	data->philos = malloc(sizeof(t_phils) * (data->philo_num));
 	if (!data->philos)
 		return (pth_alc_err(2), -3);
 	return (1);
 }
 
-int	rules_init(t_rules *data,int ac, char **av)
+int	rules_init(t_rules *data, int ac, char **av)
 {
 	if (ac == 6)
 		data->meals_nb = (int) ft_atoi(av[5]);
@@ -59,4 +59,24 @@ void	create_philos(t_rules *data)
 		pthread_mutex_init(&data->philos[i].lock, NULL);
 		i++;
 	}
+}
+
+int	create_forks(t_rules *rules)
+{
+	int	i;
+
+	i = -1;
+	while (++i < rules->philo_num)
+		pthread_mutex_init(&rules->forks[i], NULL);
+	i = 0;
+	rules->philos[0].l_fork = &rules->forks[0];
+	rules->philos[0].r_fork = &rules->forks[rules->philo_num - 1];
+	i = 1;
+	while (i < rules->philo_num)
+	{
+		rules->philos[i].l_fork = &rules->forks[i];
+		rules->philos[i].r_fork = &rules->forks[i - 1];
+		i++;
+	}
+	return (1);
 }

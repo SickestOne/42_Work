@@ -15,6 +15,7 @@ SRCS        :=      philo.c \
 					error_utils_p2.c \
 					philo_init.c \
 					time.c \
+					launch.c \
                           
 OBJS        := $(SRCS:.c=.o)
 

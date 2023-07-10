@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:13 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/06 13:09:46 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/10 16:07:04 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <string.h>
 # include <sys/time.h>
 # include <unistd.h>
+# include <stdint.h>
 
 //parsing
 
@@ -81,5 +82,9 @@ typedef struct s_rules
 int mem_alloc(t_rules *data);
 int rules_init(t_rules *data,int ac, char **av);
 void  create_philos(t_rules *data);
+int create_forks(t_rules *forks);
+
+// action
+int launch(t_rules *data, int ac, char **av);
 
 #endif
