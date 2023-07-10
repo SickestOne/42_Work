@@ -14,8 +14,6 @@
 
 void  *routine()
 {
-  t_rules *data;
-
   printf("philo is here\n");
   return (NULL);
 }
