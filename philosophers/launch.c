@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 14:23:38 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/10 16:59:55 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/11 16:17:01 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 void  *routine()
 {
-  printf("philo is here\n");
+  while (1)
+  {
+    printf("philo is here\n");
+    sleep(3);
+  }
   return (NULL);
 }
 
@@ -34,7 +38,7 @@ int  thread_launch(t_rules *data)
     if (pthread_join(data->tid[i], NULL))
       return (printf("Thread join failed.\n"), -2);
   }
-  return (1);
+  return (0);
 }
 
 int launch(t_rules *data, int ac, char **av)
