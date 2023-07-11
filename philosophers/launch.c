@@ -25,10 +25,14 @@ int  thread_launch(t_rules *data)
   i = -1;
   while (++i < data->philo_num)
   {
-    if (pthread_create(&data->philos[i].t1 , NULL, &routine, NULL))
-      return (printf("Error\n"), -1);
-    if (pthread_join(data->philos[i].t1, NULL))
-      return (printf("Error2\n"), -2);
+    if (pthread_create(&data->tid[i] , NULL, &routine, NULL))
+      return (printf("Thread creation failed.\n"), -1);
+  }
+  i = -1;
+  while (++i < data->philo_num)
+  {
+    if (pthread_join(data->tid[i], NULL))
+      return (printf("Thread join failed.\n"), -2);
   }
   return (1);
 }
