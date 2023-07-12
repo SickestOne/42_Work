@@ -3,44 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   launch.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 14:23:38 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/11 16:17:01 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/12 15:25:12 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void  *routine()
+void  *do_routine()
 {
-  while (1)
-  {
-    printf("philo is here\n");
-    sleep(3);
-  }
+  printf("routine\n");
   return (NULL);
 }
 
+// creation des threads
 int  thread_launch(t_rules *data)
 {
   int i;
 
   i = -1;
+  data->start_time = actual_time();
   while (++i < data->philo_num)
   {
-    if (pthread_create(&data->tid[i] , NULL, &routine, NULL))
+    if (pthread_create(&data->thids[i] , NULL, &do_routine, NULL))
       return (printf("Thread creation failed.\n"), -1);
   }
   i = -1;
   while (++i < data->philo_num)
   {
-    if (pthread_join(data->tid[i], NULL))
+    if (pthread_join(data->thids[i], NULL))
       return (printf("Thread join failed.\n"), -2);
   }
   return (0);
 }
 
+// Lancement des threads
 int launch(t_rules *data, int ac, char **av)
 {
   if (rules_init(data, ac, av) && mem_alloc(data) &&

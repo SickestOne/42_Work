@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:27:22 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/10 15:46:29 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/12 13:47:59 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	mem_alloc(t_rules *data)
 {
-	data->tid = malloc(sizeof(pthread_t) * (data->philo_num));
-	if (!data->tid)
+	data->thids = malloc(sizeof(pthread_t) * (data->philo_num));
+	if (!data->thids)
 		return (pth_alc_err(0), -1);
 	data->forks = malloc(sizeof(pthread_mutex_t) * (data->philo_num));
 	if (!data->forks)

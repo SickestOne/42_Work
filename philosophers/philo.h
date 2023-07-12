@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:13 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/10 16:07:04 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/12 13:47:04 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ typedef struct s_rules
 	u_int64_t       sleep_time;
 	u_int64_t       start_time;
 	t_phils         *philos;
-	pthread_t       *tid;
+	pthread_t       *thids;
 	pthread_mutex_t *forks;
 	pthread_mutex_t lock;
 	pthread_mutex_t write;
