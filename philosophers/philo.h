@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:13 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/12 13:47:04 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/13 12:06:56 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int				ft_usleep(long int time_in_ms);
 
 typedef struct s_phils
 {
-	struct s_rules	*data;
 	int             id;
 	int             eat_cont;
 	int             status;
@@ -77,14 +76,20 @@ typedef struct s_rules
 	pthread_mutex_t write;
 } t_rules;
 
+typedef struct s_ctrl
+{
+	t_phils	 *p;
+	t_rules   *r;
+}			t_ctrl;
+
 //mem_alloc && data_init
 
-int mem_alloc(t_rules *data);
-int rules_init(t_rules *data,int ac, char **av);
-void  create_philos(t_rules *data);
-int create_forks(t_rules *forks);
+int mem_alloc(t_ctrl *data);
+int rules_init(t_ctrl *data, int ac, char **av);
+void  create_philos(t_ctrl *data);
+int create_forks(t_ctrl *forks);
 
 // action
-int launch(t_rules *data, int ac, char **av);
+int launch(t_ctrl *data, int ac, char **av);
 
 #endif
