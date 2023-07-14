@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 14:23:38 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/13 14:54:02 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/14 16:25:07 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,39 @@
 
 void  *rout(void *arg)
 {
-  t_ctrl *philo;
+  t_phils *philo;
+  int i = 0;
   
-  philo = (t_ctrl *)arg;
-  while (1)
-  {
-    pthread_mutex_lock(&philo->r->write);
-    printf("id philo %d\n", philo->r->philos[0].id);
-    pthread_mutex_unlock(&philo->r->write);
-    sleep(3);
-  }
-  return (NULL);
+  philo = (t_phils *)arg;
+	while (philo->rules->dead == 0)
+	{
+    pthread_mutex_lock(&philo->rules->write);
+    if (i == philo->rules->philo_num)
+      i = 0;
+    printf("id = %d\n", philo->rules->philos[i].id);
+    i++;
+    pthread_mutex_unlock(&philo->rules->write);
+    sleep(2);
+	}
+	return ((void *)0);
 }
 
 // creation des threads
-int  thread_launch(t_ctrl *data)
+int  thread_launch(t_phils *data)
 {
   int i;
 
   i = -1;
-  data->r->start_time = actual_time();
-  while (++i < data->r->philo_num)
+  data->rules->start_time = actual_time();
+  while (++i < data->rules->philo_num)
   {
-    if (pthread_create(&data->r->thids[i] , NULL, &rout, (void *)data))
+    if (pthread_create(&data->rules->thids[i] , NULL, &rout, data->rules->philos + i))
       return (printf("Thread creation failed.\n"), -1);
   }
   i = -1;
-  while (++i < data->r->philo_num)
+  while (++i < data->rules->philo_num)
   {
-    if (pthread_join(data->r->thids[i], NULL))
+    if (pthread_join(data->rules->thids[i], NULL))
       return (printf("Thread join failed.\n"), -2);
   }
   return (0);

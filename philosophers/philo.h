@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:13 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/13 12:06:56 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/14 16:22:35 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_phils
 	int             eat_cont;
 	int             status;
 	int             eating;
+	struct s_rules	*rules;
 	u_int64_t        time_to_die;
 	pthread_t       t1;
 	pthread_mutex_t	lock;
@@ -78,7 +79,6 @@ typedef struct s_rules
 
 typedef struct s_ctrl
 {
-	t_phils	 *p;
 	t_rules   *r;
 }			t_ctrl;
 

@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:27:22 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/13 11:55:31 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/14 14:39:42 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	rules_init(t_ctrl *data, int ac, char **av)
 		data->r->meals_nb = (int) ft_atoi(av[5]);
 	else
 		data->r->meals_nb = -1;
-	data->r->philo_num = (int) ft_atoi(av[1]);
+	data->r->philo_num = ft_atoi(av[1]);
 	data->r->death_time = (u_int64_t) ft_atoi(av[2]);
 	data->r->eat_time = (u_int64_t) ft_atoi(av[3]);
 	data->r->sleep_time = (u_int64_t) ft_atoi(av[4]);
