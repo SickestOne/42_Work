@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:26:39 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/10 16:45:52 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/17 12:38:46 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,16 @@ void	print_errors(void)
 	printf("[5]  ==> [number_of_times_each_philosopher_must_eat]\n");
 }
 
-int	check_init(char **av)
+int	check_init(int ac, char **av)
 {
 	int	i;
 
 	i = 0;
-	if (ft_atol(av[2]) < 0 || ft_atol(av[3]) < 0 ||
-		ft_atol(av[4]) < 0)
+	if (ac == 6)
+		if (ft_atoi(av[5]) <= 0)
+			return (print_errors(), 0);
+	if (ft_atol(av[2]) <= 0 || ft_atol(av[3]) <= 0 ||
+		ft_atol(av[4]) <= 0)
 		i++;
 	if (ft_atoi(av[1]) > 200 || ft_atoi(av[1]) <= 0)
 		i++;

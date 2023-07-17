@@ -5,79 +5,57 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 15:27:22 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/14 14:39:42 by rvan-den         ###   ########.fr       */
+/*   Created: 2023/07/17 11:24:58 by rvan-den          #+#    #+#             */
+/*   Updated: 2023/07/17 13:43:55 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	mem_alloc(t_ctrl *data)
+void	set_mutexs(t_p *phil)
 {
-	data->r->thids = malloc(sizeof(pthread_t) * (data->r->philo_num));
-	if (!data->r->thids)
-		return (pth_alc_err(0), -1);
-	data->r->forks = malloc(sizeof(pthread_mutex_t) *(data->r->philo_num));
-	if (!data->r->forks)
-		return (pth_alc_err(1), -2);
-	data->r->philos = malloc(sizeof(t_phils) * (data->r->philo_num));
-	if (!data->r->philos)
-		return (pth_alc_err(2), -3);
-	return (1);
+	pthread_mutex_init(&phil->a.dead, NULL);
+	pthread_mutex_init(&phil->a.time_eat, NULL);
+	pthread_mutex_init(&phil->a.finish, NULL);
 }
 
-int	rules_init(t_ctrl *data, int ac, char **av)
+int game_init(int ac, char **av, t_p *rules)
 {
-	data->r = malloc(sizeof(t_rules));
 	if (ac == 6)
-		data->r->meals_nb = (int) ft_atoi(av[5]);
+		rules->a.nb_m_eat = ft_atoi(av[5]);
 	else
-		data->r->meals_nb = -1;
-	data->r->philo_num = ft_atoi(av[1]);
-	data->r->death_time = (u_int64_t) ft_atoi(av[2]);
-	data->r->eat_time = (u_int64_t) ft_atoi(av[3]);
-	data->r->sleep_time = (u_int64_t) ft_atoi(av[4]);
-	data->r->dead = 0;
-	data->r->finished = 0;
-	pthread_mutex_init(&data->r->write, NULL);
-	pthread_mutex_init(&data->r->lock, NULL);
+		rules->a.nb_m_eat = -1;
+	rules->a.nb_phs = ft_atoi(av[1]);
+	rules->a.t_die = ft_atoi(av[2]);
+	rules->a.t_eat = ft_atoi(av[3]);
+	rules->a.t_sleep = ft_atoi(av[4]);
+	rules->a.stop = 0;
+	rules->a.ph_eat = 0;
+	pthread_mutex_init(&rules->a.wr_mtx, NULL);
 	return (1);
 }
 
-void	create_philos(t_ctrl *data)
-{
-	int	i;
-
-	i = 0;
-	while (i < data->r->philo_num)
-	{
-		data->r->philos[i].id = i + 1;
-		data->r->philos[i].time_to_die = data->r->death_time;
-		data->r->philos[i].eat_cont = 0;
-		data->r->philos[i].eating = 0;
-		data->r->philos[i].status = 0;
-		pthread_mutex_init(&data->r->philos[i].lock, NULL);
-		i++;
-	}
-}
-
-int	create_forks(t_ctrl *data)
+int	philo_init(t_p *phil)
 {
 	int	i;
 
 	i = -1;
-	while (++i < data->r->philo_num)
-		pthread_mutex_init(&data->r->forks[i], NULL);
-	i = 0;
-	data->r->philos[0].l_fork = &data->r->forks[0];
-	data->r->philos[0].r_fork = &data->r->forks[data->r->philo_num - 1];
-	i = 1;
-	while (i < data->r->philo_num)
+	phil->a.start_t = actual_time();
+	set_mutexs(phil);
+	while (++i < phil->a.nb_phs)
 	{
-		data->r->philos[i].l_fork = &data->r->forks[i];
-		data->r->philos[i].r_fork = &data->r->forks[i - 1];
-		i++;
+		phil->ph[i].ph_id = i + 1;
+		phil->ph[i].ms_l_eat = phil->a.start_t;
+		phil->ph[i].nb_eat = 0;
+		phil->ph[i].fnh_eat = 0;
+		phil->ph[i].r_f = NULL;
+		pthread_mutex_init(&phil->ph[i].l_f, NULL);
+		if (phil->a.nb_phs == 1)
+			return (1);
+		if (i == phil->a.nb_phs - 1)
+			phil->ph[i].r_f = &phil->ph[0].l_f;
+		else
+			phil->ph[i].r_f = &phil->ph[i + 1].l_f;
 	}
 	return (1);
 }
-
