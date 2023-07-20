@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:24:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/17 13:43:55 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/19 17:26:55 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int game_init(int ac, char **av, t_p *rules)
 	rules->a.t_eat = ft_atoi(av[3]);
 	rules->a.t_sleep = ft_atoi(av[4]);
 	rules->a.stop = 0;
-	rules->a.ph_eat = 0;
+	rules->a.ph_all_eat = 0;
 	pthread_mutex_init(&rules->a.wr_mtx, NULL);
 	return (1);
 }

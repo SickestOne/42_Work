@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:26:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/17 13:42:56 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/20 10:47:23 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ int	main(int ac, char **av)
 				return (printf("Philo malloc error\n"), 0);
 			philo_init(&p);
 			philo_start(&p);
+			while (1)
+				if (!monitoring(p.ph))
+					break;
 		}
 		else
 		{

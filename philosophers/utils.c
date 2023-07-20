@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:01 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/05 12:35:27 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/20 11:34:56 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ long	ft_atol(const char *str)
 	return (result * conv_sign);
 }
 
-void	ft_putstr(char *s)
+void  write_state(char *str, t_philo *ph)
 {
-	int i;
-
-	i = 0;
-	while (s[i])
-		write (1, &s[i++], 1);
+	long int		time;
+	time = -1;
+	time = actual_time() - ph->ph_args->start_t;
+	printf("%ld ", time);
+	printf("philo %d %s", ph->ph_id, str);
 }

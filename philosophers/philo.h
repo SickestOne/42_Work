@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:13 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/17 13:43:31 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/20 10:45:16 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 long			ft_atol(const char *str);
 int				ft_atoi(const char *str);
 int				letter_checker(char **av);
-int				check_args(int ac, char **av);
 int				int_checker(char **av);
 int				is_num(char c);
 void			print_errors(void);
@@ -44,33 +43,33 @@ void	ft_putstr(char *s);
 int				ft_usleep(long int time_in_ms);
 
 //structs
- typedef	struct        s_arg             //arguments after ./philo
+ typedef	struct        s_arg
 {
-	int                   nb_phs;            // number of philosophers
-	int                   t_die;              // time to die in milliseconds
-	int                   t_eat;              // time to eat in milliseconds
-	int                   t_sleep;            // time to sleep in milliseconds
-	int                   nb_m_eat;            // must eat m_eat times
-	long int              start_t;          // start time in milliseconds
-	pthread_mutex_t       wr_mtx;           // write mutex
+	pthread_mutex_t       wr_mtx;
 	pthread_mutex_t			dead;
 	pthread_mutex_t			time_eat;
-	pthread_mutex_t			finish;      
-	int                   ph_eat;      // when a philosopher ate m_eat times : nb_p_finish++
+	pthread_mutex_t			finish;			//finish mutex
+	int                   nb_phs;
+	int                   t_die;
+	int                   t_eat;
+	int                   t_sleep;
+	int                   nb_m_eat;            // must eat m_eat times
+	long int              start_t;
+	int                   ph_all_eat;      // when a philosopher ate m_eat times : nb_p_finish++
 	int                   stop;             // 0 if none philosopher is dead, 1 if a philosopher is dead, 2 if all philosophers ate m_eat times
 }                       t_arg;
 
 typedef	struct          s_philo
 {
-	int                   ph_id;               // id of the philosopher
-	pthread_t             th_id;        // thread id
-	pthread_t             th_md_id;  // id of the thread monitoring death
-	pthread_mutex_t       *r_f;             // right fork mutex
-	pthread_mutex_t       l_f;              // left fork mutex
-	t_arg                 *pa;              // pointer to structure with all arguments (pointer on a)
+	pthread_t             th_id;
+	pthread_t             th_md_id;
+	pthread_mutex_t       *r_f;
+	pthread_mutex_t       l_f;
+	int                   ph_id;
 	long int              ms_l_eat;           // time of the last dinner in milliseconds
 	unsigned int          nb_eat;           // number of dinners (each time the philosopher eats nb_eat++)
 	int                   fnh_eat;           // 1 when a philosopher ate m_eat times, if not, 0
+	t_arg                 *ph_args;
 }                       t_philo;
 
 typedef	struct          s_p
@@ -83,5 +82,13 @@ typedef	struct          s_p
 
 int game_init(int ac, char **av, t_p *rules);
 int	philo_init(t_p *phil);
-int philo_start(t_p *phil);
+
+// operations
+int		philo_start(t_p *phil);
+void	write_state(char *str, t_philo *ph);
+void	operations(t_philo *ph);
+void	ph_sleep(t_philo *ph);
+void	ph_think(t_philo *ph);
+void	tf_df_eat(t_philo *ph);
+int		monitoring(t_philo *ph);
 #endif

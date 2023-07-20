@@ -4,7 +4,7 @@
 
 NAME        := philo
 CC        := gcc
-FLAGS    := -Wall -Wextra -Werror 
+FLAGS    := -Wall -Wextra -Werror -lpthread
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
@@ -16,6 +16,7 @@ SRCS        :=      philo.c \
 					philo_init.c \
 					time.c \
 					launch.c \
+					operations.c \
                           
 OBJS        := $(SRCS:.c=.o)
 
