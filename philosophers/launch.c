@@ -22,11 +22,8 @@ int eat_checker(t_philo *ph)
   {
     if (i == ph->ph_args->nb_phs)
       i = 0;
-    if (ph->ph_args->ph_all_eat >= ph->ph_args->nb_m_eat)
-    {
-      printf("SORTIE DE BOUCLE \n");
+    if (ph->ph_args->ph_all_eat == ph->ph_args->nb_m_eat)
       break ;
-    }
     if (ph[i].fnh_eat != 1 && (int)ph[i].nb_eat >= ph->ph_args->nb_m_eat)
     {
       ph[i].fnh_eat += 1;
