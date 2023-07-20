@@ -14,23 +14,30 @@
 
 int eat_checker(t_philo *ph)
 {
-  static int e_c = 0;
+  int i;
 
+  i = 0;
   pthread_mutex_lock(&ph->ph_args->time_eat);
-  if ((int)ph->nb_eat >= ph->ph_args->nb_m_eat && ph->fnh_eat == 0)
+  while (42)
   {
-    e_c++;
-    ph->fnh_eat = 1;
-  }
-  pthread_mutex_unlock(&ph->ph_args->time_eat);
-  pthread_mutex_lock(&ph->ph_args->time_eat);
-  if (e_c == ph->ph_args->nb_m_eat)
-  {
+    if (i == ph->ph_args->nb_phs)
+      i = 0;
+    if (ph->ph_args->ph_all_eat >= ph->ph_args->nb_m_eat)
+    {
+      printf("SORTIE DE BOUCLE \n");
+      break ;
+    }
+    if (ph[i].fnh_eat != 1 && (int)ph[i].nb_eat >= ph->ph_args->nb_m_eat)
+    {
+      ph[i].fnh_eat += 1;
+      ph->ph_args->ph_all_eat += 1;
+      printf("all_eat %d\n", ph->ph_args->ph_all_eat);
+    }
+    i++;
     pthread_mutex_unlock(&ph->ph_args->time_eat);
-    return (1);
   }
   pthread_mutex_unlock(&ph->ph_args->time_eat);
-  return (0);
+  return (1);
 }
 
 int death_checker(t_philo *ph)
@@ -39,7 +46,7 @@ int death_checker(t_philo *ph)
   if ((actual_time() - ph->ms_l_eat) >= ph->ph_args->t_die)
   {
     pthread_mutex_lock(&ph->ph_args->wr_mtx);
-    write_state("DIED\n", ph);
+    write_state("died\n", ph);
     pthread_mutex_unlock(&ph->ph_args->time_eat);
     pthread_mutex_unlock(&ph->ph_args->wr_mtx);
     return (0);
@@ -79,11 +86,11 @@ int philo_start(t_p *phil)
       return (printf("Threads creation failed\n"), 0);
   }
   i = -1;
- while (++i < phil->a.nb_phs)
- {
-   if (pthread_detach(phil->ph[i].th_id))
-     return (printf("Threads creation failed\n"), 0);
- }
+  while (++i < phil->a.nb_phs)
+  {
+    if (pthread_detach(phil->ph[i].th_id))
+      return (printf("Threads creation failed\n"), 0);
+  }
   return (1);
 }
 
