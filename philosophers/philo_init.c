@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:24:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/19 17:26:55 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/20 22:20:05 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	set_mutexs(t_p *phil)
 {
 	pthread_mutex_init(&phil->a.dead, NULL);
 	pthread_mutex_init(&phil->a.time_eat, NULL);
-	pthread_mutex_init(&phil->a.finish, NULL);
+	//pthread_mutex_init(&phil->a.finish, NULL);
 }
 
 int game_init(int ac, char **av, t_p *rules)
