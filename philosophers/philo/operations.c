@@ -6,24 +6,26 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:27:44 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/21 15:06:27 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/21 15:46:55 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	operations(t_philo *ph)
+int	operations(t_philo *ph)
 {
+	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
+		return (0);
 	if (tf_df_eat(ph))
-		return ;
+		return (0);
 	ph_sleep(ph);
 	ph_think(ph);
+	return (1);
 }
 
 int	tf_df_eat(t_philo *ph)
 {
-	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
-		return (1);
+	
 	if (!ph->r_f)
 	{
 		ft_usleep(ph->ph_args->t_die);
@@ -37,7 +39,7 @@ int	tf_df_eat(t_philo *ph)
 	write_state("is eating\n", ph);
 	ph->ms_l_eat = actual_time();
 	ph->nb_eat++;
-	printf("philo %d have eat = %d and must eat %d times, fnheat = %d\n", ph->ph_id, (int)ph->nb_eat, ph->ph_args->nb_m_eat, ph->fnh_eat[0]);
+	// printf("philo %d have eat = %d and must eat %d times, fnheat = %d\n", ph->ph_id, (int)ph->nb_eat, ph->ph_args->nb_m_eat, ph->fnh_eat[0]);
 	pthread_mutex_unlock(&ph->ph_args->wr_mtx);
 	if (eat_checker(ph, ph->ph_args))
 	{

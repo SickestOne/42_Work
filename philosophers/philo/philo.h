@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:13 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/21 15:05:23 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/21 15:33:14 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	philo_init(t_p *phil);
 // operations
 int		philo_start(t_p *phil);
 void	write_state(char *str, t_philo *ph);
-void	operations(t_philo *ph);
+int	operations(t_philo *ph);
 void	ph_sleep(t_philo *ph);
 void	ph_think(t_philo *ph);
 int	tf_df_eat(t_philo *ph);

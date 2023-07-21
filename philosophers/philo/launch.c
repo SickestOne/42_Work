@@ -19,7 +19,9 @@ int eat_checker(t_philo *ph, t_arg *ag)
   if ((int)ph->nb_eat == ag->nb_m_eat)
   {
     ag->ph_all_eat++;
+    pthread_mutex_lock(&ph->ph_args->wr_mtx);
     ph->fnh_eat[0]++;
+    pthread_mutex_unlock(&ph->ph_args->wr_mtx);
   }
   return (0);
 }
@@ -27,6 +29,8 @@ int eat_checker(t_philo *ph, t_arg *ag)
 int d_checker(t_philo *ph)
 {
   pthread_mutex_lock(&ph->ph_args->time_eat);
+  if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
+    return (0);
   if ((actual_time() - ph->ms_l_eat) >= ph->ph_args->t_die)
   {
     pthread_mutex_lock(&ph->ph_args->wr_mtx);
@@ -62,7 +66,8 @@ void  *routine(void *arg)
   if (ph->ph_id % 2 == 0)
     ft_usleep(15);
   while (42)
-    operations(ph);
+    if (!operations(ph))
+      return (NULL);
   return (NULL);
 }
 
