@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:01 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/20 11:34:56 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/21 16:30:53 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ long	ft_atol(const char *str)
 void  write_state(char *str, t_philo *ph)
 {
 	long int		time;
-	time = -1;
+	time = 0;
 	time = actual_time() - ph->ph_args->start_t;
 	printf("%ld ", time);
 	printf("philo %d %s", ph->ph_id, str);

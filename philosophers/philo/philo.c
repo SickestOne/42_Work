@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:26:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/21 15:47:53 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:07:15 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,7 @@ int	main(int ac, char **av)
 			printf("ZIZI\n");
 		}
 		else
-		{
-			printf("Error\nCheck your input.\n");
-			return (0);
-		}
+			print_errors();
 	}
 	else
 		print_errors();
