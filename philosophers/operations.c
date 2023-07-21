@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:27:44 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/20 20:30:51 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/21 15:06:27 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,41 @@
 
 void	operations(t_philo *ph)
 {
-	tf_df_eat(ph);
+	if (tf_df_eat(ph))
+		return ;
 	ph_sleep(ph);
 	ph_think(ph);
 }
 
-void	tf_df_eat(t_philo *ph)
+int	tf_df_eat(t_philo *ph)
 {
-	pthread_mutex_lock(&ph->l_f);
-	pthread_mutex_lock(&ph->ph_args->wr_mtx);
-	write_state("has taken a fork\n", ph);
-	pthread_mutex_unlock(&ph->ph_args->wr_mtx);
+	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
+		return (1);
 	if (!ph->r_f)
 	{
 		ft_usleep(ph->ph_args->t_die);
-		return ;
+		return (1);
 	}
 	pthread_mutex_lock(ph->r_f);
+	pthread_mutex_lock(&ph->l_f);
 	pthread_mutex_lock(&ph->ph_args->wr_mtx);
 	write_state("has taken a fork\n", ph);
-	pthread_mutex_unlock(&ph->ph_args->wr_mtx);
-	pthread_mutex_lock(&ph->ph_args->wr_mtx);
+	write_state("has taken a fork\n", ph);
 	write_state("is eating\n", ph);
-	pthread_mutex_lock(&ph->ph_args->time_eat);
 	ph->ms_l_eat = actual_time();
 	ph->nb_eat++;
-	printf("philo %d have eat = %d and must eat %d times\n", ph->ph_id, ph->nb_eat, ph->ph_args->nb_m_eat);
-	pthread_mutex_unlock(&ph->ph_args->time_eat);
+	printf("philo %d have eat = %d and must eat %d times, fnheat = %d\n", ph->ph_id, (int)ph->nb_eat, ph->ph_args->nb_m_eat, ph->fnh_eat[0]);
 	pthread_mutex_unlock(&ph->ph_args->wr_mtx);
+	if (eat_checker(ph, ph->ph_args))
+	{
+		pthread_mutex_unlock(ph->r_f);
+		pthread_mutex_unlock(&ph->l_f);
+		return (1);
+	}
 	ft_usleep(ph->ph_args->t_eat);
 	pthread_mutex_unlock(ph->r_f);
 	pthread_mutex_unlock(&ph->l_f);
+	return (0);
 }
 
 void	ph_sleep(t_philo *ph)

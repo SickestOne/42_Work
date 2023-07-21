@@ -12,6 +12,18 @@
 
 #include "philo.h"
 
+int eat_checker(t_philo *ph, t_arg *ag)
+{
+  if (ph->fnh_eat[0] == ag->nb_phs)
+    return (1);
+  if ((int)ph->nb_eat == ag->nb_m_eat)
+  {
+    ag->ph_all_eat++;
+    ph->fnh_eat[0]++;
+  }
+  return (0);
+}
+
 int d_checker(t_philo *ph)
 {
   pthread_mutex_lock(&ph->ph_args->time_eat);
@@ -23,40 +35,22 @@ int d_checker(t_philo *ph)
     pthread_mutex_unlock(&ph->ph_args->wr_mtx);
     return (0);
   }
+  // else if (ph->ph_args->nb_m_eat > 0)
+  // {
+  //   if (eat_checker(ph, ph->ph_args))
+  //   {
+  //     pthread_mutex_unlock(&ph->ph_args->time_eat);
+  //     return (0);
+  //   }
+  // }
   pthread_mutex_unlock(&ph->ph_args->time_eat);
-  return (1);
-}
-
-int eat_checker(t_philo *ph)
-{
-  pthread_mutex_lock(&ph->ph_args->time_eat);
-  while (ph->ph_args->ph_all_eat != ph->ph_args->nb_m_eat)
-  {
-    if (ph->fnh_eat < 1 && (int)ph->nb_eat >= ph->ph_args->nb_m_eat)
-    {
-      pthread_mutex_lock(&ph->ph_args->wr_mtx);
-      printf("tot meal = %d\n", ph->ph_args->ph_all_eat);
-      pthread_mutex_unlock(&ph->ph_args->wr_mtx);
-      ph->fnh_eat = 1;
-      ph->ph_args->ph_all_eat += 1;
-    }
-    pthread_mutex_unlock(&ph->ph_args->time_eat);
-    if (!d_checker(ph))
-      return (1);
-  }
   return (1);
 }
 
 int  monitoring(t_philo *ph)
 {
-  if (ph->ph_args->nb_m_eat >= 1)
-  {
-    if (eat_checker(ph))
-      return (0);
-  }
-  else
-    if (!d_checker(ph))
-      return (0);
+  if (!d_checker(ph))
+    return (0);
   return (1);
 }
 
@@ -65,8 +59,8 @@ void  *routine(void *arg)
   t_philo					*ph;
 
 	ph = (t_philo *)arg;
-  if (ph->ph_id % 2 != 0)
-    ft_usleep(ph->ph_args->t_eat / 10);
+  if (ph->ph_id % 2 == 0)
+    ft_usleep(15);
   while (42)
     operations(ph);
   return (NULL);

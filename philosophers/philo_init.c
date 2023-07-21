@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:24:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/20 22:20:05 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/21 14:21:32 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ int game_init(int ac, char **av, t_p *rules)
 int	philo_init(t_p *phil)
 {
 	int	i;
+	int *count;
 
 	i = -1;
+	count = malloc(sizeof(int));
+	count[0] = 0;
 	phil->a.start_t = actual_time();
 	set_mutexs(phil);
 	while (++i < phil->a.nb_phs)
@@ -47,7 +50,7 @@ int	philo_init(t_p *phil)
 		phil->ph[i].ph_id = i + 1;
 		phil->ph[i].ms_l_eat = phil->a.start_t;
 		phil->ph[i].nb_eat = 0;
-		phil->ph[i].fnh_eat = 0;
+		phil->ph[i].fnh_eat = count;
 		phil->ph[i].r_f = NULL;
 		pthread_mutex_init(&phil->ph[i].l_f, NULL);
 		if (phil->a.nb_phs == 1)

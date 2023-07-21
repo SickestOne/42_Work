@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:13 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/20 10:45:16 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/21 15:05:23 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ typedef	struct          s_philo
 	int                   ph_id;
 	long int              ms_l_eat;           // time of the last dinner in milliseconds
 	unsigned int          nb_eat;           // number of dinners (each time the philosopher eats nb_eat++)
-	int                   fnh_eat;           // 1 when a philosopher ate m_eat times, if not, 0
+	int                   *fnh_eat;           // 1 when a philosopher ate m_eat times, if not, 0
 	t_arg                 *ph_args;
 }                       t_philo;
 
@@ -89,6 +89,7 @@ void	write_state(char *str, t_philo *ph);
 void	operations(t_philo *ph);
 void	ph_sleep(t_philo *ph);
 void	ph_think(t_philo *ph);
-void	tf_df_eat(t_philo *ph);
+int	tf_df_eat(t_philo *ph);
 int		monitoring(t_philo *ph);
+int		eat_checker(t_philo *ph, t_arg *ag);
 #endif
