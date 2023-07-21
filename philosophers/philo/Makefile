@@ -4,7 +4,7 @@
 
 NAME        := philo
 CC        := gcc
-FLAGS    := -Wall -Wextra -Werror -lpthread #-fsanitize=address -g
+FLAGS    := -Wall -Wextra -Werror -lpthread -fsanitize=address -g
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
@@ -39,7 +39,6 @@ RM		    := rm -f
 ${NAME}:	${OBJS}
 			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
 			${CC} ${FLAGS} -o ${NAME} ${OBJS}
-			${RM} *.o */*.o */*/*.o
 			@echo "$(GREEN)$(NAME) created[0m ✔️"
 
 all:		${NAME}
@@ -56,6 +55,7 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+ree: 	re
+			@ ${RM} *.o */*.o */*/*.o
 
-
+.PHONY:		all clean fclean re ree

@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:27:44 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/21 15:46:55 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:26:06 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	tf_df_eat(t_philo *ph)
 	write_state("is eating\n", ph);
 	ph->ms_l_eat = actual_time();
 	ph->nb_eat++;
-	// printf("philo %d have eat = %d and must eat %d times, fnheat = %d\n", ph->ph_id, (int)ph->nb_eat, ph->ph_args->nb_m_eat, ph->fnh_eat[0]);
 	pthread_mutex_unlock(&ph->ph_args->wr_mtx);
 	if (eat_checker(ph, ph->ph_args))
 	{
