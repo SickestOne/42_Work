@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:11:44 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/21 17:07:48 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/23 16:59:14 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int d_checker(t_philo *ph)
 int  monitoring(t_philo *ph)
 {
 	if (!d_checker(ph))
-		return (0);
+		return (deconstructor(ph, ph->ph_args), 0);
 	return (1);
 }
 
@@ -56,10 +56,10 @@ void  *routine(void *arg)
 
 	ph = (t_philo *)arg;
 	if (ph->ph_id % 2 == 0)
-		ft_usleep(15);
+		usleep(1500);
 	while (42)
 		if (!operations(ph))
-			return (NULL);
+			break ;
 	return (NULL);
 }
 
@@ -80,6 +80,7 @@ int philo_start(t_p *phil)
 	{
 		if (pthread_detach(phil->ph[i].th_id))
 			return (printf("Threads creation failed\n"), 0);
+		// usleep(25);
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:13 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/21 15:33:14 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/23 14:14:30 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int				ft_usleep(long int time_in_ms);
 	pthread_mutex_t       wr_mtx;
 	pthread_mutex_t			dead;
 	pthread_mutex_t			time_eat;
-	pthread_mutex_t			finish;			//finish mutex
+	// pthread_mutex_t			finish;
 	int                   nb_phs;
 	int                   t_die;
 	int                   t_eat;
@@ -92,4 +92,5 @@ void	ph_think(t_philo *ph);
 int	tf_df_eat(t_philo *ph);
 int		monitoring(t_philo *ph);
 int		eat_checker(t_philo *ph, t_arg *ag);
+void	deconstructor(t_philo *ph, t_arg *ags);
 #endif

@@ -6,12 +6,25 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:26:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/21 17:07:15 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/23 17:23:36 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+void	deconstructor(t_philo *ph, t_arg *ags)
+{
+	int	i;
+
+	i = -1;
+	while (++i < ags->nb_phs)
+		pthread_join(ph[i].th_id, NULL);
+	i = -1;	
+	while (++i < ags->nb_phs)
+		pthread_mutex_destroy(&ph[i].l_f);
+	pthread_mutex_destroy(&ags->wr_mtx);
+	pthread_mutex_destroy(&ags->time_eat);
+}
 
 int	check_arg(int ac, char **av)
 {
@@ -37,12 +50,7 @@ int	main(int ac, char **av)
 			while (1)
 				if (!monitoring(p.ph))
 					return (0);
-			printf("ZIZI\n");
 		}
-		else
-			print_errors();
 	}
-	else
-		print_errors();
-	return (0);
+	return (print_errors(), 0);
 }

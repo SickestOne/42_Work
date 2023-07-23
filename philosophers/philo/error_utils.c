@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:26:39 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/17 12:38:46 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/23 17:13:57 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,15 @@ void	print_errors(void)
 {
 	printf("Error\nInvalid arguments...\n\n");
 	printf("You either have too much (>200) philosophers,");
-	printf(" 0 philosophers, or a null/negative input in one of the time");
-	printf(" arguments.\nPlease check your input for bad parameters.\n\n");
+	printf(" 0 philosophers,\na null/negative input in one of the time");
+	printf(" arguments, or a forbidden character.\n");
+	printf("\nPlease check your input.\n\n");
 	printf("Usage ==> ./philo [1] [2] [3] [4] [5](optional)\n");
 	printf("[1]  ==> [number of philosophers]\n");
 	printf("[2]  ==> [time_to_die] (in milliseconds)\n");
 	printf("[3]  ==> [time_to_eat] (in milliseconds)\n");
 	printf("[4]  ==> [time_to_sleep] (in milliseconds)\n");
-	printf("[5]  ==> [number_of_times_each_philosopher_must_eat]\n");
+	printf("[5]  ==> [number_of_times_each_philosophers_must_eat]\n");
 }
 
 int	check_init(int ac, char **av)
@@ -77,13 +78,13 @@ int	check_init(int ac, char **av)
 	i = 0;
 	if (ac == 6)
 		if (ft_atoi(av[5]) <= 0)
-			return (print_errors(), 0);
+			return (0);
 	if (ft_atol(av[2]) <= 0 || ft_atol(av[3]) <= 0 ||
 		ft_atol(av[4]) <= 0)
 		i++;
 	if (ft_atoi(av[1]) > 200 || ft_atoi(av[1]) <= 0)
 		i++;
 	if (i > 0)
-		return (print_errors(), 0);
+		return (0);
 	return (1);
 }

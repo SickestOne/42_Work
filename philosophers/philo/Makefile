@@ -4,7 +4,7 @@
 
 NAME        := philo
 CC        := gcc
-FLAGS    := -Wall -Wextra -Werror -lpthread -fsanitize=address -g
+FLAGS    := -Wall -Wextra -Werror -pthread #-fsanitize=address -g
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################

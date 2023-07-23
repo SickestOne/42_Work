@@ -6,11 +6,17 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:27:44 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/21 17:26:06 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:26:06rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	case_1(t_philo *ph)
+{
+	pthread_mutex_unlock(&ph->ph_args->wr_mtx);
+	pthread_mutex_unlock(&ph->l_f);
+}
 
 int	operations(t_philo *ph)
 {
@@ -26,15 +32,15 @@ int	operations(t_philo *ph)
 int	tf_df_eat(t_philo *ph)
 {
 	
+	pthread_mutex_lock(&ph->ph_args->wr_mtx);
+	pthread_mutex_lock(&ph->l_f);
+	write_state("has taken a fork\n", ph);
 	if (!ph->r_f)
 	{
 		ft_usleep(ph->ph_args->t_die);
-		return (1);
+		return (case_1(ph), 1);
 	}
 	pthread_mutex_lock(ph->r_f);
-	pthread_mutex_lock(&ph->l_f);
-	pthread_mutex_lock(&ph->ph_args->wr_mtx);
-	write_state("has taken a fork\n", ph);
 	write_state("has taken a fork\n", ph);
 	write_state("is eating\n", ph);
 	ph->ms_l_eat = actual_time();
