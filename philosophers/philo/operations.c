@@ -26,8 +26,6 @@ int	operations(t_philo *ph)
 		return (0);
 	if (tf_df_eat(ph))
 		return (0);
-	if (!d_checker(ph))
-		return (0);
 	ph_sleep(ph);
 	ph_think(ph);
 	return (1);
