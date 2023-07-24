@@ -55,8 +55,8 @@ void  *routine(void *arg)
 	t_philo					*ph;
 
 	ph = (t_philo *)arg;
-	if (ph->ph_id % 2 != 0)
-		ft_usleep(ph->ph_args->t_eat / 10);
+	if (ph->ph_id % 2 == 0)
+		ft_usleep(ph->ph_args->t_eat);
 	while (42)
 		if (!operations(ph))
 			break ;
@@ -76,11 +76,5 @@ int philo_start(t_p *phil)
 		ft_usleep(50);
 	}
 	i = -1;
-	// while (++i < phil->a.nb_phs)
-	// {
-	// 	if (pthread_detach(phil->ph[i].th_id))
-	// 		return (printf("Threads creation failed\n"), 0);
-	// 	// usleep(25);
-	// }
 	return (1);
 }

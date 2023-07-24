@@ -22,8 +22,6 @@ int	operations(t_philo *ph)
 {
 	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
 		return (0);
-	if (!d_checker(ph))
-		return (0);
 	if (tf_df_eat(ph))
 		return (0);
 	ph_sleep(ph);
