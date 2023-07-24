@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:24:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/24 09:30:36 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:01:05 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int game_init(int ac, char **av, t_p *rules)
 	rules->a.start_t = actual_time();
 	rules->a.ph_all_eat = 0;
 	pthread_mutex_init(&rules->a.wr_mtx, NULL);
-	pthread_mutex_init(&rules->a.dead, NULL);
-	pthread_mutex_init(&rules->a.time_eat, NULL);
 	return (1);
 }
 

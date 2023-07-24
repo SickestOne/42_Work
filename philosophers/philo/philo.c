@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:26:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/24 14:44:43 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/24 19:41:15 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	deconstructor(t_philo *ph, t_arg *ags)
 	while (++i < ags->nb_phs)
 		pthread_mutex_destroy(&ph[i].l_f);
 	pthread_mutex_destroy(&ags->wr_mtx);
-	pthread_mutex_destroy(&ags->time_eat);
+	pthread_mutex_destroy(&ags->wr_mtx);
 	return ;
 }
 
@@ -49,7 +49,7 @@ int	main(int ac, char **av)
 			philo_init(&p);
 			philo_start(&p);
 			while (1)
-				if (!monitoring(p.ph))
+				if (!d_checker(p.ph))
 					return (0);
 		}
 	}

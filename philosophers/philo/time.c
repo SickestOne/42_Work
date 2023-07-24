@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvan-den <rvan-den@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:27:36 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/04 15:27:53 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/24 18:33:22 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	ft_usleep(long int time_in_ms)
 
 	start_time = 0;
 	start_time = actual_time();
-	while ((actual_time() - start_time) < time_in_ms)
-		usleep(time_in_ms / 10);
+	while (actual_time() < start_time + time_in_ms)
+		;
 	return (0);
 }
 
