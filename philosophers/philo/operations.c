@@ -31,8 +31,8 @@ int	tf_df_eat(t_philo *ph)
 	pthread_mutex_lock(&ph->l_f);
 	pthread_mutex_lock(ph->r_f);
 	pthread_mutex_lock(&ph->ph_args->wr_mtx);
-	write_state("has taken a fork L\n", ph);
-	write_state("has taken a fork R\n", ph);
+	write_state("has taken a fork\n", ph);
+	write_state("has taken a fork\n", ph);
 	write_state("is eating\n", ph);
 	pthread_mutex_unlock(&ph->ph_args->wr_mtx);
 	ft_usleep(ph->ph_args->t_eat);

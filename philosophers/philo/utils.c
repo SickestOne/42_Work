@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:01 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/21 18:49:31 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:41:08 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ void  write_state(char *str, t_philo *ph)
 {
 	long int		time;
 
-	usleep(10);
 	time = actual_time() - ph->ph_args->start_t;
-	printf("%ld ", time);
-	printf("philo %d %s", ph->ph_id, str);
+	printf("%ld\tms", time);
+	printf("   %d\t%s", ph->ph_id, str);
 }

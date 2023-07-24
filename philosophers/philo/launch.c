@@ -33,7 +33,7 @@ int d_checker(t_philo *ph)
 	pthread_mutex_lock(&ph->ph_args->wr_mtx);
 	if ((actual_time() - ph->ms_l_eat) >= ph->ph_args->t_die)
 	{
-		printf("last eaten = %ld, time to die = %d\n", actual_time() - ph->ms_l_eat, ph->ph_args->t_die);
+		// printf("last eaten = %ld, time to die = %d\n", actual_time() - ph->ms_l_eat, ph->ph_args->t_die);
 		write_state("died\n", ph);
 		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
 		return (0);
