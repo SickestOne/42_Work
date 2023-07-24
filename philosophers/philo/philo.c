@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:26:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/23 17:23:36 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/24 09:18:24 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int ac, char **av)
 		if (check_arg(ac, av))
 		{
 			game_init(ac, av, &p);
-			p.ph = malloc(sizeof(t_philo) * p.a.nb_phs);
+			p.ph = malloc(sizeof(t_philo) * (p.a.nb_phs));
 			if (!p.ph)
 				return (printf("Philo malloc error\n"), 0);
 			philo_init(&p);

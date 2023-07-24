@@ -6,18 +6,11 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:24:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/21 16:32:42 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/24 09:30:36 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	set_mutexs(t_p *phil)
-{
-	pthread_mutex_init(&phil->a.dead, NULL);
-	pthread_mutex_init(&phil->a.time_eat, NULL);
-	//pthread_mutex_init(&phil->a.finish, NULL);
-}
 
 int game_init(int ac, char **av, t_p *rules)
 {
@@ -33,6 +26,8 @@ int game_init(int ac, char **av, t_p *rules)
 	rules->a.start_t = actual_time();
 	rules->a.ph_all_eat = 0;
 	pthread_mutex_init(&rules->a.wr_mtx, NULL);
+	pthread_mutex_init(&rules->a.dead, NULL);
+	pthread_mutex_init(&rules->a.time_eat, NULL);
 	return (1);
 }
 
@@ -44,7 +39,6 @@ int	philo_init(t_p *phil)
 	i = -1;
 	count = malloc(sizeof(int));
 	count[0] = 0;
-	set_mutexs(phil);
 	while (++i < phil->a.nb_phs)
 	{
 		phil->ph[i].ph_id = i + 1;
