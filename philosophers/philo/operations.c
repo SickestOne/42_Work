@@ -22,7 +22,11 @@ int	operations(t_philo *ph)
 {
 	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
 		return (0);
+	if (!d_checker(ph))
+		return (0);
 	if (tf_df_eat(ph))
+		return (0);
+	if (!d_checker(ph))
 		return (0);
 	ph_sleep(ph);
 	ph_think(ph);
@@ -60,6 +64,8 @@ int	tf_df_eat(t_philo *ph)
 
 void	ph_sleep(t_philo *ph)
 {
+	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
+		return ;
 	pthread_mutex_lock(&ph->ph_args->wr_mtx);
 	write_state("is sleeping\n", ph);
 	pthread_mutex_unlock(&ph->ph_args->wr_mtx);
@@ -68,6 +74,8 @@ void	ph_sleep(t_philo *ph)
 
 void	ph_think(t_philo *ph)
 {
+	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
+		return ;
 	pthread_mutex_lock(&ph->ph_args->wr_mtx);
 	write_state("is thinking\n", ph);
 	pthread_mutex_unlock(&ph->ph_args->wr_mtx);

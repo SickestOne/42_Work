@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:13 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/23 14:14:30 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/24 14:10:34 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,5 @@ int	tf_df_eat(t_philo *ph);
 int		monitoring(t_philo *ph);
 int		eat_checker(t_philo *ph, t_arg *ag);
 void	deconstructor(t_philo *ph, t_arg *ags);
+int 	d_checker(t_philo *ph);
 #endif

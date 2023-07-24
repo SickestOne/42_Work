@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:11:44 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/24 08:56:10 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/24 14:41:5 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ int eat_checker(t_philo *ph, t_arg *ag)
 
 int d_checker(t_philo *ph)
 {
-	pthread_mutex_lock(&ph->ph_args->time_eat);
 	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
 		return (0);
+	pthread_mutex_lock(&ph->ph_args->time_eat);
 	if ((actual_time() - ph->ms_l_eat) >= ph->ph_args->t_die)
 	{
 		pthread_mutex_lock(&ph->ph_args->wr_mtx);
 		write_state("died\n", ph);
 		pthread_mutex_unlock(&ph->ph_args->time_eat);
 		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
-		return (0);
+		return (printf("IN THE RET0\n"), 0);
 	}
 	pthread_mutex_unlock(&ph->ph_args->time_eat);
 	return (1);
@@ -46,7 +46,7 @@ int d_checker(t_philo *ph)
 int  monitoring(t_philo *ph)
 {
 	if (!d_checker(ph))
-		return (deconstructor(ph, ph->ph_args), 0);
+		return (0);
 	return (1);
 }
 
