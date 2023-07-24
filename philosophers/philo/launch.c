@@ -33,7 +33,6 @@ int d_checker(t_philo *ph)
 	pthread_mutex_lock(&ph->ph_args->wr_mtx);
 	if ((actual_time() - ph->ms_l_eat) >= ph->ph_args->t_die)
 	{
-		// printf("last eaten = %ld, time to die = %d\n", actual_time() - ph->ms_l_eat, ph->ph_args->t_die);
 		write_state("died\n", ph);
 		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
 		return (0);
@@ -47,8 +46,14 @@ void  *routine(void *arg)
 	t_philo					*ph;
 
 	ph = (t_philo *)arg;
-		if (ph->ph_id % 2 == 0 && ph->ph_id != 1)
-			ft_usleep(2);
+	if (ph->ph_args->nb_phs == 1)
+	{
+		write_state("has taken a fork\n", ph);
+		ft_usleep(ph->ph_args->t_die);
+		return (NULL);
+	}
+	if (ph->ph_id % 2 == 0 && ph->ph_id != 1)
+		ft_usleep(2);
 	while (42)
 		if (!operations(ph))
 			break ;
