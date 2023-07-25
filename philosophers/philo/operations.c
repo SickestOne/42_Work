@@ -22,8 +22,6 @@ int	operations(t_philo *ph)
 	return (1);
 }
 
-// rajoute fonction pour un
-
 int	tf_df_eat(t_philo *ph)
 {
 	if (eat_checker(ph, ph->ph_args))

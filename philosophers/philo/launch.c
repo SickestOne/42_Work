@@ -12,10 +12,15 @@
 
 #include "philo.h"
 
-int eat_checker(t_philo *ph, t_arg *ag)
+int	eat_checker(t_philo *ph, t_arg *ag)
 {
-	if (ph->fnh_eat[0] == ag->nb_phs)
+	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
+	{
+		pthread_mutex_lock(&ph->ph_args->wr_mtx);
+		printf("*** All philos ate %d times ***\n", ph->ph_args->nb_m_eat);
+		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
 		return (1);
+	}
 	if ((int)ph->nb_eat == ag->nb_m_eat)
 	{
 		pthread_mutex_lock(&ph->ph_args->wr_mtx);
@@ -26,9 +31,9 @@ int eat_checker(t_philo *ph, t_arg *ag)
 	return (0);
 }
 
-int d_checker(t_philo *ph)
+int	d_checker(t_philo *ph)
 {
-	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
+	if (eat_checker(ph, ph->ph_args))
 		return (0);
 	pthread_mutex_lock(&ph->ph_args->wr_mtx);
 	if ((actual_time() - ph->ms_l_eat) >= ph->ph_args->t_die)
@@ -41,7 +46,7 @@ int d_checker(t_philo *ph)
 	return (1);
 }
 
-void  *routine(void *arg)
+void	*routine(void *arg)
 {
 	t_philo					*ph;
 
@@ -54,15 +59,14 @@ void  *routine(void *arg)
 	}
 	if (ph->ph_id % 2 == 0 && ph->ph_id != 1)
 		ft_usleep(2);
-	while (42)
-		if (!operations(ph))
-			break ;
+	while (operations(ph))
+		;
 	return (NULL);
 }
 
-int philo_start(t_p *phil)
+int	philo_start(t_p *phil)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < phil->a.nb_phs)

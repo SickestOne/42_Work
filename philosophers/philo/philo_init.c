@@ -6,13 +6,13 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:24:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/24 20:01:05 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/25 10:14:06 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int game_init(int ac, char **av, t_p *rules)
+int	game_init(int ac, char **av, t_p *rules)
 {
 	if (ac == 6)
 		rules->a.nb_m_eat = ft_atoi(av[5]);
@@ -22,7 +22,6 @@ int game_init(int ac, char **av, t_p *rules)
 	rules->a.t_die = ft_atoi(av[2]);
 	rules->a.t_eat = ft_atoi(av[3]);
 	rules->a.t_sleep = ft_atoi(av[4]);
-	rules->a.stop = 0;
 	rules->a.start_t = actual_time();
 	rules->a.ph_all_eat = 0;
 	pthread_mutex_init(&rules->a.wr_mtx, NULL);
@@ -32,7 +31,7 @@ int game_init(int ac, char **av, t_p *rules)
 int	philo_init(t_p *phil)
 {
 	int	i;
-	int *count;
+	int	*count;
 
 	i = -1;
 	count = malloc(sizeof(int));
