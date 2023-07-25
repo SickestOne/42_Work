@@ -12,35 +12,47 @@
 
 #include "philo.h"
 
-int	eat_checker(t_philo *ph, t_arg *ag)
-{
-	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
-	{
-		pthread_mutex_lock(&ph->ph_args->wr_mtx);
-		printf("*** All philos ate %d times ***\n", ph->ph_args->nb_m_eat);
-		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
-		return (1);
-	}
-	if ((int)ph->nb_eat == ag->nb_m_eat)
-	{
-		pthread_mutex_lock(&ph->ph_args->wr_mtx);
-		ag->ph_all_eat++;
-		ph->fnh_eat[0]++;
-		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
-	}
-	return (0);
-}
+// int	eat_checker(t_philo *ph, t_arg *ag)
+// {
+// 	pthread_mutex_lock(&ph->ph_args->wr_mtx);
+// 	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
+// 	{
+// 		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
+// 		return (1);
+// 	}
+// 	if ((int)ph->nb_eat == ag->nb_m_eat)
+// 	{
+// 		ag->ph_all_eat++;
+// 		ph->fnh_eat[0]++;
+// 	}
+// 	pthread_mutex_unlock(&ph->ph_args->wr_mtx);
+// 	return (0);
+// }
 
 int	d_checker(t_philo *ph)
 {
-	if (eat_checker(ph, ph->ph_args))
-		return (0);
 	pthread_mutex_lock(&ph->ph_args->wr_mtx);
+	if (*ph->ph_args->dead_stop == 1)
+	{
+		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
+		return (0);
+	}
 	if ((actual_time() - ph->ms_l_eat) >= ph->ph_args->t_die)
 	{
+		*ph->ph_args->dead_stop = 1;
 		write_state("died\n", ph);
 		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
 		return (0);
+	}
+	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
+	{
+		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
+		return (0);
+	}
+	if ((int)ph->nb_eat == ph->ph_args->nb_m_eat)
+	{
+		ph->ph_args->ph_all_eat++;
+		ph->fnh_eat[0]++;
 	}
 	pthread_mutex_unlock(&ph->ph_args->wr_mtx);
 	return (1);
@@ -60,7 +72,8 @@ void	*routine(void *arg)
 	if (ph->ph_id % 2 == 0 && ph->ph_id != 1)
 		ft_usleep(2);
 	while (operations(ph))
-		;
+		if (!d_checker(ph))
+			break ;
 	return (NULL);
 }
 

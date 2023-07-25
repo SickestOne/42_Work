@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:13 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/25 10:11:39 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/25 17:06:02 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ long int		actual_time(void);
 	int                   nb_phs;
 	int                   t_die;
 	int                   t_eat;
+	int					  *dead_stop;
 	int                   t_sleep;
 	int                   nb_m_eat;
 	long int              start_t;
@@ -72,7 +73,7 @@ typedef	struct          s_p
 //mem_alloc & data_init
 
 int	game_init(int ac, char **av, t_p *rules);
-int	philo_init(t_p *phil);
+int	philo_init(t_p *phil, int i);
 
 // operations
 

@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:26:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/25 10:13:15 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/25 16:31:12by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	deconstructor(t_philo *ph, t_arg *ags)
 	i = -1;
 	while (++i < ags->nb_phs)
 		pthread_mutex_destroy(&ph[i].l_f);
-	pthread_mutex_destroy(&ags->wr_mtx);
 	pthread_mutex_destroy(&ags->wr_mtx);
 	return ;
 }
@@ -46,10 +45,12 @@ int	main(int ac, char **av)
 			p.ph = malloc(sizeof(t_philo) * (p.a.nb_phs));
 			if (!p.ph)
 				return (printf("Philo malloc error\n"), 0);
-			philo_init(&p);
+			philo_init(&p, -1);
 			philo_start(&p);
 			while (d_checker(p.ph))
 				;
+			deconstructor(p.ph, &p.a);
+			free(p.ph);
 			return (0);
 		}
 	}

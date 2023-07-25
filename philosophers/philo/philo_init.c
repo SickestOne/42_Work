@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:24:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/25 10:14:06 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/25 17:07:43 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 int	game_init(int ac, char **av, t_p *rules)
 {
+	int *dead_s;
+
+	dead_s = malloc(sizeof(int));
+	*dead_s = 0;
 	if (ac == 6)
 		rules->a.nb_m_eat = ft_atoi(av[5]);
 	else
@@ -24,18 +28,17 @@ int	game_init(int ac, char **av, t_p *rules)
 	rules->a.t_sleep = ft_atoi(av[4]);
 	rules->a.start_t = actual_time();
 	rules->a.ph_all_eat = 0;
+	rules->a.dead_stop = dead_s;
 	pthread_mutex_init(&rules->a.wr_mtx, NULL);
 	return (1);
 }
 
-int	philo_init(t_p *phil)
+int	philo_init(t_p *phil, int i)
 {
-	int	i;
 	int	*count;
 
-	i = -1;
 	count = malloc(sizeof(int));
-	count[0] = 0;
+	*count = 0;
 	while (++i < phil->a.nb_phs)
 	{
 		phil->ph[i].ph_id = i + 1;
