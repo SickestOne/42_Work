@@ -44,16 +44,16 @@ int	d_checker(t_philo *ph)
 		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
 		return (0);
 	}
-	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
-	{
-		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
-		return (0);
-	}
+	// if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
+	// 	return (pthread_mutex_unlock(&ph->ph_args->wr_mtx), 0);
 	if ((int)ph->nb_eat == ph->ph_args->nb_m_eat)
 	{
 		ph->ph_args->ph_all_eat++;
+		ph->nb_eat++;
 		ph->fnh_eat[0]++;
 	}
+	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
+		return (pthread_mutex_unlock(&ph->ph_args->wr_mtx) * 0);
 	pthread_mutex_unlock(&ph->ph_args->wr_mtx);
 	return (1);
 }
