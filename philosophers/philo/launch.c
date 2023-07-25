@@ -12,23 +12,6 @@
 
 #include "philo.h"
 
-// int	eat_checker(t_philo *ph, t_arg *ag)
-// {
-// 	pthread_mutex_lock(&ph->ph_args->wr_mtx);
-// 	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
-// 	{
-// 		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
-// 		return (1);
-// 	}
-// 	if ((int)ph->nb_eat == ag->nb_m_eat)
-// 	{
-// 		ag->ph_all_eat++;
-// 		ph->fnh_eat[0]++;
-// 	}
-// 	pthread_mutex_unlock(&ph->ph_args->wr_mtx);
-// 	return (0);
-// }
-
 int	d_checker(t_philo *ph)
 {
 	pthread_mutex_lock(&ph->ph_args->wr_mtx);
