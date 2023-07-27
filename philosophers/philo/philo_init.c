@@ -6,7 +6,7 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:24:58 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/25 17:07:43 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/26 12:51:31 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 int	game_init(int ac, char **av, t_p *rules)
 {
-	int *dead_s;
+	int	*dead_s;
+	int	*g_end;
 
 	dead_s = malloc(sizeof(int));
+	g_end = malloc(sizeof(int));
 	*dead_s = 0;
+	*g_end = 0;
 	if (ac == 6)
 		rules->a.nb_m_eat = ft_atoi(av[5]);
 	else
@@ -29,6 +32,7 @@ int	game_init(int ac, char **av, t_p *rules)
 	rules->a.start_t = actual_time();
 	rules->a.ph_all_eat = 0;
 	rules->a.dead_stop = dead_s;
+	rules->a.game_end = g_end;
 	pthread_mutex_init(&rules->a.wr_mtx, NULL);
 	return (1);
 }

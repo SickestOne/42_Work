@@ -6,11 +6,18 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:26:56 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/25 16:31:12by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/26 13:27:56 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	free_all(t_philo *ph, t_arg *ags)
+{
+	free(ph->fnh_eat);
+	free(ags->dead_stop);
+	free(ags->game_end);
+}
 
 void	deconstructor(t_philo *ph, t_arg *ags)
 {
@@ -50,6 +57,7 @@ int	main(int ac, char **av)
 			while (d_checker(p.ph))
 				;
 			deconstructor(p.ph, &p.a);
+			free_all(p.ph, &p.a);
 			free(p.ph);
 			return (0);
 		}

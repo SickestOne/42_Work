@@ -6,42 +6,21 @@
 /*   By: rvan-den <rvan-den@student.42mulhouse.fr > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:28:01 by rvan-den          #+#    #+#             */
-/*   Updated: 2023/07/25 22:05:55 by rvan-den         ###   ########.fr       */
+/*   Updated: 2023/07/26 13:39:11 by rvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int     ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-        int     result;
-        int     conv_sign;
-
-        result = 0;
-        conv_sign = 1;
-        while (*str == 32 || (*str >= 9 && *str <= 13))
-                        str++;
-        if (*str == '-')
-                conv_sign *= -1;
-        if (*str == '-' || *str == '+')
-                str++;
-        while (*str >= '0' && *str <= '9')
-        {
-                result = result * 10 + *str - '0';
-                str++;
-        }
-        return (result * conv_sign);
-}
-
-long	ft_atol(const char *str)
-{
-	long	result;
-	long	conv_sign;
+	int	result;
+	int	conv_sign;
 
 	result = 0;
 	conv_sign = 1;
 	while (*str == 32 || (*str >= 9 && *str <= 13))
-			str++;
+		str++;
 	if (*str == '-')
 		conv_sign *= -1;
 	if (*str == '-' || *str == '+')
@@ -54,9 +33,30 @@ long	ft_atol(const char *str)
 	return (result * conv_sign);
 }
 
-void  write_state(char *str, t_philo *ph)
+long	ft_atol(const char *str)
 {
-	long int		time;
+	long	result;
+	long	conv_sign;
+
+	result = 0;
+	conv_sign = 1;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
+		conv_sign *= -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + *str - '0';
+		str++;
+	}
+	return (result * conv_sign);
+}
+
+void	write_state(char *str, t_philo *ph)
+{
+	long int	time;
 
 	time = actual_time() - ph->ph_args->start_t;
 	printf("%ld\t", time);

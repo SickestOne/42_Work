@@ -16,19 +16,13 @@ int	d_checker(t_philo *ph)
 {
 	pthread_mutex_lock(&ph->ph_args->wr_mtx);
 	if (*ph->ph_args->dead_stop == 1)
-	{
-		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
-		return (0);
-	}
+		return (pthread_mutex_unlock(&ph->ph_args->wr_mtx) * 0);
 	if ((actual_time() - ph->ms_l_eat) >= ph->ph_args->t_die)
 	{
 		*ph->ph_args->dead_stop = 1;
 		write_state("died\n", ph);
-		pthread_mutex_unlock(&ph->ph_args->wr_mtx);
-		return (0);
+		return (pthread_mutex_unlock(&ph->ph_args->wr_mtx) * 0);
 	}
-	// if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
-	// 	return (pthread_mutex_unlock(&ph->ph_args->wr_mtx), 0);
 	if ((int)ph->nb_eat == ph->ph_args->nb_m_eat)
 	{
 		ph->ph_args->ph_all_eat++;
@@ -36,7 +30,10 @@ int	d_checker(t_philo *ph)
 		ph->fnh_eat[0]++;
 	}
 	if (ph->fnh_eat[0] == ph->ph_args->nb_phs)
+	{
+		ph->ph_args->game_end[0] = 1;
 		return (pthread_mutex_unlock(&ph->ph_args->wr_mtx) * 0);
+	}
 	pthread_mutex_unlock(&ph->ph_args->wr_mtx);
 	return (1);
 }
@@ -68,7 +65,7 @@ int	philo_start(t_p *phil)
 	while (++i < phil->a.nb_phs)
 	{
 		phil->ph[i].ph_args = &phil->a;
-		if (pthread_create(&phil->ph[i].th_id, NULL, routine, &phil->ph[i]))
+		if (pthread_create(&phil->ph[i].th_id, NULL, &routine, &phil->ph[i]))
 			return (printf("Threads creation failed\n"), 0);
 	}
 	return (1);
